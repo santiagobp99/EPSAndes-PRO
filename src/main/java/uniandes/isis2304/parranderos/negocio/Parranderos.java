@@ -75,6 +75,9 @@ public class Parranderos
 		pp.cerrarUnidadPersistencia ();
 	}
 	
+	/* ****************************************************************
+	 * 			M?todos para manejar el ROL
+	 *****************************************************************/
 	/**
 	 * Adiciona de manera persistente un tipo de bebida 
 	 * Adiciona entradas al log de la aplicaci?n
@@ -90,6 +93,171 @@ public class Parranderos
 	
 	}
 	
+	public Ips adicionarIps (String ubicacion, String nombre, String tipo, int capacidad, long idEps)
+	{
+     log.info ("Adicionando Ips: " + "/n" + ubicacion + "/n"+ nombre + "/n"+ tipo + "/n"+ capacidad + "/n"+ idEps);
+        Ips tipoBebida = pp.adicionarIPS(ubicacion, nombre, tipo, capacidad, idEps);		
+       log.info ("Adicionando Rol: " + tipoBebida);
+        return tipoBebida;
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public Medico adicionarMedico (int pNumregistromedico, String pEspecialidad, String pIdentificacion, String pNombre, String pCorreo, Long pIdrol){
+		
+     log.info ("Adicionando Medico: " + pNumregistromedico + pEspecialidad + pIdentificacion + pNombre + pCorreo + pIdrol);
+     Medico rol = pp.adicionarMedico(pNumregistromedico, pEspecialidad, pIdentificacion, pNombre, pCorreo, pIdrol);		
+       log.info ("Adicionando Medico: " + rol);
+        return rol;
+	
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public Afiliado adicionarAfiliado(long idEps, long idUsuario, Timestamp fechaNacimiento, String tipoDocumento, int hospitalizado,
+			String numDocumento){
+		
+     log.info ("Adicionando Afiliado: " + idEps + ""+idUsuario+""+fechaNacimiento+""+ tipoDocumento+""+ hospitalizado+""+ numDocumento);
+     Afiliado rol = pp.adicionarAfiliado(idEps, idUsuario, fechaNacimiento, tipoDocumento, hospitalizado, numDocumento);		
+       log.info ("Adicionando Afiliado: " + rol);
+        return rol;
+	
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public MedicoEspecialista adicionarMedicoEspecialista (long pIdMedicoEspecialista){
+		
+     log.info ("Adicionando MedicoEspecialista: " + pIdMedicoEspecialista);
+     MedicoEspecialista rol = pp.adicionarMedicoEspecialista(pIdMedicoEspecialista);		
+       log.info ("Adicionando MedicoEspecialista: " + rol);
+        return rol;
+	
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public MedicoGeneral adicionarMedicoGeneral (long pIdMedicoGeneral){
+		
+     log.info ("Adicionando MedicoGeneral: " + pIdMedicoGeneral);
+     MedicoGeneral rol = pp.adicionarMedicoGeneral(pIdMedicoGeneral);		
+       log.info ("Adicionando MedicoGeneral: " + rol);
+        return rol;
+	
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public MedicoTratante adicionarMedicoTratante (long pIdMedicoTratante){
+		
+     log.info ("Adicionando MedicoTratante: " + pIdMedicoTratante);
+     MedicoTratante rol = pp.adicionarMedicoTratante(pIdMedicoTratante);		
+       log.info ("Adicionando MedicoTratante: " + rol);
+        return rol;
+	
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public ServicioSalud adicionarServicioDeSalud (String descripcion, String disponibilidad, String tipo, String estado, long idAfiliado,
+			long idMedico, long idIps, long idOrden){
+		
+     log.info ("Adicionando ServicioDeSalud: " + descripcion+""+ disponibilidad+""+ tipo+""+ estado+""+ idAfiliado+""+ idMedico+""+ idIps+""+ idOrden);
+     ServicioSalud rol = pp.adicionarServicioDeSalud(descripcion, disponibilidad, tipo, estado, idAfiliado, idMedico, idIps, idOrden);		
+       log.info ("Adicionando ServicioDeSalud: " + rol);
+        return rol;
+	
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public Usuario adicionarUsuario (String nombre, String correo, long idRol){
+		
+     log.info ("Adicionando Usuario: " + nombre);
+     Usuario rol = pp.adicionarUsuario(nombre, correo, idRol);		
+       log.info ("Adicionando Usuario: " + rol);
+        return rol;
+	
+	}
+	
+
+	
+	
+	
+	
+	
+	/**
+	 * Elimina un tipo de bebida por su identificador
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param idRol - El id del tipo de bebida a eliminar
+	 * @return El n?mero de tuplas eliminadas
+	 */
+	public long eliminarRolPorId (long idRol)
+	{
+		log.info ("Eliminando Tipo de bebida por id: " + idRol);
+        long resp = pp.eliminarRolPorId (idRol);		
+        log.info ("Eliminando Tipo de bebida por id: " + resp + " tuplas eliminadas");
+        return resp;
+	}
+	
+	/**
+	 * Encuentra todos los tipos de bebida en Parranderos
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @return Una lista de objetos TipoBebida con todos los tipos de bebida que conoce la aplicaci?n, llenos con su informaci?n b?sica
+	 */
+	public List<Rol> darRoles ()
+	{
+		log.info ("Consultando Tipos de bebida");
+        List<Rol> tiposBebida = pp.darRoles ();	
+        log.info ("Consultando Tipos de bebida: " + tiposBebida.size() + " existentes");
+        return tiposBebida;
+	}
+
+
+	/**
+	 * Encuentra todos los tipos de bebida en Parranderos y los devuelve como una lista de VOTipoBebida
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicaci?n, llenos con su informaci?n b?sica
+	 */
+	public List<VORol> darVORoles ()
+	{
+		log.info ("Generando los VO de Tipos de bebida");        
+        List<VORol> voTipos = new LinkedList<VORol> ();
+        for (Rol tb : pp.darRoles ())
+        {
+        	voTipos.add (tb);
+        }
+        log.info ("Generando los VO de Tipos de bebida: " + voTipos.size() + " existentes");
+        return voTipos;
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar los TIPOS DE BEBIDA
 	 *****************************************************************/

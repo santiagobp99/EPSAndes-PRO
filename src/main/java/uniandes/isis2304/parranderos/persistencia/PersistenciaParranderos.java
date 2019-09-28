@@ -31,13 +31,24 @@ import org.apache.log4j.Logger;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
+import uniandes.isis2304.parranderos.negocio.Afiliado;
 import uniandes.isis2304.parranderos.negocio.Bar;
 import uniandes.isis2304.parranderos.negocio.Bebedor;
 import uniandes.isis2304.parranderos.negocio.Bebida;
 import uniandes.isis2304.parranderos.negocio.Gustan;
+import uniandes.isis2304.parranderos.negocio.Ips;
+import uniandes.isis2304.parranderos.negocio.Llegada;
+import uniandes.isis2304.parranderos.negocio.Medico;
+import uniandes.isis2304.parranderos.negocio.MedicoEspecialista;
+import uniandes.isis2304.parranderos.negocio.MedicoGeneral;
+import uniandes.isis2304.parranderos.negocio.MedicoTratante;
+import uniandes.isis2304.parranderos.negocio.OrdenServicio;
 import uniandes.isis2304.parranderos.negocio.Rol;
+import uniandes.isis2304.parranderos.negocio.ServicioSalud;
 import uniandes.isis2304.parranderos.negocio.Sirven;
 import uniandes.isis2304.parranderos.negocio.TipoBebida;
+import uniandes.isis2304.parranderos.negocio.Usuario;
 import uniandes.isis2304.parranderos.negocio.Visitan;
 
 /**
@@ -124,10 +135,47 @@ public class PersistenciaParranderos
 	 */
 	private SQLVisitan sqlVisitan;
 	
-	/**
-	 * Atributo para el acceso a la tabla VISITAN de la base de datos
-	 */
+	private SQLAdscritos sqlAdscritos;
+
+	private SQLAfiliado sqlAfiliado;
+
+	private SQLCitaMedica sqlCitaMedica;
+
+	private SQLCitasDeServicios sqlCitasDeServicios;
+
+	private SQLConsultaEspecialista sqlConsultaEspecialista;
+
+	private SQLConsultaUrgencias sqlConsultaUrgencias;
+
+	private SQLEpsAndes sqlEpsAndes;
+
+	private SQLHorario sqlHorario;
+
+	private SQLHoras sqlHoras;
+
+	private SQLInterconsultas sqlInterconsultas;
+
+	private SQLIps sqlIps;
+
+	private SQLLlegada sqlLlegada;
+
+	private SQLMedico sqlMedico;
+
+	private SQLMedicoEspecialista sqlMedicoEspecialista;
+
+	private SQLMedicoGeneral sqlMedicoGeneral;
+
+	private SQLMedicoTratante sqlMedicoTratante;
+
+	private SQLOrdenServicio sqlOrdenServicio;
+
+	private SQLRecepcionista sqlRecepcionista;
+
 	private SQLRol sqlRol;
+
+	private SQLServicioSalud sqlServicioSalud;
+
+	private SQLUsuario sqlUsuario;
 	
 	/* ****************************************************************
 	 * 			Métodos del MANEJADOR DE PERSISTENCIA
@@ -151,7 +199,27 @@ public class PersistenciaParranderos
 		tablas.add ("GUSTAN");
 		tablas.add ("SIRVEN");
 		tablas.add ("VISITAN");
+		tablas.add ("ADSCRITOS");
+		tablas.add ("AFILIADO");
+		tablas.add ("CITA_MEDICA");
+		tablas.add ("CITAS_DE_SERVICOS");
+		tablas.add ("CONSULTA_ESPECIALISTA");
+		tablas.add ("CONSULTA_URGENCIAS");
+		tablas.add ("EPS_ANDES");
+		tablas.add ("HORARIO");
+		tablas.add ("HORAS");
+		tablas.add ("INTERCONSULTAS");
+		tablas.add ("IPS");
+		tablas.add ("LLEGADA");
+		tablas.add ("MEDICO");
+		tablas.add ("MEDICO_ESPECIALISTA");
+		tablas.add ("MEDICO_GENERAL");
+		tablas.add ("MEDICO_TRATANTE");
+		tablas.add ("ORDEN_SERVICIO");
+		tablas.add ("RECEPCIONISTA");
 		tablas.add ("ROL");
+		tablas.add ("SERVICIO_SALUD");
+		tablas.add ("USUARIO");
 	}
 
 	/**
@@ -233,7 +301,27 @@ public class PersistenciaParranderos
 		sqlGustan = new SQLGustan(this);
 		sqlSirven = new SQLSirven (this);
 		sqlVisitan = new SQLVisitan(this);
-		sqlRol = new SQLRol(this);	
+		sqlAdscritos = new SQLAdscritos(this);
+		sqlAfiliado = new SQLAfiliado(this);
+		sqlCitaMedica = new  SQLCitaMedica(this);
+		sqlCitasDeServicios = new SQLCitasDeServicios(this);
+		sqlConsultaEspecialista = new SQLConsultaEspecialista(this);
+		sqlConsultaUrgencias = new SQLConsultaUrgencias(this);
+		sqlEpsAndes = new SQLEpsAndes(this);
+		sqlHorario = new SQLHorario(this);
+		sqlHoras = new SQLHoras(this);
+		sqlInterconsultas = new SQLInterconsultas(this);
+		sqlIps = new SQLIps(this);
+		sqlLlegada = new SQLLlegada(this);
+		sqlMedico = new SQLMedico(this);
+		sqlMedicoEspecialista = new SQLMedicoEspecialista(this);
+		sqlMedicoGeneral = new SQLMedicoGeneral(this);
+		sqlMedicoTratante = new SQLMedicoTratante(this);
+		sqlOrdenServicio = new SQLOrdenServicio(this);
+		sqlRecepcionista = new SQLRecepcionista(this);
+		sqlRol = new SQLRol(this);
+		sqlServicioSalud = new SQLServicioSalud(this);
+		sqlUsuario = new SQLUsuario(this);
 		sqlUtil = new SQLUtil(this);
 	}
 
@@ -300,13 +388,112 @@ public class PersistenciaParranderos
 	{
 		return tablas.get (7);
 	}
-	/**
-	 * @return La cadena de caracteres con el nombre de la tabla de Visitan de parranderos
-	 */
-	public String darTablaRol ()
+	
+	public String darTablaAdscritos ()
 	{
 		return tablas.get (8);
 	}
+	
+	public String darTablaAfliado ()
+	{
+		return tablas.get (9);
+	}
+	
+	public String darTablaCitaMedica ()
+	{
+		return tablas.get (10);
+	}
+	
+	public String darTablaCitasDeServicios ()
+	{
+		return tablas.get (11);
+	}
+	
+	public String darTablaConsultaEspecialista ()
+	{
+		return tablas.get (12);
+	}
+	
+	public String darTablaConsultaUrgencias ()
+	{
+		return tablas.get (13);
+	}
+	
+	public String darTablaEpsAndes ()
+	{
+		return tablas.get (14);
+	}
+	
+	public String darTablaHorario ()
+	{
+		return tablas.get (15);
+	}
+	
+	public String darTablaHoras ()
+	{
+		return tablas.get (16);
+	}
+	
+	public String darTablaInterconsultas ()
+	{
+		return tablas.get (17);
+	}
+	
+	public String darTablaIps ()
+	{
+		return tablas.get (18);
+	}
+	
+	public String darTablaLlegada ()
+	{
+		return tablas.get (19);
+	}
+	
+	public String darTablaMedico ()
+	{
+		return tablas.get (20);
+	}
+	
+	public String darTablaMedicoEspecialista ()
+	{
+		return tablas.get (21);
+	}
+	
+	public String darTablaMedicoGeneral ()
+	{
+		return tablas.get (22);
+	}
+	
+	public String darTablaMedicoTratante ()
+	{
+		return tablas.get (23);
+	}
+	
+	public String darTablaOrdenServicio ()
+	{
+		return tablas.get (24);
+	}
+	
+	public String darTablaRecepcionista ()
+	{
+		return tablas.get (25);
+	}
+	
+	public String darTablaRol ()
+	{
+		return tablas.get (26);
+	}
+	
+	public String darTablaServicioSalud ()
+	{
+		return tablas.get (27);
+	}
+	
+	public String darTablaUsuario ()
+	{
+		return tablas.get (28);
+	}
+	
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -318,6 +505,8 @@ public class PersistenciaParranderos
         log.trace ("Generando secuencia: " + resp);
         return resp;
     }
+	
+	
 	
 	/**
 	 * Extrae el mensaje de la exception JDODataStoreException embebido en la Exception e, que da el detalle específico del problema encontrado
@@ -334,7 +523,537 @@ public class PersistenciaParranderos
 		}
 		return resp;
 	}
+	
+	/* ****************************************************************
+	 * 			 ROL
+	 *****************************************************************/
+	
+	public Rol adicionarRol(String nombreRol)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long id = nextval();
+            long tuplasInsertadas = sqlRol.adicionarRol(pm, id, nombreRol);
+            tx.commit();
+            
+            log.trace ("Inserción del rol: " + nombreRol + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new Rol(id, nombreRol);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
 
+
+	
+	public long eliminarRolPorId (long idRol) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long resp = sqlRol.eliminarRolPorId(pm, idRol);
+            tx.commit();
+            return resp;
+        }
+        catch (Exception e)
+        {
+//        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+            return -1;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	
+	
+	public List<Rol> darRoles ()
+	{
+		return sqlRol.darRoles(pmf.getPersistenceManager());
+	}
+ 
+	public Rol darRolID (long idRol)
+	{
+		return sqlRol.darRolPorId(pmf.getPersistenceManager(), idRol);
+	}
+	
+
+	/* ****************************************************************
+	 * 			 USUARIO
+	 *****************************************************************/
+	
+	public Usuario adicionarUsuario(String nombre, String correo, long idRol)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long id = nextval();
+            long tuplasInsertadas = sqlUsuario.adicionarUsuario(pm, id, nombre, correo, idRol);
+            tx.commit();
+            
+            log.trace ("Inserción del usuario: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new Usuario(id,nombre, correo, idRol);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+	public Usuario darUsuario (long idUsuario)
+	{
+		return sqlUsuario.darUsuario(pmf.getPersistenceManager(), idUsuario);
+	}
+	
+	public List<Usuario> darUsuarios ()
+	{
+		return sqlUsuario.darUsuarios(pmf.getPersistenceManager());
+	}
+
+	/* ****************************************************************
+	 * 			 IPS
+	 *****************************************************************/
+	
+	public Ips adicionarIPS(String ubicacion, String nombre, String tipo, int capacidad, long idEps)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlIps.adicionarIps(pm, ubicacion, nombre, tipo, capacidad, idEps);
+            tx.commit();
+            
+            log.trace ("Inserción de la Ips: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new Ips(ubicacion, nombre, tipo, capacidad, idEps);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+	public Ips darIPS (long idEps)
+	{
+		return sqlIps.darIPS(pmf.getPersistenceManager(), idEps);
+	}
+	
+	public List<Ips> daIps ()
+	{
+		return sqlIps.darIPSs(pmf.getPersistenceManager());
+	}
+
+	/* ****************************************************************
+	 * 			 MEDICO
+	 *****************************************************************/
+	
+	public Medico adicionarMedico(int pNumregistromedico, String pEspecialidad, String pIdentificacion, String pNombre, String pCorreo, Long pIdrol)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+        	tx.begin();
+            long id = nextval();
+            long tuplasInsertadas = sqlMedico.adicionarMedico(pm, id, pNumregistromedico, pEspecialidad, pIdentificacion, pNombre, pCorreo, pIdrol);
+            tx.commit();
+            
+            log.trace ("Inserción del medico: " + pNombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new Medico(pNumregistromedico, pEspecialidad, pIdentificacion, pNombre, pCorreo, pIdrol);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+	public Medico darMedico (long idEps)
+	{
+		return sqlMedico.darMedico(pmf.getPersistenceManager(), idEps);
+	}
+	
+	public List<Medico> darMedicos ()
+	{
+		return sqlMedico.darMedicos(pmf.getPersistenceManager());
+	}
+
+	/* ****************************************************************
+	 * 			 MEDICO GENERAL
+	 *****************************************************************/
+	
+	public MedicoGeneral adicionarMedicoGeneral(Long pIdMedicoGeneral)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlMedicoGeneral.adicionarMedicoGeneral(pm, pIdMedicoGeneral);
+            tx.commit();
+            
+            log.trace ("Inserción del medico general: " + pIdMedicoGeneral + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new MedicoGeneral(pIdMedicoGeneral);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+	public MedicoGeneral darMedicoGeneral (long pIdMedicoGeneral)
+	{
+		return sqlMedicoGeneral.darMedicoGeneral(pmf.getPersistenceManager(), pIdMedicoGeneral);
+	}
+	
+	public List<MedicoGeneral> darMedicosGenerales ()
+	{
+		return sqlMedicoGeneral.darMedicosGenerales(pmf.getPersistenceManager());
+	}
+	
+	/* ****************************************************************
+	 * 			 MEDICO ESPECIALISTA
+	 *****************************************************************/
+	
+	public MedicoEspecialista adicionarMedicoEspecialista(Long pIdMedicoEspecialista)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlMedicoEspecialista.adicionarMedicoEspecialista(pm, pIdMedicoEspecialista);
+            tx.commit();
+            
+            log.trace ("Inserción del medico especialista: " + pIdMedicoEspecialista + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new MedicoEspecialista(pIdMedicoEspecialista);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+	public MedicoEspecialista darMedicoEspecialista (long pIdMedicoEspecialista)
+	{
+		return sqlMedicoEspecialista.darMedicoEspecialista(pmf.getPersistenceManager(), pIdMedicoEspecialista);
+	}
+	
+	public List<MedicoEspecialista> darMedicosEspecialistas ()
+	{
+		return sqlMedicoEspecialista.darMedicosEspecialistas(pmf.getPersistenceManager());
+	}
+	
+	/* ****************************************************************
+	 * 			 MEDICO TRATANTE
+	 *****************************************************************/
+	
+	public MedicoTratante adicionarMedicoTratante(Long pIdMedicoTratante)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlMedicoTratante.adicionarMedicoTratante(pm, pIdMedicoTratante);
+            tx.commit();
+            
+            log.trace ("Inserción del medico tratante: " + pIdMedicoTratante + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new MedicoTratante(pIdMedicoTratante);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+	public MedicoTratante darMedicoTratante (long pIdMedicoTratante)
+	{
+		return sqlMedicoTratante.darMedicoTratante(pmf.getPersistenceManager(), pIdMedicoTratante);
+	}
+	
+	public List<MedicoTratante> darMedicosTratantes ()
+	{
+		return sqlMedicoTratante.darMedicosTratantes(pmf.getPersistenceManager());
+	}
+	
+	/* ****************************************************************
+	 * 			 AFILIADO
+	 *****************************************************************/
+	
+	public Afiliado adicionarAfiliado(long idEps, long idUsuario, Timestamp fechaNacimiento, String tipoDocumento, int hospitalizado,
+			String numDocumento)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlAfiliado.adicionarAfiliado(pm, idEps, idUsuario,  fechaNacimiento,  tipoDocumento,  hospitalizado,
+        			 numDocumento);
+            tx.commit();
+            
+            log.trace ("Inserción del afiliado: " + idUsuario + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new Afiliado(idEps, idUsuario, fechaNacimiento, tipoDocumento, hospitalizado, numDocumento);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+	public Afiliado darAfiliado (long idAfiliado)
+	{
+		return sqlAfiliado.darAfiliadoPorId(pmf.getPersistenceManager(), idAfiliado);
+	}
+	
+	public List<Afiliado> darAfiliados ()
+	{
+		return sqlAfiliado.darAfiliados(pmf.getPersistenceManager());
+	}
+	
+	/* ****************************************************************
+	 * 			 SERVICIO DE SALUD
+	 *****************************************************************/
+	
+	public ServicioSalud adicionarServicioDeSalud(String descripcion, String disponibilidad, String tipo, String estado, long idAfiliado,
+			long idMedico, long idIps, long idOrden)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlServicioSalud.adicionarServicioSalud(pm, descripcion, disponibilidad, tipo, estado, idAfiliado, idMedico, idIps, idOrden);
+            tx.commit();
+            
+            log.trace ("Inserción del servicio de salud: " + tipo + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new ServicioSalud(descripcion, disponibilidad, tipo, estado, idAfiliado, idMedico, idIps, idOrden);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+	public ServicioSalud darServicioDeSalud (long idServicioDeSalud)
+	{
+		return sqlServicioSalud.darServicioSalud(pmf.getPersistenceManager(), idServicioDeSalud);
+	}
+	
+	public List<ServicioSalud> darServiciosDeSalud ()
+	{
+		return sqlServicioSalud.darServiciosSalud(pmf.getPersistenceManager());
+	}
+
+	/* ****************************************************************
+	 * 			 ORDEN DE SERVICIO
+	 *****************************************************************/
+	
+	public OrdenServicio adicionarOrdenServicio(String receta, long idAfiliado, long idMedico)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlOrdenServicio.adicionarOrdenServicio(pm, receta, idAfiliado, idMedico);
+            
+            log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new OrdenServicio(receta, idAfiliado, idMedico);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+	public OrdenServicio darOrdenServicio (long idOrdenServicio)
+	{
+		return sqlOrdenServicio.darOrdenServicio(pmf.getPersistenceManager(), idOrdenServicio);
+	}
+	
+	public List<OrdenServicio> darOrdenServicios ()
+	{
+		return sqlOrdenServicio.darOrdenesServicios(pmf.getPersistenceManager());
+	}
+	
+	/* ****************************************************************
+	 * 			 LLEGADA
+	 *****************************************************************/
+	
+	public Llegada adicionarLlegada(long idRecepcionista, long idAfiliado)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlLlegada.adicionarLlegada(pm, idRecepcionista, idAfiliado);
+            
+            log.trace ("Inserción de la llegada: " + idRecepcionista+" con "+idAfiliado + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new Llegada(idRecepcionista, idAfiliado);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+ 
+//	public Llegada darLlegada (long idLlegada)
+//	{
+//		return sqlLlegada.da(pmf.getPersistenceManager(), idLlegada);
+//	}
+	
+	public List<Llegada> darLlegadas ()
+	{
+		return sqlLlegada.darLlegadas(pmf.getPersistenceManager());
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar los TIPOS DE BEBIDA
 	 *****************************************************************/
@@ -442,36 +1161,7 @@ public class PersistenciaParranderos
         }
 	}
 
-	public Rol adicionarRol(String nombreRol)
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long id = nextval();
-            long tuplasInsertadas = sqlRol.adicionarRol(pm, id, nombreRol);
-            tx.commit();
-            
-            log.trace ("Inserción del rol: " + nombreRol + ": " + tuplasInsertadas + " tuplas insertadas");
-            
-            return new Rol(id, nombreRol);
-        }
-        catch (Exception e)
-        {
-      // 	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return null;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
+
 	
 	/**
 	 * Método que consulta todas las tuplas en la tabla TipoBebida

@@ -13,9 +13,9 @@ private final static String SQL = PersistenciaParranderos.SQL;
 	private PersistenciaParranderos persistenciaEPS;
 	
 	
-	public SQLRol(PersistenciaParranderos pPersistenciaEPS) {
+	public SQLRol(PersistenciaParranderos pPersistenciaParranderos) {
 		
-		persistenciaEPS = pPersistenciaEPS;
+		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
 	public long adicionarRol (PersistenceManager pm,long id, String nombreRol) 

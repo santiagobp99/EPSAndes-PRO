@@ -5,6 +5,35 @@
 	"bannerPath": "./src/main/resources/config/logo.png",
 	"menuBar":
 	[
+	{ "menuTitle": "Administrador de Datos",
+		  "options":
+			[
+				{
+					"label": "adicionar Rol",
+					"event": "adicionarRol"
+				},
+				{
+					"label": "adicionar Afiliado",
+					"event": "adicionarAfiliado"
+				},
+				{
+					"label": "Esquema de la BD",
+					"event": "mostrarEsquemaBD"
+				},
+				{
+					"label": "Script creación de la BD",
+					"event": "mostrarScriptBD"
+				},
+				{
+					"label": "Arquitectura de referencia",
+					"event": "mostrarArqRef"
+				},
+				{
+					"label": "Javadoc Parranderos",
+					"event": "mostrarJavadoc"
+				}
+			]
+		},
 		{ "menuTitle": "TipoBebida",
 		  "options":
 			[
@@ -57,35 +86,6 @@
 				{
 					"label": "Presentación general",
 					"event": "mostrarPresentacionGeneral"
-				},
-				{
-					"label": "Modelo conceptual",
-					"event": "mostrarModeloConceptual"
-				},
-				{
-					"label": "Esquema de la BD",
-					"event": "mostrarEsquemaBD"
-				},
-				{
-					"label": "Script creación de la BD",
-					"event": "mostrarScriptBD"
-				},
-				{
-					"label": "Arquitectura de referencia",
-					"event": "mostrarArqRef"
-				},
-				{
-					"label": "Javadoc Parranderos",
-					"event": "mostrarJavadoc"
-				}
-			]
-		},		
-		{ "menuTitle": "Rol",
-		  "options":
-			[
-				{
-					"label": "adicionar Rol",
-					"event": "adicionarRol"
 				},
 				{
 					"label": "Modelo conceptual",
