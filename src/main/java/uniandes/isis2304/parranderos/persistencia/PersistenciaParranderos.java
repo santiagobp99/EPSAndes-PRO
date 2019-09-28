@@ -613,13 +613,14 @@ public class PersistenciaParranderos
         try
         {
             tx.begin();
-            long id = nextval();
-            long tuplasInsertadas = sqlUsuario.adicionarUsuario(pm, id, nombre, correo, idRol);
+            //long id = nextval();
+            long tuplasInsertadas = sqlUsuario.adicionarUsuario(pm, nombre, correo, idRol);
+            
             tx.commit();
             
             log.trace ("Inserción del usuario: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Usuario(id,nombre, correo, idRol);
+            return new Usuario(nombre, correo, idRol);
         }
         catch (Exception e)
         {

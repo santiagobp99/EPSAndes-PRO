@@ -17,8 +17,8 @@
 					"event": "adicionarAfiliado"
 				},
 				{
-					"label": "Esquema de la BD",
-					"event": "mostrarEsquemaBD"
+					"label": "adicionar Medico",
+					"event": "adicionarMedico"
 				},
 				{
 					"label": "Script creación de la BD",

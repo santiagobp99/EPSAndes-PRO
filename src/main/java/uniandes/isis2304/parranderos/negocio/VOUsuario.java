@@ -12,11 +12,6 @@ public interface VOUsuario {
 	/* ****************************************************************
 	 * 			M�todos
 	 *****************************************************************/
-
-	/**
-	 * @return El idRol de nombre-tabla
-	 */
-	public long getId();
 	
 	/**
 	 * @return El idRol de nombre-tabla

@@ -49,6 +49,7 @@ import com.google.gson.stream.JsonReader;
 import uniandes.isis2304.parranderos.negocio.Parranderos;
 import uniandes.isis2304.parranderos.negocio.VORol;
 import uniandes.isis2304.parranderos.negocio.VOTipoBebida;
+import uniandes.isis2304.parranderos.negocio.VOUsuario;
 
 /**
  * Clase principal de la interfaz
@@ -272,7 +273,45 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		}
     }
     
-    
+    /**
+     * Adiciona un tipo de bebida con la información dada por el usuario
+     * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
+     */
+    public void adicionarAfiliado( )
+    {
+    	try 
+    	{
+    		String nombre = JOptionPane.showInputDialog (this, "Nombre del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+    		String correo = JOptionPane.showInputDialog (this, "Correo del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+    		String strRol = JOptionPane.showInputDialog (this, "idRol del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+    		
+    		long idRol = Long.valueOf(strRol);
+    		if (nombre != null)
+    		{
+        		VOUsuario tb = parranderos.adicionarUsuario(nombre, correo, idRol);
+        		
+        		//VOAfiliado af = parranderos.adicionarAfiliado(idEps, idUsuario, fechaNacimiento, tipoDocumento, hospitalizado, numDocumento)
+        		if (tb == null)
+        		{
+        			throw new Exception ("No se pudo crear un rol con nombre: " + tb+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
+        		}
+        		String resultado = "En adicionarRol\n\n";
+        		resultado += "Rol adicionado exitosamente: " + tb;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
     
 	/* ****************************************************************
 	 * 			CRUD de TipoBebida

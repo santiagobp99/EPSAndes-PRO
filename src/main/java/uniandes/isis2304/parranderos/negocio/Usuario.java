@@ -31,35 +31,20 @@ public class Usuario implements VOUsuario {
 	 */
 	private long idRol;
 	
-	/**
-	 * El identificador �NICO de los bares
-	 */
-	private long id;
+
 
 	public Usuario() {
-		
-		this.id = 0;
 		this.nombre = "";
 		this.correo = "";
 		this.idRol = 0;
 	}
 
-	public Usuario(long id, String nombre, String correo, long idRol) {
-		this.id = id;
+	public Usuario(String nombre, String correo, long idRol) {
 		this.nombre = nombre;
 		this.correo = correo;
 		this.idRol = idRol;
 	}
 
-	
-	
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
 
 	public String getNombre() {
 		return nombre;
@@ -87,8 +72,10 @@ public class Usuario implements VOUsuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", correo=" + correo + ", idRol=" + idRol + ", id=" + id + "]";
+		return "Usuario [nombre=" + nombre + ", correo=" + correo + ", idRol=" + idRol + "]";
 	}
+
+
 
 
 }
