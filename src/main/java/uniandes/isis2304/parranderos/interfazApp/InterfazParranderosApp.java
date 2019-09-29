@@ -292,6 +292,53 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 */
 
 	/* ****************************************************************
+	 * 			 CRUD de RECEPCIONISTA
+	 *****************************************************************/
+
+
+	public void adicionarRecepcionsita( )
+	{
+		try 
+		{
+			String nombre = JOptionPane.showInputDialog (this, "Nombre del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			String correo = JOptionPane.showInputDialog (this, "Correo del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			String strRol = JOptionPane.showInputDialog (this, "idRol del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			String strIdIps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			
+			long idRol = Long.valueOf(strRol);
+			if (nombre != null)
+			{
+				VOUsuario u = parranderos.adicionarUsuario(nombre, correo, idRol);
+				if (u == null){
+					throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
+				}
+				String strIdIps = JOptionPane.showInputDialog (this, "id IPS?", "adicionarRecepcionista", JOptionPane.QUESTION_MESSAGE);
+				long idIps = Long.valueOf(strIdIps);
+				long idUsuario = u.getId()+1;
+				VOAfiliado af = parranderos.adicionarRecepcionista(idIps, idUsuario);
+
+				if(af == null) {
+					throw new Exception ("No se pudo crear un recepcionista con id: " + idUsuario+"\n" + "idIps: "+ idIps);
+				}
+
+				String resultado = "En adicionarRol\n\n";
+				resultado += "Afiliado adicionado exitosamente: " + u + af;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	/* ****************************************************************
 	 * 			 CRUD de AFILIADO
 	 *****************************************************************/
 
@@ -311,6 +358,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				if (u == null){
 					throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
+				String strIdEps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 				String datefechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 				String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 				String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
@@ -318,9 +366,10 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 				Timestamp fechaNacimiento = Timestamp.valueOf(datefechaNacimiento);
 				int hospitalizado = Integer.valueOf(intHospitalizado);
+				long idEps = Long.valueOf(strIdEps);
 
 				long idUsuario = u.getId()+1;
-				VOAfiliado af = parranderos.adicionarAfiliado(6, idUsuario,fechaNacimiento,strTipoDocumento, hospitalizado, strNumDocumento);
+				VOAfiliado af = parranderos.adicionarAfiliado(idEps, idUsuario,fechaNacimiento,strTipoDocumento, hospitalizado, strNumDocumento);
 
 				if(af == null) {
 					throw new Exception ("No se pudo crear un afiliado con id: " + idUsuario+"\n"+"fechaNacimiento: "+fechaNacimiento+"\n"
@@ -353,6 +402,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	{
 		try 
 		{
+			
 			String numeroRegistro = JOptionPane.showInputDialog (this, "Numero de registro?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String especialidad = JOptionPane.showInputDialog (this, "Especialidad?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String identificacion = JOptionPane.showInputDialog (this, "Identificacion?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
@@ -377,6 +427,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 					throw new Exception ("No se pudo crear un medico con nombre: " + m+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
 				long id = m.getId()+1;
+				
 				if(TipoMedico==1) {
 					VOMedicoEspecialista me = parranderos.adicionarMedicoEspecialista(id);
 				}

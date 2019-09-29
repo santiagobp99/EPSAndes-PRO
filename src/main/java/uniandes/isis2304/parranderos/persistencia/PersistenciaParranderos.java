@@ -46,6 +46,7 @@ import uniandes.isis2304.parranderos.negocio.MedicoEspecialista;
 import uniandes.isis2304.parranderos.negocio.MedicoGeneral;
 import uniandes.isis2304.parranderos.negocio.MedicoTratante;
 import uniandes.isis2304.parranderos.negocio.OrdenServicio;
+import uniandes.isis2304.parranderos.negocio.Recepcionista;
 import uniandes.isis2304.parranderos.negocio.Rol;
 import uniandes.isis2304.parranderos.negocio.ServicioSalud;
 import uniandes.isis2304.parranderos.negocio.Sirven;
@@ -928,6 +929,40 @@ public class PersistenciaParranderos
             log.trace ("Inserción del afiliado: " + idUsuario + ": " + tuplasInsertadas + " tuplas insertadas");
             
             return new Afiliado(idEps, idUsuario, fechaNacimiento, tipoDocumento, hospitalizado, numDocumento);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+	/* ****************************************************************
+	 * 			 RECEPCIONISTA
+	 *****************************************************************/
+	
+	public Recepcionista adicionarRecepcionista(long idEps, long idUsuario)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlAfiliado.adicionarRecepcionista(pm, idEps, idUsuario);
+            tx.commit();
+            
+            log.trace ("Inserción del afiliado: " + idUsuario + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new Recepcionista(idEps, idUsuario);
         }
         catch (Exception e)
         {

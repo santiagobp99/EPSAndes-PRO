@@ -139,6 +139,21 @@ public class Parranderos
         return rol;
 	
 	}
+
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public Recepcionista adicionarRecepcionista(long idEps, long idUsuario){
+		
+     log.info ("Adicionando Afiliado: " + idEps + ""+idUsuario);
+     Recepcionista rol = pp.adicionarRecepcionista(idEps, idUsuario);		
+       log.info ("Adicionando Afiliado: " + rol);
+        return rol;
+	
+	}
 	
 	/**
 	 * Adiciona de manera persistente un tipo de bebida 
