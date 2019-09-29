@@ -216,6 +216,7 @@ public class Parranderos
 	
 	}
 	
+
 	/**
 	 * Adiciona de manera persistente un tipo de bebida 
 	 * Adiciona entradas al log de la aplicaci?n

@@ -23,8 +23,8 @@ public class SQLAfiliado {
 	public long adicionarAfiliado (PersistenceManager pm, long ideps, long idusuario, Timestamp fechanacimiento, String tipodocumento, int hospitalizado,
 			String numdocumento) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaAfliado() + "(fechanacimiento, tipodocumento, hospitalizado, numdocumento, ideps, idusuario) values (?, ?, ?, ?, ?, ?)");
-        q.setParameters(fechanacimiento, tipodocumento, hospitalizado, numdocumento, ideps, ideps);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaAfliado() + "(ideps, idusuario, fechanacimiento, tipodocumento, hospitalizado, num_documento) values (?, ?, ?, ?, ?, ?)");
+        q.setParameters(ideps, idusuario,fechanacimiento, tipodocumento, hospitalizado, numdocumento);
         return (long) q.executeUnique();
 	}
 	

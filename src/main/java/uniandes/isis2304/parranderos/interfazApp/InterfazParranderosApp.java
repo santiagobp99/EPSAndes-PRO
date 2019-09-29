@@ -53,6 +53,7 @@ import uniandes.isis2304.parranderos.negocio.VOHorario;
 import uniandes.isis2304.parranderos.negocio.VOHoras;
 import uniandes.isis2304.parranderos.negocio.VOIps;
 import uniandes.isis2304.parranderos.negocio.VOMedico;
+import uniandes.isis2304.parranderos.negocio.VOAfiliado;
 import uniandes.isis2304.parranderos.negocio.VORol;
 import uniandes.isis2304.parranderos.negocio.VOServicioSalud;
 import uniandes.isis2304.parranderos.negocio.VOTipoBebida;
@@ -306,15 +307,28 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		long idRol = Long.valueOf(strRol);
     		if (nombre != null)
     		{
-        		VOUsuario tb = parranderos.adicionarUsuario(nombre, correo, idRol);
+    			VOUsuario u = parranderos.adicionarUsuario(nombre, correo, idRol);
+    			
+    			String datefechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+        		String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+        		String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+        		String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
         		
-        		//VOAfiliado af = parranderos.adicionarAfiliado(idEps, idUsuario, fechaNacimiento, tipoDocumento, hospitalizado, numDocumento)
-        		if (tb == null)
-        		{
-        			throw new Exception ("No se pudo crear un rol con nombre: " + tb+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
+        		Timestamp fechaNacimiento = Timestamp.valueOf(datefechaNacimiento);
+        		int hospitalizado = Integer.valueOf(intHospitalizado);
+        		
+    			 long idUsuario = u.getId()+1;
+    			VOAfiliado af = parranderos.adicionarAfiliado(6, idUsuario,fechaNacimiento,strTipoDocumento, hospitalizado, strNumDocumento);
+    			
+        		if(af == null) {
+        			throw new Exception ("No se pudo crear un afiliado con id: " + idUsuario+"\n"+"fechaNacimiento: "+fechaNacimiento+"\n"
+        								+"hospitalizado: "+hospitalizado+"\n"+"TipoDocumento"+strTipoDocumento+"\n"+"numDocumento: " +strNumDocumento);
+        		}
+        		if (u == null){
+        			throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
         		}
         		String resultado = "En adicionarRol\n\n";
-        		resultado += "Rol adicionado exitosamente: " + tb;
+        		resultado += "Afiliado adicionado exitosamente: " + u + af;
     			resultado += "\n Operación terminada";
     			panelDatos.actualizarInterfaz(resultado);
     		}
