@@ -16,6 +16,11 @@ public interface VOMedico {
 	/**
 	 * @return El idRol de nombre-tabla
 	 */
+	public long getId();
+	
+	/**
+	 * @return El idRol de nombre-tabla
+	 */
 	public long getIdRol();
 
 	/**

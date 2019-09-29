@@ -495,8 +495,11 @@ public class PersistenciaParranderos
 	{
 		return tablas.get (28);
 	}
-	
 	public String darSeqUsuario ()
+	{
+		return tablas.get (34);
+	}
+	public String darSeqMedico ()
 	{
 		return tablas.get (38);
 	}
@@ -525,6 +528,17 @@ public class PersistenciaParranderos
         return resp;
     }
 	
+	/**
+	 * Transacción para el generador de secuencia de Parranderos
+	 * Adiciona entradas al log de la aplicación
+	 * @return El siguiente número del secuenciador de Parranderos
+	 */
+	private long currMedico ()
+	{
+        long resp = sqlUtil.currValMedico(pmf.getPersistenceManager());
+        log.trace ("Generando secuencia: " + resp);
+        return resp;
+    }
 	/**
 	 * Extrae el mensaje de la exception JDODataStoreException embebido en la Exception e, que da el detalle específico del problema encontrado
 	 * @param e - La excepción que ocurrio
@@ -722,27 +736,14 @@ public class PersistenciaParranderos
         try
         {
             tx.begin();
-            long id = nextval();
+            long id = currMedico();
             long tuplasInsertadas = sqlMedico.adicionarMedico(pm, id, numRegistroMedico, especialidad, identificacion, nombre, correo, idRol);
-            
-           
-//            switch (TipoMedico) {
-//              case 1:
-//            	  tuplasInsertadas += sqlMedicoEspecialista.adicionarMedicoEspecialista(pm, id);
-//                break;
-//              case 2:
-//            	  tuplasInsertadas += sqlMedicoGeneral.adicionarMedicoGeneral(pm, id);
-//            	  break;
-//              case 3: 
-//            	  tuplasInsertadas += sqlMedicoTratante.adicionarMedicoTratante(pm, id);
-//                break;
-//            }
             
             tx.commit();
             
             log.trace ("Inserción del medico: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Medico(numRegistroMedico, especialidad, identificacion, nombre, correo,
+            return new Medico(id,numRegistroMedico, especialidad, identificacion, nombre, correo,
         			idRol);
         }
         catch (Exception e)
