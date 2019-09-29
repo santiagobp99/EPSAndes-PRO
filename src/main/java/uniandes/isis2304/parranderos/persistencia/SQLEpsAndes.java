@@ -20,10 +20,10 @@ public class SQLEpsAndes {
 		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
-	public long adicionarEPS (PersistenceManager pm, String pIdGerente) 
+	public long adicionarEPS (PersistenceManager pm,long id, long pIdGerente) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaEpsAndes() + "(idgerente) values (?)");
-        q.setParameters( pIdGerente);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaEpsAndes() + "(id, idgerente) values (?,?)");
+        q.setParameters( id, pIdGerente);
         return (long) q.executeUnique();
 	}
 	
