@@ -305,7 +305,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 *****************************************************************/
 
 
-	public void adicionarRecepcionsita( )
+	public void adicionarRecepcionista( )
 	{
 		try 
 		{
@@ -366,12 +366,13 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				if (u == null){
 					throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
-				String strIdEps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+				
 				String datefechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 				String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 				String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 				String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-
+				String strIdEps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+				
 				Timestamp fechaNacimiento = Timestamp.valueOf(datefechaNacimiento);
 				int hospitalizado = Integer.valueOf(intHospitalizado);
 				long idEps = Long.valueOf(strIdEps);
