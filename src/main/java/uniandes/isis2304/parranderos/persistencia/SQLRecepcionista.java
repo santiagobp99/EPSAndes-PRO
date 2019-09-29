@@ -19,10 +19,10 @@ public class SQLRecepcionista {
 		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
-	public long adicionarRecepcionista (PersistenceManager pm, String pIdIPS) 
+	public long adicionarRecepcionista (PersistenceManager pm, long id, long pIdIps) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaRecepcionista() + "(idips) values (?)");
-        q.setParameters( pIdIPS);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaRecepcionista() + "(id,idips) values (?,?)");
+        q.setParameters( id, pIdIps);
         return (long) q.executeUnique();
 	}
 	
