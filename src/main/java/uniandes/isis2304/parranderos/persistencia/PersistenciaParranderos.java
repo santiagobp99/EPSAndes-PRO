@@ -952,19 +952,19 @@ public class PersistenciaParranderos
 	 * 			 RECEPCIONISTA
 	 *****************************************************************/
 	
-	public Recepcionista adicionarRecepcionista(long idEps, long idUsuario)
+	public Recepcionista adicionarRecepcionista(long idIps, long idUsuario)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long tuplasInsertadas = sqlAfiliado.adicionarRecepcionista(pm, idEps, idUsuario);
+            long tuplasInsertadas = sqlRecepcionista.adicionarRecepcionista(pm, idIps, idUsuario);
             tx.commit();
             
             log.trace ("Inserción del afiliado: " + idUsuario + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Recepcionista(idEps, idUsuario);
+            return new Recepcionista(idUsuario,idIps);
         }
         catch (Exception e)
         {

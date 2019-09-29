@@ -56,6 +56,7 @@ import uniandes.isis2304.parranderos.negocio.VOMedico;
 import uniandes.isis2304.parranderos.negocio.VOMedicoEspecialista;
 import uniandes.isis2304.parranderos.negocio.VOMedicoGeneral;
 import uniandes.isis2304.parranderos.negocio.VOMedicoTratante;
+import uniandes.isis2304.parranderos.negocio.VORecepcionista;
 import uniandes.isis2304.parranderos.negocio.VOAfiliado;
 import uniandes.isis2304.parranderos.negocio.VORol;
 import uniandes.isis2304.parranderos.negocio.VOServicioSalud;
@@ -311,7 +312,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String nombre = JOptionPane.showInputDialog (this, "Nombre del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 			String correo = JOptionPane.showInputDialog (this, "Correo del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 			String strRol = JOptionPane.showInputDialog (this, "idRol del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-			String strIdIps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 			
 			long idRol = Long.valueOf(strRol);
 			if (nombre != null)
@@ -323,7 +323,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				String strIdIps = JOptionPane.showInputDialog (this, "id IPS?", "adicionarRecepcionista", JOptionPane.QUESTION_MESSAGE);
 				long idIps = Long.valueOf(strIdIps);
 				long idUsuario = u.getId()+1;
-				VOAfiliado af = parranderos.adicionarRecepcionista(idIps, idUsuario);
+				VORecepcionista af = parranderos.adicionarRecepcionista(idUsuario,idIps);
 
 				if(af == null) {
 					throw new Exception ("No se pudo crear un recepcionista con id: " + idUsuario+"\n" + "idIps: "+ idIps);
@@ -698,54 +698,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
       
     
     
-    
-	/* ****************************************************************
-	 * 			 CRUD de IPS
-	 *****************************************************************/
 
-
-	public void adicionarIPS( )
-
-	{
-
-
-		try 
-		{
-			String ubicacion = JOptionPane.showInputDialog (this, "Ubicacion?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-			String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-			String tipo = JOptionPane.showInputDialog (this, "Tipo?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-			String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-			String idEps = JOptionPane.showInputDialog (this, "idEps", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-
-
-			int Capacidad = Integer.valueOf(capacidad);
-			long IdEPS = Long.valueOf(idEps);
-
-
-			if (nombre != null)
-			{
-				VOIps tb = parranderos.adicionarIps(ubicacion, nombre, tipo, Capacidad, IdEPS);
-				if (tb == null)
-				{
-					throw new Exception ("No se pudo crear la ips: " + tb+ "con eps "+IdEPS);
-				}
-				String resultado = "En adicionIps\n\n";
-				resultado += "Ips adicionado exitosamente: " + tb;
-				resultado += "\n Operación terminada";
-				panelDatos.actualizarInterfaz(resultado);
-			}
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
-		} 
-		catch (Exception e) 
-		{
-			//  			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
 
 
 
