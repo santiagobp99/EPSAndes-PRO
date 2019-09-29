@@ -418,26 +418,26 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String correo = JOptionPane.showInputDialog (this, "Correo", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String idRol = JOptionPane.showInputDialog (this, "idRol?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+			
+			
 			String strTipoMedico = JOptionPane.showInputDialog (this, "Tipo de medico: 1 - Especialista, 2 - General, 3 - Tratante", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 
 
 			int NumeroRegistro = Integer.valueOf(numeroRegistro);
 			long IdRol = Long.valueOf(idRol);
-			int tipoMedico = Integer.valueOf(strTipoMedico);
+			long tipoMedico = Long.valueOf(strTipoMedico);
 			
 
 			
 			if (nombre != null)
 			{
-				VOMedico m = parranderos.adicionarMedico(NumeroRegistro, especialidad, identificacion, nombre, correo, IdRol);
-				long id = m.getIdRol()+1;
+				VOMedico m = parranderos.adicionarMedico(IdRol,NumeroRegistro, especialidad, identificacion, nombre, correo);
+				long id = m.getId()+1;
 				
 				if (m == null)
 				{
 					throw new Exception ("No se pudo crear un medico con nombre: " + m+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
-				
-				
 				if(tipoMedico==1) {
 					parranderos.adicionarMedicoEspecialista(id);
 				}

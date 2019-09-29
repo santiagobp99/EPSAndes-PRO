@@ -731,8 +731,7 @@ public class PersistenciaParranderos
 	 * 			 MEDICO
 	 *****************************************************************/
 	
-	public Medico adicionarMedico(int numRegistroMedico, String especialidad, String identificacion, String nombre, String correo,
-			long idRol, int TipoMedico)
+	public Medico adicionarMedico(long idRol,int numRegistroMedico, String especialidad, String identificacion, String nombre, String correo)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -740,14 +739,13 @@ public class PersistenciaParranderos
         {
             tx.begin();
             long id = currMedico();
-            long tuplasInsertadas = sqlMedico.adicionarMedico(pm, id, numRegistroMedico, especialidad, identificacion, nombre, correo, idRol);
+            long tuplasInsertadas = sqlMedico.adicionarMedico(pm, id,idRol, numRegistroMedico, especialidad, identificacion, nombre, correo);
             
             tx.commit();
             
             log.trace ("Inserción del medico: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Medico(id,numRegistroMedico, especialidad, identificacion, nombre, correo,
-        			idRol);
+            return new Medico(id,idRol,numRegistroMedico, especialidad, identificacion, nombre, correo);
         }
         catch (Exception e)
         {
@@ -781,7 +779,7 @@ public class PersistenciaParranderos
 	 * 			 MEDICO GENERAL
 	 *****************************************************************/
 	
-	public MedicoGeneral adicionarMedicoGeneral(Long pIdMedicoGeneral)
+	public MedicoGeneral adicionarMedicoGeneral(long pIdMedicoGeneral)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -826,7 +824,7 @@ public class PersistenciaParranderos
 	 * 			 MEDICO ESPECIALISTA
 	 *****************************************************************/
 	
-	public MedicoEspecialista adicionarMedicoEspecialista(Long pIdMedicoEspecialista)
+	public MedicoEspecialista adicionarMedicoEspecialista(long pIdMedicoEspecialista)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -871,7 +869,7 @@ public class PersistenciaParranderos
 	 * 			 MEDICO TRATANTE
 	 *****************************************************************/
 	
-	public MedicoTratante adicionarMedicoTratante(Long pIdMedicoTratante)
+	public MedicoTratante adicionarMedicoTratante(long pIdMedicoTratante)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();

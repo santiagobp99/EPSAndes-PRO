@@ -115,10 +115,10 @@ public class Parranderos
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public Medico adicionarMedico (int pNumregistromedico, String pEspecialidad, String pIdentificacion, String pNombre, String pCorreo, Long pIdrol, int TipoMedico){
+	public Medico adicionarMedico (long pIdRol, int pNumregistromedico, String pEspecialidad, String pIdentificacion, String pNombre, String pCorreo){
 		
-     log.info ("Adicionando Medico: " + pNumregistromedico + pEspecialidad + pIdentificacion + pNombre + pCorreo + pIdrol);
-     Medico rol = pp.adicionarMedico(pNumregistromedico, pEspecialidad, pIdentificacion, pNombre, pCorreo, pIdrol, TipoMedico);		
+     log.info ("Adicionando Medico: " + pNumregistromedico + pEspecialidad + pIdentificacion + pNombre + pCorreo + pIdRol);
+     Medico rol = pp.adicionarMedico(pIdRol,pNumregistromedico, pEspecialidad, pIdentificacion, pNombre, pCorreo);		
        log.info ("Adicionando Medico: " + rol);
         return rol;
 	

@@ -20,10 +20,10 @@ public class SQLMedico {
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public long adicionarMedico (PersistenceManager pm,long id, int pNumregistromedico, String pEspecialidad, String pIdentificacion, String pNombre, String pCorreo, Long pIdrol) 
+	public long adicionarMedico (PersistenceManager pm,long id,long pIdRol, int pNumregistromedico, String pEspecialidad, String pIdentificacion, String pNombre, String pCorreo) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaMedico() + "(numregistromedico, especialidad, identificacion, id, nombre, correo, idrol) values (?, ?, ?, ?, ?, ?, ?)");
-        q.setParameters(pNumregistromedico, pEspecialidad,  pIdentificacion, id,  pNombre, pCorreo, pIdrol) ;
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaMedico() + "(id,idRol,numregistromedico, especialidad, identificacion, nombre, correo) values (?, ?, ?, ?, ?, ?, ?)");
+        q.setParameters(id,pIdRol,pNumregistromedico, pEspecialidad,  pIdentificacion, pNombre, pCorreo) ;
         return (long) q.executeUnique();
 	}
 	

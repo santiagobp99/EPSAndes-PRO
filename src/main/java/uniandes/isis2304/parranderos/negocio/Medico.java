@@ -62,8 +62,7 @@ public class Medico implements VOMedico {
 		this.idRol = 0;
 	}
 
-	public Medico(long id,int numRegistroMedico, String especialidad, String identificacion, String nombre, String correo,
-			long idRol) {
+	public Medico(long id,long idRol, int numRegistroMedico, String especialidad, String identificacion, String nombre, String correo) {
 		
 		this.id = id;
 		this.numRegistroMedico = numRegistroMedico;

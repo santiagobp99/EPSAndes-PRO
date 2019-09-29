@@ -19,7 +19,7 @@ public class SQLMedicoEspecialista {
 		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
-	public long adicionarMedicoEspecialista (PersistenceManager pm, Long pIdMedicoEspecialista) 
+	public long adicionarMedicoEspecialista (PersistenceManager pm, long pIdMedicoEspecialista) 
 	{
         Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaMedicoEspecialista() + "(id) values (?)");
         q.setParameters(pIdMedicoEspecialista) ;
