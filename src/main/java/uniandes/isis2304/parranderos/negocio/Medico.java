@@ -46,8 +46,14 @@ public class Medico implements VOMedico {
 	 */
 	private long idRol;
 
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private long id;
+	
 	public Medico() {
 		
+		this.id = 0;
 		this.numRegistroMedico = 0;
 		this.especialidad = "";
 		this.identificacion = "";
@@ -56,9 +62,10 @@ public class Medico implements VOMedico {
 		this.idRol = 0;
 	}
 
-	public Medico(int numRegistroMedico, String especialidad, String identificacion, String nombre, String correo,
+	public Medico(long id,int numRegistroMedico, String especialidad, String identificacion, String nombre, String correo,
 			long idRol) {
 		
+		this.id = id;
 		this.numRegistroMedico = numRegistroMedico;
 		this.especialidad = especialidad;
 		this.identificacion = identificacion;
@@ -115,11 +122,22 @@ public class Medico implements VOMedico {
 		this.idRol = idRol;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return "Medico [numRegistroMedico=" + numRegistroMedico + ", especialidad=" + especialidad + ", identificacion="
-				+ identificacion + ", nombre=" + nombre + ", correo=" + correo + ", idRol=" + idRol + "]";
+				+ identificacion + ", nombre=" + nombre + ", correo=" + correo + ", idRol=" + idRol + ", id=" + id
+				+ "]";
 	}
+
+	
 	
 	
 	

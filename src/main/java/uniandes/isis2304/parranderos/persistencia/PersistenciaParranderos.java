@@ -37,6 +37,7 @@ import uniandes.isis2304.parranderos.negocio.Afiliado;
 import uniandes.isis2304.parranderos.negocio.Bar;
 import uniandes.isis2304.parranderos.negocio.Bebedor;
 import uniandes.isis2304.parranderos.negocio.Bebida;
+import uniandes.isis2304.parranderos.negocio.EpsAndes;
 import uniandes.isis2304.parranderos.negocio.Gustan;
 import uniandes.isis2304.parranderos.negocio.Ips;
 import uniandes.isis2304.parranderos.negocio.Llegada;
@@ -494,8 +495,11 @@ public class PersistenciaParranderos
 	{
 		return tablas.get (28);
 	}
-	
 	public String darSeqUsuario ()
+	{
+		return tablas.get (34);
+	}
+	public String darSeqMedico ()
 	{
 		return tablas.get (38);
 	}
@@ -524,6 +528,17 @@ public class PersistenciaParranderos
         return resp;
     }
 	
+	/**
+	 * Transacción para el generador de secuencia de Parranderos
+	 * Adiciona entradas al log de la aplicación
+	 * @return El siguiente número del secuenciador de Parranderos
+	 */
+	private long currMedico ()
+	{
+        long resp = sqlUtil.currValMedico(pmf.getPersistenceManager());
+        log.trace ("Generando secuencia: " + resp);
+        return resp;
+    }
 	/**
 	 * Extrae el mensaje de la exception JDODataStoreException embebido en la Exception e, que da el detalle específico del problema encontrado
 	 * @param e - La excepción que ocurrio
@@ -713,20 +728,23 @@ public class PersistenciaParranderos
 	 * 			 MEDICO
 	 *****************************************************************/
 	
-	public Medico adicionarMedico(int pNumregistromedico, String pEspecialidad, String pIdentificacion, String pNombre, String pCorreo, Long pIdrol)
+	public Medico adicionarMedico(int numRegistroMedico, String especialidad, String identificacion, String nombre, String correo,
+			long idRol, int TipoMedico)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
-        	tx.begin();
-            long id = nextval();
-            long tuplasInsertadas = sqlMedico.adicionarMedico(pm, id, pNumregistromedico, pEspecialidad, pIdentificacion, pNombre, pCorreo, pIdrol);
+            tx.begin();
+            long id = currMedico();
+            long tuplasInsertadas = sqlMedico.adicionarMedico(pm, id, numRegistroMedico, especialidad, identificacion, nombre, correo, idRol);
+            
             tx.commit();
             
-            log.trace ("Inserción del medico: " + pNombre + ": " + tuplasInsertadas + " tuplas insertadas");
+            log.trace ("Inserción del medico: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Medico(pNumregistromedico, pEspecialidad, pIdentificacion, pNombre, pCorreo, pIdrol);
+            return new Medico(id,numRegistroMedico, especialidad, identificacion, nombre, correo,
+        			idRol);
         }
         catch (Exception e)
         {
@@ -743,7 +761,8 @@ public class PersistenciaParranderos
             pm.close();
         }
 	}
-
+	
+	
  
 	public Medico darMedico (long idEps)
 	{
@@ -1060,6 +1079,8 @@ public class PersistenciaParranderos
             pm.close();
         }
 	}
+	
+	
 
  
 //	public Llegada darLlegada (long idLlegada)
@@ -1071,6 +1092,45 @@ public class PersistenciaParranderos
 	{
 		return sqlLlegada.darLlegadas(pmf.getPersistenceManager());
 	}
+	
+	
+	/* ****************************************************************
+	 * 			 EPS
+	 *****************************************************************/
+	
+	public EpsAndes adicionarEPS(long pIdGerente)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long id = nextval();
+            long tuplasInsertadas = sqlEpsAndes.adicionarEPS(pm, id, pIdGerente);
+            
+            tx.commit();
+            
+            log.trace ("Inserción de la eps: " + id +" con gerente "+pIdGerente + ": " + tuplasInsertadas + " tuplas insertadas");
+            
+            return new EpsAndes(pIdGerente);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar los TIPOS DE BEBIDA
 	 *****************************************************************/
