@@ -17,6 +17,10 @@
 					"event": "adicionarAfiliado"
 				},
 				{
+					"label": "adicionar Recepcionista",
+					"event": "adicionarRecepcionista"
+				},
+				{
 					"label": "adicionar Medico",
 					"event": "adicionarMedico"
 				},
