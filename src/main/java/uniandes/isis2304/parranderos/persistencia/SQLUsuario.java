@@ -26,6 +26,13 @@ public class SQLUsuario {
         return (long) q.executeUnique();
 	}
 	
+	public long darValorSeqUsuario(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT SEQ_USUARIO_ID.CURRVAL FROM DUAL");
+		String seq = q.toString();
+		long id = Long.parseLong(seq);
+		return id;
+	}
+	
 	public long eliminarUsuario (PersistenceManager pm, long pIdUsuario)
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " +  persistenciaEPS.darTablaUsuario()  + " WHERE id = ?");
@@ -41,7 +48,6 @@ public class SQLUsuario {
 		q.setParameters(pIdUsuario);
 		return (Usuario) q.executeUnique();
 	}
-
 	
 	public List<Usuario> darUsuarios (PersistenceManager pm)
 	{
@@ -49,6 +55,7 @@ public class SQLUsuario {
 		q.setResultClass(Usuario.class);
 		return (List<Usuario>) q.executeList();
 	}
+	
 
 
 }

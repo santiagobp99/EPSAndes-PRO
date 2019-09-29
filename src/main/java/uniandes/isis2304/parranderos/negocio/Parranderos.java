@@ -208,11 +208,20 @@ public class Parranderos
 	
 	}
 	
-
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public long darValorSeqUsuario (){
+		
+     log.info ("Mostrando valor de secuencia actual del Usuario: ");
+     long rol = pp.darValorSeqUsuario();		
+       log.info ("Mostrando valor de secuencia actual del Usuario:");
+        return rol;
 	
-	
-	
-	
+	}
 	
 	/**
 	 * Elimina un tipo de bebida por su identificador

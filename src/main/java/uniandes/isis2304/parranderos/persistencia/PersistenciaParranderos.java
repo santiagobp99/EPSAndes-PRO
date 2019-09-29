@@ -494,6 +494,11 @@ public class PersistenciaParranderos
 		return tablas.get (28);
 	}
 	
+	public String darSeqUsuario ()
+	{
+		return tablas.get (38);
+	}
+	
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -615,7 +620,6 @@ public class PersistenciaParranderos
             tx.begin();
             //long id = nextval();
             long tuplasInsertadas = sqlUsuario.adicionarUsuario(pm, nombre, correo, idRol);
-            
             tx.commit();
             
             log.trace ("Inserción del usuario: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
@@ -638,6 +642,35 @@ public class PersistenciaParranderos
         }
 	}
 
+	public long darValorSeqUsuario(){
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long secuencia = sqlUsuario.darValorSeqUsuario(pm);
+            tx.commit();
+            
+            log.trace ("Id de usuario actual recibido:  "+ secuencia);
+            
+            return secuencia;
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return 0;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+		
+	}
  
 	public Usuario darUsuario (long idUsuario)
 	{
@@ -914,6 +947,7 @@ public class PersistenciaParranderos
  
 	public Afiliado darAfiliado (long idAfiliado)
 	{
+		
 		return sqlAfiliado.darAfiliadoPorId(pmf.getPersistenceManager(), idAfiliado);
 	}
 	

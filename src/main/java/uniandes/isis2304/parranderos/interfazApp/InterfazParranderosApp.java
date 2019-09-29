@@ -26,6 +26,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.jdo.JDODataStoreException;
@@ -47,6 +48,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
 import uniandes.isis2304.parranderos.negocio.Parranderos;
+import uniandes.isis2304.parranderos.negocio.VOAfiliado;
 import uniandes.isis2304.parranderos.negocio.VORol;
 import uniandes.isis2304.parranderos.negocio.VOTipoBebida;
 import uniandes.isis2304.parranderos.negocio.VOUsuario;
@@ -288,13 +290,26 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		long idRol = Long.valueOf(strRol);
     		if (nombre != null)
     		{
+    			VOAfiliado af = parranderos.adicionarAfiliado(6, 19, new Timestamp (System.currentTimeMillis()), "cc", 2, "123");
         		VOUsuario tb = parranderos.adicionarUsuario(nombre, correo, idRol);
-        		
-        		//VOAfiliado af = parranderos.adicionarAfiliado(idEps, idUsuario, fechaNacimiento, tipoDocumento, hospitalizado, numDocumento)
         		if (tb == null)
         		{
-        			throw new Exception ("No se pudo crear un rol con nombre: " + tb+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
+        			throw new Exception ("No se pudo crear un usuario con nombre: " + tb+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
         		}
+        		if(af==null) {
+        			throw new Exception ("No se pudo crear un afiliado con nombre: " + tb+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
+        		}
+//        		String fechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+//        		String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+//        		String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+//        		String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+//        		//long idUsuario = parranderos.darValorSeqUsuario();
+//        		
+//        		String tipoDocumento = String.valueOf(strTipoDocumento);
+//        		int hospitalizado = Integer.valueOf(intHospitalizado);
+//        		String numDocumento = String.valueOf(strNumDocumento);
+        		
+        		
         		String resultado = "En adicionarRol\n\n";
         		resultado += "Rol adicionado exitosamente: " + tb;
     			resultado += "\n Operación terminada";
