@@ -101,16 +101,24 @@ public class Parranderos
         return tipoBebida;
 	}
 	
+	public EpsAndes adicionarEps (long pIdGerente)
+	{
+     log.info ("Adicionando Eps con gerente: " + "/n" + pIdGerente);
+        EpsAndes tipoBebida = pp.adicionarEPS(pIdGerente);	
+       log.info ("Adicionando Eps: " + tipoBebida);
+        return tipoBebida;
+	}
+	
 	/**
 	 * Adiciona de manera persistente un tipo de bebida 
 	 * Adiciona entradas al log de la aplicaci?n
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public Medico adicionarMedico (int pNumregistromedico, String pEspecialidad, String pIdentificacion, String pNombre, String pCorreo, Long pIdrol){
+	public Medico adicionarMedico (int pNumregistromedico, String pEspecialidad, String pIdentificacion, String pNombre, String pCorreo, Long pIdrol, int TipoMedico){
 		
      log.info ("Adicionando Medico: " + pNumregistromedico + pEspecialidad + pIdentificacion + pNombre + pCorreo + pIdrol);
-     Medico rol = pp.adicionarMedico(pNumregistromedico, pEspecialidad, pIdentificacion, pNombre, pCorreo, pIdrol);		
+     Medico rol = pp.adicionarMedico(pNumregistromedico, pEspecialidad, pIdentificacion, pNombre, pCorreo, pIdrol, TipoMedico);		
        log.info ("Adicionando Medico: " + rol);
         return rol;
 	

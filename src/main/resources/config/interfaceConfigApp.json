@@ -21,6 +21,18 @@
 					"event": "adicionarMedico"
 				},
 				{
+					"label": "Registrar IPS",
+					"event": "adicionarIPS"
+				},
+				{
+					"label": "Registrar EPS",
+					"event": "adicionarEPS"
+				},
+				{
+					"label": "Registar un servicio de salud prestado por una IPS",
+					"event": "registrarServicioSalud"
+				},
+				{
 					"label": "Script creación de la BD",
 					"event": "mostrarScriptBD"
 				},
@@ -31,27 +43,6 @@
 				{
 					"label": "Javadoc Parranderos",
 					"event": "mostrarJavadoc"
-				}
-			]
-		},
-		{ "menuTitle": "TipoBebida",
-		  "options":
-			[
-				{
-					"label": "Adicionar",
-					"event": "adicionarTipoBebida"
-				},
-				{
-					"label": "Listar",
-					"event": "listarTipoBebida"
-				},
-				{
-					"label": "Borrar por Id",
-					"event": "eliminarTipoBebidaPorId"
-				},
-				{
-					"label": "Buscar por Nombre",
-					"event": "buscarTipoBebidaPorNombre"
 				}
 			]
 		},
@@ -117,7 +108,60 @@
 					"event": "acercaDe"
 				}
 			]
-		}		
+		},
+		{ "menuTitle": "MedicoEPS",
+		  "options":
+			[
+				{
+					"label": "Registrar una orden de servicio",
+					"event": "registrarOrdenDeServicio"
+				}
+				
+			]
+		},
+		{ "menuTitle": "AfiliadoEPS",
+		  "options":
+			[
+				{
+					"label": "Reservar Servicio de Salud",
+					"event": "reservarServicioSalud"
+				}
+			]
+		},
+		{ "menuTitle": "RecepcionistaEPS",
+		  "options":
+			[
+				{
+					"label": "Registrar un servicio de salud a un usuario",
+					"event": "registrarLlegada"
+				}
+			]
+		},
+		{ "menuTitle": "Consultas",
+		  "options":
+			[
+				{
+					"label": "Cantidad de servicios de una IPS durante un periodo de tiempo",
+					"event": "darCantidadServicios"
+				},
+				{
+					"label": "20 servicios más solicitados",
+					"event": "darServiciosMasSolicitados"
+				},
+				{
+					"label": "Mostrar índice de servicios",
+					"event": "mostrarServicios"
+				},
+				{
+					"label": "darServiciosPor características",
+					"event": "darCantidadServicios"
+				},
+				{
+					"label": "Servicios de un afiliado en rango de fechas",
+					"event": "darServiciosAfiliadoFecha"
+				}
+			]
+		}																													
 		
 	]
 }

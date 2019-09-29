@@ -47,6 +47,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
 import uniandes.isis2304.parranderos.negocio.Parranderos;
+import uniandes.isis2304.parranderos.negocio.VOEpsAndes;
+import uniandes.isis2304.parranderos.negocio.VOIps;
+import uniandes.isis2304.parranderos.negocio.VOMedico;
 import uniandes.isis2304.parranderos.negocio.VORol;
 import uniandes.isis2304.parranderos.negocio.VOTipoBebida;
 import uniandes.isis2304.parranderos.negocio.VOUsuario;
@@ -238,6 +241,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
         setJMenuBar ( menuBar );	
     }
     
+    /* ****************************************************************
+	 * 			 CRUD de ROL
+	 *****************************************************************/
+	
+    
     /**
      * Adiciona un tipo de bebida con la información dada por el usuario
      * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
@@ -277,6 +285,12 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
      * Adiciona un tipo de bebida con la información dada por el usuario
      * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
      */
+    
+    /* ****************************************************************
+	 * 			 CRUD de AFILIADO
+	 *****************************************************************/
+	
+    
     public void adicionarAfiliado( )
     {
     	try 
@@ -312,6 +326,149 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
     }
+    
+    /* ****************************************************************
+	 * 			 CRUD de Medico
+	 *****************************************************************/
+    
+    public void adicionarMedico( )
+    {
+    	
+    	
+    	try 
+    	{
+    		String numeroRegistro = JOptionPane.showInputDialog (this, "Numero de registro?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+    		String especialidad = JOptionPane.showInputDialog (this, "Especialidad?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+    		String identificacion = JOptionPane.showInputDialog (this, "Identificacion?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+    		String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+    		String correo = JOptionPane.showInputDialog (this, "Correo", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+    		String idRol = JOptionPane.showInputDialog (this, "idRol?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+    		String tipoMedico = JOptionPane.showInputDialog (this, "Tipo de medico: 1 - Especialista, 2 - General, 3 - Tratante", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+    		
+    		
+    		int NumeroRegistro = Integer.valueOf(numeroRegistro);
+    		long IdRol = Long.valueOf(idRol);
+    		int TipoMedico = Integer.valueOf(tipoMedico);
+    		
+    		
+    		
+    		if (nombre != null)
+    		{
+        		VOMedico tb = parranderos.adicionarMedico(NumeroRegistro, especialidad, identificacion, nombre, correo, IdRol, TipoMedico);
+        		
+        		if (tb == null)
+        		{
+        			throw new Exception ("No se pudo crear un medico con nombre: " + tb+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
+        		}
+        		String resultado = "En adicionMedico\n\n";
+        		resultado += "Medico adicionado exitosamente: " + tb;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    /* ****************************************************************
+	 * 			 CRUD de EPS
+	 *****************************************************************/
+    
+    
+    public void adicionarEPS( )
+    
+    {
+    	
+    	
+    	try 
+    	{
+    		String idGerente = JOptionPane.showInputDialog (this, "id del gerente?", "adicionarEPS", JOptionPane.QUESTION_MESSAGE);	
+    		
+    		long IdGerente = Long.valueOf(idGerente);
+    		if (idGerente != null)
+    		{
+        		VOEpsAndes tb = parranderos.adicionarEps(IdGerente);
+        		if (tb == null)
+        		{
+        			throw new Exception ("No se pudo crear la eps: " + tb+ "con gerente "+IdGerente);
+        		}
+        		String resultado = "En adicionMedico\n\n";
+        		resultado += "Medico adicionado exitosamente: " + tb;
+    			resultado += "\n Operación terminada";
+    			panelDatos.actualizarInterfaz(resultado);
+    		}
+    		else
+    		{
+    			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+    		}
+		} 
+    	catch (Exception e) 
+    	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+    }
+    
+    /* ****************************************************************
+  	 * 			 CRUD de IPS
+  	 *****************************************************************/
+      
+      
+      public void adicionarIPS( )
+      
+      {
+      	
+      	
+      	try 
+      	{
+      		String ubicacion = JOptionPane.showInputDialog (this, "Ubicacion?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+    		String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+    		String tipo = JOptionPane.showInputDialog (this, "Tipo?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+    		String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+    		String idEps = JOptionPane.showInputDialog (this, "idEps", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+    		
+    		
+    		int Capacidad = Integer.valueOf(capacidad);
+    		long IdEPS = Long.valueOf(idEps);
+    		
+    		
+      		if (nombre != null)
+      		{
+          		VOIps tb = parranderos.adicionarIps(ubicacion, nombre, tipo, Capacidad, IdEPS);
+          		if (tb == null)
+          		{
+          			throw new Exception ("No se pudo crear la ips: " + tb+ "con eps "+IdEPS);
+          		}
+          		String resultado = "En adicionIps\n\n";
+          		resultado += "Ips adicionado exitosamente: " + tb;
+      			resultado += "\n Operación terminada";
+      			panelDatos.actualizarInterfaz(resultado);
+      		}
+      		else
+      		{
+      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+      		}
+  		} 
+      	catch (Exception e) 
+      	{
+//  			e.printStackTrace();
+  			String resultado = generarMensajeError(e);
+  			panelDatos.actualizarInterfaz(resultado);
+  		}
+      }
+      
+      
+    
+    
     
 	/* ****************************************************************
 	 * 			CRUD de TipoBebida
