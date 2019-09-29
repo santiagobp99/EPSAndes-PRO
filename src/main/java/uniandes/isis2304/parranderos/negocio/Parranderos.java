@@ -231,20 +231,42 @@ public class Parranderos
 	
 	}
 	
-//	/**
-//	 * Adiciona de manera persistente un tipo de bebida 
-//	 * Adiciona entradas al log de la aplicaci?n
-//	 * @param nombre - El nombre del tipo de bebida
-//	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
-//	 */
-//	public long darValorSeqUsuario (){
-//		
-//     log.info ("Mostrando valor de secuencia actual del Usuario: ");
-//     long rol = pp.adicionarUsuario(nombre, correo, idRol);		
-//       log.info ("Mostrando valor de secuencia actual del Usuario:");
-//        return rol;
-//	
-//	}
+
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public Horario adicionarHorario (int pCapacidad, long pIdServicio){
+		
+     log.info ("Adicionando Horario con Capacidad y servicio: " + pCapacidad +"::"+ pIdServicio);
+     Horario horaio = pp.adicionarHorario(pCapacidad, pIdServicio);	
+       log.info ("Adicionando Usuario: " + horaio);
+        return horaio;
+	
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public Horas adicionarHora (Timestamp pHora, long pIdHorario){
+		
+     log.info ("Adicionando Hora: " + pHora);
+     Horas hora = pp.adicionarHoras(pHora, pIdHorario);		
+       log.info ("Adicionando Usuario: " + hora);
+        return hora;
+	
+	}
+	
+
+	
+	
+	
+	
 	
 	/**
 	 * Elimina un tipo de bebida por su identificador
