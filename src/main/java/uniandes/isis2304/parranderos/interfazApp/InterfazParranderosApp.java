@@ -434,7 +434,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				{
 					throw new Exception ("No se pudo crear un medico con nombre: " + m+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
-				long id = m.getId()+1;
+				long id = m.getIdRol()+1;
 				
 				if(TipoMedico==1) {
 					VOMedicoEspecialista me = parranderos.adicionarMedicoEspecialista(id);
@@ -652,7 +652,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
       }
       
       /* ****************************************************************
-    	 * 			 CRUD de Horario
+    	 * 			 CRUD de Hora
     	 *****************************************************************/
         
         

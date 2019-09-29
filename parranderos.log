@@ -866,4 +866,10 @@ ORA-02291: restricción de integridad (ISIS2304D111920.FK_EPS_ANDES_USUARIO) vio
 12:04:33,179 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
 =======
 >>>>>>> 178647625e17617e19a4d07525e7827eca4bfacc
+<<<<<<< HEAD
+13:46:11,658 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+13:46:11,658 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+13:46:11,667 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+=======
 >>>>>>> master
+>>>>>>> 2e4c975c926a723eb350ecfd7e5539ad2434e8bc
