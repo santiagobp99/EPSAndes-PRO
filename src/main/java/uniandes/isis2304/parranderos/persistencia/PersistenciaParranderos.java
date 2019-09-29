@@ -38,6 +38,8 @@ import uniandes.isis2304.parranderos.negocio.Bebedor;
 import uniandes.isis2304.parranderos.negocio.Bebida;
 import uniandes.isis2304.parranderos.negocio.EpsAndes;
 import uniandes.isis2304.parranderos.negocio.Gustan;
+import uniandes.isis2304.parranderos.negocio.Horario;
+import uniandes.isis2304.parranderos.negocio.Horas;
 import uniandes.isis2304.parranderos.negocio.Ips;
 import uniandes.isis2304.parranderos.negocio.Llegada;
 import uniandes.isis2304.parranderos.negocio.Medico;
@@ -1112,6 +1114,111 @@ public class PersistenciaParranderos
             pm.close();
         }
 	}
+	
+	/* ****************************************************************
+	 * 			 SERVICIO SALUD
+	 *****************************************************************/
+	
+	public ServicioSalud adicionarServicioSalud(String pDescripcion, String pDisponibilidad, String pTipo, String pEstado, long pIdAfiliado, long pIdMedico, long pIdIPS, long pIdOrden)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlServicioSalud.adicionarServicioSalud(pm, pDescripcion, pDisponibilidad, pTipo, pEstado, pIdAfiliado, pIdMedico, pIdIPS, pIdOrden);
+            
+            tx.commit();
+            
+            log.trace ("Inserción del servicio de salud: " + pDescripcion+ ", "+ tuplasInsertadas + " tuplas insertadas");
+            
+            return new ServicioSalud(pDescripcion, pDisponibilidad, pTipo, pEstado, pIdAfiliado, pIdMedico, pIdIPS, pIdOrden);
+        }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	/* ****************************************************************
+	 * 			HORARIO
+	 *****************************************************************/
+	
+	public Horario adicionarHorario(int pCapacidad, long pIdServicio)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlHorario.adicionarHorario(pm, pCapacidad, pIdServicio);
+            tx.commit();
+            
+            log.trace ("Inserción del horario del servicio: "+ pIdServicio+ " con capacidad "+ pCapacidad+", "+ tuplasInsertadas + " tuplas insertadas");
+            
+            return new Horario(pCapacidad, pIdServicio);      }
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	
+	/* ****************************************************************
+	 * 			HORAS
+	 *****************************************************************/
+	
+	public Horas adicionarHoras(Timestamp pHora , Long pIdHorario)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            long tuplasInsertadas = sqlHoras.adicionarHora(pm, pHora, pIdHorario);
+            tx.commit();
+            
+            log.trace ("Inserción de la hora: "+ pHora+ " del horario "+ pIdHorario+", "+ tuplasInsertadas + " tuplas insertadas");
+            
+            return new Horas(pHora, pIdHorario);  }
+        
+        catch (Exception e)
+        {
+      // 	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	
 	
 	
 	/* ****************************************************************

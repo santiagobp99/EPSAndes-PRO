@@ -33,6 +33,14 @@
 					"event": "registrarServicioSalud"
 				},
 				{
+					"label": "Añadir horario de un servicio",
+					"event": "adicionarHoraio"
+				},
+				{
+					"label": "Añadir una hora",
+					"event": "adicionarHora"
+				},
+				{
 					"label": "Script creación de la BD",
 					"event": "mostrarScriptBD"
 				},

@@ -8,7 +8,6 @@ import javax.jdo.Query;
 import uniandes.isis2304.parranderos.negocio.Horas;
 
 public class SQLHoras {
-
 	
 	private final static String SQL = PersistenciaParranderos.SQL;
 	
