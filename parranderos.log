@@ -873,6 +873,22 @@ ORA-02291: restricción de integridad (ISIS2304D111920.FK_EPS_ANDES_USUARIO) vio
 =======
 >>>>>>> master
 >>>>>>> 2e4c975c926a723eb350ecfd7e5539ad2434e8bc
+<<<<<<< HEAD
+15:22:04,941 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:22:04,943 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:22:04,975 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:31:30,458 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:31:30,460 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:31:30,519 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:35:01,911 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: lugarterapiaterapia ocupacional158111
+15:35:02,776 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO SERVICIO_SALUD(descripcion, disponibilidad, tipo, estado, idafiliado, idmedico, idips, idorden) values (?, ?, ?, ?, ?, ?, ?, ? )".
+ORA-12899: el valor es demasiado grande para la columna "ISIS2304D111920"."SERVICIO_SALUD"."DISPONIBILIDAD" (real: 7, máximo: 1)
+
+15:35:02,802 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+15:36:36,102 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:36:36,104 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:36:36,140 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+=======
 15:19:04,088 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
 15:19:04,089 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
 15:19:04,103 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
@@ -905,6 +921,7 @@ ORA-02291: restricción de integridad (ISIS2304D111920.FK_AFILIADO_USUARIO) viol
 15:27:55,595 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
 15:27:55,596 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
 15:27:55,609 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+<<<<<<< HEAD
 15:30:11,092 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
 15:30:11,092 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
 15:30:11,106 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
@@ -1078,3 +1095,6 @@ ORA-02291: restricción de integridad (ISIS2304D111920.FK_MEDICO_ESPECIALISTA_ME
 16:56:12,111 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Medico: Medico [numRegistroMedico=567, especialidad=567, identificacion=567, nombre=567, correo=567, idRol=47, id=33]
 16:56:12,111 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando MedicoEspecialista: 34
 16:56:12,257 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando MedicoEspecialista: MedicoEspecialista [id=34]
+=======
+>>>>>>> 69f86c0d161b0f429e42a058e16aa49d03af00b1
+>>>>>>> master
