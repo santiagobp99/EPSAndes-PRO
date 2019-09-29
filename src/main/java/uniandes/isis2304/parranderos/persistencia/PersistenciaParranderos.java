@@ -500,11 +500,11 @@ public class PersistenciaParranderos
 	}
 	public String darSeqUsuario ()
 	{
-		return tablas.get (34);
+		return tablas.get (38);
 	}
 	public String darSeqMedico ()
 	{
-		return tablas.get (38);
+		return tablas.get (34);
 	}
 	
 	/**

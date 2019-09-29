@@ -305,7 +305,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 *****************************************************************/
 
 
-	public void adicionarRecepcionista( )
+	public void adicionarRecepcionista()
 	{
 		try 
 		{
@@ -418,33 +418,38 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String correo = JOptionPane.showInputDialog (this, "Correo", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String idRol = JOptionPane.showInputDialog (this, "idRol?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
-			String tipoMedico = JOptionPane.showInputDialog (this, "Tipo de medico: 1 - Especialista, 2 - General, 3 - Tratante", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+			String strTipoMedico = JOptionPane.showInputDialog (this, "Tipo de medico: 1 - Especialista, 2 - General, 3 - Tratante", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 
 
 			int NumeroRegistro = Integer.valueOf(numeroRegistro);
 			long IdRol = Long.valueOf(idRol);
-			int TipoMedico = Integer.valueOf(tipoMedico);
+			int tipoMedico = Integer.valueOf(strTipoMedico);
 			
 
-
+			
 			if (nombre != null)
 			{
-				VOMedico m = parranderos.adicionarMedico(NumeroRegistro, especialidad, identificacion, nombre, correo, IdRol, TipoMedico);
-
+				VOMedico m = parranderos.adicionarMedico(NumeroRegistro, especialidad, identificacion, nombre, correo, IdRol);
+				long id = m.getIdRol()+1;
+				
 				if (m == null)
 				{
 					throw new Exception ("No se pudo crear un medico con nombre: " + m+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
-				long id = m.getIdRol()+1;
 				
-				if(TipoMedico==1) {
-					VOMedicoEspecialista me = parranderos.adicionarMedicoEspecialista(id);
+				
+				if(tipoMedico==1) {
+					parranderos.adicionarMedicoEspecialista(id);
 				}
-				else if(TipoMedico==2) {
-					VOMedicoGeneral mg = parranderos.adicionarMedicoGeneral(id);
+				else if(tipoMedico==2) {
+					parranderos.adicionarMedicoGeneral(id);
 				}
-				else if(TipoMedico==3) {
-					VOMedicoTratante mt = parranderos.adicionarMedicoTratante(id);
+				else if(tipoMedico==3) {
+					parranderos.adicionarMedicoTratante(id);
+				}
+				else
+				{
+					throw new Exception ("No se pudo crear un medico de tipo: " + tipoMedico);
 				}
 				String resultado = "En adicionMedico\n\n";
 				resultado += "Medico adicionado exitosamente: " + m;
