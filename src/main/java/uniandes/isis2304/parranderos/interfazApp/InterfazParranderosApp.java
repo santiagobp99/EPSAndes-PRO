@@ -198,7 +198,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
         setLocation (50,50);
         setResizable( true );
-        setBackground( Color.WHITE );
+        setBackground( Color.BLUE );
 
         setTitle( titulo );
 		setSize ( ancho, alto);        
