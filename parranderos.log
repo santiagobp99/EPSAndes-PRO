@@ -873,3 +873,17 @@ ORA-02291: restricción de integridad (ISIS2304D111920.FK_EPS_ANDES_USUARIO) vio
 =======
 >>>>>>> master
 >>>>>>> 2e4c975c926a723eb350ecfd7e5539ad2434e8bc
+15:22:04,941 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:22:04,943 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:22:04,975 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:31:30,458 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:31:30,460 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:31:30,519 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:35:01,911 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: lugarterapiaterapia ocupacional158111
+15:35:02,776 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO SERVICIO_SALUD(descripcion, disponibilidad, tipo, estado, idafiliado, idmedico, idips, idorden) values (?, ?, ?, ?, ?, ?, ?, ? )".
+ORA-12899: el valor es demasiado grande para la columna "ISIS2304D111920"."SERVICIO_SALUD"."DISPONIBILIDAD" (real: 7, máximo: 1)
+
+15:35:02,802 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+15:36:36,102 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:36:36,104 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:36:36,140 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD

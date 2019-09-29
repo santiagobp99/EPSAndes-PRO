@@ -562,14 +562,14 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
       	try 
       	{
       		
-      		String descripcion = JOptionPane.showInputDialog (this, "Ubicacion?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String disponibilidad = JOptionPane.showInputDialog (this, "Nombre?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String tipo = JOptionPane.showInputDialog (this, "Tipo?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String estado = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String idAfiliado = JOptionPane.showInputDialog (this, "idEps", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String idMedico = JOptionPane.showInputDialog (this, "idEps", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String idIps = JOptionPane.showInputDialog (this, "idEps", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String idOrden = JOptionPane.showInputDialog (this, "idEps", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+      		String descripcion = JOptionPane.showInputDialog (this, "Ubicacion?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String disponibilidad = JOptionPane.showInputDialog (this, "Nombre?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String tipo = JOptionPane.showInputDialog (this, "Tipo?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String estado = JOptionPane.showInputDialog (this, "Capacidad?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String idAfiliado = JOptionPane.showInputDialog (this, "idAfiliado", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String idMedico = JOptionPane.showInputDialog (this, "idMedico", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String idIps = JOptionPane.showInputDialog (this, "idIps", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String idOrden = JOptionPane.showInputDialog (this, "idOrden", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
     		
     		
     		long IdAfiliado = Long.valueOf(idAfiliado);
