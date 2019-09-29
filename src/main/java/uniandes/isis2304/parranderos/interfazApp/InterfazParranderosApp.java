@@ -290,28 +290,28 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		long idRol = Long.valueOf(strRol);
     		if (nombre != null)
     		{
-    			VOAfiliado af = parranderos.adicionarAfiliado(6, 19, new Timestamp (System.currentTimeMillis()), "cc", 2, "123");
-        		VOUsuario tb = parranderos.adicionarUsuario(nombre, correo, idRol);
-        		if (tb == null)
-        		{
-        			throw new Exception ("No se pudo crear un usuario con nombre: " + tb+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
-        		}
-        		if(af==null) {
-        			throw new Exception ("No se pudo crear un afiliado con nombre: " + tb+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
-        		}
-//        		String fechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-//        		String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-//        		String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-//        		String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-//        		//long idUsuario = parranderos.darValorSeqUsuario();
-//        		
-//        		String tipoDocumento = String.valueOf(strTipoDocumento);
-//        		int hospitalizado = Integer.valueOf(intHospitalizado);
-//        		String numDocumento = String.valueOf(strNumDocumento);
+    			VOUsuario u = parranderos.adicionarUsuario(nombre, correo, idRol);
+    			
+    			String datefechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+        		String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+        		String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+        		String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
         		
+        		Timestamp fechaNacimiento = Timestamp.valueOf(datefechaNacimiento);
+        		int hospitalizado = Integer.valueOf(intHospitalizado);
         		
+    			 long idUsuario = u.getId()+1;
+    			VOAfiliado af = parranderos.adicionarAfiliado(6, idUsuario,fechaNacimiento,strTipoDocumento, hospitalizado, strNumDocumento);
+    			
+        		if(af == null) {
+        			throw new Exception ("No se pudo crear un afiliado con id: " + idUsuario+"\n"+"fechaNacimiento: "+fechaNacimiento+"\n"
+        								+"hospitalizado: "+hospitalizado+"\n"+"TipoDocumento"+strTipoDocumento+"\n"+"numDocumento: " +strNumDocumento);
+        		}
+        		if (u == null){
+        			throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
+        		}
         		String resultado = "En adicionarRol\n\n";
-        		resultado += "Rol adicionado exitosamente: " + tb;
+        		resultado += "Afiliado adicionado exitosamente: " + u + af;
     			resultado += "\n Operación terminada";
     			panelDatos.actualizarInterfaz(resultado);
     		}

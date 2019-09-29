@@ -69,6 +69,14 @@ class SQLUtil
         return resp;
 	}
 
+	public long currValUsuario (PersistenceManager pm)
+	{
+        Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqUsuario() + ".nextval FROM DUAL");
+        q.setResultClass(Long.class);
+        long resp = (long) q.executeUnique();
+        return resp;
+	}
+
 	/**
 	 * Crea y ejecuta las sentencias SQL para cada tabla de la base de datos - EL ORDEN ES IMPORTANTE 
 	 * @param pm - El manejador de persistencia

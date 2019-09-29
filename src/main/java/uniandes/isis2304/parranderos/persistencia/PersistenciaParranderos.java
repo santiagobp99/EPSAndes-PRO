@@ -25,6 +25,7 @@ import javax.jdo.JDODataStoreException;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
+import javax.jdo.Query;
 import javax.jdo.Transaction;
 
 import org.apache.log4j.Logger;
@@ -511,7 +512,17 @@ public class PersistenciaParranderos
         return resp;
     }
 	
-	
+	/**
+	 * Transacción para el generador de secuencia de Parranderos
+	 * Adiciona entradas al log de la aplicación
+	 * @return El siguiente número del secuenciador de Parranderos
+	 */
+	private long currUsuario ()
+	{
+        long resp = sqlUtil.currValUsuario(pmf.getPersistenceManager());
+        log.trace ("Generando secuencia: " + resp);
+        return resp;
+    }
 	
 	/**
 	 * Extrae el mensaje de la exception JDODataStoreException embebido en la Exception e, que da el detalle específico del problema encontrado
@@ -618,13 +629,13 @@ public class PersistenciaParranderos
         try
         {
             tx.begin();
-            //long id = nextval();
-            long tuplasInsertadas = sqlUsuario.adicionarUsuario(pm, nombre, correo, idRol);
+            long id = currUsuario();
+            long tuplasInsertadas = sqlUsuario.adicionarUsuario(pm, id,nombre, correo, idRol);
             tx.commit();
             
             log.trace ("Inserción del usuario: " + nombre + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new Usuario(nombre, correo, idRol);
+            return new Usuario(id,nombre, correo, idRol);
         }
         catch (Exception e)
         {
@@ -642,35 +653,6 @@ public class PersistenciaParranderos
         }
 	}
 
-	public long darValorSeqUsuario(){
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long secuencia = sqlUsuario.darValorSeqUsuario(pm);
-            tx.commit();
-            
-            log.trace ("Id de usuario actual recibido:  "+ secuencia);
-            
-            return secuencia;
-        }
-        catch (Exception e)
-        {
-      // 	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return 0;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-		
-	}
  
 	public Usuario darUsuario (long idUsuario)
 	{

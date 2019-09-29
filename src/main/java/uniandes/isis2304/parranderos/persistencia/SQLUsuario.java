@@ -19,10 +19,10 @@ public class SQLUsuario {
 		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
-	public long adicionarUsuario (PersistenceManager pm,String pNombre, String pCorreo, Long pIdRol) 
+	public long adicionarUsuario (PersistenceManager pm,long pId,String pNombre, String pCorreo, Long pIdRol) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaUsuario() + "(nombre, correo, idrol) values (?, ?, ?)");
-        q.setParameters(pNombre, pCorreo, pIdRol);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaUsuario() + "(id,nombre, correo, idrol) values (?, ?, ?, ?)");
+        q.setParameters(pId,pNombre, pCorreo, pIdRol);
         return (long) q.executeUnique();
 	}
 	
