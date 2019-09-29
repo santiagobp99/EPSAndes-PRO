@@ -13,6 +13,10 @@
 					"event": "adicionarRol"
 				},
 				{
+					"label": "adicionar Administrador o Gerente",
+					"event": "adicionarAdministradorOGerente"
+				},
+				{
 					"label": "adicionar Afiliado",
 					"event": "adicionarAfiliado"
 				},

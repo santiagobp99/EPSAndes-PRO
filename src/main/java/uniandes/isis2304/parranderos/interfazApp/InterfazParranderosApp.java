@@ -309,9 +309,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	{
 		try 
 		{
-			String nombre = JOptionPane.showInputDialog (this, "Nombre del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-			String correo = JOptionPane.showInputDialog (this, "Correo del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-			String strRol = JOptionPane.showInputDialog (this, "idRol del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			String nombre = JOptionPane.showInputDialog (this, "Nombre del recepcionista?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			String correo = JOptionPane.showInputDialog (this, "Correo del recepcionista?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			String strRol = JOptionPane.showInputDialog (this, "idRol del recepcionista?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 			
 			long idRol = Long.valueOf(strRol);
 			if (nombre != null)
@@ -330,7 +330,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				}
 
 				String resultado = "En adicionarRol\n\n";
-				resultado += "Afiliado adicionado exitosamente: " + u + af;
+				resultado += "Recepcionista adicionado exitosamente: " + u + af;
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
 			}
@@ -346,6 +346,46 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
 	}
+	
+	/* ****************************************************************
+	 * 			 CRUD de Administrador y de gerente
+	 *****************************************************************/
+
+
+	public void adicionarAdministradorOGerente( )
+	{
+		try 
+		{
+			String nombre = JOptionPane.showInputDialog (this, "Nombre del Administrador o Gerente?", "adicionarAdministradorOGerente", JOptionPane.QUESTION_MESSAGE);
+			String correo = JOptionPane.showInputDialog (this, "Correo del Administrador o Gerente?", "adicionarAdministradorOGerente", JOptionPane.QUESTION_MESSAGE);
+			String strRol = JOptionPane.showInputDialog (this, "idRol del Administrador o Gerente?", "adicionarAdministradorOGerente", JOptionPane.QUESTION_MESSAGE);
+
+			long idRol = Long.valueOf(strRol);
+			if (nombre != null)
+			{
+				VOUsuario u = parranderos.adicionarUsuario(nombre, correo, idRol);
+				if (u == null){
+					throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
+				}
+
+				String resultado = "En adicionarRol\n\n";
+				resultado += "Afiliado adicionado exitosamente: " + u ;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
 	/* ****************************************************************
 	 * 			 CRUD de AFILIADO
 	 *****************************************************************/
@@ -355,9 +395,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	{
 		try 
 		{
-			String nombre = JOptionPane.showInputDialog (this, "Nombre del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-			String correo = JOptionPane.showInputDialog (this, "Correo del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-			String strRol = JOptionPane.showInputDialog (this, "idRol del usuario?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			String nombre = JOptionPane.showInputDialog (this, "Nombre del Afiliado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			String correo = JOptionPane.showInputDialog (this, "Correo del Afiliado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+			String strRol = JOptionPane.showInputDialog (this, "idRol del Afiliado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 
 			long idRol = Long.valueOf(strRol);
 			if (nombre != null)
@@ -367,11 +407,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 					throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
 				
-				String datefechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-				String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-				String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-				String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-				String strIdEps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
+				String datefechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
+				String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
+				String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
+				String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
+				String strIdEps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 				
 				Timestamp fechaNacimiento = Timestamp.valueOf(datefechaNacimiento);
 				int hospitalizado = Integer.valueOf(intHospitalizado);
@@ -414,13 +454,14 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			
 			String numeroRegistro = JOptionPane.showInputDialog (this, "Numero de registro?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String especialidad = JOptionPane.showInputDialog (this, "Especialidad?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
-			String identificacion = JOptionPane.showInputDialog (this, "Identificacion?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+			String identificacion = JOptionPane.showInputDialog (this, "Identificacion?"+"Ingrese letras", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String correo = JOptionPane.showInputDialog (this, "Correo", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String idRol = JOptionPane.showInputDialog (this, "idRol?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			
 			
-			String strTipoMedico = JOptionPane.showInputDialog (this, "Tipo de medico: 1 - Especialista, 2 - General, 3 - Tratante", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+			String strTipoMedico = JOptionPane.showInputDialog (this, "Tipo de medico:" + "\n"+ "Ingrese un numero"+ "\n"+  "Especialista = 1 "+ "\n"+  "General = 2" +"\n" 
+																		+"Tratante = 3", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 
 
 			int NumeroRegistro = Integer.valueOf(numeroRegistro);
