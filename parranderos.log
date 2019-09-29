@@ -817,3 +817,17 @@ ORA-02291: restricción de integridad (ISIS2304D111920.FK_MEDICO_GENERAL_MEDICO)
 10:29:02,813 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
 10:29:02,828 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
 >>>>>>> master
+11:16:18,527 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:16:18,528 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:16:18,541 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:16:35,894 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Usuario: hola
+11:16:36,693 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Usuario: Usuario [nombre=hola, correo=hola, idRol=9, id=60, secuencia=0]
+11:16:53,906 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Afiliado: 6611999-11-15 12:35:11.0cc112435
+11:16:54,074 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Afiliado: Afiliado [idEps=6, idUsuario=61, fechaNacimiento=1999-11-15 12:35:11.0, tipoDocumento=cc, hospitalizado=1, numDocumento=12435]
+11:17:04,635 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Eps con gerente: /n123
+11:17:04,843 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO EPS_ANDES(id, idgerente) values (?,?)".
+ORA-02291: restricción de integridad (ISIS2304D111920.FK_EPS_ANDES_USUARIO) violada - clave principal no encontrada
+
+11:17:04,914 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Eps: null
+11:17:35,566 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Eps con gerente: /n61
+11:17:35,797 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Eps: EpsAndes [idGerente=61]
