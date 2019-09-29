@@ -585,7 +585,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
       }
       
       /* ****************************************************************
-    	 * 			 CRUD de Horario
+    	 * 			 CRUD de Hora
     	 *****************************************************************/
         
         
