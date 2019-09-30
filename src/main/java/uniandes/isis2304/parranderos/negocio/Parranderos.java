@@ -222,6 +222,21 @@ public class Parranderos
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
+	public OrdenServicio adicionarOrdenServicio (String receta, long idAfiliado, long idMedico){
+		
+     log.info ("Adicionando OrdenServicio: " + receta+" con afiliado"+" y medico");
+     OrdenServicio orden = pp.adicionarOrdenServicio(receta, idAfiliado, idMedico);
+    		 log.info ("Adicionando ServicioDeSalud: " + orden);
+        return orden;
+	
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
 	public Usuario adicionarUsuario (String nombre, String correo, long idRol){
 		
      log.info ("Adicionando Usuario: " + nombre);

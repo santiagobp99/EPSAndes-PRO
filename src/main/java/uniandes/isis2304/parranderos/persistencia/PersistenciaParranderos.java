@@ -1045,7 +1045,7 @@ public class PersistenciaParranderos
 	public OrdenServicio adicionarOrdenServicio(String receta, long idAfiliado, long idMedico)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
+        Transaction tx=pm.currentTransaction(); 
         try
         {
             tx.begin();

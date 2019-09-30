@@ -130,7 +130,7 @@
 			[
 				{
 					"label": "Registrar una orden de servicio",
-					"event": "registrarOrdenDeServicio"
+					"event": "adicionarOrdenDeServicio"
 				}
 				
 			]
