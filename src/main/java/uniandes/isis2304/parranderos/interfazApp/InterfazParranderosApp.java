@@ -370,7 +370,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				}
 
 				String resultado = "En adicionarRol\n\n";
-				resultado += "Afiliado adicionado exitosamente: " + u ;
+				resultado += "usuario adicionado exitosamente: " + u ;
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
 			}
@@ -427,6 +427,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				}
 
 				String resultado = "En adicionarRol\n\n";
+				
+				
 				resultado += "Afiliado adicionado exitosamente: " + u + af;
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
@@ -533,8 +535,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				{
 					throw new Exception ("No se pudo crear la eps: " + tb+ "con gerente "+IdGerente);
 				}
-				String resultado = "En adicionEps\n\n";
-				resultado += "EPS adicionads exitosamente: " + tb;
+				String resultado = "En adicionMedico\n\n";
+				resultado += "EPS adicionada exitosamente: " + tb;
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
 			}
