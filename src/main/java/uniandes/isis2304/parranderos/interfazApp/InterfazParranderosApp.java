@@ -50,13 +50,12 @@ import com.google.gson.stream.JsonReader;
 import uniandes.isis2304.parranderos.negocio.Parranderos;
 import uniandes.isis2304.parranderos.negocio.VOEpsAndes;
 import uniandes.isis2304.parranderos.negocio.VOHorario;
-import uniandes.isis2304.parranderos.negocio.VOHoras;
 import uniandes.isis2304.parranderos.negocio.VOIps;
 import uniandes.isis2304.parranderos.negocio.VOMedico;
 import uniandes.isis2304.parranderos.negocio.VOMedicoEspecialista;
 import uniandes.isis2304.parranderos.negocio.VOMedicoGeneral;
 import uniandes.isis2304.parranderos.negocio.VOMedicoTratante;
-import uniandes.isis2304.parranderos.negocio.VOOrdenServicio;
+import uniandes.isis2304.parranderos.negocio.VOOrden;
 import uniandes.isis2304.parranderos.negocio.VORecepcionista;
 import uniandes.isis2304.parranderos.negocio.VOAfiliado;
 import uniandes.isis2304.parranderos.negocio.VORol;
@@ -691,7 +690,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		
       		if (receta != null)
       		{
-          		VOOrdenServicio tb = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
+          		VOOrden tb = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
           		if (tb == null)
           		{
           			throw new Exception ("No se pudo crear la orden de servicio: " + tb+ "con receta "+receta);
@@ -761,51 +760,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
   		}
       }
       
-      /* ****************************************************************
-    	 * 			 CRUD de Hora
-    	 *****************************************************************/
-        
-        
-        public void adicionarHora( )
-        
-        {
-        	
-        	try 
-        	{
-        		String hora = JOptionPane.showInputDialog (this, "Hora?", "adicionarHora", JOptionPane.QUESTION_MESSAGE);	
-        		String idHorario = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHora", JOptionPane.QUESTION_MESSAGE);	
-        		
-   
-        		Timestamp Hora = Timestamp.valueOf(hora);
-        		long IdHorario = Long.valueOf(idHorario);
-        		
-        		
-        		if (hora != null)
-        		{
-            		VOHoras tb = parranderos.adicionarHora(Hora, IdHorario);
-            		if (tb == null)
-            		{
-            			throw new Exception ("No se pudo crear la hora: " + tb+ Hora);
-            		}
-            		String resultado = "En adicionHora\n\n";
-            		resultado += "Hora adicionada exitosamente: " + tb;
-        			resultado += "\n Operación terminada";
-        			panelDatos.actualizarInterfaz(resultado);
-        		}
-        		else
-        		{
-        			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-        		}
-    		} 
-        	catch (Exception e) 
-        	{
-//    			e.printStackTrace();
-    			String resultado = generarMensajeError(e);
-    			panelDatos.actualizarInterfaz(resultado);
-    		}
-        }
-      
-      
+
     
     
 

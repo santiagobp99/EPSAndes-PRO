@@ -10,40 +10,47 @@ package uniandes.isis2304.parranderos.negocio;
  * @author Santiago Ballesteros
  * @author Tomas Langebaek
  */
-public class Llegada implements VOLlegada {
-	
+public class Orden implements VOOrden {
 
 	/* ****************************************************************
 	 * 			Atributos
 	 *****************************************************************/
+	
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private long idRecepcionista;
+	private String receta;
 	
 	/**
 	 * El identificador �NICO de los bares
 	 */
 	private long idAfiliado;
+	
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private long idMedico;
 
-	public Llegada() {
+	public Orden() {
 		
-		this.idRecepcionista = 0;
+		this.receta = "";
 		this.idAfiliado = 0;
+		this.idMedico = 0;
 	}
 
-	public Llegada(long idRecepcionista, long idAfiliado) {
+	public Orden(String receta, long idAfiliado, long idMedico) {
 		
-		this.idRecepcionista = idRecepcionista;
+		this.receta = receta;
 		this.idAfiliado = idAfiliado;
+		this.idMedico = idMedico;
 	}
 
-	public long getIdRecepcionista() {
-		return idRecepcionista;
+	public String getReceta() {
+		return receta;
 	}
 
-	public void setIdRecepcionista(long idRecepcionista) {
-		this.idRecepcionista = idRecepcionista;
+	public void setReceta(String receta) {
+		this.receta = receta;
 	}
 
 	public long getIdAfiliado() {
@@ -54,12 +61,18 @@ public class Llegada implements VOLlegada {
 		this.idAfiliado = idAfiliado;
 	}
 
+	public long getIdMedico() {
+		return idMedico;
+	}
+
+	public void setIdMedico(long idMedico) {
+		this.idMedico = idMedico;
+	}
+
 	@Override
 	public String toString() {
-		return "Llegada [idRecepcionista=" + idRecepcionista + ", idAfiliado=" + idAfiliado + "]";
+		return "OrdenServicio [receta=" + receta + ", idAfiliado=" + idAfiliado + ", idMedico=" + idMedico + "]";
 	}
-	
-	
 	
 	
 	

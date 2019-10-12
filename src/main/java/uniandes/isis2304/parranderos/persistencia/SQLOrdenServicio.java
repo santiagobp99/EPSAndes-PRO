@@ -5,7 +5,7 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import uniandes.isis2304.parranderos.negocio.OrdenServicio;;
+import uniandes.isis2304.parranderos.negocio.Orden;;
 
 public class SQLOrdenServicio {
 
@@ -34,20 +34,20 @@ public class SQLOrdenServicio {
 	}
 
 	
-	public OrdenServicio darOrdenServicio (PersistenceManager pm, long pIdOrdenServicio) 
+	public Orden darOrdenServicio (PersistenceManager pm, long pIdOrdenServicio) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " +  persistenciaEPS.darTablaOrdenServicio()  + " WHERE id = ?");
-		q.setResultClass(OrdenServicio.class);
+		q.setResultClass(Orden.class);
 		q.setParameters(pIdOrdenServicio);
-		return (OrdenServicio) q.executeUnique();
+		return (Orden) q.executeUnique();
 	}
 
 	
-	public List<OrdenServicio> darOrdenesServicios (PersistenceManager pm)
+	public List<Orden> darOrdenesServicios (PersistenceManager pm)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " +  persistenciaEPS.darTablaOrdenServicio() );
-		q.setResultClass(OrdenServicio.class);
-		return (List<OrdenServicio>) q.executeList();
+		q.setResultClass(Orden.class);
+		return (List<Orden>) q.executeList();
 	}
 	
 

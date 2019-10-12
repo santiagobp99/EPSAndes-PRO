@@ -15,7 +15,17 @@ public class ConsultaUrgencias implements VOConsultaUrgencias {
 	/* ****************************************************************
 	 * 			Atributos
 	 *****************************************************************/
-
+	
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private long id;
+	
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private long idMedicoTratante;
+	
 	/**
 	 * El identificador �NICO de los bares
 	 */
@@ -24,24 +34,37 @@ public class ConsultaUrgencias implements VOConsultaUrgencias {
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private long idRecepcionista;
-	
-	/**
-	 * El identificador �NICO de los bares
-	 */
-	private long idMedicoTratante;
+	private int prioridadTriage;
 
 	public ConsultaUrgencias() {
 		
-		this.diagnostico = "";
-		this.idRecepcionista = 0;
+		this.id = 0;
 		this.idMedicoTratante = 0;
+		this.diagnostico = "";
+		this.prioridadTriage = 0;
 	}
 
-	public ConsultaUrgencias(String diagnostico, long idRecepcionista, long idMedicoTratante) {
+	public ConsultaUrgencias(long id, long idMedicoTratante, String diagnostico, int prioridadTriage) {
 		
+		this.id = id;
+		this.idMedicoTratante = idMedicoTratante;
 		this.diagnostico = diagnostico;
-		this.idRecepcionista = idRecepcionista;
+		this.prioridadTriage = prioridadTriage;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public long getIdMedicoTratante() {
+		return idMedicoTratante;
+	}
+
+	public void setIdMedicoTratante(long idMedicoTratante) {
 		this.idMedicoTratante = idMedicoTratante;
 	}
 
@@ -53,33 +76,18 @@ public class ConsultaUrgencias implements VOConsultaUrgencias {
 		this.diagnostico = diagnostico;
 	}
 
-	public long getIdRecepcionista() {
-		return idRecepcionista;
+	public int getPrioridadTriage() {
+		return prioridadTriage;
 	}
 
-	public void setIdRecepcionista(long idRecepcionista) {
-		this.idRecepcionista = idRecepcionista;
-	}
-
-	public long getIdMedicoTratante() {
-		return idMedicoTratante;
-	}
-
-	public void setIdMedicoTratante(long idMedicoTratante) {
-		this.idMedicoTratante = idMedicoTratante;
+	public void setPrioridadTriage(int prioridadTriage) {
+		this.prioridadTriage = prioridadTriage;
 	}
 
 	@Override
 	public String toString() {
-		return "ConsultaUrgencias [diagnostico=" + diagnostico + ", idRecepcionista=" + idRecepcionista
-				+ ", idMedicoTratante=" + idMedicoTratante + "]";
+		return "ConsultaUrgencias [id=" + id + ", idMedicoTratante=" + idMedicoTratante + ", diagnostico=" + diagnostico
+				+ ", prioridadTriage=" + prioridadTriage + "]";
 	}
 	
-
-	/* ****************************************************************
-	 * 			M�todos 
-	 *****************************************************************/
-
-
-
 }

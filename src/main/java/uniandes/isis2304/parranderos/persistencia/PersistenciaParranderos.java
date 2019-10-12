@@ -47,7 +47,7 @@ import uniandes.isis2304.parranderos.negocio.Medico;
 import uniandes.isis2304.parranderos.negocio.MedicoEspecialista;
 import uniandes.isis2304.parranderos.negocio.MedicoGeneral;
 import uniandes.isis2304.parranderos.negocio.MedicoTratante;
-import uniandes.isis2304.parranderos.negocio.OrdenServicio;
+import uniandes.isis2304.parranderos.negocio.Orden;
 import uniandes.isis2304.parranderos.negocio.Recepcionista;
 import uniandes.isis2304.parranderos.negocio.Rol;
 import uniandes.isis2304.parranderos.negocio.ServicioSalud;
@@ -1042,7 +1042,7 @@ public class PersistenciaParranderos
 	 * 			 ORDEN DE SERVICIO
 	 *****************************************************************/
 	
-	public OrdenServicio adicionarOrdenServicio(String receta, long idAfiliado, long idMedico)
+	public Orden adicionarOrdenServicio(String receta, long idAfiliado, long idMedico)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction(); 
@@ -1053,7 +1053,7 @@ public class PersistenciaParranderos
             
             log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new OrdenServicio(receta, idAfiliado, idMedico);
+            return new Orden(receta, idAfiliado, idMedico);
         }
         catch (Exception e)
         {
@@ -1072,12 +1072,12 @@ public class PersistenciaParranderos
 	}
 
  
-	public OrdenServicio darOrdenServicio (long idOrdenServicio)
+	public Orden darOrdenServicio (long idOrdenServicio)
 	{
 		return sqlOrdenServicio.darOrdenServicio(pmf.getPersistenceManager(), idOrdenServicio);
 	}
 	
-	public List<OrdenServicio> darOrdenServicios ()
+	public List<Orden> darOrdenServicios ()
 	{
 		return sqlOrdenServicio.darOrdenesServicios(pmf.getPersistenceManager());
 	}

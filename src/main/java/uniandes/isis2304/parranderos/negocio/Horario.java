@@ -15,33 +15,56 @@ public class Horario implements VOHorario {
 	/* ****************************************************************
 	 * 			Atributos
 	 *****************************************************************/
-
+	
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private int capacidad;
-	
+	private long id;
+
 	/**
 	 * El identificador �NICO de los bares
 	 */
 	private long idServicio;
 
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private String hora;
+
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private String dia;
+
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private int capacidad;
+
 	public Horario() {
-		this.capacidad = 0;
+		
+		this.id = 0;
 		this.idServicio = 0;
+		this.hora = "";
+		this.dia = "";
+		this.capacidad = 0;
 	}
 
-	public Horario(int capacidad, long idServicio) {
+	public Horario(long id, long servicio, String hora, String dia, int capacidad) {
+		
+		this.id = id;
+		this.idServicio = servicio;
+		this.hora = hora;
+		this.dia = dia;
 		this.capacidad = capacidad;
-		this.idServicio = idServicio;
 	}
 
-	public int getCapacidad() {
-		return capacidad;
+	public long getId() {
+		return id;
 	}
 
-	public void setCapacidad(int capacidad) {
-		this.capacidad = capacidad;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public long getIdServicio() {
@@ -52,14 +75,38 @@ public class Horario implements VOHorario {
 		this.idServicio = idServicio;
 	}
 
-	@Override
-	public String toString() {
-		return "Horario [capacidad=" + capacidad + ", idServicio=" + idServicio + "]";
+	public String getHora() {
+		return hora;
 	}
 
-	/* ****************************************************************
-	 * 			M�todos 
-	 *****************************************************************/
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
 
+	public String getDia() {
+		return dia;
+	}
+
+	public void setDia(String dia) {
+		this.dia = dia;
+	}
+
+	public int getCapacidad() {
+		return capacidad;
+	}
+
+	public void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	@Override
+	public String toString() {
+		return "Horario [id=" + id + ", idServicio=" + idServicio + ", hora=" + hora + ", dia=" + dia + ", capacidad="
+				+ capacidad + "]";
+	}
+
+
+	
+	
 
 }

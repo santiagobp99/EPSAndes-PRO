@@ -7,7 +7,7 @@ package uniandes.isis2304.parranderos.negocio;
  * @author Santiago Ballesteros
  * @author Tomas Langebaek
  */
-public interface VOOrdenServicio {
+public interface VOOrden {
 	
 	/* ****************************************************************
 	 * 			M�todos

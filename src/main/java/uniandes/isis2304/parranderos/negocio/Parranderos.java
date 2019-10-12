@@ -222,10 +222,10 @@ public class Parranderos
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public OrdenServicio adicionarOrdenServicio (String receta, long idAfiliado, long idMedico){
+	public Orden adicionarOrdenServicio (String receta, long idAfiliado, long idMedico){
 		
      log.info ("Adicionando OrdenServicio: " + receta+" con afiliado"+" y medico");
-     OrdenServicio orden = pp.adicionarOrdenServicio(receta, idAfiliado, idMedico);
+     Orden orden = pp.adicionarOrdenServicio(receta, idAfiliado, idMedico);
     		 log.info ("Adicionando ServicioDeSalud: " + orden);
         return orden;
 	
@@ -259,21 +259,6 @@ public class Parranderos
      Horario horaio = pp.adicionarHorario(pCapacidad, pIdServicio);	
        log.info ("Adicionando Usuario: " + horaio);
         return horaio;
-	
-	}
-	
-	/**
-	 * Adiciona de manera persistente un tipo de bebida 
-	 * Adiciona entradas al log de la aplicaci?n
-	 * @param nombre - El nombre del tipo de bebida
-	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
-	 */
-	public Horas adicionarHora (Timestamp pHora, long pIdHorario){
-		
-     log.info ("Adicionando Hora: " + pHora);
-     Horas hora = pp.adicionarHoras(pHora, pIdHorario);		
-       log.info ("Adicionando Usuario: " + hora);
-        return hora;
 	
 	}
 	
