@@ -18,11 +18,11 @@ public class SQLServicioSalud {
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public long adicionarServicioSalud (PersistenceManager pm, String pDescripcion, String pDisponibilidad, String pTipo, String pEstado, long pIdAfiliado,
-			long pIdMedico, long pIdIPS, long pIdOrden) 
+	public long adicionarServicioSalud (PersistenceManager pm, String pDescripcion, String pTipo,
+			 long pIdIPS, int orden, Long pId) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaServicioSalud() + "(descripcion, disponibilidad, tipo, estado, idafiliado, idmedico, idips, idorden) values (?, ?, ?, ?, ?, ?, ?, ? )");
-        q.setParameters(pDescripcion, pDisponibilidad, pTipo, pEstado, pIdAfiliado, pIdMedico, pIdIPS, pIdOrden );
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaServicioSalud() + "(descripcion, tipo, id, idips, orden) values (?, ?, ?, ?, ? )");
+        q.setParameters(pDescripcion, pTipo, pId, pIdIPS, orden );
         return (long) q.executeUnique();
 	}
 	

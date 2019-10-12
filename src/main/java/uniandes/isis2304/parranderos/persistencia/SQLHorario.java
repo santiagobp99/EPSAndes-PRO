@@ -1,7 +1,5 @@
 package uniandes.isis2304.parranderos.persistencia;
 
-import java.sql.Timestamp;
-
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -21,10 +19,10 @@ public class SQLHorario {
 		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
-	public long adicionarHorario (PersistenceManager pm, int pCapacidad , Long pIdServicio) 
+	public long adicionarHorario (PersistenceManager pm, int pCapacidad , Long pIdServicio, String pHora, String pDia, String pID) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaHorario() + "(capacidad, idservicio) values (?, ?)");
-        q.setParameters(pCapacidad, pIdServicio);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaHorario() + "(capacidad, idservicio, hora, dia, id) values (?, ?, ?, ?, ?)");
+        q.setParameters(pCapacidad, pIdServicio, pHora, pDia, pID);
         return (long) q.executeUnique();
 	}
 	

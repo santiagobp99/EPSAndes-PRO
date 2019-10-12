@@ -156,8 +156,6 @@ public class PersistenciaParranderos
 
 	private SQLHorario sqlHorario;
 
-	private SQLHoras sqlHoras;
-
 	private SQLInterconsultas sqlInterconsultas;
 
 	private SQLIps sqlIps;
@@ -172,7 +170,7 @@ public class PersistenciaParranderos
 
 	private SQLMedicoTratante sqlMedicoTratante;
 
-	private SQLOrdenServicio sqlOrdenServicio;
+	private SQLOrden sqlOrdenServicio;
 
 	private SQLRecepcionista sqlRecepcionista;
 
@@ -181,6 +179,10 @@ public class PersistenciaParranderos
 	private SQLServicioSalud sqlServicioSalud;
 
 	private SQLUsuario sqlUsuario;
+	
+	private SQLMedicoServicio sqlMedicoServicio;
+	
+	private SQLReservas sqlReservas;
 	
 	/* ****************************************************************
 	 * 			Métodos del MANEJADOR DE PERSISTENCIA
@@ -314,7 +316,6 @@ public class PersistenciaParranderos
 		sqlConsultaUrgencias = new SQLConsultaUrgencias(this);
 		sqlEpsAndes = new SQLEpsAndes(this);
 		sqlHorario = new SQLHorario(this);
-		sqlHoras = new SQLHoras(this);
 		sqlInterconsultas = new SQLInterconsultas(this);
 		sqlIps = new SQLIps(this);
 		sqlLlegada = new SQLLlegada(this);
@@ -322,7 +323,7 @@ public class PersistenciaParranderos
 		sqlMedicoEspecialista = new SQLMedicoEspecialista(this);
 		sqlMedicoGeneral = new SQLMedicoGeneral(this);
 		sqlMedicoTratante = new SQLMedicoTratante(this);
-		sqlOrdenServicio = new SQLOrdenServicio(this);
+		sqlOrdenServicio = new SQLOrden(this);
 		sqlRecepcionista = new SQLRecepcionista(this);
 		sqlRol = new SQLRol(this);
 		sqlServicioSalud = new SQLServicioSalud(this);
@@ -474,7 +475,7 @@ public class PersistenciaParranderos
 		return tablas.get (23);
 	}
 	
-	public String darTablaOrdenServicio ()
+	public String darTablaOrden ()
 	{
 		return tablas.get (24);
 	}
@@ -1049,7 +1050,7 @@ public class PersistenciaParranderos
         try
         {
             tx.begin();
-            long tuplasInsertadas = sqlOrdenServicio.adicionarOrdenServicio(pm, receta, idAfiliado, idMedico);
+            long tuplasInsertadas = sqlOrdenServicio.adicionarOrden(pm, receta, idAfiliado, idMedico);
             
             log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
             
@@ -1074,12 +1075,12 @@ public class PersistenciaParranderos
  
 	public OrdenServicio darOrdenServicio (long idOrdenServicio)
 	{
-		return sqlOrdenServicio.darOrdenServicio(pmf.getPersistenceManager(), idOrdenServicio);
+		return sqlOrdenServicio.darOrden(pmf.getPersistenceManager(), idOrdenServicio);
 	}
 	
 	public List<OrdenServicio> darOrdenServicios ()
 	{
-		return sqlOrdenServicio.darOrdenesServicios(pmf.getPersistenceManager());
+		return sqlOrdenServicio.darOrdenes(pmf.getPersistenceManager());
 	}
 	
 	/* ****************************************************************
@@ -1233,42 +1234,7 @@ public class PersistenciaParranderos
         }
 	}
 	
-	
-	/* ****************************************************************
-	 * 			HORAS
-	 *****************************************************************/
-	
-	public Horas adicionarHoras(Timestamp pHora , Long pIdHorario)
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long tuplasInsertadas = sqlHoras.adicionarHora(pm, pHora, pIdHorario);
-            tx.commit();
-            
-            log.trace ("Inserción de la hora: "+ pHora+ " del horario "+ pIdHorario+", "+ tuplasInsertadas + " tuplas insertadas");
-            
-            return new Horas(pHora, pIdHorario);  }
-        
-        catch (Exception e)
-        {
-      // 	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return null;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-	
-	
+
 	
 	
 	/* ****************************************************************

@@ -19,10 +19,10 @@ public class SQLConsultaUrgencias {
 		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
-	public long adicionarConsultaUrgencias (PersistenceManager pm, String pDiagnostico, Long pRecepcionista, Long pIdMedicoTratante) 
+	public long adicionarConsultaUrgencias (PersistenceManager pm, String pDiagnostico, Long pRecepcionista, Long pIdMedicoTratante, Long Id, String pPrioridadTriage ) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaConsultaUrgencias() + "(diagnostico, idrecepcionista, idmedicotratante) values (?, ?, ?)");
-        q.setParameters(pDiagnostico, pRecepcionista, pIdMedicoTratante);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaConsultaUrgencias() + "(diagnostico, id, idrecepcionista, idmedicotratante, prioridadtriage) values (?, ?, ?, ?)");
+        q.setParameters(pDiagnostico, Id, pRecepcionista, pIdMedicoTratante, pPrioridadTriage);
         return (long) q.executeUnique();
 	}
 	
