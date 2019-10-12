@@ -19,7 +19,7 @@ public class SQLHorario {
 		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
-	public long adicionarHorario (PersistenceManager pm, int pCapacidad , Long pIdServicio, String pHora, String pDia, String pID) 
+	public long adicionarHorario (PersistenceManager pm, int pCapacidad , long pIdServicio, String pHora, String pDia, long pID) 
 	{
         Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaHorario() + "(capacidad, idservicio, hora, dia, id) values (?, ?, ?, ?, ?)");
         q.setParameters(pCapacidad, pIdServicio, pHora, pDia, pID);

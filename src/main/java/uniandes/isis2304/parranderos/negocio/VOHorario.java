@@ -16,7 +16,23 @@ public interface VOHorario {
 	/**
 	 * @return El idServicio de nombre-tabla
 	 */
+	public long getId();
+	
+	/**
+	 * @return El idServicio de nombre-tabla
+	 */
 	public long getIdServicio();
+
+
+	/**
+	 * @return El capacidad de nombre-tabla
+	 */
+	public String getHora();
+	
+	/**
+	 * @return El capacidad de nombre-tabla
+	 */
+	public String getDia();
 
 	/**
 	 * @return El capacidad de nombre-tabla

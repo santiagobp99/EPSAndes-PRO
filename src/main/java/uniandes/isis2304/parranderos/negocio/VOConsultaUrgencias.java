@@ -16,7 +16,7 @@ public interface VOConsultaUrgencias {
 	/**
 	 * @return El idRecepcionista de nombre-tabla
 	 */
-	public long getIdRecepcionista();
+	public long getId();
 
 	/**
 	 * @return El idMedicoTratante de nombre-tabla
@@ -27,6 +27,11 @@ public interface VOConsultaUrgencias {
 	 * @return El diagnostico de nombre-tabla
 	 */
 	public String getDiagnostico();
+	
+	/**
+	 * @return El idMedicoTratante de nombre-tabla
+	 */
+	public int getPrioridadTriage();
 	
 	/**
 	 * @return Una cadena con la informaci�n b�sica de nombre-tabla

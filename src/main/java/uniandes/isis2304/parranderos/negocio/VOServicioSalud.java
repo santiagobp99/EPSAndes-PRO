@@ -12,31 +12,16 @@ public interface VOServicioSalud {
 	/* ****************************************************************
 	 * 			M�todos
 	 *****************************************************************/
-
+	
 	/**
-	 * @return El idAfiliado de nombre-tabla
+	 * @return El idIps de nombre-tabla
 	 */
-	public long getIdAfiliado();
-
-	/**
-	 * @return El idMedico de nombre-tabla
-	 */
-	public long getIdMedico();
-
+	public long getId();
+	
 	/**
 	 * @return El idIps de nombre-tabla
 	 */
 	public long getIdIps();
-
-	/**
-	 * @return El idOrden de nombre-tabla
-	 */
-	public long getIdOrden();
-
-	/**
-	 * @return El estado de nombre-tabla
-	 */
-	public String getEstado();
 
 	/**
 	 * @return El tipo de nombre-tabla
@@ -44,14 +29,14 @@ public interface VOServicioSalud {
 	public String getTipo();
 
 	/**
-	 * @return La disponibilidad de nombre-tabla
-	 */
-	public String getDisponibilidad();
-
-	/**
 	 * @return La descripcion de nombre-tabla
 	 */
 	public String getDescripcion();
+	
+	/**
+	 * @return La descripcion de nombre-tabla
+	 */
+	public int getOrden();
 	
 	/**
 	 * @return Una cadena con la informaci�n b�sica de nombre-tabla

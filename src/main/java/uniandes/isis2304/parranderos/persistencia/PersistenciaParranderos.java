@@ -17,6 +17,7 @@ package uniandes.isis2304.parranderos.persistencia;
 
 
 import java.math.BigDecimal;
+
 import java.sql.Timestamp;
 import java.util.LinkedList;
 import java.util.List;
@@ -25,7 +26,6 @@ import javax.jdo.JDODataStoreException;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
-import javax.jdo.Query;
 import javax.jdo.Transaction;
 
 import org.apache.log4j.Logger;
@@ -40,14 +40,14 @@ import uniandes.isis2304.parranderos.negocio.Bebida;
 import uniandes.isis2304.parranderos.negocio.EpsAndes;
 import uniandes.isis2304.parranderos.negocio.Gustan;
 import uniandes.isis2304.parranderos.negocio.Horario;
-import uniandes.isis2304.parranderos.negocio.Horas;
+
 import uniandes.isis2304.parranderos.negocio.Ips;
-import uniandes.isis2304.parranderos.negocio.Llegada;
+
 import uniandes.isis2304.parranderos.negocio.Medico;
 import uniandes.isis2304.parranderos.negocio.MedicoEspecialista;
 import uniandes.isis2304.parranderos.negocio.MedicoGeneral;
 import uniandes.isis2304.parranderos.negocio.MedicoTratante;
-import uniandes.isis2304.parranderos.negocio.OrdenServicio;
+import uniandes.isis2304.parranderos.negocio.Orden;
 import uniandes.isis2304.parranderos.negocio.Recepcionista;
 import uniandes.isis2304.parranderos.negocio.Rol;
 import uniandes.isis2304.parranderos.negocio.ServicioSalud;
@@ -146,8 +146,6 @@ public class PersistenciaParranderos
 
 	private SQLCitaMedica sqlCitaMedica;
 
-	private SQLCitasDeServicios sqlCitasDeServicios;
-
 	private SQLConsultaEspecialista sqlConsultaEspecialista;
 
 	private SQLConsultaUrgencias sqlConsultaUrgencias;
@@ -159,8 +157,6 @@ public class PersistenciaParranderos
 	private SQLInterconsultas sqlInterconsultas;
 
 	private SQLIps sqlIps;
-
-	private SQLLlegada sqlLlegada;
 
 	private SQLMedico sqlMedico;
 
@@ -311,14 +307,12 @@ public class PersistenciaParranderos
 		sqlAdscritos = new SQLAdscritos(this);
 		sqlAfiliado = new SQLAfiliado(this);
 		sqlCitaMedica = new  SQLCitaMedica(this);
-		sqlCitasDeServicios = new SQLCitasDeServicios(this);
 		sqlConsultaEspecialista = new SQLConsultaEspecialista(this);
 		sqlConsultaUrgencias = new SQLConsultaUrgencias(this);
 		sqlEpsAndes = new SQLEpsAndes(this);
 		sqlHorario = new SQLHorario(this);
 		sqlInterconsultas = new SQLInterconsultas(this);
 		sqlIps = new SQLIps(this);
-		sqlLlegada = new SQLLlegada(this);
 		sqlMedico = new SQLMedico(this);
 		sqlMedicoEspecialista = new SQLMedicoEspecialista(this);
 		sqlMedicoGeneral = new SQLMedicoGeneral(this);
@@ -997,20 +991,19 @@ public class PersistenciaParranderos
 	 * 			 SERVICIO DE SALUD
 	 *****************************************************************/
 	
-	public ServicioSalud adicionarServicioDeSalud(String descripcion, String disponibilidad, String tipo, String estado, long idAfiliado,
-			long idMedico, long idIps, long idOrden)
+	public ServicioSalud adicionarServicioDeSalud(long id, long idIps, String descripcion, String tipo, int orden)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long tuplasInsertadas = sqlServicioSalud.adicionarServicioSalud(pm, descripcion, disponibilidad, tipo, estado, idAfiliado, idMedico, idIps, idOrden);
+            long tuplasInsertadas = sqlServicioSalud.adicionarServicioSalud(pm, descripcion, tipo, idIps, orden, id);
             tx.commit();
             
             log.trace ("Inserción del servicio de salud: " + tipo + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new ServicioSalud(descripcion, disponibilidad, tipo, estado, idAfiliado, idMedico, idIps, idOrden);
+            return new ServicioSalud(id, idIps, descripcion, tipo, orden);
         }
         catch (Exception e)
         {
@@ -1043,7 +1036,7 @@ public class PersistenciaParranderos
 	 * 			 ORDEN DE SERVICIO
 	 *****************************************************************/
 	
-	public OrdenServicio adicionarOrdenServicio(String receta, long idAfiliado, long idMedico)
+	public Orden adicionarOrdenServicio(String receta, long idAfiliado, long idMedico)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction(); 
@@ -1054,7 +1047,7 @@ public class PersistenciaParranderos
             
             log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
             
-            return new OrdenServicio(receta, idAfiliado, idMedico);
+            return new Orden(receta, idAfiliado, idMedico);
         }
         catch (Exception e)
         {
@@ -1073,60 +1066,14 @@ public class PersistenciaParranderos
 	}
 
  
-	public OrdenServicio darOrdenServicio (long idOrdenServicio)
+	public Orden darOrdenServicio (long idOrdenServicio)
 	{
 		return sqlOrdenServicio.darOrden(pmf.getPersistenceManager(), idOrdenServicio);
 	}
 	
-	public List<OrdenServicio> darOrdenServicios ()
+	public List<Orden> darOrdenServicios ()
 	{
 		return sqlOrdenServicio.darOrdenes(pmf.getPersistenceManager());
-	}
-	
-	/* ****************************************************************
-	 * 			 LLEGADA
-	 *****************************************************************/
-	
-	public Llegada adicionarLlegada(long idRecepcionista, long idAfiliado)
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long tuplasInsertadas = sqlLlegada.adicionarLlegada(pm, idRecepcionista, idAfiliado);
-            
-            log.trace ("Inserción de la llegada: " + idRecepcionista+" con "+idAfiliado + ": " + tuplasInsertadas + " tuplas insertadas");
-            
-            return new Llegada(idRecepcionista, idAfiliado);
-        }
-        catch (Exception e)
-        {
-      // 	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return null;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
-	
-	
-
- 
-//	public Llegada darLlegada (long idLlegada)
-//	{
-//		return sqlLlegada.da(pmf.getPersistenceManager(), idLlegada);
-//	}
-	
-	public List<Llegada> darLlegadas ()
-	{
-		return sqlLlegada.darLlegadas(pmf.getPersistenceManager());
 	}
 	
 	
@@ -1166,58 +1113,24 @@ public class PersistenciaParranderos
         }
 	}
 	
-	/* ****************************************************************
-	 * 			 SERVICIO SALUD
-	 *****************************************************************/
-	
-	public ServicioSalud adicionarServicioSalud(String pDescripcion, String pDisponibilidad, String pTipo, String pEstado, long pIdAfiliado, long pIdMedico, long pIdIPS, long pIdOrden)
-	{
-		PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
-        try
-        {
-            tx.begin();
-            long tuplasInsertadas = sqlServicioSalud.adicionarServicioSalud(pm, pDescripcion, pDisponibilidad, pTipo, pEstado, pIdAfiliado, pIdMedico, pIdIPS, pIdOrden);
-            
-            tx.commit();
-            
-            log.trace ("Inserción del servicio de salud: " + pDescripcion+ ", "+ tuplasInsertadas + " tuplas insertadas");
-            
-            return new ServicioSalud(pDescripcion, pDisponibilidad, pTipo, pEstado, pIdAfiliado, pIdMedico, pIdIPS, pIdOrden);
-        }
-        catch (Exception e)
-        {
-      // 	e.printStackTrace();
-        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-        	return null;
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
-                tx.rollback();
-            }
-            pm.close();
-        }
-	}
 	
 	/* ****************************************************************
 	 * 			HORARIO
 	 *****************************************************************/
 	
-	public Horario adicionarHorario(int pCapacidad, long pIdServicio)
+	public Horario adicionarHorario(long id, long servicio, String hora, String dia, int capacidad)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            long tuplasInsertadas = sqlHorario.adicionarHorario(pm, pCapacidad, pIdServicio);
+            long tuplasInsertadas = sqlHorario.adicionarHorario(pm, capacidad , servicio,  hora, dia, id);
             tx.commit();
             
-            log.trace ("Inserción del horario del servicio: "+ pIdServicio+ " con capacidad "+ pCapacidad+", "+ tuplasInsertadas + " tuplas insertadas");
+            log.trace ("Inserción del horario del servicio: "+ servicio+ " con capacidad "+ capacidad+", "+ tuplasInsertadas + " tuplas insertadas");
             
-            return new Horario(pCapacidad, pIdServicio);      }
+            return new Horario(id, servicio, hora, dia, capacidad);      }
         catch (Exception e)
         {
       // 	e.printStackTrace();
@@ -2439,6 +2352,16 @@ public class PersistenciaParranderos
             pm.close();
         }
 		
+	}
+
+	public String darTablaMedicoServicio() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String darTablaOrdenesServicios() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

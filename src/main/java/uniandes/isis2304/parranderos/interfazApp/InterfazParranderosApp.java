@@ -50,13 +50,12 @@ import com.google.gson.stream.JsonReader;
 import uniandes.isis2304.parranderos.negocio.Parranderos;
 import uniandes.isis2304.parranderos.negocio.VOEpsAndes;
 import uniandes.isis2304.parranderos.negocio.VOHorario;
-import uniandes.isis2304.parranderos.negocio.VOHoras;
 import uniandes.isis2304.parranderos.negocio.VOIps;
 import uniandes.isis2304.parranderos.negocio.VOMedico;
 import uniandes.isis2304.parranderos.negocio.VOMedicoEspecialista;
 import uniandes.isis2304.parranderos.negocio.VOMedicoGeneral;
 import uniandes.isis2304.parranderos.negocio.VOMedicoTratante;
-import uniandes.isis2304.parranderos.negocio.VOOrdenServicio;
+import uniandes.isis2304.parranderos.negocio.VOOrden;
 import uniandes.isis2304.parranderos.negocio.VORecepcionista;
 import uniandes.isis2304.parranderos.negocio.VOAfiliado;
 import uniandes.isis2304.parranderos.negocio.VORol;
@@ -605,71 +604,71 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     	 * 			 CRUD de Servicio de Salud
     	 *****************************************************************/
       
-      public void registrarServicioSalud( )
-      
-      {
-      	
-      	try 
-      	{
-      		
-      		String descripcion = JOptionPane.showInputDialog (this, "Descripcion", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    		String disponibilidad = JOptionPane.showInputDialog (this, "Disponibilidad", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    		String tipo = JOptionPane.showInputDialog (this, "Tipo?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    		String estado = JOptionPane.showInputDialog (this, "Capacidad?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    		String idAfiliado = null;
-    		long IdAfiliado = 0;
-    		int dialogButton = JOptionPane.YES_NO_OPTION;
-    		int dialogResult = JOptionPane.showConfirmDialog (null, "Quiere incluir un afiliado?","Warning", dialogButton);
-    		if(dialogResult == JOptionPane.YES_OPTION){
-    			idAfiliado = JOptionPane.showInputDialog (this, "idAfiliado", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    			IdAfiliado = Long.valueOf(idAfiliado);
-    		}
-    		else{
-    		
-    		}
-    		String idMedico = JOptionPane.showInputDialog (this, "idMedico", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    		String idIps = JOptionPane.showInputDialog (this, "idIps", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    		long IdOrden = 0;
-    		int dialogButton2 = JOptionPane.YES_NO_OPTION;
-    		int dialogResult2 = JOptionPane.showConfirmDialog (null, "Quiere incluir un afiliado?","Warning", dialogButton2);
-    		if(dialogResult2 == JOptionPane.YES_OPTION){
-    			String idOrden = JOptionPane.showInputDialog (this, "idOrden", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    			IdOrden = Long.valueOf(idOrden);
-    		}
-    		else{
-    		
-    		}
-    		
-    		long IdMedico = Long.valueOf(idMedico);
-    		
-    		long IdIps = Long.valueOf(idIps);
-      		
-      		
-      		if (descripcion != null)
-      		{
-          		VOServicioSalud tb = parranderos.adicionarServicioDeSalud(descripcion, disponibilidad, tipo, estado, IdAfiliado, IdMedico, IdIps, IdOrden);
-          		if (tb == null)
-          		{
-          			throw new Exception ("No se pudo crear el servicio de salud: " + tb+ "con la descripcion "+descripcion);
-          		}
-          		String resultado = "En adicionServicioSalud\n\n";
-          		resultado += "Servicio de salud adicionado exitosamente: " + tb;
-      			resultado += "\n Operación terminada";
-      			panelDatos.actualizarInterfaz(resultado);
-      		}
-      		else
-      		{
-      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-      		}
-  		} 
-      	catch (Exception e) 
-      	{
-//  			e.printStackTrace();
-  			String resultado = generarMensajeError(e);
-  			panelDatos.actualizarInterfaz(resultado);
-  		}
-      }
-      
+//      public void registrarServicioSalud( )
+//      
+//      {
+//      	
+//      	try 
+//      	{
+//      		
+//      		String descripcion = JOptionPane.showInputDialog (this, "Descripcion", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+//    		String disponibilidad = JOptionPane.showInputDialog (this, "Disponibilidad", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+//    		String tipo = JOptionPane.showInputDialog (this, "Tipo?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+//    		String estado = JOptionPane.showInputDialog (this, "Capacidad?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+//    		String idAfiliado = null;
+//    		long IdAfiliado = 0;
+//    		int dialogButton = JOptionPane.YES_NO_OPTION;
+//    		int dialogResult = JOptionPane.showConfirmDialog (null, "Quiere incluir un afiliado?","Warning", dialogButton);
+//    		if(dialogResult == JOptionPane.YES_OPTION){
+//    			idAfiliado = JOptionPane.showInputDialog (this, "idAfiliado", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+//    			IdAfiliado = Long.valueOf(idAfiliado);
+//    		}
+//    		else{
+//    		
+//    		}
+//    		String idMedico = JOptionPane.showInputDialog (this, "idMedico", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+//    		String idIps = JOptionPane.showInputDialog (this, "idIps", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+//    		long IdOrden = 0;
+//    		int dialogButton2 = JOptionPane.YES_NO_OPTION;
+//    		int dialogResult2 = JOptionPane.showConfirmDialog (null, "Quiere incluir un afiliado?","Warning", dialogButton2);
+//    		if(dialogResult2 == JOptionPane.YES_OPTION){
+//    			String idOrden = JOptionPane.showInputDialog (this, "idOrden", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+//    			IdOrden = Long.valueOf(idOrden);
+//    		}
+//    		else{
+//    		
+//    		}
+//    		
+//    		long IdMedico = Long.valueOf(idMedico);
+//    		
+//    		long IdIps = Long.valueOf(idIps);
+//      		
+//      		
+//      		if (descripcion != null)
+//      		{
+//          		VOServicioSalud tb = parranderos.adicionarServicioDeSalud(descripcion, disponibilidad, tipo, estado, IdAfiliado, IdMedico, IdIps, IdOrden);
+//          		if (tb == null)
+//          		{
+//          			throw new Exception ("No se pudo crear el servicio de salud: " + tb+ "con la descripcion "+descripcion);
+//          		}
+//          		String resultado = "En adicionServicioSalud\n\n";
+//          		resultado += "Servicio de salud adicionado exitosamente: " + tb;
+//      			resultado += "\n Operación terminada";
+//      			panelDatos.actualizarInterfaz(resultado);
+//      		}
+//      		else
+//      		{
+//      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+//      		}
+//  		} 
+//      	catch (Exception e) 
+//      	{
+////  			e.printStackTrace();
+//  			String resultado = generarMensajeError(e);
+//  			panelDatos.actualizarInterfaz(resultado);
+//  		}
+//      }
+//      
       
       /* ****************************************************************
   	 * 			 CRUD de Orden de servicio
@@ -691,7 +690,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     		
       		if (receta != null)
       		{
-          		VOOrdenServicio tb = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
+          		VOOrden tb = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
           		if (tb == null)
           		{
           			throw new Exception ("No se pudo crear la orden de servicio: " + tb+ "con receta "+receta);
@@ -722,90 +721,46 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     	 *****************************************************************/
       
       
-      public void adicionarHorario( )
-      
-      {
-      	
-      	try 
-      	{
-      		String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-      		String idServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-      		
-      		
-      		
-      		int Capacidad = Integer.valueOf(capacidad);
-      		long IdServicio = Long.valueOf(idServicio);
-      		
-      		if (capacidad != null)
-      		{
-          		VOHorario tb = parranderos.adicionarHorario(Capacidad, IdServicio);
-          		if (tb == null)
-          		{
-          			throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
-          		}
-          		String resultado = "En adicionHorario\n\n";
-          		resultado += "Horario adicionado exitosamente: " + tb;
-      			resultado += "\n Operación terminada";
-      			panelDatos.actualizarInterfaz(resultado);
-      		}
-      		else
-      		{
-      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-      		}
-  		} 
-      	catch (Exception e) 
-      	{
-//  			e.printStackTrace();
-  			String resultado = generarMensajeError(e);
-  			panelDatos.actualizarInterfaz(resultado);
-  		}
-      }
-      
-      /* ****************************************************************
-    	 * 			 CRUD de Hora
-    	 *****************************************************************/
-        
-        
-        public void adicionarHora( )
-        
-        {
-        	
-        	try 
-        	{
-        		String hora = JOptionPane.showInputDialog (this, "Hora?", "adicionarHora", JOptionPane.QUESTION_MESSAGE);	
-        		String idHorario = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHora", JOptionPane.QUESTION_MESSAGE);	
-        		
-   
-        		Timestamp Hora = Timestamp.valueOf(hora);
-        		long IdHorario = Long.valueOf(idHorario);
-        		
-        		
-        		if (hora != null)
-        		{
-            		VOHoras tb = parranderos.adicionarHora(Hora, IdHorario);
-            		if (tb == null)
-            		{
-            			throw new Exception ("No se pudo crear la hora: " + tb+ Hora);
-            		}
-            		String resultado = "En adicionHora\n\n";
-            		resultado += "Hora adicionada exitosamente: " + tb;
-        			resultado += "\n Operación terminada";
-        			panelDatos.actualizarInterfaz(resultado);
-        		}
-        		else
-        		{
-        			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-        		}
-    		} 
-        	catch (Exception e) 
-        	{
-//    			e.printStackTrace();
-    			String resultado = generarMensajeError(e);
-    			panelDatos.actualizarInterfaz(resultado);
-    		}
-        }
-      
-      
+//      public void adicionarHorario( )
+//      
+//      {
+//      	
+//      	try 
+//      	{
+//      		String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+//      		String idServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+//      		
+//      		
+//      		
+//      		int Capacidad = Integer.valueOf(capacidad);
+//      		long IdServicio = Long.valueOf(idServicio);
+//      		
+//      		if (capacidad != null)
+//      		{
+//          		VOHorario tb = parranderos.adicionarHorario(Capacidad, IdServicio);
+//          		if (tb == null)
+//          		{
+//          			throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
+//          		}
+//          		String resultado = "En adicionHorario\n\n";
+//          		resultado += "Horario adicionado exitosamente: " + tb;
+//      			resultado += "\n Operación terminada";
+//      			panelDatos.actualizarInterfaz(resultado);
+//      		}
+//      		else
+//      		{
+//      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+//      		}
+//  		} 
+//      	catch (Exception e) 
+//      	{
+////  			e.printStackTrace();
+//  			String resultado = generarMensajeError(e);
+//  			panelDatos.actualizarInterfaz(resultado);
+//  		}
+//      }
+//      
+
     
     
 

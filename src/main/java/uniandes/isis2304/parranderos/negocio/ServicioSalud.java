@@ -19,32 +19,7 @@ public class ServicioSalud implements VOServicioSalud {
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private String descripcion;
-	
-	/**
-	 * El identificador �NICO de los bares
-	 */
-	private String disponibilidad;
-	
-	/**
-	 * El identificador �NICO de los bares
-	 */
-	private String tipo;
-	
-	/**
-	 * El identificador �NICO de los bares
-	 */
-	private String estado;
-	
-	/**
-	 * El identificador �NICO de los bares
-	 */
-	private long idAfiliado;
-	
-	/**
-	 * El identificador �NICO de los bares
-	 */
-	private long idMedico;
+	private long id;
 	
 	/**
 	 * El identificador �NICO de los bares
@@ -54,79 +29,42 @@ public class ServicioSalud implements VOServicioSalud {
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private long idOrden;
+	private String descripcion;
+	
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private String tipo;
+	
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private int orden;
 
 	public ServicioSalud() {
 		
-		this.descripcion = "";
-		this.disponibilidad = "";
-		this.tipo = "";
-		this.estado = "";
-		this.idAfiliado = 0;
-		this.idMedico = 0;
+		this.id = 0;
 		this.idIps = 0;
-		this.idOrden = 0;
+		this.descripcion = "";
+		this.tipo = "";
+		this.orden = 0;
 	}
 
-	public ServicioSalud(String descripcion, String disponibilidad, String tipo, String estado, long idAfiliado,
-			long idMedico, long idIps, long idOrden) {
+	public ServicioSalud(long id, long idIps, String descripcion, String tipo, int orden) {
 		
-		this.descripcion = descripcion;
-		this.disponibilidad = disponibilidad;
-		this.tipo = tipo;
-		this.estado = estado;
-		this.idAfiliado = idAfiliado;
-		this.idMedico = idMedico;
+		this.id = id;
 		this.idIps = idIps;
-		this.idOrden = idOrden;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-
-	public String getDisponibilidad() {
-		return disponibilidad;
-	}
-
-	public void setDisponibilidad(String disponibilidad) {
-		this.disponibilidad = disponibilidad;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
 		this.tipo = tipo;
+		this.orden = orden;
 	}
 
-	public String getEstado() {
-		return estado;
+	public long getId() {
+		return id;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public long getIdAfiliado() {
-		return idAfiliado;
-	}
-
-	public void setIdAfiliado(long idAfiliado) {
-		this.idAfiliado = idAfiliado;
-	}
-
-	public long getIdMedico() {
-		return idMedico;
-	}
-
-	public void setIdMedico(long idMedico) {
-		this.idMedico = idMedico;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public long getIdIps() {
@@ -137,24 +75,39 @@ public class ServicioSalud implements VOServicioSalud {
 		this.idIps = idIps;
 	}
 
-	public long getIdOrden() {
-		return idOrden;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setIdOrden(long idOrden) {
-		this.idOrden = idOrden;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getOrden() {
+		return orden;
+	}
+
+	public void setOrden(int orden) {
+		this.orden = orden;
 	}
 
 	@Override
 	public String toString() {
-		return "ServicioSalud [descripcion=" + descripcion + ", disponibilidad=" + disponibilidad + ", tipo=" + tipo
-				+ ", estado=" + estado + ", idAfiliado=" + idAfiliado + ", idMedico=" + idMedico + ", idIps=" + idIps
-				+ ", idOrden=" + idOrden + "]";
+		return "ServicioSalud [id=" + id + ", idIps=" + idIps + ", descripcion=" + descripcion + ", tipo=" + tipo
+				+ ", orden=" + orden + "]";
 	}
 	
+	
+	
+	
 
-	/* ****************************************************************
-	 * 			M�todos 
-	 *****************************************************************/
-
+	
 }
