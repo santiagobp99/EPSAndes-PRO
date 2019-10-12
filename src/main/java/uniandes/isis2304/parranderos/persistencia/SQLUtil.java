@@ -69,6 +69,14 @@ class SQLUtil
         return resp;
 	}
 
+	public long currValRol (PersistenceManager pm)
+	{
+        Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqRol() + ".nextval FROM DUAL");
+        q.setResultClass(Long.class);
+        long resp = (long) q.executeUnique();
+        return resp;
+	}
+	
 	public long currValUsuario (PersistenceManager pm)
 	{
         Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqUsuario() + ".nextval FROM DUAL");

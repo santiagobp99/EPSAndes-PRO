@@ -493,14 +493,19 @@ public class PersistenciaParranderos
 	{
 		return tablas.get (28);
 	}
-	public String darSeqUsuario ()
-	{
-		return tablas.get (38);
-	}
 	public String darSeqMedico ()
 	{
 		return tablas.get (34);
 	}
+	public String darSeqRol ()
+	{
+		return tablas.get (37);
+	}
+	public String darSeqUsuario ()
+	{
+		return tablas.get (38);
+	}
+
 	
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
@@ -510,6 +515,18 @@ public class PersistenciaParranderos
 	private long nextval ()
 	{
         long resp = sqlUtil.nextval (pmf.getPersistenceManager());
+        log.trace ("Generando secuencia: " + resp);
+        return resp;
+    }
+	
+	/**
+	 * Transacción para el generador de secuencia de Parranderos
+	 * Adiciona entradas al log de la aplicación
+	 * @return El siguiente número del secuenciador de Parranderos
+	 */
+	private long currRol ()
+	{
+        long resp = sqlUtil.currValRol(pmf.getPersistenceManager());
         log.trace ("Generando secuencia: " + resp);
         return resp;
     }
@@ -564,7 +581,7 @@ public class PersistenciaParranderos
         try
         {
             tx.begin();
-            long id = nextval();
+            long id = currRol();
             long tuplasInsertadas = sqlRol.adicionarRol(pm, id, nombreRol);
             tx.commit();
             
