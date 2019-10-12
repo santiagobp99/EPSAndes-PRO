@@ -200,16 +200,35 @@ public class Parranderos
 	
 	}
 	
+	
 	/**
 	 * Adiciona de manera persistente un tipo de bebida 
 	 * Adiciona entradas al log de la aplicaci?n
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public ServicioSalud adicionarServicioDeSalud (long id, long idIps, String descripcion, String tipo, int orden){
+	public MedicoServicio adicionarMedicoServicio (long pIdMedico){
 		
-     log.info ("Adicionando ServicioDeSalud: " + id+""+ idIps +""+ tipo+""+ descripcion +""+ tipo+""+ orden);
-     ServicioSalud rol = pp.adicionarServicioDeSalud(id, idIps, descripcion, tipo, orden);		
+     log.info ("Adicionando MedicoServicio: " + pIdMedico);
+     MedicoServicio medicoServicio = pp.adicionarMedicoServicio(pIdMedico);		
+     log.info ("Adicionando MedicoServicio: " + medicoServicio);
+        return medicoServicio;
+	
+	}
+	
+	
+	
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public ServicioSalud adicionarServicioDeSalud (long idIps, String descripcion, String tipo, int orden){
+		
+     log.info ("Adicionando ServicioDeSalud: " + ""+ idIps +""+ tipo+""+ descripcion +""+ tipo+""+ orden);
+     ServicioSalud rol = pp.adicionarServicioDeSalud(idIps, descripcion, tipo, orden);		
        log.info ("Adicionando ServicioDeSalud: " + rol);
         return rol;
 	
