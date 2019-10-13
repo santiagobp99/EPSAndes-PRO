@@ -50,9 +50,9 @@ public class ServicioSalud implements VOServicioSalud {
 		this.orden = 0;
 	}
 
-	public ServicioSalud(long id, long idIps, String descripcion, String tipo, int orden) {
+	public ServicioSalud(long idIps, String descripcion, String tipo, int orden) {
 		
-		this.id = id;
+		
 		this.idIps = idIps;
 		this.descripcion = descripcion;
 		this.tipo = tipo;

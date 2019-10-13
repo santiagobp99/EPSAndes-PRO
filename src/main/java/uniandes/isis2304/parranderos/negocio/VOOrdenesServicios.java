@@ -14,7 +14,7 @@ public interface VOOrdenesServicios {
 	/**
 	 * @return El nombre de nombre-tabla
 	 */
-	public int getRealizado() ;
+	public long getRealizado() ;
 	
 	
 	/**

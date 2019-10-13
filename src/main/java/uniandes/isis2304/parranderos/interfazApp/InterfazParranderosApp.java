@@ -27,6 +27,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.JDODataStoreException;
@@ -54,8 +55,10 @@ import uniandes.isis2304.parranderos.negocio.VOIps;
 import uniandes.isis2304.parranderos.negocio.VOMedico;
 import uniandes.isis2304.parranderos.negocio.VOMedicoEspecialista;
 import uniandes.isis2304.parranderos.negocio.VOMedicoGeneral;
+import uniandes.isis2304.parranderos.negocio.VOMedicoServicio;
 import uniandes.isis2304.parranderos.negocio.VOMedicoTratante;
 import uniandes.isis2304.parranderos.negocio.VOOrden;
+import uniandes.isis2304.parranderos.negocio.VOOrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.VORecepcionista;
 import uniandes.isis2304.parranderos.negocio.VOAfiliado;
 import uniandes.isis2304.parranderos.negocio.VORol;
@@ -604,71 +607,57 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
     	 * 			 CRUD de Servicio de Salud
     	 *****************************************************************/
       
-//      public void registrarServicioSalud( )
-//      
-//      {
-//      	
-//      	try 
-//      	{
-//      		
-//      		String descripcion = JOptionPane.showInputDialog (this, "Descripcion", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-//    		String disponibilidad = JOptionPane.showInputDialog (this, "Disponibilidad", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-//    		String tipo = JOptionPane.showInputDialog (this, "Tipo?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-//    		String estado = JOptionPane.showInputDialog (this, "Capacidad?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-//    		String idAfiliado = null;
-//    		long IdAfiliado = 0;
-//    		int dialogButton = JOptionPane.YES_NO_OPTION;
-//    		int dialogResult = JOptionPane.showConfirmDialog (null, "Quiere incluir un afiliado?","Warning", dialogButton);
-//    		if(dialogResult == JOptionPane.YES_OPTION){
-//    			idAfiliado = JOptionPane.showInputDialog (this, "idAfiliado", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-//    			IdAfiliado = Long.valueOf(idAfiliado);
-//    		}
-//    		else{
-//    		
-//    		}
-//    		String idMedico = JOptionPane.showInputDialog (this, "idMedico", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-//    		String idIps = JOptionPane.showInputDialog (this, "idIps", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-//    		long IdOrden = 0;
-//    		int dialogButton2 = JOptionPane.YES_NO_OPTION;
-//    		int dialogResult2 = JOptionPane.showConfirmDialog (null, "Quiere incluir un afiliado?","Warning", dialogButton2);
-//    		if(dialogResult2 == JOptionPane.YES_OPTION){
-//    			String idOrden = JOptionPane.showInputDialog (this, "idOrden", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-//    			IdOrden = Long.valueOf(idOrden);
-//    		}
-//    		else{
-//    		
-//    		}
-//    		
-//    		long IdMedico = Long.valueOf(idMedico);
-//    		
-//    		long IdIps = Long.valueOf(idIps);
-//      		
-//      		
-//      		if (descripcion != null)
-//      		{
-//          		VOServicioSalud tb = parranderos.adicionarServicioDeSalud(descripcion, disponibilidad, tipo, estado, IdAfiliado, IdMedico, IdIps, IdOrden);
-//          		if (tb == null)
-//          		{
-//          			throw new Exception ("No se pudo crear el servicio de salud: " + tb+ "con la descripcion "+descripcion);
-//          		}
-//          		String resultado = "En adicionServicioSalud\n\n";
-//          		resultado += "Servicio de salud adicionado exitosamente: " + tb;
-//      			resultado += "\n Operación terminada";
-//      			panelDatos.actualizarInterfaz(resultado);
-//      		}
-//      		else
-//      		{
-//      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-//      		}
-//  		} 
-//      	catch (Exception e) 
-//      	{
-////  			e.printStackTrace();
-//  			String resultado = generarMensajeError(e);
-//  			panelDatos.actualizarInterfaz(resultado);
-//  		}
-//      }
-//      
+      public void registrarServicioSalud( )
+      
+      {
+      	
+      	try 
+      	{
+      		
+      		String descripcion = JOptionPane.showInputDialog (this, "Descripcion?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+      		String tipo = JOptionPane.showInputDialog (this, "Tipo?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String idIps = JOptionPane.showInputDialog (this, "idIps?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String orden = JOptionPane.showInputDialog (this, "Necesita orden de servicio? 0 o 1", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+    		String medico = JOptionPane.showInputDialog (this, "ID del Medico?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+        	
+    		
+    		int Orden = Integer.valueOf(orden);
+    		long IdIps = Long.valueOf(idIps);
+    		long Medico = Long.valueOf(medico);
+      		
+      		
+      		if (descripcion != null)
+      			
+      		{
+          		VOServicioSalud ss = parranderos.adicionarServicioDeSalud(IdIps, descripcion, tipo, Orden);
+          		VOMedicoServicio ms = parranderos.adicionarMedicoServicio(Medico);
+          		if (ss == null || ms == null)
+          		{
+          			throw new Exception ("No se pudo crear el servicio de salud: " + ss+ ".\ncon \ndescripcion: "+descripcion
+          					+".\ntipo: "+tipo
+          					+".\nIdIps: "+idIps
+          					+".\norden: "+orden
+          					+".\nmedico: "+medico
+          				);
+          		}
+          		String resultado = "En adicionServicioSalud\n\n";
+          		resultado += "Servicio de salud adicionado exitosamente: " + ss;
+      			resultado += "\n Operación terminada";
+      			panelDatos.actualizarInterfaz(resultado);
+      		}
+      		else
+      		{
+      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+      		}
+  		} 
+      	catch (Exception e) 
+      	{
+//  			e.printStackTrace();
+  			String resultado = generarMensajeError(e);
+  			panelDatos.actualizarInterfaz(resultado);
+  		}
+      }
+      
       
       /* ****************************************************************
   	 * 			 CRUD de Orden de servicio
@@ -677,26 +666,50 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
  public void adicionarOrdenDeServicio( )
       
       {
+	 
+	 ArrayList<Long> servicios = new ArrayList<Long>();
       	
       	try 
       	{
-      		String receta = JOptionPane.showInputDialog (this, "Receta?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-    		String idAfiliado = JOptionPane.showInputDialog (this, "id Afiliado?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+      		String idAfiliado = JOptionPane.showInputDialog (this, "id Afiliado?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
     		String idMedico = JOptionPane.showInputDialog (this, "id Medico?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+      		String receta = JOptionPane.showInputDialog (this, "Receta?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
     		
-    		
+      		boolean servicio = true;
+      		while(servicio){
+      			int g =  JOptionPane.showConfirmDialog(null, "Agregar servicio de salud a la orden?", "adicionarOrdenDeServicio?", JOptionPane.YES_NO_OPTION);
+      			if(g!=0){
+      				servicio = false;
+      			}
+      			else{
+      				String idServicio = JOptionPane.showInputDialog (this, "Id del servicio?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+      				long IdServicio = Long.valueOf(idServicio);
+      				servicios.add(IdServicio);
+      			}
+      			
+      		}
+      			
     		long IdAfiliado = Long.valueOf(idAfiliado);
     		long IdMedico = Long.valueOf(idMedico);
     		
       		if (receta != null)
       		{
-          		VOOrden tb = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
-          		if (tb == null)
+          		VOOrden os = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
+          		if (os == null)
           		{
-          			throw new Exception ("No se pudo crear la orden de servicio: " + tb+ "con receta "+receta);
+          			throw new Exception ("No se pudo crear la orden de servicio: " + os+ "con receta "+receta);
           		}
+          		for(int i = 0; i<servicios.size();i++){
+          			VOOrdenesServicios oss = parranderos.adicionarOrdenesServicios(servicios.get(i), 0 );
+          			if (oss == null)
+              		{
+              			throw new Exception ("No se pudo crear un servicio asociado: " + os+ "id "+servicios.get(i));
+              		}
+          		}
+          		
+          		
           		String resultado = "En adicionOrdenServicio\n\n";
-          		resultado += "Orden servicio adicionada exitosamente: " + tb;
+          		resultado += "Orden servicio adicionada exitosamente: " + os;
       			resultado += "\n Operación terminada";
       			panelDatos.actualizarInterfaz(resultado);
       		}

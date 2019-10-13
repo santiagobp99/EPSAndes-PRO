@@ -19,10 +19,10 @@ public class SQLServicioSalud {
 	private PersistenciaParranderos persistenciaEPS;
 	
 	public long adicionarServicioSalud (PersistenceManager pm, String pDescripcion, String pTipo,
-			 long pIdIPS, int orden, Long pId) 
+			 long pIdIPS, int orden) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaServicioSalud() + "(descripcion, tipo, id, idips, orden) values (?, ?, ?, ?, ? )");
-        q.setParameters(pDescripcion, pTipo, pId, pIdIPS, orden );
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaServicioSalud() + "(descripcion, tipo, idips, orden) values (?, ?, ?, ? )");
+        q.setParameters(pDescripcion, pTipo, pIdIPS, orden );
         return (long) q.executeUnique();
 	}
 	

@@ -19,9 +19,9 @@ public SQLOrdenesServicios(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public long adicionarOrdenServicio (PersistenceManager pm, long idorden, long idservicio, int realizado) 
+	public long adicionarOrdenServicio (PersistenceManager pm, long idorden, long idservicio, long realizado) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrdenesServicios() + "(idorden, idservicios, realizado) values (?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrdenesServicios() + "(idorden, idservicio, realizado) values (?, ?, ?)");
         q.setParameters(idorden, idservicio, realizado);
         return (long) q.executeUnique();
 	}
@@ -29,7 +29,7 @@ public SQLOrdenesServicios(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	public long eliminarOrdenServicio (PersistenceManager pm, long idorden, long idservicio, int realizado)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + persistenciaEPS.darTablaOrdenesServicios() + " WHERE idorden = ? AND idservicios = ? AND realizado = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + persistenciaEPS.darTablaOrdenesServicios() + " WHERE idorden = ? AND idservicio = ? AND realizado = ?");
         q.setParameters(idorden, idservicio, realizado);
         return (long) q.executeUnique();
 	}
