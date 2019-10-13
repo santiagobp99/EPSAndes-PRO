@@ -99,6 +99,13 @@ class SQLUtil
 	        long resp = (long) q.executeUnique();
 	        return resp;
 	}
+	
+	public long currValOrden(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqOrden() + ".nextval FROM DUAL");
+        q.setResultClass(Long.class);
+        long resp = (long) q.executeUnique();
+        return resp;
+	}
 
 	/**
 	 * Crea y ejecuta las sentencias SQL para cada tabla de la base de datos - EL ORDEN ES IMPORTANTE 
@@ -126,6 +133,8 @@ class SQLUtil
         return new long[] {gustanEliminados, sirvenEliminados, visitanEliminadas, bebidasEliminadas, 
         		tiposBebidaEliminados, bebedoresEliminados, baresEliminados};
 	}
+
+	
 
 	
 

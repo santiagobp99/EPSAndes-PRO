@@ -18,7 +18,7 @@ public class OrdenesServicios implements VOOrdenesServicios{
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private int realizado;
+	private long realizado;
 
 	public OrdenesServicios() {
 		
@@ -27,7 +27,7 @@ public class OrdenesServicios implements VOOrdenesServicios{
 		this.realizado = 0;
 	}
 
-	public OrdenesServicios(long idOrden, long idServicio, int realizado) {
+	public OrdenesServicios(long idOrden, long idServicio, long realizado) {
 		
 		this.idOrden = idOrden;
 		this.idServicio = idServicio;
@@ -50,11 +50,11 @@ public class OrdenesServicios implements VOOrdenesServicios{
 		this.idServicio = idServicio;
 	}
 
-	public int getRealizado() {
+	public long getRealizado() {
 		return realizado;
 	}
 
-	public void setRealizado(int realizado) {
+	public void setRealizado(long realizado) {
 		this.realizado = realizado;
 	}
 

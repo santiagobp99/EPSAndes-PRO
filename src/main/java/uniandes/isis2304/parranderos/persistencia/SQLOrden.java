@@ -22,7 +22,7 @@ public class SQLOrden {
 	
 	public long adicionarOrden (PersistenceManager pm, String pReceta, Long pIdAfiliado, Long pIdMedico) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrden() + "(receta, idafiliado, idimedico) values (?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrden() + "(receta, idafiliado, idmedico) values (?, ?, ?)");
         q.setParameters(pReceta, pIdAfiliado, pIdMedico);
         return (long) q.executeUnique();
 	}

@@ -27,6 +27,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.JDODataStoreException;
@@ -57,6 +58,7 @@ import uniandes.isis2304.parranderos.negocio.VOMedicoGeneral;
 import uniandes.isis2304.parranderos.negocio.VOMedicoServicio;
 import uniandes.isis2304.parranderos.negocio.VOMedicoTratante;
 import uniandes.isis2304.parranderos.negocio.VOOrden;
+import uniandes.isis2304.parranderos.negocio.VOOrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.VORecepcionista;
 import uniandes.isis2304.parranderos.negocio.VOAfiliado;
 import uniandes.isis2304.parranderos.negocio.VORol;
@@ -628,7 +630,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
       			
       		{
           		VOServicioSalud ss = parranderos.adicionarServicioDeSalud(IdIps, descripcion, tipo, Orden);
-          		long idServicio = ss.getId()+1;
           		VOMedicoServicio ms = parranderos.adicionarMedicoServicio(Medico);
           		if (ss == null || ms == null)
           		{
@@ -665,26 +666,50 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
  public void adicionarOrdenDeServicio( )
       
       {
+	 
+	 ArrayList<Long> servicios = new ArrayList<Long>();
       	
       	try 
       	{
-      		String receta = JOptionPane.showInputDialog (this, "Receta?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-    		String idAfiliado = JOptionPane.showInputDialog (this, "id Afiliado?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+      		String idAfiliado = JOptionPane.showInputDialog (this, "id Afiliado?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
     		String idMedico = JOptionPane.showInputDialog (this, "id Medico?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+      		String receta = JOptionPane.showInputDialog (this, "Receta?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
     		
-    		
+      		boolean servicio = true;
+      		while(servicio){
+      			int g =  JOptionPane.showConfirmDialog(null, "Agregar servicio de salud a la orden?", "adicionarOrdenDeServicio?", JOptionPane.YES_NO_OPTION);
+      			if(g!=0){
+      				servicio = false;
+      			}
+      			else{
+      				String idServicio = JOptionPane.showInputDialog (this, "Id del servicio?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+      				long IdServicio = Long.valueOf(idServicio);
+      				servicios.add(IdServicio);
+      			}
+      			
+      		}
+      			
     		long IdAfiliado = Long.valueOf(idAfiliado);
     		long IdMedico = Long.valueOf(idMedico);
     		
       		if (receta != null)
       		{
-          		VOOrden tb = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
-          		if (tb == null)
+          		VOOrden os = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
+          		if (os == null)
           		{
-          			throw new Exception ("No se pudo crear la orden de servicio: " + tb+ "con receta "+receta);
+          			throw new Exception ("No se pudo crear la orden de servicio: " + os+ "con receta "+receta);
           		}
+          		for(int i = 0; i<servicios.size();i++){
+          			VOOrdenesServicios oss = parranderos.adicionarOrdenesServicios(servicios.get(i), 0 );
+          			if (oss == null)
+              		{
+              			throw new Exception ("No se pudo crear un servicio asociado: " + os+ "id "+servicios.get(i));
+              		}
+          		}
+          		
+          		
           		String resultado = "En adicionOrdenServicio\n\n";
-          		resultado += "Orden servicio adicionada exitosamente: " + tb;
+          		resultado += "Orden servicio adicionada exitosamente: " + os;
       			resultado += "\n Operación terminada";
       			panelDatos.actualizarInterfaz(resultado);
       		}
