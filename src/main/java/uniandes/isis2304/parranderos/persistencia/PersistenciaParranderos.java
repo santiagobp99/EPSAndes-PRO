@@ -1017,7 +1017,7 @@ public class PersistenciaParranderos
 	
 
 	/* ****************************************************************
-	 * 			 AFILIADO
+	 * 			 OrdenesServicios
 	 *****************************************************************/
 	
 	public OrdenesServicios adicionarOrdenesServicios(long idservicio1, long realizado) {
@@ -1192,7 +1192,8 @@ public class PersistenciaParranderos
 		{
 			tx.begin();
 			long tuplasInsertadas = sqlOrden.adicionarOrden(pm, receta, idAfiliado, idMedico);
-
+			tx.commit();
+			
 			log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
 
 			return new Orden(receta, idAfiliado, idMedico);

@@ -173,6 +173,10 @@
 					"event": "darCantidadServicios"
 				},
 				{
+					"label": "darServicios de Salud",
+					"event": "listarServicio"
+				},
+				{
 					"label": "Servicios de un afiliado en rango de fechas",
 					"event": "darServiciosAfiliadoFecha"
 				}

@@ -410,17 +410,18 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 					throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
 				
+				String strIdEps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 				String datefechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 				String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 				String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 				String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
-				String strIdEps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
+				
 				
 				Timestamp fechaNacimiento = Timestamp.valueOf(datefechaNacimiento);
 				int hospitalizado = Integer.valueOf(intHospitalizado);
 				long idEps = Long.valueOf(strIdEps);
 
-				long idUsuario = u.getId()+1;
+				long idUsuario = u.getId()-1;
 				VOAfiliado af = parranderos.adicionarAfiliado(idEps, idUsuario,fechaNacimiento,strTipoDocumento, hospitalizado, strNumDocumento);
 
 				if(af == null) {
@@ -658,6 +659,27 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
   		}
       }
       
+  	/**
+  	 * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
+  	 */
+  	public void listarServicio( )
+  	{
+  		try 
+  		{
+  			List <VOServicioSalud> lista = parranderos.darVOServiciosDeSalud();
+
+  			String resultado = "En listarServicios";
+  			resultado +=  "\n" + listarServicios (lista);
+  			panelDatos.actualizarInterfaz(resultado);
+  			resultado += "\n Operación terminada";
+  		} 
+  		catch (Exception e) 
+  		{
+  			//			e.printStackTrace();
+  			String resultado = generarMensajeError(e);
+  			panelDatos.actualizarInterfaz(resultado);
+  		}
+  	}
       
       /* ****************************************************************
   	 * 			 CRUD de Orden de servicio
@@ -685,6 +707,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
       				String idServicio = JOptionPane.showInputDialog (this, "Id del servicio?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
       				long IdServicio = Long.valueOf(idServicio);
       				servicios.add(IdServicio);
+      				
       			}
       			
       		}
@@ -1069,6 +1092,23 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	/* ****************************************************************
 	 * 			Métodos privados para la presentación de resultados y otras operaciones
 	 *****************************************************************/
+	
+	/**
+	 * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
+	 * @param lista - La lista con los tipos de bebida
+	 * @return La cadena con una líea para cada tipo de bebida recibido
+	 */
+	private String listarServicios(List<VOServicioSalud> lista) 
+	{
+		String resp = "Los servicios existentes son:\n";
+		int i = 1;
+		for (VOServicioSalud tb : lista)
+		{
+			resp += i++ + ". " + tb.toString() + "\n";
+		}
+		return resp;
+	}
+	
 	/**
 	 * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
 	 * @param lista - La lista con los tipos de bebida

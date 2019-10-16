@@ -240,7 +240,39 @@ public class Parranderos
 		return rol;
 
 	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public List<ServicioSalud> darServiciosDeSalud (){
 
+		log.info ("Dando Servicios:" );
+		List<ServicioSalud> servicios = pp.darServiciosDeSalud();		
+		log.info ("Dando Servicios: " + servicios);
+		return servicios;
+
+	}
+
+	/**
+	 * Encuentra todos los tipos de bebida en Parranderos y los devuelve como una lista de VOTipoBebida
+	 * Adiciona entradas al log de la aplicación
+	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
+	 */
+	public List<VOServicioSalud> darVOServiciosDeSalud ()
+	{
+		log.info ("Generando los VO de Servicios");        
+		List<VOServicioSalud> voServicios = new LinkedList<VOServicioSalud> ();
+		for (ServicioSalud tb : pp.darServiciosDeSalud())
+		{
+			voServicios.add (tb);
+		}
+		log.info ("Generando los VO de Servicios: " + voServicios.size() + " existentes");
+		return voServicios;
+	}
+	
 	/**
 	 * Adiciona de manera persistente un tipo de bebida 
 	 * Adiciona entradas al log de la aplicaci?n
