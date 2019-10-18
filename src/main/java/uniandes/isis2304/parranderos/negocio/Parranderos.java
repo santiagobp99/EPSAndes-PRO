@@ -282,7 +282,7 @@ public class Parranderos
 	{
 		log.info ("Generando los VO de Horarios");        
 		List<VOHorario> voHoraios = new LinkedList<VOHorario> ();
-		for (Horario hor : pp.darHorarios())
+		for (Horario hor : pp.darHorariosPorServicio(idServicio))
 		{
 			
 			voHoraios.add (hor);
