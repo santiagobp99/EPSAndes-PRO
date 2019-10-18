@@ -296,11 +296,11 @@ public class Parranderos
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOOrdenesServicios> darVOOrdenesServicios ()
+	public List<VOOrdenesServicios> darVOOrdenesServicios (long idorden)
 	{
 		log.info ("Generando los VO de OrdenesServicios");        
 		List<VOOrdenesServicios> voOrdenesServicios = new LinkedList<VOOrdenesServicios> ();
-		for (OrdenesServicios os : pp.darOrdenesServicios())
+		for (OrdenesServicios os : pp.darOrdenesServicios(idorden))
 		{
 			
 			voOrdenesServicios.add (os);

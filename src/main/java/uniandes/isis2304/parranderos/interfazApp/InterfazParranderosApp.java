@@ -850,6 +850,29 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
   	
   	}
+  	/**
+  	 * Consulta en la base de datos si hay un servicio de salud en la orden
+  	 * y que el servicio no se haya realizado
+  	 */
+  	public boolean existeServicioEnOrden( long idservicio, long idorden)
+  	{
+  			boolean existe = false;
+  		
+  			List <VOOrdenesServicios> listaOrdenes = parranderos.darVOOrdenesServicios(idorden);
+  			
+  			for(int i = 0; i<listaOrdenes.size();i++){
+  				if(listaOrdenes.get(i).getIdServicio()==idservicio){
+  					if(listaOrdenes.get(i).getRealizado()==0){
+  						existe = true;
+  					}
+  				}
+  			}
+  			
+  			return existe;
+  			
+
+  		
+  	}
       
       /* ****************************************************************
   	 * 			 CRUD de Orden de servicio
