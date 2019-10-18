@@ -265,12 +265,58 @@ public class Parranderos
 	{
 		log.info ("Generando los VO de Servicios");        
 		List<VOServicioSalud> voServicios = new LinkedList<VOServicioSalud> ();
-		for (ServicioSalud tb : pp.darServiciosDeSalud())
+		for (ServicioSalud ss : pp.darServiciosDeSalud())
 		{
-			voServicios.add (tb);
+			
+			voServicios.add (ss);
 		}
 		log.info ("Generando los VO de Servicios: " + voServicios.size() + " existentes");
 		return voServicios;
+	}
+	/**
+	 * Encuentra todos los tipos de bebida en Parranderos y los devuelve como una lista de VOTipoBebida
+	 * Adiciona entradas al log de la aplicación
+	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
+	 */
+	public List<VOHorario> darVOHorarios ()
+	{
+		log.info ("Generando los VO de Horarios");        
+		List<VOHorario> voHoraios = new LinkedList<VOHorario> ();
+		for (Horario hor : pp.darHorarios())
+		{
+			
+			voHoraios.add (hor);
+		}
+		log.info ("Generando los VO de Horarios" + voHoraios.size() + " existentes");
+		return voHoraios;
+	}
+	
+	/**
+	 * Encuentra todos los tipos de bebida en Parranderos y los devuelve como una lista de VOTipoBebida
+	 * Adiciona entradas al log de la aplicación
+	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
+	 */
+	public List<VOOrdenesServicios> darVOOrdenesServicios ()
+	{
+		log.info ("Generando los VO de OrdenesServicios");        
+		List<VOOrdenesServicios> voOrdenesServicios = new LinkedList<VOOrdenesServicios> ();
+		for (OrdenesServicios os : pp.darOrdenesServicios())
+		{
+			
+			voOrdenesServicios.add (os);
+		}
+		log.info ("Generando los VO de OrdenesServicios" + voOrdenesServicios.size() + " existentes");
+		return voOrdenesServicios;
+	}
+	
+	public VOServicioSalud darVOServicioDeSalud (long idservicio)
+	{
+		log.info ("Generando el VO Servicio");        
+	
+		VOServicioSalud voServicio = pp.darServicioDeSalud(idservicio);
+		
+		log.info ("Generando el VO Servicio");
+		return voServicio;
 	}
 	
 	/**

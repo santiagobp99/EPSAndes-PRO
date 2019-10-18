@@ -64,6 +64,7 @@ import uniandes.isis2304.parranderos.negocio.VOMedicoTratante;
 import uniandes.isis2304.parranderos.negocio.VOOrden;
 import uniandes.isis2304.parranderos.negocio.VOOrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.VORecepcionista;
+import uniandes.isis2304.parranderos.negocio.VOReservas;
 import uniandes.isis2304.parranderos.negocio.VOAfiliado;
 import uniandes.isis2304.parranderos.negocio.VORol;
 import uniandes.isis2304.parranderos.negocio.VOServicioSalud;
@@ -830,6 +831,25 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
   			panelDatos.actualizarInterfaz(resultado);
   		}
   	}
+  	/**
+  	 * Consulta en la base de datos el atributo orden de un servicio de salud.
+  	 */
+  	public boolean hayOrdenServicioDeSalud(long idservicio)
+  	{
+  		boolean hay = false;
+  		
+  			VOServicioSalud servicio = parranderos.darVOServicioDeSalud(idservicio);
+  			
+  			if(servicio.getOrden()==0){
+  				return hay;
+  			}
+  			else{
+  				hay = true;
+  			}
+  			return hay;
+
+  	
+  	}
       
       /* ****************************************************************
   	 * 			 CRUD de Orden de servicio
@@ -899,6 +919,59 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
   		}
       }
       
+ /* ****************************************************************
+	 * 			 CRUD de Reserva
+	 *****************************************************************/
+   
+public void adicionarReserva( )
+   
+   {
+	 
+	
+   	try 
+   	{
+   		String idAfiliadoReservador = JOptionPane.showInputDialog (this, "id Afiliado Reservador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+   		String idAfiliadoTomador = JOptionPane.showInputDialog (this, "id Afiliado Tomador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+   		String idServicioSalud = JOptionPane.showInputDialog (this, "id Servicio de Salud?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+   		String estado = JOptionPane.showInputDialog (this, "Estado?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+   		
+ 		long IdAfiliadoReservador = Long.valueOf(idAfiliadoReservador);
+ 		long IdAfiliadoTomador = Long.valueOf(idAfiliadoTomador);
+ 		long IdServicioSalud = Long.valueOf(idAfiliadoTomador);
+ 		
+ 		
+ 		if (idServicioSalud != null)
+  			
+  		{
+      		VOReservas r = parranderos.adicionarReserva(IdAfiliadoReservador, IdAfiliadoTomador, IdServicioSalud);
+      		
+      		if (r == null)
+      		{
+      			throw new Exception ("No se pudo realizar la reserva: " + r
+      					+".\nidAfiliadoReservador: "+idAfiliadoReservador
+      					+".\nidAfiliadoTomador: "+idAfiliadoTomador
+      					+".\nidServicioSalud: "+idServicioSalud
+      					+".\nestado: "+estado
+      				);
+      		}
+      		String resultado = "En adicionReserva\n\n";
+      		resultado += "Reserva adicionada exitosamente: " + r;
+  			resultado += "\n Operación terminada";
+  			panelDatos.actualizarInterfaz(resultado);
+  		}
+  		else
+  		{
+  			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+  		}
+		} 
+  	catch (Exception e) 
+  	{
+//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+   }
+   
       
       
       
