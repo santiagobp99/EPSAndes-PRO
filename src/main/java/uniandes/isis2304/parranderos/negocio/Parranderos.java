@@ -325,11 +325,11 @@ public class Parranderos
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public List<ServicioSalud> darHorariosPorServicio (long idServicio){
+	public List<Horario> darHorariosPorServicio (long idServicio){
 
-		log.info ("Dando Servicios:" );
-		List<ServicioSalud> servicios = pp.darHorariosPorServicio(idServicio);		
-		log.info ("Dando Servicios: " + servicios);
+		log.info ("Dando Horarios:" );
+		List<Horario> servicios = pp.darHorariosPorServicio(idServicio);		
+		log.info ("Dando Horarios: " + servicios);
 		return servicios;
 
 	}
