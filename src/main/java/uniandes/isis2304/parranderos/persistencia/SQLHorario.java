@@ -54,8 +54,9 @@ public class SQLHorario {
 	
 	public List<Horario> darHorariosPorServicio (PersistenceManager pm,long pIdServicioSalud)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaHorario()  + " WHERE idServicio = " + pIdServicioSalud );
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaHorario()  + " WHERE idServicio = id = ?"  );
 		q.setResultClass(ServicioSalud.class);
+		q.setParameters(pIdServicioSalud);
 		return (List<Horario>) q.executeList();
 	}
 

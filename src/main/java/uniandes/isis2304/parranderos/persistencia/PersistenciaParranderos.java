@@ -1300,6 +1300,11 @@ public class PersistenciaParranderos
 	{
 		return sqlHorario.darHorariosPorServicio(pmf.getPersistenceManager(),idServicio);
 	}
+	
+	public Horario darHorario (long idHorario)
+	{
+		return sqlHorario.darHorario(pmf.getPersistenceManager(), idHorario);
+	}
 
 
 	/* ****************************************************************

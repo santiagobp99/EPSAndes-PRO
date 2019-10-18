@@ -371,12 +371,26 @@ public class Parranderos
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public List<Horario> darHorariosPorServicio (long idServicio){
+	public List<Horario> darHorariosPorServicio (long idHorario){
 
 		log.info ("Dando Horarios:" );
-		List<Horario> servicios = pp.darHorariosPorServicio(idServicio);		
-		log.info ("Dando Horarios: " + servicios);
-		return servicios;
+		List<Horario> horarios = pp.darHorariosPorServicio(idHorario);		
+		log.info ("Dando Horarios: " + horarios);
+		return horarios;
+	}
+	
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public Horario darHorario (long idHorario){
+
+		log.info ("Dando Horarios:" );
+		Horario horarios = pp.darHorario(idHorario);		
+		log.info ("Dando Horarios: " + horarios);
+		return horarios;
 
 	}
 
