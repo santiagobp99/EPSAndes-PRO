@@ -325,10 +325,10 @@ public class Parranderos
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public Orden adicionarOrdenServicio (String receta, long idAfiliado, long idMedico){
+	public Orden adicionarOrdenServicio (String receta, long idAfiliado, long idMedico,long id){
 
 		log.info ("Adicionando OrdenServicio: " + receta+" con afiliado"+" y medico");
-		Orden orden = pp.adicionarOrden(receta, idAfiliado, idMedico);
+		Orden orden = pp.adicionarOrden(receta, idAfiliado, idMedico,id);
 		log.info ("Adicionando ServicioDeSalud: " + orden);
 		return orden;
 

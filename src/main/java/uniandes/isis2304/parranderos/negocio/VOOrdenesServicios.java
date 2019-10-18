@@ -1,6 +1,12 @@
 package uniandes.isis2304.parranderos.negocio;
 
 public interface VOOrdenesServicios {
+
+	/**
+	 * @return El nombre de nombre-tabla
+	 */
+	public long getId() ;
+	
 	/**
 	 * @return El nombre de nombre-tabla
 	 */
@@ -14,7 +20,7 @@ public interface VOOrdenesServicios {
 	/**
 	 * @return El nombre de nombre-tabla
 	 */
-	public long getRealizado() ;
+	public int getRealizado() ;
 	
 	
 	/**

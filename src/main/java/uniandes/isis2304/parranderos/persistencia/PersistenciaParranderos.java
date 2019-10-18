@@ -1184,19 +1184,19 @@ public class PersistenciaParranderos
 	 * 				 ORDEN
 	 *****************************************************************/
 
-	public Orden adicionarOrden(String receta, long idAfiliado, long idMedico)
+	public Orden adicionarOrden(String receta, long idAfiliado, long idMedico, long id)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction(); 
 		try
 		{
 			tx.begin();
-			long tuplasInsertadas = sqlOrden.adicionarOrden(pm, receta, idAfiliado, idMedico);
+			long tuplasInsertadas = sqlOrden.adicionarOrden(pm, receta, idAfiliado, idMedico,id);
 			tx.commit();
 
 			log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
 
-			return new Orden(receta, idAfiliado, idMedico);
+			return new Orden(receta, idAfiliado, idMedico,id);
 		}
 		catch (Exception e)
 		{

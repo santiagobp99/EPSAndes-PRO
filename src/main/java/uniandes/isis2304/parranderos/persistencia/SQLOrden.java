@@ -20,10 +20,10 @@ public class SQLOrden {
 		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
-	public long adicionarOrden (PersistenceManager pm, String pReceta, Long pIdAfiliado, Long pIdMedico) 
+	public long adicionarOrden (PersistenceManager pm, String pReceta, long pIdAfiliado, long pIdMedico, long id) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrden() + "(receta, idafiliado, idmedico) values (?, ?, ?)");
-        q.setParameters(pReceta, pIdAfiliado, pIdMedico);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrden() + "(receta, idafiliado, idmedico, id) values (?, ?, ?, ?)");
+        q.setParameters(pReceta, pIdAfiliado, pIdMedico,id);
         return (long) q.executeUnique();
 	}
 	

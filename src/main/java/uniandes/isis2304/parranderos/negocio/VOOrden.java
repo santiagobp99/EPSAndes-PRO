@@ -14,6 +14,11 @@ public interface VOOrden {
 	 *****************************************************************/
 
 	/**
+	 * @return El id de nombre-tabla
+	 */
+	public long getId();
+	
+	/**
 	 * @return El idAfiliado de nombre-tabla
 	 */
 	public long getIdAfiliado();

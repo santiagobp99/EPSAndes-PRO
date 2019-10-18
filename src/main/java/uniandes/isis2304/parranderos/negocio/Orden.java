@@ -24,6 +24,11 @@ public class Orden implements VOOrden {
 	/**
 	 * El identificador �NICO de los bares
 	 */
+	private long id;
+	
+	/**
+	 * El identificador �NICO de los bares
+	 */
 	private long idAfiliado;
 	
 	/**
@@ -32,15 +37,16 @@ public class Orden implements VOOrden {
 	private long idMedico;
 
 	public Orden() {
-		
 		this.receta = "";
+		this.id = 0;
 		this.idAfiliado = 0;
 		this.idMedico = 0;
 	}
 
-	public Orden(String receta, long idAfiliado, long idMedico) {
+	public Orden(String receta, long id, long idAfiliado, long idMedico) {
 		
 		this.receta = receta;
+		this.id = id;
 		this.idAfiliado = idAfiliado;
 		this.idMedico = idMedico;
 	}
@@ -51,6 +57,14 @@ public class Orden implements VOOrden {
 
 	public void setReceta(String receta) {
 		this.receta = receta;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public long getIdAfiliado() {
@@ -71,16 +85,10 @@ public class Orden implements VOOrden {
 
 	@Override
 	public String toString() {
-		return "OrdenServicio [receta=" + receta + ", idAfiliado=" + idAfiliado + ", idMedico=" + idMedico + "]";
+		return "Orden [receta=" + receta + ", id=" + id + ", idAfiliado=" + idAfiliado + ", idMedico=" + idMedico + "]";
 	}
-	
-	
-	
-	
 
-	/* ****************************************************************
-	 * 			M�todos 
-	 *****************************************************************/
-
-
+	
+	
+	
 }
