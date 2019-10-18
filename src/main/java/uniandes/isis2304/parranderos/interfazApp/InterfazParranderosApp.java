@@ -18,6 +18,7 @@ package uniandes.isis2304.parranderos.interfazApp;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.JDODataStoreException;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -38,6 +40,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 import org.apache.log4j.Logger;
@@ -122,7 +126,12 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 * Menú de la aplicación
 	 */
 	private JMenuBar menuBar;
-
+	
+	/**
+	 * Frames de la accion
+	 */
+	private JFrame frame;
+    
 	/* ****************************************************************
 	 * 			Métodos
 	 *****************************************************************/
@@ -263,25 +272,114 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 *****************************************************************/
 
 
+	
+	
 	/**
 	 * Adiciona un tipo de bebida con la información dada por el usuario
 	 * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
 	 */
-	public void adicionarRol( )
+	public void adicionarRol(String nombre)
 	{
 		try 
 		{
-			String nombreTipo = JOptionPane.showInputDialog (this, "Nombre del rol?", "Adicionar rol", JOptionPane.QUESTION_MESSAGE);
+			//String nombreTipo = JOptionPane.showInputDialog (this, "Nombre del rol?", "Adicionar rol", JOptionPane.QUESTION_MESSAGE);
 
-			if (nombreTipo != null)
+			if (nombre != null)
 			{
-				VORol tb = parranderos.adicionarRol (nombreTipo);
+				VORol tb = parranderos.adicionarRol (nombre);
 				if (tb == null)
 				{
-					throw new Exception ("No se pudo crear un rol con nombre: " + nombreTipo);
+					throw new Exception ("No se pudo crear un rol con nombre: " + nombre);
 				}
 				String resultado = "En adicionarRol\n\n";
 				resultado += "Rol adicionado exitosamente: " + tb;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+						e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	
+    public void adicionarRolDialog() {
+    	
+    	// Definiendo elementos necesarios para la construccion del panel
+    	
+        JPanel panel;
+        JTextField rolField = new JTextField();
+    	panel = new JPanel();
+    	
+    	// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+        panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+        // Aca creo dos variable 
+        String nombreRol;
+
+        // Aca pongo los dos labels de añadir el nombre del rol        
+        panel.add(new JLabel("Nombre del rol?"));
+        panel.add(rolField); 
+
+        int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+        if (option == JOptionPane.YES_OPTION) {
+
+        	// Aca saco el valor del rol
+            String nombreRolInput = rolField.getText();
+            
+            adicionarRol(nombreRolInput);
+
+            try {
+            	
+            	// Aqui obtengo el input del nombre del rol
+            	nombreRol = nombreRolInput;             	
+            	
+                panel = new JPanel();
+                panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+                panel.add(new JLabel("Nombre del rol: " + nombreRol));
+                 
+                
+            } catch (NumberFormatException nfe) {
+                nfe.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(frame, panel);
+        }
+    }
+
+	
+	///// cierre probando
+	
+	/**
+	 * Adiciona un tipo de bebida con la información dada por el usuario
+	 * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
+	 */
+
+	/* ****************************************************************
+	 * 			 CRUD de USUARIO
+	 *****************************************************************/
+    public void adicionarUsuario(String nombre,String correo,String strRol)
+	{
+		try 
+		{
+			
+			long idRol = Long.valueOf(strRol);
+			if (nombre != null)
+			{
+				VOUsuario u = parranderos.adicionarUsuario(nombre, correo, idRol);
+				if (u == null){
+					throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
+				}
+
+				String resultado = "En adicionarRol\n\n";
+				resultado += "Usuario adicionado exitosamente: " + u;
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
 			}
@@ -297,12 +395,64 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
 	}
+    public void adicionarUsuarioDialog() {
+    	
+    	// Definiendo elementos necesarios para la construccion del panel
+    	
+        JPanel panel;
+        JTextField nombreField = new JTextField();
+        JTextField correoField = new JTextField();
+        JTextField rolField = new JTextField();
+    	panel = new JPanel();
+    	
+    	// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+        panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-	/**
-	 * Adiciona un tipo de bebida con la información dada por el usuario
-	 * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
-	 */
+        // Aca creo dos variable 
+        String nombreUsuario;
+        String correoUsuario;
+        String rolUsuario;
 
+        // Aca pongo los dos labels de añadir el nombre del rol        
+        panel.add(new JLabel("Nombre del Usuario?"));
+        panel.add(nombreField); 
+        
+        panel.add(new JLabel("Correo del Usuario?"));
+        panel.add(correoField); 
+        
+        panel.add(new JLabel("Rol del Usuario?"));
+        panel.add(rolField); 
+        
+        int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+        if (option == JOptionPane.YES_OPTION) {
+
+        	// Aca saco el valor del rol
+            String nombreUsuarioInput = nombreField.getText();
+            String correoUsuarioInput = correoField.getText();
+            String rolUsuarioInput = rolField.getText();
+            adicionarUsuario(nombreUsuarioInput, correoUsuarioInput, rolUsuarioInput);
+
+            try {
+            	
+            	// Aqui obtengo el input del nombre del rol
+            	nombreUsuario = nombreUsuarioInput;
+            	correoUsuario = correoUsuarioInput;
+            	rolUsuario = rolUsuarioInput;
+            	
+            	
+                panel = new JPanel();
+                panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+                panel.add(new JLabel("Nombre del Usuario: " + nombreUsuario ));
+                 
+                
+            } catch (NumberFormatException nfe) {
+                nfe.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(frame, panel);
+        }
+    }
 	/* ****************************************************************
 	 * 			 CRUD de RECEPCIONISTA
 	 *****************************************************************/

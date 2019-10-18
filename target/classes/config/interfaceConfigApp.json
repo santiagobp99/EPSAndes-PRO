@@ -10,11 +10,15 @@
 			[
 				{
 					"label": "adicionar Rol",
-					"event": "adicionarRol"
+					"event": "adicionarRolDialog"
 				},
 				{
 					"label": "adicionar Administrador o Gerente",
 					"event": "adicionarAdministradorOGerente"
+				},
+				{
+					"label": "adicionar Usuario",
+					"event": "adicionarUsuarioDialog"
 				},
 				{
 					"label": "adicionar Afiliado",
