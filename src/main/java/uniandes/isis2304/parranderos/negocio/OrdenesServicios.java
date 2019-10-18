@@ -4,7 +4,7 @@ public class OrdenesServicios implements VOOrdenesServicios{
 	/* ****************************************************************
 	 * 			Atributos
 	 *****************************************************************/
-
+	
 	/**
 	 * El identificador �NICO de los bares
 	 */
@@ -18,20 +18,27 @@ public class OrdenesServicios implements VOOrdenesServicios{
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private long realizado;
+	private int realizado;
+	
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private long id;
 
 	public OrdenesServicios() {
 		
 		this.idOrden = 0;
 		this.idServicio = 0;
 		this.realizado = 0;
+		this.id = 0;
 	}
 
-	public OrdenesServicios(long idOrden, long idServicio, long realizado) {
+	public OrdenesServicios(long idOrden, long idServicio, int realizado, long id) {
 		
 		this.idOrden = idOrden;
 		this.idServicio = idServicio;
 		this.realizado = realizado;
+		this.id = id;
 	}
 
 	public long getIdOrden() {
@@ -50,19 +57,31 @@ public class OrdenesServicios implements VOOrdenesServicios{
 		this.idServicio = idServicio;
 	}
 
-	public long getRealizado() {
+	public int getRealizado() {
 		return realizado;
 	}
 
-	public void setRealizado(long realizado) {
+	public void setRealizado(int realizado) {
 		this.realizado = realizado;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
-		return "OrdenesServicios [idOrden=" + idOrden + ", idServicio=" + idServicio + ", realizado=" + realizado + "]";
+		return "OrdenesServicios [idOrden=" + idOrden + ", idServicio=" + idServicio + ", realizado=" + realizado
+				+ ", id=" + id + "]";
 	}
 	
 	
+	
+	
+
 	
 }

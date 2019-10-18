@@ -6,7 +6,9 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
+import uniandes.isis2304.parranderos.negocio.Horario;
 import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
+import uniandes.isis2304.parranderos.negocio.ServicioSalud;
 
 public class SQLOrdenesServicios {
 	
@@ -43,5 +45,12 @@ public SQLOrdenesServicios(PersistenciaParranderos pPersistenciaParranderos) {
 		return resp;
 	}
 
-
+	public List<OrdenesServicios> darOrdenesPorServicio (PersistenceManager pm,long pIdServicioSalud)
+	{
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaHorario()  + " WHERE idServicio = ?"  );
+		q.setResultClass(OrdenesServicios.class);
+		q.setParameters(pIdServicioSalud);
+		return (List<OrdenesServicios>) q.executeList();
+	}
+	
 }

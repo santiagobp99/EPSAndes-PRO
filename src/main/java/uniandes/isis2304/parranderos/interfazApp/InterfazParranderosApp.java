@@ -877,7 +877,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	{
 		boolean existe = false;
 
-		List <VOOrdenesServicios> listaOrdenes = parranderos.darVOOrdenesServicios(idorden);
+		List <VOOrdenesServicios> listaOrdenes = parranderos.darVOOrdenesServiciosId(idorden);
 
 		for(int i = 0; i<listaOrdenes.size();i++){
 			if(listaOrdenes.get(i).getIdServicio()==idservicio){
@@ -982,7 +982,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			long IdAfiliadoTomador = Long.valueOf(idAfiliadoTomador);
 			long IdServicioSalud = Long.valueOf(idAfiliadoTomador);
 			long IdHorario = Long.valueOf(idHorario);
-
+			
+			
+			boolean cumple = false;
 
 			if (hayOrdenServicioDeSalud(IdServicioSalud)){
 				String idOrden = JOptionPane.showInputDialog (this, "Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
@@ -990,24 +992,35 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				if(existeServicioEnOrden(IdServicioSalud, IdOrden)){
 					if(hayCapacidadHorario(IdHorario)){
 						
-						VOReservas r = parranderos.adicionarReserva(IdAfiliadoReservador, IdAfiliadoTomador, IdServicioSalud, estado );
-
-						if (r == null)
-						{
-							throw new Exception ("No se pudo realizar la reserva: " + r
-									+".\nidAfiliadoReservador: "+idAfiliadoReservador
-									+".\nidAfiliadoTomador: "+idAfiliadoTomador
-									+".\nidServicioSalud: "+idServicioSalud
-									+".\nestado: "+estado
-									);
-						}
-						String resultado = "En adicionReserva\n\n";
-						resultado += "Reserva adicionada exitosamente: " + r;
-						resultado += "\n Operación terminada";
-						panelDatos.actualizarInterfaz(resultado);
+						cumple = true;
 						
 					}
 				}
+			}
+			else{
+				if(hayCapacidadHorario(IdHorario)){
+					
+					cumple = true;
+					
+				}
+			}
+			
+			if(cumple){
+				VOReservas r = parranderos.adicionarReserva(IdAfiliadoReservador, IdAfiliadoTomador, IdServicioSalud, estado );
+
+				if (r == null)
+				{
+					throw new Exception ("No se pudo realizar la reserva: " + r
+							+".\nidAfiliadoReservador: "+idAfiliadoReservador
+							+".\nidAfiliadoTomador: "+idAfiliadoTomador
+							+".\nidServicioSalud: "+idServicioSalud
+							+".\nestado: "+estado
+							);
+				}
+				String resultado = "En adicionReserva\n\n";
+				resultado += "Reserva adicionada exitosamente: " + r;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
 			}
 
 			

@@ -222,6 +222,13 @@ public class Parranderos
 		log.info ("Adicionando OrdenesServicios: " + ordenesServicios);
 		return ordenesServicios;
 	}
+	
+	public Reservas adicionarReserva(long idAfiliadoReservador, long idAfiliadoTomador, long idServicioSalud,String estado){
+			log.info ("Adicionando Reserva: ");
+			Reservas reserva = pp.adicionarReserva(idAfiliadoReservador, idAfiliadoTomador, idServicioSalud, estado);		
+			log.info ("Adicionando Reserva");
+			return reserva;
+	}
 
 
 
@@ -297,11 +304,11 @@ public class Parranderos
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOOrdenesServicios> darVOOrdenesServicios (long idorden)
+	public List<VOOrdenesServicios> darVOOrdenesServiciosId (long idorden)
 	{
 		log.info ("Generando los VO de OrdenesServicios");        
 		List<VOOrdenesServicios> voOrdenesServicios = new LinkedList<VOOrdenesServicios> ();
-		for (OrdenesServicios os : pp.darOrdenesServicios(idorden))
+		for (OrdenesServicios os : pp.darOrdenesServiciosId(idorden))
 		{
 			
 			voOrdenesServicios.add (os);
@@ -379,20 +386,8 @@ public class Parranderos
 
 	}
 
-	/**
-	 * Adiciona de manera persistente un tipo de bebida 
-	 * Adiciona entradas al log de la aplicaci?n
-	 * @param nombre - El nombre del tipo de bebida
-	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
-	 */
-	public List<Horario> darHorariosPorServicio (long idServicio){
 
-		log.info ("Dando Horarios:" );
-		List<Horario> servicios = pp.darHorariosPorServicio(idServicio);		
-		log.info ("Dando Horarios: " + servicios);
-		return servicios;
-
-	}
+	
 	public Horario darHorario (long idhorario){
 
 		log.info ("Dando Horario:" );
@@ -401,6 +396,7 @@ public class Parranderos
 		return horario;
 
 	}
+
 
 	/**
 	 * Elimina un tipo de bebida por su identificador
@@ -1153,6 +1149,8 @@ public class Parranderos
 		log.info ("Limpiando la BD de Parranderos: Listo!");
 		return borrrados;
 	}
+
+	
 
 
 }
