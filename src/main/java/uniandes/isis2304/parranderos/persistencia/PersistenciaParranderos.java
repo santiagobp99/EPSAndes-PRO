@@ -532,7 +532,7 @@ public class PersistenciaParranderos
 		return tablas.get (41);
 	}
 
-	
+
 
 
 	/**
@@ -594,7 +594,7 @@ public class PersistenciaParranderos
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-	
+
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -987,7 +987,7 @@ public class PersistenciaParranderos
 		Transaction tx=pm.currentTransaction();
 		try
 		{
-			
+
 			tx.begin();
 			long pIdServicio = currServicioSalud()-1;
 			long tuplasInsertadas = sqlMedicoServicio.adicionarMedicoServicio(pm, pIdMedico, pIdServicio);
@@ -1013,19 +1013,19 @@ public class PersistenciaParranderos
 		}
 
 	}
-	
-	
+
+
 
 	/* ****************************************************************
 	 * 			 OrdenesServicios
 	 *****************************************************************/
-	
+
 	public OrdenesServicios adicionarOrdenesServicios(long idservicio1, long realizado) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
 		{
-			
+
 			tx.begin();
 			long pIdOrden = currOrden()-1;
 			System.out.println(pIdOrden);
@@ -1193,7 +1193,7 @@ public class PersistenciaParranderos
 			tx.begin();
 			long tuplasInsertadas = sqlOrden.adicionarOrden(pm, receta, idAfiliado, idMedico);
 			tx.commit();
-			
+
 			log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
 
 			return new Orden(receta, idAfiliado, idMedico);
@@ -1267,19 +1267,20 @@ public class PersistenciaParranderos
 	 * 			HORARIO
 	 *****************************************************************/
 
-	public Horario adicionarHorario(long id, long servicio, String hora, String dia, int capacidad)
+	public Horario adicionarHorario(long id, long servicio, String hora, int disponibilidad, int capacidad, Timestamp fecha) 
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
 		{
 			tx.begin();
-			long tuplasInsertadas = sqlHorario.adicionarHorario(pm, capacidad , servicio,  hora, dia, id);
+			long tuplasInsertadas = sqlHorario.adicionarHorario(pm, capacidad , servicio,  hora, id,fecha,disponibilidad);
 			tx.commit();
 
 			log.trace ("Inserción del horario del servicio: "+ servicio+ " con capacidad "+ capacidad+", "+ tuplasInsertadas + " tuplas insertadas");
 
-			return new Horario(id, servicio, hora, dia, capacidad);      }
+			return new Horario(id, servicio, hora,disponibilidad,capacidad,fecha);
+		}
 		catch (Exception e)
 		{
 			// 	e.printStackTrace();
@@ -1295,8 +1296,10 @@ public class PersistenciaParranderos
 			pm.close();
 		}
 	}
-
-
+	public List<Horario> darHorariosPorServicio (long idServicio)
+	{
+		return sqlHorario.darHorariosPorServicio(pmf.getPersistenceManager(),idServicio);
+	}
 
 
 	/* ****************************************************************
@@ -2503,8 +2506,8 @@ public class PersistenciaParranderos
 
 	}
 
-	
-	
+
+
 
 
 

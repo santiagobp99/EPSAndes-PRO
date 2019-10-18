@@ -310,20 +310,29 @@ public class Parranderos
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public Horario adicionarHorario (long id, long servicio, String hora, String dia, int capacidad){
+	public Horario adicionarHorario (long id, long servicio, String hora, int disponibilidad, int capacidad,Timestamp fecha){
 
-		log.info ("Adicionando Horario con Capacidad y servicio: " + id +"::"+ servicio+"::"+ hora+"::"+ dia+"::"+ capacidad);
-		Horario horaio = pp.adicionarHorario(id, servicio, hora, dia, capacidad);	
+		log.info ("Adicionando Horario con Capacidad y servicio: " + id +"::"+ servicio+"::"+ hora+"::"+ disponibilidad+"::"+ capacidad+"::"+fecha);
+		Horario horaio = pp.adicionarHorario(id, servicio, hora, disponibilidad, capacidad,fecha);	
 		log.info ("Adicionando Usuario: " + horaio);
 		return horaio;
 
 	}
 
+	/**
+	 * Adiciona de manera persistente un tipo de bebida 
+	 * Adiciona entradas al log de la aplicaci?n
+	 * @param nombre - El nombre del tipo de bebida
+	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
+	 */
+	public List<ServicioSalud> darHorariosPorServicio (long idServicio){
 
+		log.info ("Dando Servicios:" );
+		List<ServicioSalud> servicios = pp.darHorariosPorServicio(idServicio);		
+		log.info ("Dando Servicios: " + servicios);
+		return servicios;
 
-
-
-
+	}
 
 	/**
 	 * Elimina un tipo de bebida por su identificador

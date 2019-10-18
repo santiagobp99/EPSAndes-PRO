@@ -1,5 +1,7 @@
 package uniandes.isis2304.parranderos.negocio;
 
+import java.sql.Timestamp;
+
 /**
  * Clase para modelar la relaci�n nombre-tabla del negocio de los Parranderos:
  * 
@@ -34,29 +36,36 @@ public class Horario implements VOHorario {
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private String dia;
-
+	private int disponibilidad;
+	
 	/**
 	 * El identificador �NICO de los bares
 	 */
 	private int capacidad;
+
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private Timestamp fecha;
 
 	public Horario() {
 		
 		this.id = 0;
 		this.idServicio = 0;
 		this.hora = "";
-		this.dia = "";
+		this.disponibilidad = 0;
 		this.capacidad = 0;
+		this.fecha = new Timestamp (0);
 	}
 
-	public Horario(long id, long servicio, String hora, String dia, int capacidad) {
+	public Horario(long id, long idServicio, String hora, int disponibilidad, int capacidad, Timestamp fecha) {
 		
 		this.id = id;
-		this.idServicio = servicio;
+		this.idServicio = idServicio;
 		this.hora = hora;
-		this.dia = dia;
+		this.disponibilidad = disponibilidad;
 		this.capacidad = capacidad;
+		this.fecha = fecha;
 	}
 
 	public long getId() {
@@ -83,12 +92,12 @@ public class Horario implements VOHorario {
 		this.hora = hora;
 	}
 
-	public String getDia() {
-		return dia;
+	public int getDisponibilidad() {
+		return disponibilidad;
 	}
 
-	public void setDia(String dia) {
-		this.dia = dia;
+	public void setDisponibilidad(int disponibilidad) {
+		this.disponibilidad = disponibilidad;
 	}
 
 	public int getCapacidad() {
@@ -99,13 +108,21 @@ public class Horario implements VOHorario {
 		this.capacidad = capacidad;
 	}
 
-	@Override
-	public String toString() {
-		return "Horario [id=" + id + ", idServicio=" + idServicio + ", hora=" + hora + ", dia=" + dia + ", capacidad="
-				+ capacidad + "]";
+	public Timestamp getFecha() {
+		return fecha;
 	}
 
+	public void setFecha(Timestamp fecha) {
+		this.fecha = fecha;
+	}
 
+	@Override
+	public String toString() {
+		return "Horario [id=" + id + ", idServicio=" + idServicio + ", hora=" + hora + ", disponibilidad="
+				+ disponibilidad + ", capacidad=" + capacidad + ", fecha=" + fecha + "]";
+	}
+	
+	
 	
 	
 

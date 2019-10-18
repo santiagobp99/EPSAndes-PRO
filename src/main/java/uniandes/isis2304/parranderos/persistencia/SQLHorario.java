@@ -1,11 +1,13 @@
 package uniandes.isis2304.parranderos.persistencia;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
 import uniandes.isis2304.parranderos.negocio.Horario;
+import uniandes.isis2304.parranderos.negocio.ServicioSalud;
 
 public class SQLHorario {
 
@@ -19,10 +21,10 @@ public class SQLHorario {
 		persistenciaEPS = pPersistenciaParranderos;
 	}
 	
-	public long adicionarHorario (PersistenceManager pm, int pCapacidad , long pIdServicio, String pHora, String pDia, long pID) 
+	public long adicionarHorario (PersistenceManager pm, int pCapacidad , long pIdServicio, String pHora, long pId,Timestamp fecha,int disponibilidad ) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaHorario() + "(capacidad, idservicio, hora, dia, id) values (?, ?, ?, ?, ?)");
-        q.setParameters(pCapacidad, pIdServicio, pHora, pDia, pID);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaHorario() + "(capacidad, idservicio, hora, id,fecha,disponibilidad) values (?,?, ?, ?, ?, ?)");
+        q.setParameters(pCapacidad, pIdServicio, pHora, fecha,disponibilidad);
         return (long) q.executeUnique();
 	}
 	
@@ -47,6 +49,13 @@ public class SQLHorario {
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaHorario() );
 		q.setResultClass(Horario.class);
+		return (List<Horario>) q.executeList();
+	}
+	
+	public List<Horario> darHorariosPorServicio (PersistenceManager pm,long pIdServicioSalud)
+	{
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaHorario()  + " WHERE id = " + pIdServicioSalud );
+		q.setResultClass(ServicioSalud.class);
 		return (List<Horario>) q.executeList();
 	}
 

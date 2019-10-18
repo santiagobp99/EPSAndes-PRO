@@ -1,5 +1,7 @@
 package uniandes.isis2304.parranderos.negocio;
 
+import java.sql.Timestamp;
+
 /**
  * Interfaz para los m�todos get de nombre-tabla.
  * Sirve para proteger la informaci�n del negocio de posibles manipulaciones desde la interfaz 
@@ -32,12 +34,17 @@ public interface VOHorario {
 	/**
 	 * @return El capacidad de nombre-tabla
 	 */
-	public String getDia();
+	public Timestamp getFecha();
 
 	/**
 	 * @return El capacidad de nombre-tabla
 	 */
 	public int getCapacidad();
+	
+	/**
+	 * @return El capacidad de nombre-tabla
+	 */
+	public int getDisponibilidad();
 	
 	/**
 	 * @return Una cadena con la informaci�n b�sica de nombre-tabla
