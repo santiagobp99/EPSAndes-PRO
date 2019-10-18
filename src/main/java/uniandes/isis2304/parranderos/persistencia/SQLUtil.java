@@ -85,6 +85,14 @@ class SQLUtil
         return resp;
 	}
 	
+	public long currValHorario (PersistenceManager pm)
+	{
+        Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqHorario() + ".nextval FROM DUAL");
+        q.setResultClass(Long.class);
+        long resp = (long) q.executeUnique();
+        return resp;
+	}
+	
 	public long currValMedico (PersistenceManager pm)
 	{
         Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqMedico() + ".nextval FROM DUAL");
@@ -102,6 +110,13 @@ class SQLUtil
 	
 	public long currValOrden(PersistenceManager pm) {
 		Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqOrden() + ".nextval FROM DUAL");
+        q.setResultClass(Long.class);
+        long resp = (long) q.executeUnique();
+        return resp;
+	}
+	
+	public long currValOrdenServicio(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqOrdenServicio() + ".nextval FROM DUAL");
         q.setResultClass(Long.class);
         long resp = (long) q.executeUnique();
         return resp;
