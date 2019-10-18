@@ -278,11 +278,11 @@ public class Parranderos
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOHorario> darVOHorarios ()
+	public List<VOHorario> darVOHorariosServicio (long idservicio)
 	{
-		log.info ("Generando los VO de Horarios");        
+		log.info ("Generando los VO de Horarios de un servicio");        
 		List<VOHorario> voHoraios = new LinkedList<VOHorario> ();
-		for (Horario hor : pp.darHorariosPorServicio(idServicio))
+		for (Horario hor : pp.darHorariosPorServicio(idservicio))
 		{
 			
 			voHoraios.add (hor);
@@ -290,6 +290,7 @@ public class Parranderos
 		log.info ("Generando los VO de Horarios" + voHoraios.size() + " existentes");
 		return voHoraios;
 	}
+	
 	
 	/**
 	 * Encuentra todos los tipos de bebida en Parranderos y los devuelve como una lista de VOTipoBebida
@@ -317,6 +318,19 @@ public class Parranderos
 		
 		log.info ("Generando el VO Servicio");
 		return voServicio;
+	}
+	public void disminuirCapacidadHorario (long idhorario)
+	{
+		
+		pp.aumentarCapacidadHorario(idhorario);
+		
+		
+	}
+	public void aumentarCapacidadHorario (long idhorario)
+	{      
+	
+		pp.aumentarCapacidadHorario(idhorario);
+		
 	}
 	
 	/**
@@ -377,6 +391,14 @@ public class Parranderos
 		List<Horario> servicios = pp.darHorariosPorServicio(idServicio);		
 		log.info ("Dando Horarios: " + servicios);
 		return servicios;
+
+	}
+	public Horario darHorario (long idhorario){
+
+		log.info ("Dando Horario:" );
+		Horario horario = pp.darHorario(idhorario);		
+		log.info ("Dando Horario:");
+		return horario;
 
 	}
 
