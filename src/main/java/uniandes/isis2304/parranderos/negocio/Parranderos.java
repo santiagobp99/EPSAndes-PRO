@@ -222,6 +222,13 @@ public class Parranderos
 		log.info ("Adicionando OrdenesServicios: " + ordenesServicios);
 		return ordenesServicios;
 	}
+	
+	public Reservas adicionarReserva(long idAfiliadoReservador, long idAfiliadoTomador, long idServicioSalud,String estado){
+			log.info ("Adicionando Reserva: ");
+			Reservas reserva = pp.adicionarReserva(idAfiliadoReservador, idAfiliadoTomador, idServicioSalud, estado);		
+			log.info ("Adicionando Reserva");
+			return reserva;
+	}
 
 
 
@@ -278,11 +285,11 @@ public class Parranderos
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOHorario> darVOHorarios ()
+	public List<VOHorario> darVOHorariosServicio (long idservicio)
 	{
-		log.info ("Generando los VO de Horarios");        
+		log.info ("Generando los VO de Horarios de un servicio");        
 		List<VOHorario> voHoraios = new LinkedList<VOHorario> ();
-		for (Horario hor : pp.darHorariosPorServicio(idServicio))
+		for (Horario hor : pp.darHorariosPorServicio(idservicio))
 		{
 			
 			voHoraios.add (hor);
@@ -291,16 +298,17 @@ public class Parranderos
 		return voHoraios;
 	}
 	
+	
 	/**
 	 * Encuentra todos los tipos de bebida en Parranderos y los devuelve como una lista de VOTipoBebida
 	 * Adiciona entradas al log de la aplicación
 	 * @return Una lista de objetos VOTipoBebida con todos los tipos de bebida que conoce la aplicación, llenos con su información básica
 	 */
-	public List<VOOrdenesServicios> darVOOrdenesServicios (long idorden)
+	public List<VOOrdenesServicios> darVOOrdenesServiciosId (long idorden)
 	{
 		log.info ("Generando los VO de OrdenesServicios");        
 		List<VOOrdenesServicios> voOrdenesServicios = new LinkedList<VOOrdenesServicios> ();
-		for (OrdenesServicios os : pp.darOrdenesServicios(idorden))
+		for (OrdenesServicios os : pp.darOrdenesServiciosId(idorden))
 		{
 			
 			voOrdenesServicios.add (os);
@@ -317,6 +325,19 @@ public class Parranderos
 		
 		log.info ("Generando el VO Servicio");
 		return voServicio;
+	}
+	public void disminuirCapacidadHorario (long idhorario)
+	{
+		
+		pp.aumentarCapacidadHorario(idhorario);
+		
+		
+	}
+	public void aumentarCapacidadHorario (long idhorario)
+	{      
+	
+		pp.aumentarCapacidadHorario(idhorario);
+		
 	}
 	
 	/**
@@ -365,6 +386,16 @@ public class Parranderos
 
 	}
 
+
+	
+	public Horario darHorario (long idhorario){
+
+		log.info ("Dando Horario:" );
+		Horario horario = pp.darHorario(idhorario);		
+		log.info ("Dando Horario:");
+		return horario;
+
+	}
 
 
 	/**
@@ -1118,6 +1149,8 @@ public class Parranderos
 		log.info ("Limpiando la BD de Parranderos: Listo!");
 		return borrrados;
 	}
+
+	
 
 
 }

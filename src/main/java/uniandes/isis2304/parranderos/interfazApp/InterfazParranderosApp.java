@@ -127,12 +127,12 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 * Menú de la aplicación
 	 */
 	private JMenuBar menuBar;
-	
+
 	/**
 	 * Frames de la accion
 	 */
 	private JFrame frame;
-    
+
 	/* ****************************************************************
 	 * 			Métodos
 	 *****************************************************************/
@@ -215,12 +215,12 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			titulo = guiConfig.get("title").getAsString();
 			alto= guiConfig.get("frameH").getAsInt();
 			ancho = guiConfig.get("frameW").getAsInt();
-    	}
-    	
-        setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        setLocation (50,50);
-        setResizable( true );
-        setBackground( Color.WHITE );
+		}
+
+		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		setLocation (50,50);
+		setResizable( true );
+		setBackground( Color.WHITE );
 
 		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		setLocation (50,50);
@@ -273,8 +273,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 *****************************************************************/
 
 
-	
-	
+
+
 	/**
 	 * Adiciona un tipo de bebida con la información dada por el usuario
 	 * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
@@ -304,60 +304,60 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		} 
 		catch (Exception e) 
 		{
-						e.printStackTrace();
+			e.printStackTrace();
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
 	}
-	
-    public void adicionarRolDialog() {
-    	
-    	// Definiendo elementos necesarios para la construccion del panel
-    	
-        JPanel panel;
-        JTextField rolField = new JTextField();
-    	panel = new JPanel();
-    	
-    	// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-        panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-        // Aca creo dos variable 
-        String nombreRol;
+	public void adicionarRolDialog() {
 
-        // Aca pongo los dos labels de añadir el nombre del rol        
-        panel.add(new JLabel("Nombre del rol?"));
-        panel.add(rolField); 
+		// Definiendo elementos necesarios para la construccion del panel
 
-        int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+		JPanel panel;
+		JTextField rolField = new JTextField();
+		panel = new JPanel();
 
-        if (option == JOptionPane.YES_OPTION) {
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-        	// Aca saco el valor del rol
-            String nombreRolInput = rolField.getText();
-            
-            adicionarRol(nombreRolInput);
+		// Aca creo dos variable 
+		String nombreRol;
 
-            try {
-            	
-            	// Aqui obtengo el input del nombre del rol
-            	nombreRol = nombreRolInput;             	
-            	
-                panel = new JPanel();
-                panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+		// Aca pongo los dos labels de añadir el nombre del rol        
+		panel.add(new JLabel("Nombre del rol?"));
+		panel.add(rolField); 
 
-                panel.add(new JLabel("Nombre del rol: " + nombreRol));
-                 
-                
-            } catch (NumberFormatException nfe) {
-                nfe.printStackTrace();
-            }
-            JOptionPane.showMessageDialog(frame, panel);
-        }
-    }
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-	
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco el valor del rol
+			String nombreRolInput = rolField.getText();
+
+			adicionarRol(nombreRolInput);
+
+			try {
+
+				// Aqui obtengo el input del nombre del rol
+				nombreRol = nombreRolInput;             	
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("Nombre del rol: " + nombreRol));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
+
+
 	///// cierre probando
-	
+
 	/**
 	 * Adiciona un tipo de bebida con la información dada por el usuario
 	 * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
@@ -366,11 +366,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	/* ****************************************************************
 	 * 			 CRUD de USUARIO
 	 *****************************************************************/
-    public void adicionarUsuario(String nombre,String correo,String strRol)
+	public void adicionarUsuario(String nombre,String correo,String strRol)
 	{
 		try 
 		{
-			
+
 			long idRol = Long.valueOf(strRol);
 			if (nombre != null)
 			{
@@ -396,64 +396,64 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
 	}
-    public void adicionarUsuarioDialog() {
-    	
-    	// Definiendo elementos necesarios para la construccion del panel
-    	
-        JPanel panel;
-        JTextField nombreField = new JTextField();
-        JTextField correoField = new JTextField();
-        JTextField rolField = new JTextField();
-    	panel = new JPanel();
-    	
-    	// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-        panel.setLayout(new GridLayout(0, 2, 2, 2));
+	public void adicionarUsuarioDialog() {
 
-        // Aca creo dos variable 
-        String nombreUsuario;
-        String correoUsuario;
-        String rolUsuario;
+		// Definiendo elementos necesarios para la construccion del panel
 
-        // Aca pongo los dos labels de añadir el nombre del rol        
-        panel.add(new JLabel("Nombre del Usuario?"));
-        panel.add(nombreField); 
-        
-        panel.add(new JLabel("Correo del Usuario?"));
-        panel.add(correoField); 
-        
-        panel.add(new JLabel("Rol del Usuario?"));
-        panel.add(rolField); 
-        
-        int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+		JPanel panel;
+		JTextField nombreField = new JTextField();
+		JTextField correoField = new JTextField();
+		JTextField rolField = new JTextField();
+		panel = new JPanel();
 
-        if (option == JOptionPane.YES_OPTION) {
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-        	// Aca saco el valor del rol
-            String nombreUsuarioInput = nombreField.getText();
-            String correoUsuarioInput = correoField.getText();
-            String rolUsuarioInput = rolField.getText();
-            adicionarUsuario(nombreUsuarioInput, correoUsuarioInput, rolUsuarioInput);
+		// Aca creo dos variable 
+		String nombreUsuario;
+		String correoUsuario;
+		String rolUsuario;
 
-            try {
-            	
-            	// Aqui obtengo el input del nombre del rol
-            	nombreUsuario = nombreUsuarioInput;
-            	correoUsuario = correoUsuarioInput;
-            	rolUsuario = rolUsuarioInput;
-            	
-            	
-                panel = new JPanel();
-                panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+		// Aca pongo los dos labels de añadir el nombre del rol        
+		panel.add(new JLabel("Nombre del Usuario?"));
+		panel.add(nombreField); 
 
-                panel.add(new JLabel("Nombre del Usuario: " + nombreUsuario ));
-                 
-                
-            } catch (NumberFormatException nfe) {
-                nfe.printStackTrace();
-            }
-            JOptionPane.showMessageDialog(frame, panel);
-        }
-    }
+		panel.add(new JLabel("Correo del Usuario?"));
+		panel.add(correoField); 
+
+		panel.add(new JLabel("Rol del Usuario?"));
+		panel.add(rolField); 
+
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco el valor del rol
+			String nombreUsuarioInput = nombreField.getText();
+			String correoUsuarioInput = correoField.getText();
+			String rolUsuarioInput = rolField.getText();
+			adicionarUsuario(nombreUsuarioInput, correoUsuarioInput, rolUsuarioInput);
+
+			try {
+
+				// Aqui obtengo el input del nombre del rol
+				nombreUsuario = nombreUsuarioInput;
+				correoUsuario = correoUsuarioInput;
+				rolUsuario = rolUsuarioInput;
+
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("Nombre del Usuario: " + nombreUsuario ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
 	/* ****************************************************************
 	 * 			 CRUD de RECEPCIONISTA
 	 *****************************************************************/
@@ -466,7 +466,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String nombre = JOptionPane.showInputDialog (this, "Nombre del recepcionista?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 			String correo = JOptionPane.showInputDialog (this, "Correo del recepcionista?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
 			String strRol = JOptionPane.showInputDialog (this, "idRol del recepcionista?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-			
+
 			long idRol = Long.valueOf(strRol);
 			if (nombre != null)
 			{
@@ -500,7 +500,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
 	}
-	
+
 	/* ****************************************************************
 	 * 			 CRUD de Administrador y de gerente
 	 *****************************************************************/
@@ -560,14 +560,14 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				if (u == null){
 					throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
-				
+
 				String strIdEps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 				String datefechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 				String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 				String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 				String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
-				
-				
+
+
 				Timestamp fechaNacimiento = Timestamp.valueOf(datefechaNacimiento);
 				int hospitalizado = Integer.valueOf(intHospitalizado);
 				long idEps = Long.valueOf(strIdEps);
@@ -581,8 +581,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				}
 
 				String resultado = "En adicionarRol\n\n";
-				
-				
+
+
 				resultado += "Afiliado adicionado exitosamente: " + u + af;
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
@@ -608,30 +608,30 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	{
 		try 
 		{
-			
+
 			String numeroRegistro = JOptionPane.showInputDialog (this, "Numero de registro?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String especialidad = JOptionPane.showInputDialog (this, "Especialidad?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String identificacion = JOptionPane.showInputDialog (this, "Identificacion?"+"Ingrese letras", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String correo = JOptionPane.showInputDialog (this, "Correo", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 			String idRol = JOptionPane.showInputDialog (this, "idRol?", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
-			
-			
+
+
 			String strTipoMedico = JOptionPane.showInputDialog (this, "Tipo de medico:" + "\n"+ "Ingrese un numero"+ "\n"+  "Especialista = 1 "+ "\n"+  "General = 2" +"\n" 
-																		+"Tratante = 3", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
+					+"Tratante = 3", "adicionarMedico", JOptionPane.QUESTION_MESSAGE);
 
 
 			int NumeroRegistro = Integer.valueOf(numeroRegistro);
 			long IdRol = Long.valueOf(idRol);
 			long tipoMedico = Long.valueOf(strTipoMedico);
-			
 
-			
+
+
 			if (nombre != null)
 			{
 				VOMedico m = parranderos.adicionarMedico(IdRol,NumeroRegistro, especialidad, identificacion, nombre, correo);
 				long id = m.getId()+1;
-				
+
 				if (m == null)
 				{
 					throw new Exception ("No se pudo crear un medico con nombre: " + m+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
@@ -705,346 +705,388 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
-    }
-    
-    /* ****************************************************************
-  	 * 			 CRUD de IPS
-  	 *****************************************************************/
-      
-      
-      public void adicionarIPS( )
-      
-      {
-      	
-      	
-      	try 
-      	{
-      		String ubicacion = JOptionPane.showInputDialog (this, "Ubicacion?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String tipo = JOptionPane.showInputDialog (this, "Tipo?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		String idEps = JOptionPane.showInputDialog (this, "idEps", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-    		
-    		
-    		int Capacidad = Integer.valueOf(capacidad);
-    		long IdEPS = Long.valueOf(idEps);
-    		
-    		
-      		if (nombre != null)
-      		{
-          		VOIps tb = parranderos.adicionarIps(ubicacion, nombre, tipo, Capacidad, IdEPS);
-          		if (tb == null)
-          		{
-          			throw new Exception ("No se pudo crear la ips: " + tb+ "con eps "+IdEPS);
-          		}
-          		String resultado = "En adicionIps\n\n";
-          		resultado += "Ips adicionado exitosamente: " + tb;
-      			resultado += "\n Operación terminada";
-      			panelDatos.actualizarInterfaz(resultado);
-      		}
-      		else
-      		{
-      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-      		}
-  		} 
-      	catch (Exception e) 
-      	{
-//  			e.printStackTrace();
-  			String resultado = generarMensajeError(e);
-  			panelDatos.actualizarInterfaz(resultado);
-  		}
-      }
-      
-      /* ****************************************************************
-    	 * 			 CRUD de Servicio de Salud
-    	 *****************************************************************/
-      
-      public void registrarServicioSalud( )
-      
-      {
-      	
-      	try 
-      	{
-      		
-      		String descripcion = JOptionPane.showInputDialog (this, "Descripcion?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-      		String tipo = JOptionPane.showInputDialog (this, "Tipo?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    		String idIps = JOptionPane.showInputDialog (this, "idIps?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    		String orden = JOptionPane.showInputDialog (this, "Necesita orden de servicio? 0 o 1", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-    		String medico = JOptionPane.showInputDialog (this, "ID del Medico?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-        	
-    		
-    		int Orden = Integer.valueOf(orden);
-    		long IdIps = Long.valueOf(idIps);
-    		long Medico = Long.valueOf(medico);
-      		
-      		
-      		if (descripcion != null)
-      			
-      		{
-          		VOServicioSalud ss = parranderos.adicionarServicioDeSalud(IdIps, descripcion, tipo, Orden);
-          		VOMedicoServicio ms = parranderos.adicionarMedicoServicio(Medico);
-          		if (ss == null || ms == null)
-          		{
-          			throw new Exception ("No se pudo crear el servicio de salud: " + ss+ ".\ncon \ndescripcion: "+descripcion
-          					+".\ntipo: "+tipo
-          					+".\nIdIps: "+idIps
-          					+".\norden: "+orden
-          					+".\nmedico: "+medico
-          				);
-          		}
-          		String resultado = "En adicionServicioSalud\n\n";
-          		resultado += "Servicio de salud adicionado exitosamente: " + ss;
-      			resultado += "\n Operación terminada";
-      			panelDatos.actualizarInterfaz(resultado);
-      		}
-      		else
-      		{
-      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-      		}
-  		} 
-      	catch (Exception e) 
-      	{
-//  			e.printStackTrace();
-  			String resultado = generarMensajeError(e);
-  			panelDatos.actualizarInterfaz(resultado);
-  		}
-      }
-      
-  	/**
-  	 * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
-  	 */
-  	public void listarServicio( )
-  	{
-  		try 
-  		{
-  			List <VOServicioSalud> lista = parranderos.darVOServiciosDeSalud();
+	}
 
-  			String resultado = "En listarServicios";
-  			resultado +=  "\n" + listarServicios (lista);
-  			panelDatos.actualizarInterfaz(resultado);
-  			resultado += "\n Operación terminada";
-  		} 
-  		catch (Exception e) 
-  		{
-  			//			e.printStackTrace();
-  			String resultado = generarMensajeError(e);
-  			panelDatos.actualizarInterfaz(resultado);
-  		}
-  	}
-  	/**
-  	 * Consulta en la base de datos el atributo orden de un servicio de salud.
-  	 */
-  	public boolean hayOrdenServicioDeSalud(long idservicio)
-  	{
-  		boolean hay = false;
-  		
-  			VOServicioSalud servicio = parranderos.darVOServicioDeSalud(idservicio);
-  			
-  			if(servicio.getOrden()==0){
-  				return hay;
-  			}
-  			else{
-  				hay = true;
-  			}
-  			return hay;
-
-  	
-  	}
-  	/**
-  	 * Consulta en la base de datos si hay un servicio de salud en la orden
-  	 * y que el servicio no se haya realizado
-  	 */
-  	public boolean existeServicioEnOrden( long idservicio, long idorden)
-  	{
-  			boolean existe = false;
-  		
-  			List <VOOrdenesServicios> listaOrdenes = parranderos.darVOOrdenesServicios(idorden);
-  			
-  			for(int i = 0; i<listaOrdenes.size();i++){
-  				if(listaOrdenes.get(i).getIdServicio()==idservicio){
-  					if(listaOrdenes.get(i).getRealizado()==0){
-  						existe = true;
-  					}
-  				}
-  			}
-  			
-  			return existe;
-  			
-
-  		
-  	}
-      
-      /* ****************************************************************
-  	 * 			 CRUD de Orden de servicio
-  	 *****************************************************************/
-      
- public void adicionarOrdenDeServicio( )
-      
-      {
-	 
-	 ArrayList<Long> servicios = new ArrayList<Long>();
-      	
-      	try 
-      	{
-      		String idAfiliado = JOptionPane.showInputDialog (this, "id Afiliado?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-    		String idMedico = JOptionPane.showInputDialog (this, "id Medico?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-      		String receta = JOptionPane.showInputDialog (this, "Receta?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-    		
-      		boolean servicio = true;
-      		while(servicio){
-      			int g =  JOptionPane.showConfirmDialog(null, "Agregar servicio de salud a la orden?", "adicionarOrdenDeServicio?", JOptionPane.YES_NO_OPTION);
-      			if(g!=0){
-      				servicio = false;
-      			}
-      			else{
-      				String idServicio = JOptionPane.showInputDialog (this, "Id del servicio?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-      				long IdServicio = Long.valueOf(idServicio);
-      				servicios.add(IdServicio);
-      				
-      			}
-      			
-      		}
-      			
-    		long IdAfiliado = Long.valueOf(idAfiliado);
-    		long IdMedico = Long.valueOf(idMedico);
-    		
-      		if (receta != null)
-      		{
-          		VOOrden os = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
-          		if (os == null)
-          		{
-          			throw new Exception ("No se pudo crear la orden de servicio: " + os+ "con receta "+receta);
-          		}
-          		for(int i = 0; i<servicios.size();i++){
-          			VOOrdenesServicios oss = parranderos.adicionarOrdenesServicios(servicios.get(i), 0 );
-          			if (oss == null)
-              		{
-              			throw new Exception ("No se pudo crear un servicio asociado: " + os+ "id "+servicios.get(i));
-              		}
-          		}
-          		
-          		
-          		String resultado = "En adicionOrdenServicio\n\n";
-          		resultado += "Orden servicio adicionada exitosamente: " + os;
-      			resultado += "\n Operación terminada";
-      			panelDatos.actualizarInterfaz(resultado);
-      		}
-      		else
-      		{
-      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-      		}
-  		} 
-      	catch (Exception e) 
-      	{
-//  			e.printStackTrace();
-  			String resultado = generarMensajeError(e);
-  			panelDatos.actualizarInterfaz(resultado);
-  		}
-      }
-      
- /* ****************************************************************
-	 * 			 CRUD de Reserva
+	/* ****************************************************************
+	 * 			 CRUD de IPS
 	 *****************************************************************/
-   
-public void adicionarReserva( )
-   
-   {
-	 
-	
-   	try 
-   	{
-   		String idAfiliadoReservador = JOptionPane.showInputDialog (this, "id Afiliado Reservador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-   		String idAfiliadoTomador = JOptionPane.showInputDialog (this, "id Afiliado Tomador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-   		String idServicioSalud = JOptionPane.showInputDialog (this, "id Servicio de Salud?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-   		String estado = JOptionPane.showInputDialog (this, "Estado?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-   		
- 		long IdAfiliadoReservador = Long.valueOf(idAfiliadoReservador);
- 		long IdAfiliadoTomador = Long.valueOf(idAfiliadoTomador);
- 		long IdServicioSalud = Long.valueOf(idAfiliadoTomador);
- 		
- 		
- 		if (idServicioSalud != null)
-  			
-  		{
-      		VOReservas r = parranderos.adicionarReserva(IdAfiliadoReservador, IdAfiliadoTomador, IdServicioSalud);
-      		
-      		if (r == null)
-      		{
-      			throw new Exception ("No se pudo realizar la reserva: " + r
-      					+".\nidAfiliadoReservador: "+idAfiliadoReservador
-      					+".\nidAfiliadoTomador: "+idAfiliadoTomador
-      					+".\nidServicioSalud: "+idServicioSalud
-      					+".\nestado: "+estado
-      				);
-      		}
-      		String resultado = "En adicionReserva\n\n";
-      		resultado += "Reserva adicionada exitosamente: " + r;
-  			resultado += "\n Operación terminada";
-  			panelDatos.actualizarInterfaz(resultado);
-  		}
-  		else
-  		{
-  			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-  		}
+
+
+	public void adicionarIPS( )
+
+	{
+
+
+		try 
+		{
+			String ubicacion = JOptionPane.showInputDialog (this, "Ubicacion?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+			String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+			String tipo = JOptionPane.showInputDialog (this, "Tipo?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+			String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+			String idEps = JOptionPane.showInputDialog (this, "idEps", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
+
+
+			int Capacidad = Integer.valueOf(capacidad);
+			long IdEPS = Long.valueOf(idEps);
+
+
+			if (nombre != null)
+			{
+				VOIps tb = parranderos.adicionarIps(ubicacion, nombre, tipo, Capacidad, IdEPS);
+				if (tb == null)
+				{
+					throw new Exception ("No se pudo crear la ips: " + tb+ "con eps "+IdEPS);
+				}
+				String resultado = "En adicionIps\n\n";
+				resultado += "Ips adicionado exitosamente: " + tb;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
 		} 
-  	catch (Exception e) 
-  	{
-//			e.printStackTrace();
+		catch (Exception e) 
+		{
+			//  			e.printStackTrace();
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
-   }
-   
-      
-      
-      
-      /* ****************************************************************
-    	 * 			 CRUD de Horario
-    	 *****************************************************************/
-      
-      
-//      public void adicionarHorario( )
-//      
-//      {
-//      	
-//      	try 
-//      	{
-//      		String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-//      		String idServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-//      		
-//      		
-//      		
-//      		int Capacidad = Integer.valueOf(capacidad);
-//      		long IdServicio = Long.valueOf(idServicio);
-//      		
-//      		if (capacidad != null)
-//      		{
-//          		VOHorario tb = parranderos.adicionarHorario(Capacidad, IdServicio);
-//          		if (tb == null)
-//          		{
-//          			throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
-//          		}
-//          		String resultado = "En adicionHorario\n\n";
-//          		resultado += "Horario adicionado exitosamente: " + tb;
-//      			resultado += "\n Operación terminada";
-//      			panelDatos.actualizarInterfaz(resultado);
-//      		}
-//      		else
-//      		{
-//      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-//      		}
-//  		} 
-//      	catch (Exception e) 
-//      	{
-////  			e.printStackTrace();
-//  			String resultado = generarMensajeError(e);
-//  			panelDatos.actualizarInterfaz(resultado);
-//  		}
-//      }
-//      
+	}
 
-    
-    
+	/* ****************************************************************
+	 * 			 CRUD de Servicio de Salud
+	 *****************************************************************/
+
+	public void registrarServicioSalud( )
+
+	{
+
+		try 
+		{
+
+			String descripcion = JOptionPane.showInputDialog (this, "Descripcion?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+			String tipo = JOptionPane.showInputDialog (this, "Tipo?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+			String idIps = JOptionPane.showInputDialog (this, "idIps?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+			String orden = JOptionPane.showInputDialog (this, "Necesita orden de servicio? 0 o 1", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+			String medico = JOptionPane.showInputDialog (this, "ID del Medico?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
+
+
+			int Orden = Integer.valueOf(orden);
+			long IdIps = Long.valueOf(idIps);
+			long Medico = Long.valueOf(medico);
+
+
+			if (descripcion != null)
+
+			{
+				VOServicioSalud ss = parranderos.adicionarServicioDeSalud(IdIps, descripcion, tipo, Orden);
+				VOMedicoServicio ms = parranderos.adicionarMedicoServicio(Medico);
+				if (ss == null || ms == null)
+				{
+					throw new Exception ("No se pudo crear el servicio de salud: " + ss+ ".\ncon \ndescripcion: "+descripcion
+							+".\ntipo: "+tipo
+							+".\nIdIps: "+idIps
+							+".\norden: "+orden
+							+".\nmedico: "+medico
+							);
+				}
+				String resultado = "En adicionServicioSalud\n\n";
+				resultado += "Servicio de salud adicionado exitosamente: " + ss;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			//  			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	/**
+	 * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
+	 */
+	public void listarServicio( )
+	{
+		try 
+		{
+			List <VOServicioSalud> lista = parranderos.darVOServiciosDeSalud();
+
+			String resultado = "En listarServicios";
+			resultado +=  "\n" + listarServicios (lista);
+			panelDatos.actualizarInterfaz(resultado);
+			resultado += "\n Operación terminada";
+		} 
+		catch (Exception e) 
+		{
+			//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+	/**
+	 * Consulta en la base de datos el atributo orden de un servicio de salud.
+	 */
+	public boolean hayOrdenServicioDeSalud(long idservicio)
+	{
+		boolean hay = false;
+
+		VOServicioSalud servicio = parranderos.darVOServicioDeSalud(idservicio);
+
+		if(servicio.getOrden()==0){
+			return hay;
+		}
+		else{
+			hay = true;
+		}
+		return hay;
+
+
+	}
+	public boolean hayCapacidadHorario(long idhorario)
+	{
+		boolean hay = false;
+
+		VOHorario horario = parranderos.darHorario(idhorario);
+
+		if(horario.getCapacidad()<=0 && horario.getDisponibilidad()==1){
+
+			return hay;
+
+		}
+		else{
+			hay = true;
+		}
+		return hay;
+
+
+	}
+
+	/**
+	 * Consulta en la base de datos si hay un servicio de salud en la orden
+	 * y que el servicio no se haya realizado
+	 */
+	public boolean existeServicioEnOrden( long idservicio, long idorden)
+	{
+		boolean existe = false;
+
+		List <VOOrdenesServicios> listaOrdenes = parranderos.darVOOrdenesServiciosId(idorden);
+
+		for(int i = 0; i<listaOrdenes.size();i++){
+			if(listaOrdenes.get(i).getIdServicio()==idservicio){
+				if(listaOrdenes.get(i).getRealizado()==0){
+					existe = true;
+				}
+			}
+		}
+
+		return existe;
+
+
+
+	}
+
+	/* ****************************************************************
+	 * 			 CRUD de Orden de servicio
+	 *****************************************************************/
+
+	public void adicionarOrdenDeServicio( )
+
+	{
+
+		ArrayList<Long> servicios = new ArrayList<Long>();
+
+		try 
+		{
+			String idAfiliado = JOptionPane.showInputDialog (this, "id Afiliado?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+			String idMedico = JOptionPane.showInputDialog (this, "id Medico?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+			String receta = JOptionPane.showInputDialog (this, "Receta?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+
+			boolean servicio = true;
+			while(servicio){
+				int g =  JOptionPane.showConfirmDialog(null, "Agregar servicio de salud a la orden?", "adicionarOrdenDeServicio?", JOptionPane.YES_NO_OPTION);
+				if(g!=0){
+					servicio = false;
+				}
+				else{
+					String idServicio = JOptionPane.showInputDialog (this, "Id del servicio?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+					long IdServicio = Long.valueOf(idServicio);
+					servicios.add(IdServicio);
+
+				}
+
+			}
+
+			long IdAfiliado = Long.valueOf(idAfiliado);
+			long IdMedico = Long.valueOf(idMedico);
+
+			if (receta != null)
+			{
+				VOOrden os = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
+				if (os == null)
+				{
+					throw new Exception ("No se pudo crear la orden de servicio: " + os+ "con receta "+receta);
+				}
+				for(int i = 0; i<servicios.size();i++){
+					VOOrdenesServicios oss = parranderos.adicionarOrdenesServicios(servicios.get(i), 0 );
+					if (oss == null)
+					{
+						throw new Exception ("No se pudo crear un servicio asociado: " + os+ "id "+servicios.get(i));
+					}
+				}
+
+
+				String resultado = "En adicionOrdenServicio\n\n";
+				resultado += "Orden servicio adicionada exitosamente: " + os;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			//  			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	/* ****************************************************************
+	 * 			 CRUD de Reserva
+	 *****************************************************************/
+
+	public void adicionarReserva( )
+
+	{
+
+
+		try 
+		{
+			String idAfiliadoReservador = JOptionPane.showInputDialog (this, "id Afiliado Reservador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+			String idAfiliadoTomador = JOptionPane.showInputDialog (this, "id Afiliado Tomador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+			String idServicioSalud = JOptionPane.showInputDialog (this, "id Servicio de Salud?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+			String idHorario = JOptionPane.showInputDialog (this, "Estado?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+			String estado = JOptionPane.showInputDialog (this, "Estado?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+			
+			long IdAfiliadoReservador = Long.valueOf(idAfiliadoReservador);
+			long IdAfiliadoTomador = Long.valueOf(idAfiliadoTomador);
+			long IdServicioSalud = Long.valueOf(idAfiliadoTomador);
+			long IdHorario = Long.valueOf(idHorario);
+			
+			
+			boolean cumple = false;
+
+			if (hayOrdenServicioDeSalud(IdServicioSalud)){
+				String idOrden = JOptionPane.showInputDialog (this, "Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+				long IdOrden = Long.valueOf(idOrden);
+				if(existeServicioEnOrden(IdServicioSalud, IdOrden)){
+					if(hayCapacidadHorario(IdHorario)){
+						
+						cumple = true;
+						
+					}
+				}
+			}
+			else{
+				if(hayCapacidadHorario(IdHorario)){
+					
+					cumple = true;
+					
+				}
+			}
+			
+			if(cumple){
+				VOReservas r = parranderos.adicionarReserva(IdAfiliadoReservador, IdAfiliadoTomador, IdServicioSalud, estado );
+
+				if (r == null)
+				{
+					throw new Exception ("No se pudo realizar la reserva: " + r
+							+".\nidAfiliadoReservador: "+idAfiliadoReservador
+							+".\nidAfiliadoTomador: "+idAfiliadoTomador
+							+".\nidServicioSalud: "+idServicioSalud
+							+".\nestado: "+estado
+							);
+				}
+				String resultado = "En adicionReserva\n\n";
+				resultado += "Reserva adicionada exitosamente: " + r;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+
+			
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			//			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+
+
+
+	/* ****************************************************************
+	 * 			 CRUD de Horario
+	 *****************************************************************/
+
+
+	//      public void adicionarHorario( )
+	//      
+	//      {
+	//      	
+	//      	try 
+	//      	{
+	//      		String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+	//      		String idServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+	//      		
+	//      		
+	//      		
+	//      		int Capacidad = Integer.valueOf(capacidad);
+	//      		long IdServicio = Long.valueOf(idServicio);
+	//      		
+	//      		if (capacidad != null)
+	//      		{
+	//          		VOHorario tb = parranderos.adicionarHorario(Capacidad, IdServicio);
+	//          		if (tb == null)
+	//          		{
+	//          			throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
+	//          		}
+	//          		String resultado = "En adicionHorario\n\n";
+	//          		resultado += "Horario adicionado exitosamente: " + tb;
+	//      			resultado += "\n Operación terminada";
+	//      			panelDatos.actualizarInterfaz(resultado);
+	//      		}
+	//      		else
+	//      		{
+	//      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+	//      		}
+	//  		} 
+	//      	catch (Exception e) 
+	//      	{
+	////  			e.printStackTrace();
+	//  			String resultado = generarMensajeError(e);
+	//  			panelDatos.actualizarInterfaz(resultado);
+	//  		}
+	//      }
+	//      
+
+
+
 
 
 
@@ -1338,7 +1380,7 @@ public void adicionarReserva( )
 	/* ****************************************************************
 	 * 			Métodos privados para la presentación de resultados y otras operaciones
 	 *****************************************************************/
-	
+
 	/**
 	 * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
 	 * @param lista - La lista con los tipos de bebida
@@ -1354,7 +1396,7 @@ public void adicionarReserva( )
 		}
 		return resp;
 	}
-	
+
 	/**
 	 * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
 	 * @param lista - La lista con los tipos de bebida
