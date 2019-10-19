@@ -52,6 +52,7 @@ import uniandes.isis2304.parranderos.negocio.MedicoTratante;
 import uniandes.isis2304.parranderos.negocio.Orden;
 import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.Recepcionista;
+import uniandes.isis2304.parranderos.negocio.Reservas;
 import uniandes.isis2304.parranderos.negocio.Rol;
 import uniandes.isis2304.parranderos.negocio.ServicioSalud;
 import uniandes.isis2304.parranderos.negocio.Sirven;
@@ -512,6 +513,9 @@ public class PersistenciaParranderos
 
 		return tablas.get (30);
 	}
+	public String darSeqHorario() {
+		return tablas.get (33);
+	}
 	public String darSeqMedico ()
 	{
 		return tablas.get (36);
@@ -531,12 +535,14 @@ public class PersistenciaParranderos
 	public String darSeqOrden() {
 		return tablas.get (41);
 	}
-	public String darSeqHorario() {
-		return tablas.get (33);
-	}
+
 	
 	public String darSeqOrdenServicio() {
 		return tablas.get (42);
+	}
+	public String darSeqReservas ()
+	{
+		return tablas.get (43);
 	}
 
 
@@ -597,6 +603,18 @@ public class PersistenciaParranderos
 	private long currOrdenServicio ()
 	{
 		long resp = sqlUtil.currValOrdenServicio(pmf.getPersistenceManager());
+		log.trace ("Generando secuencia: " + resp);
+		return resp;
+	}
+	
+	/**
+	 * Transacción para el generador de secuencia de Parranderos
+	 * Adiciona entradas al log de la aplicación
+	 * @return El siguiente número del secuenciador de Parranderos
+	 */
+	private long currReservas ()
+	{
+		long resp = sqlUtil.currValReservas(pmf.getPersistenceManager());
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
@@ -1081,6 +1099,47 @@ public class PersistenciaParranderos
 		}
 	}
 
+	public List<OrdenesServicios> darOrdenesServiciosId (long idOrden)
+	{
+		return sqlOrdenesServicios.darOrdenesServiciosId(pmf.getPersistenceManager(), idOrden);
+	}
+	
+	
+	/* ****************************************************************
+	 * 			 Reservas
+	 *****************************************************************/
+	public Reservas adicionarReserva(long idAfiliadoReservador, long idAfiliadoTomador, long idServicioSalud,
+			String idEstado) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+
+			tx.begin();
+			long id = currReservas();
+			long tuplasInsertadas = sqlReservas.adicionarReserva(pm, id, idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, idEstado);
+			tx.commit();
+
+			log.trace ("Inserción de la OrdenServicios: " + id+"--"+ idAfiliadoTomador + ": " + tuplasInsertadas + " tuplas insertadas");
+
+			return new Reservas(id, idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, idEstado);
+		}
+		catch (Exception e)
+		{
+			// 	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
 
 	/* ****************************************************************
 	 * 			 AFILIADO
@@ -1226,7 +1285,7 @@ public class PersistenciaParranderos
 
 			log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
 
-			return new Orden(receta, idAfiliado, idMedico,id);
+			return new Orden(receta,id,idAfiliado, idMedico);
 		}
 		catch (Exception e)
 		{
@@ -1254,6 +1313,8 @@ public class PersistenciaParranderos
 	{
 		return sqlOrden.darOrdenes(pmf.getPersistenceManager());
 	}
+	
+
 
 
 	/* ****************************************************************
@@ -1337,7 +1398,17 @@ public class PersistenciaParranderos
 		return sqlHorario.darHorario(pmf.getPersistenceManager(), idHorario);
 	}
 
-
+	public void aumentarCapacidadHorario(long idhorario) {
+		// TODO Auto-generated method stub
+		
+		sqlHorario.aumentarCapacidadHorario(pmf.getPersistenceManager(), idhorario);
+		
+	}
+	
+	public void disminuirCapacidadHorario(long idhorario) {
+		// TODO Auto-generated method stub
+		sqlHorario.disminuirCapacidadHorario(pmf.getPersistenceManager(), idhorario);
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar los TIPOS DE BEBIDA
 	 *****************************************************************/
@@ -2541,6 +2612,9 @@ public class PersistenciaParranderos
 		}
 
 	}
+
+
+
 
 
 

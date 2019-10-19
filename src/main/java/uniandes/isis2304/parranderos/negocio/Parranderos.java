@@ -216,9 +216,9 @@ public class Parranderos
 
 	}
 
-	public OrdenesServicios adicionarOrdenesServicios(Long idservicio1, int realizado) {
+	public OrdenesServicios adicionarOrdenesServicios(long idservicio1, long idOrden,int realizado) {
 		log.info ("Adicionando OrdenesServicios: " + idservicio1);
-		OrdenesServicios ordenesServicios = pp.adicionarOrdenesServicios(idservicio1, realizado);		
+		OrdenesServicios ordenesServicios = pp.adicionarOrdenesServicios(idservicio1,idOrden, realizado);		
 		log.info ("Adicionando OrdenesServicios: " + ordenesServicios);
 		return ordenesServicios;
 	}
@@ -377,10 +377,10 @@ public class Parranderos
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public Horario adicionarHorario (long id, long servicio, String hora, int disponibilidad, int capacidad,Timestamp fecha){
+	public Horario adicionarHorario (long servicio, String hora, int disponibilidad, int capacidad,Timestamp fecha){
 
-		log.info ("Adicionando Horario con Capacidad y servicio: " + id +"::"+ servicio+"::"+ hora+"::"+ disponibilidad+"::"+ capacidad+"::"+fecha);
-		Horario horaio = pp.adicionarHorario(id, servicio, hora, disponibilidad, capacidad,fecha);	
+		log.info ("Adicionando Horario con Capacidad y servicio: " +"::"+ servicio+"::"+ hora+"::"+ disponibilidad+"::"+ capacidad+"::"+fecha);
+		Horario horaio = pp.adicionarHorario( servicio, hora, disponibilidad, capacidad,fecha);	
 		log.info ("Adicionando Usuario: " + horaio);
 		return horaio;
 

@@ -14,7 +14,12 @@ public class Reservas implements VOReservas{
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private long idAfiliado;
+	private long idAfiliadoTomador;
+	
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private long idAfiliadoReservador;
 	
 	/**
 	 * El identificador �NICO de los bares
@@ -29,15 +34,17 @@ public class Reservas implements VOReservas{
 	public Reservas() {
 		
 		this.id = 0;
-		this.idAfiliado = 0;
+		this.idAfiliadoTomador = 0;
+		this.idAfiliadoReservador = 0;
 		this.idServicioSalud = 0;
 		this.estado = "";
 	}
 
-	public Reservas(long id, long idAfiliado, long idServicioSalud, String estado) {
+	public Reservas(long id, long idAfiliadoTomador, long idAfiliadoReservador, long idServicioSalud, String estado) {
 		
 		this.id = id;
-		this.idAfiliado = idAfiliado;
+		this.idAfiliadoTomador = idAfiliadoTomador;
+		this.idAfiliadoReservador = idAfiliadoReservador;
 		this.idServicioSalud = idServicioSalud;
 		this.estado = estado;
 	}
@@ -50,12 +57,20 @@ public class Reservas implements VOReservas{
 		this.id = id;
 	}
 
-	public long getIdAfiliado() {
-		return idAfiliado;
+	public long getIdAfiliadoTomador() {
+		return idAfiliadoTomador;
 	}
 
-	public void setIdAfiliado(long idAfiliado) {
-		this.idAfiliado = idAfiliado;
+	public void setIdAfiliadoTomador(long idAfiliadoTomador) {
+		this.idAfiliadoTomador = idAfiliadoTomador;
+	}
+
+	public long getIdAfiliadoReservador() {
+		return idAfiliadoReservador;
+	}
+
+	public void setIdAfiliadoReservador(long idAfiliadoReservador) {
+		this.idAfiliadoReservador = idAfiliadoReservador;
 	}
 
 	public long getIdServicioSalud() {
@@ -76,14 +91,11 @@ public class Reservas implements VOReservas{
 
 	@Override
 	public String toString() {
-		return "Reservas [id=" + id + ", idAfiliado=" + idAfiliado + ", idServicioSalud=" + idServicioSalud
-				+ ", estado=" + estado + "]";
+		return "Reservas [id=" + id + ", idAfiliadoTomador=" + idAfiliadoTomador + ", idAfiliadoReservador="
+				+ idAfiliadoReservador + ", idServicioSalud=" + idServicioSalud + ", estado=" + estado + "]";
 	}
 	
 	
-	
-	
-	
-	
+
 	
 }

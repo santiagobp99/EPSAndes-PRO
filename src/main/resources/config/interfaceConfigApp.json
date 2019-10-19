@@ -46,7 +46,7 @@
 				},
 				{
 					"label": "Añadir horario de un servicio",
-					"event": "adicionarHoraio"
+					"event": "adicionarHorario"
 				},
 				{
 					"label": "Añadir una hora",
@@ -144,7 +144,7 @@
 			[
 				{
 					"label": "Reservar Servicio de Salud",
-					"event": "reservarServicioSalud"
+					"event": "adicionarReserva"
 				}
 			]
 		},

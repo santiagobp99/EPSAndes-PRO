@@ -19,18 +19,18 @@ public SQLReservas(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public long adicionarReserva (PersistenceManager pm, long id, long idAfiliado, Long idServicioSalud, String idEstado) 
+	public long adicionarReserva (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud, String idEstado) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaAdscritos() + "(id, idafiliado, idserviciosalud, estado) values (?, ?, ?, ?)");
-        q.setParameters(id, idAfiliado, idServicioSalud, idEstado);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaAdscritos() + "(id, idafiliadoTomador, idserviciosalud, idafiliadoReservador,estado) values (?, ?, ?, ?,?)");
+        q.setParameters(id, idAfiliadoTomador, idServicioSalud,idAfiliadoReservador, idEstado);
         return (long) q.executeUnique();
 	}
 	
 	
-	public long eliminarReservas (PersistenceManager pm, long id, long idAfiliado, Long idServicioSalud, String idEstado)
+	public long eliminarReservas (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud, String idEstado)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + persistenciaEPS.darTablaAdscritos() + " WHERE id = ? AND idafiliado = ? AND idserviciosalud = ? AND estado = ? ");
-        q.setParameters(id, idAfiliado, idServicioSalud, idEstado);
+        Query q = pm.newQuery(SQL, "DELETE FROM " + persistenciaEPS.darTablaAdscritos() + " WHERE id = ?  ");
+        q.setParameters(id, idAfiliadoTomador, idServicioSalud, idAfiliadoReservador,idEstado);
         return (long) q.executeUnique();
 	}
 

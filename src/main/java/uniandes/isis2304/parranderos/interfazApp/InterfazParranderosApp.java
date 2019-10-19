@@ -930,12 +930,17 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			if (receta != null)
 			{
 				VOOrden os = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
+				System.out.println(os.getId());
+				System.out.println(os.getIdAfiliado());
+				System.out.println(os.getIdMedico());
+				System.out.println(servicios.get(0));
 				if (os == null)
 				{
 					throw new Exception ("No se pudo crear la orden de servicio: " + os+ "con receta "+receta);
+					
 				}
 				for(int i = 0; i<servicios.size();i++){
-					VOOrdenesServicios oss = parranderos.adicionarOrdenesServicios(servicios.get(i), 0 );
+					VOOrdenesServicios oss = parranderos.adicionarOrdenesServicios(servicios.get(i),os.getId() ,0 );
 					if (oss == null)
 					{
 						throw new Exception ("No se pudo crear un servicio asociado: " + os+ "id "+servicios.get(i));
@@ -975,8 +980,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String idAfiliadoReservador = JOptionPane.showInputDialog (this, "id Afiliado Reservador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 			String idAfiliadoTomador = JOptionPane.showInputDialog (this, "id Afiliado Tomador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 			String idServicioSalud = JOptionPane.showInputDialog (this, "id Servicio de Salud?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-			String idHorario = JOptionPane.showInputDialog (this, "Estado?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-			String estado = JOptionPane.showInputDialog (this, "Estado?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+			String idHorario = JOptionPane.showInputDialog (this, "Hora?", "Horario", JOptionPane.QUESTION_MESSAGE);
+			String estado = JOptionPane.showInputDialog (this, "Estado?", "Estado", JOptionPane.QUESTION_MESSAGE);
 			
 			long IdAfiliadoReservador = Long.valueOf(idAfiliadoReservador);
 			long IdAfiliadoTomador = Long.valueOf(idAfiliadoTomador);
@@ -1045,45 +1050,52 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 *****************************************************************/
 
 
-	//      public void adicionarHorario( )
-	//      
-	//      {
-	//      	
-	//      	try 
-	//      	{
-	//      		String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-	//      		String idServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-	//      		
-	//      		
-	//      		
-	//      		int Capacidad = Integer.valueOf(capacidad);
-	//      		long IdServicio = Long.valueOf(idServicio);
-	//      		
-	//      		if (capacidad != null)
-	//      		{
-	//          		VOHorario tb = parranderos.adicionarHorario(Capacidad, IdServicio);
-	//          		if (tb == null)
-	//          		{
-	//          			throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
-	//          		}
-	//          		String resultado = "En adicionHorario\n\n";
-	//          		resultado += "Horario adicionado exitosamente: " + tb;
-	//      			resultado += "\n Operación terminada";
-	//      			panelDatos.actualizarInterfaz(resultado);
-	//      		}
-	//      		else
-	//      		{
-	//      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-	//      		}
-	//  		} 
-	//      	catch (Exception e) 
-	//      	{
-	////  			e.printStackTrace();
-	//  			String resultado = generarMensajeError(e);
-	//  			panelDatos.actualizarInterfaz(resultado);
-	//  		}
-	//      }
-	//      
+	      public void adicionarHorario( )
+	      
+	      {
+	      	
+	      	try 
+	      	{
+	      		String lngIdServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
+	      		String intCapacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+	      			
+	      		String timeFecha = JOptionPane.showInputDialog (this, "Fecha?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+	      		String hora = JOptionPane.showInputDialog (this, "Hora?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
+	      		String intDisponibilidad = JOptionPane.showInputDialog (this, "Disponibilidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+	      		
+	      		
+	      		
+	      		
+	      		int capacidad = Integer.valueOf(intCapacidad);
+	      		long idServicio = Long.valueOf(lngIdServicio);
+	      		Timestamp fecha = Timestamp.valueOf(timeFecha);
+	      		int disponibilidad = Integer.valueOf(intDisponibilidad);
+	      		
+	      		if (idServicio != 0)
+	      		{
+	          		VOHorario tb = parranderos.adicionarHorario(idServicio, hora, disponibilidad, capacidad, fecha);
+	          		if (tb == null)
+	          		{
+	          			throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
+	          		}
+	          		String resultado = "En adicionHorario\n\n";
+	          		resultado += "Horario adicionado exitosamente: " + tb;
+	      			resultado += "\n Operación terminada";
+	      			panelDatos.actualizarInterfaz(resultado);
+	      		}
+	      		else
+	      		{
+	      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+	      		}
+	  		} 
+	      	catch (Exception e) 
+	      	{
+	//  			e.printStackTrace();
+	  			String resultado = generarMensajeError(e);
+	  			panelDatos.actualizarInterfaz(resultado);
+	  		}
+	      }
+	      
 
 
 

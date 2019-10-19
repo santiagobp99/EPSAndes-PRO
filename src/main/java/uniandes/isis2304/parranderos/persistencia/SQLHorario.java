@@ -59,6 +59,31 @@ public class SQLHorario {
 		q.setParameters(pIdServicioSalud);
 		return (List<Horario>) q.executeList();
 	}
+	
+	public int darCapacidadHorario (PersistenceManager pm, long idHorario) 
+	{
+		Query q = pm.newQuery(SQL, "SELECT capacidad FROM " + persistenciaEPS.darTablaHorario()  + " WHERE id = ?");
+		q.setResultClass(Integer.class);
+		q.setParameters(idHorario);
+		return (Integer) q.executeUnique();
+	}
 
-
+	public long aumentarCapacidadHorario (PersistenceManager pm, long pId) 
+	{
+		int x = darCapacidadHorario(pm, pId);
+		x+=1;
+        Query q = pm.newQuery(SQL, "UPDATE" + persistenciaEPS.darTablaHorario() + "SET CAPACIDAD = ? WHERE ID = ?");
+        q.setParameters(x,pId);
+        return (long) q.executeUnique();
+	}
+	
+	public long disminuirCapacidadHorario (PersistenceManager pm, long pId) 
+	{
+		int x = darCapacidadHorario(pm, pId);
+		x-=1;
+        Query q = pm.newQuery(SQL, "UPDATE" + persistenciaEPS.darTablaHorario() + "SET CAPACIDAD = ? WHERE ID = ?");
+        q.setParameters(x,pId);
+        return (long) q.executeUnique();
+	}
+	
 }

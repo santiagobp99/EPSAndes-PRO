@@ -22,8 +22,8 @@ public class SQLOrden {
 	
 	public long adicionarOrden (PersistenceManager pm, String pReceta, long pIdAfiliado, long pIdMedico, long id) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrden() + "(receta, idafiliado, idmedico, id) values (?, ?, ?, ?)");
-        q.setParameters(pReceta, pIdAfiliado, pIdMedico,id);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrden() + "(id, idafiliado, idmedico, receta) values (?, ?, ?, ?)");
+        q.setParameters(id, pIdAfiliado, pIdMedico,pReceta);
         return (long) q.executeUnique();
 	}
 	
@@ -35,11 +35,11 @@ public class SQLOrden {
 	}
 
 	
-	public Orden darOrden (PersistenceManager pm, long pIdOrden) 
+	public Orden darOrden (PersistenceManager pm, long pId) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " +  persistenciaEPS.darTablaOrden()  + " WHERE id = ?");
 		q.setResultClass(Orden.class);
-		q.setParameters(pIdOrden);
+		q.setParameters(pId);
 		return (Orden) q.executeUnique();
 	}
 
@@ -50,6 +50,7 @@ public class SQLOrden {
 		q.setResultClass(Orden.class);
 		return (List<Orden>) q.executeList();
 	}
+
 	
 
 

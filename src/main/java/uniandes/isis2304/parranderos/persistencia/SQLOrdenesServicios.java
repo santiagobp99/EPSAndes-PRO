@@ -7,6 +7,7 @@ import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
 import uniandes.isis2304.parranderos.negocio.Horario;
+import uniandes.isis2304.parranderos.negocio.Orden;
 import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.ServicioSalud;
 
@@ -21,7 +22,7 @@ public SQLOrdenesServicios(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public long adicionarOrdenServicio (PersistenceManager pm, long idorden, long idservicio, long realizado,long id) 
+	public long adicionarOrdenServicio (PersistenceManager pm, long idorden, long idservicio, int realizado,long id) 
 	{
         Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrdenesServicios() + "(idorden, idservicio, realizado,id) values (?, ?, ?,?)");
         q.setParameters(idorden, idservicio, realizado);
@@ -53,4 +54,12 @@ public SQLOrdenesServicios(PersistenciaParranderos pPersistenciaParranderos) {
 		return (List<OrdenesServicios>) q.executeList();
 	}
 	
+	
+	public  List<OrdenesServicios> darOrdenesServiciosId (PersistenceManager pm, long pIdOrden) 
+	{
+		Query q = pm.newQuery(SQL, "SELECT * FROM " +  persistenciaEPS.darTablaOrden()  + " WHERE idOrden = ?");
+		q.setResultClass(Orden.class);
+		q.setParameters(pIdOrden);
+		return (List<OrdenesServicios>) q.executeUnique();
+	}
 }

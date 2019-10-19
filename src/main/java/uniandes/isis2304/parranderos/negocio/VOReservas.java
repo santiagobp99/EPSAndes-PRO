@@ -10,7 +10,12 @@ public interface VOReservas {
 	/**
 	 * @return El nombre de nombre-tabla
 	 */
-	public long getIdAfiliado() ;
+	public long getIdAfiliadoTomador() ;
+	
+	/**
+	 * @return El nombre de nombre-tabla
+	 */
+	public long getIdAfiliadoReservador() ;
 	
 	/**
 	 * @return El nombre de nombre-tabla
