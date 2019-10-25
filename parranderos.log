@@ -2057,3 +2057,9 @@ ORA-02291: restricción de integridad (ISIS2304D041920.FK_MEDICO_SERVI_SERVICIO_
 19:46:47,842 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
 
 19:46:47,844 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+09:09:35,591 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+09:09:35,593 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+09:09:35,684 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:14:16,435 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+09:14:16,437 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+09:14:16,512 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD

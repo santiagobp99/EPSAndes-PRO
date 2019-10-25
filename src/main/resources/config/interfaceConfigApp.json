@@ -66,69 +66,6 @@
 				}
 			]
 		},
-		{ "menuTitle": "Mantenimiento",
-		  "options":
-			[
-				{
-					"label": "Mostrar log Parranderos",
-					"event": "mostrarLogParranderos"
-				},
-				{
-					"label": "Mostrar log datanucleus",
-					"event": "mostrarLogDatanuecleus"
-				},
-				{
-					"label": "Limpiar log de parranderos",
-					"event": "limpiarLogParranderos"
-				},
-				{
-					"label": "Limpiar log de datanucleus",
-					"event": "limpiarLogDatanucleus"
-				},
-				{
-					"label": "Limpiar Base de Datos",
-					"event": "limpiarBD"
-				}
-			]
-		},		
-		{ "menuTitle": "Documentación",
-		  "options":
-			[
-				{
-					"label": "Presentación general",
-					"event": "mostrarPresentacionGeneral"
-				},
-				{
-					"label": "Modelo conceptual",
-					"event": "mostrarModeloConceptual"
-				},
-				{
-					"label": "Esquema de la BD",
-					"event": "mostrarEsquemaBD"
-				},
-				{
-					"label": "Script creación de la BD",
-					"event": "mostrarScriptBD"
-				},
-				{
-					"label": "Arquitectura de referencia",
-					"event": "mostrarArqRef"
-				},
-				{
-					"label": "Javadoc Parranderos",
-					"event": "mostrarJavadoc"
-				}
-			]
-		},	
-		{ "menuTitle": "Acerca de ...",
-		  "options":
-			[
-				{
-					"label": "Acerca de ...",
-					"event": "acercaDe"
-				}
-			]
-		},
 		{ "menuTitle": "MedicoEPS",
 		  "options":
 			[
@@ -185,7 +122,71 @@
 					"event": "darServiciosAfiliadoFecha"
 				}
 			]
-		}																													
+		},
+		
+		{ "menuTitle": "Mantenimiento",
+			"options":
+			  [
+				  {
+					  "label": "Mostrar log Parranderos",
+					  "event": "mostrarLogParranderos"
+				  },
+				  {
+					  "label": "Mostrar log datanucleus",
+					  "event": "mostrarLogDatanuecleus"
+				  },
+				  {
+					  "label": "Limpiar log de parranderos",
+					  "event": "limpiarLogParranderos"
+				  },
+				  {
+					  "label": "Limpiar log de datanucleus",
+					  "event": "limpiarLogDatanucleus"
+				  },
+				  {
+					  "label": "Limpiar Base de Datos",
+					  "event": "limpiarBD"
+				  }
+			  ]
+		  },		
+		  { "menuTitle": "Documentación",
+			"options":
+			  [
+				  {
+					  "label": "Presentación general",
+					  "event": "mostrarPresentacionGeneral"
+				  },
+				  {
+					  "label": "Modelo conceptual",
+					  "event": "mostrarModeloConceptual"
+				  },
+				  {
+					  "label": "Esquema de la BD",
+					  "event": "mostrarEsquemaBD"
+				  },
+				  {
+					  "label": "Script creación de la BD",
+					  "event": "mostrarScriptBD"
+				  },
+				  {
+					  "label": "Arquitectura de referencia",
+					  "event": "mostrarArqRef"
+				  },
+				  {
+					  "label": "Javadoc Parranderos",
+					  "event": "mostrarJavadoc"
+				  }
+			  ]
+		  },	
+		  { "menuTitle": "Acerca de ...",
+			"options":
+			  [
+				  {
+					  "label": "Acerca de ...",
+					  "event": "acercaDe"
+				  }
+			  ]
+		  }
 		
 	]
 }
