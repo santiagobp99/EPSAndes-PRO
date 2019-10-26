@@ -56,6 +56,7 @@ public class Horario implements VOHorario {
 		this.disponibilidad = 0;
 		this.capacidad = 0;
 		this.fecha = new Timestamp (0);
+		
 	}
 
 	public Horario(long id, long idServicio, String hora, int disponibilidad, int capacidad, Timestamp fecha) {
@@ -67,6 +68,8 @@ public class Horario implements VOHorario {
 		this.capacidad = capacidad;
 		this.fecha = fecha;
 	}
+
+
 
 	public long getId() {
 		return id;

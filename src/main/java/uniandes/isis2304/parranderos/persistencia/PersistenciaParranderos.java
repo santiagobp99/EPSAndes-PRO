@@ -1081,7 +1081,7 @@ public class PersistenciaParranderos
 
 			log.trace ("Inserción de la OrdenServicios: " + pIdOrden+"--"+ idservicio + ": " + tuplasInsertadas + " tuplas insertadas");
 
-			return new OrdenesServicios(pIdOrden, idservicio, realizado,id);
+			return new OrdenesServicios(id,pIdOrden, idservicio, realizado);
 		}
 		catch (Exception e)
 		{
@@ -1101,6 +1101,7 @@ public class PersistenciaParranderos
 
 	public List<OrdenesServicios> darOrdenesServiciosId (long idOrden)
 	{
+		
 		return sqlOrdenesServicios.darOrdenesServiciosId(pmf.getPersistenceManager(), idOrden);
 	}
 	
@@ -1304,7 +1305,7 @@ public class PersistenciaParranderos
 	}
 
 
-	public Orden darOrdenServicio (long idOrdenServicio)
+	public Orden darOrden (long idOrdenServicio)
 	{
 		return sqlOrden.darOrden(pmf.getPersistenceManager(), idOrdenServicio);
 	}
@@ -1397,6 +1398,7 @@ public class PersistenciaParranderos
 	{
 		return sqlHorario.darHorario(pmf.getPersistenceManager(), idHorario);
 	}
+	
 
 	public void aumentarCapacidadHorario(long idhorario) {
 		// TODO Auto-generated method stub

@@ -48,7 +48,7 @@ public SQLOrdenesServicios(PersistenciaParranderos pPersistenciaParranderos) {
 
 	public List<OrdenesServicios> darOrdenesPorServicio (PersistenceManager pm,long pIdServicioSalud)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaHorario()  + " WHERE idServicio = ?"  );
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaHorario()  + " WHERE idservicio = ?"  );
 		q.setResultClass(OrdenesServicios.class);
 		q.setParameters(pIdServicioSalud);
 		return (List<OrdenesServicios>) q.executeList();
@@ -57,9 +57,13 @@ public SQLOrdenesServicios(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	public  List<OrdenesServicios> darOrdenesServiciosId (PersistenceManager pm, long pIdOrden) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " +  persistenciaEPS.darTablaOrden()  + " WHERE idOrden = ?");
-		q.setResultClass(Orden.class);
-		q.setParameters(pIdOrden);
-		return (List<OrdenesServicios>) q.executeUnique();
+		String orden = pIdOrden+"";
+		Query q = pm.newQuery(SQL, "SELECT * FROM " +  persistenciaEPS.darTablaOrdenesServicios()  + " WHERE idorden = ?");
+		q.setResultClass(OrdenesServicios.class);
+		q.setParameters(orden);
+		return (List<OrdenesServicios>) q.executeList();
+		
+		
+		
 	}
 }

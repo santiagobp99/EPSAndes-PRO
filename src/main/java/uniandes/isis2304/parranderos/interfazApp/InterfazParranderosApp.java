@@ -855,6 +855,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		boolean hay = false;
 
 		VOHorario horario = parranderos.darHorario(idhorario);
+		
 
 		if(horario.getCapacidad()<=0 && horario.getDisponibilidad()==1){
 
@@ -878,6 +879,10 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		boolean existe = false;
 
 		List <VOOrdenesServicios> listaOrdenes = parranderos.darVOOrdenesServiciosId(idorden);
+		System.out.println(idorden);
+		System.out.println(idservicio);
+	
+	
 
 		for(int i = 0; i<listaOrdenes.size();i++){
 			if(listaOrdenes.get(i).getIdServicio()==idservicio){
@@ -891,6 +896,24 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 
 
+	}
+	
+	public boolean existeOrden(long idorden){
+		
+		boolean existe = false;
+
+		VOOrden orden = parranderos.darVOOrden(idorden);
+
+		if(orden==null){
+			return existe;
+		}
+		else{
+			existe = true;
+		}
+		return existe;
+		
+		
+		
 	}
 
 	/* ****************************************************************
@@ -980,21 +1003,27 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String idAfiliadoReservador = JOptionPane.showInputDialog (this, "id Afiliado Reservador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 			String idAfiliadoTomador = JOptionPane.showInputDialog (this, "id Afiliado Tomador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 			String idServicioSalud = JOptionPane.showInputDialog (this, "id Servicio de Salud?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-			String idHorario = JOptionPane.showInputDialog (this, "Hora?", "Horario", JOptionPane.QUESTION_MESSAGE);
-			String estado = JOptionPane.showInputDialog (this, "Estado?", "Estado", JOptionPane.QUESTION_MESSAGE);
+			String idHorario = JOptionPane.showInputDialog (this, "id horario?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+			String estado = JOptionPane.showInputDialog (this, "Estado?.DIURNO, VESPERTINO o NOCTURNO", "Reservar", JOptionPane.QUESTION_MESSAGE);
 			
 			long IdAfiliadoReservador = Long.valueOf(idAfiliadoReservador);
 			long IdAfiliadoTomador = Long.valueOf(idAfiliadoTomador);
-			long IdServicioSalud = Long.valueOf(idAfiliadoTomador);
+			long IdServicioSalud = Long.valueOf(idServicioSalud);
 			long IdHorario = Long.valueOf(idHorario);
 			
 			
 			boolean cumple = false;
-
+			System.out.println("Se necesita orden:" +hayOrdenServicioDeSalud(IdServicioSalud));
+			
 			if (hayOrdenServicioDeSalud(IdServicioSalud)){
-				String idOrden = JOptionPane.showInputDialog (this, "Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+				
+				String idOrden = JOptionPane.showInputDialog (this, "id Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 				long IdOrden = Long.valueOf(idOrden);
-				if(existeServicioEnOrden(IdServicioSalud, IdOrden)){
+				
+				System.out.println("Existe la orden:" +existeOrden(IdOrden));
+				if(existeOrden(IdOrden)){
+					
+					System.out.println("Hay capacidad:"+hayCapacidadHorario(IdHorario));
 					if(hayCapacidadHorario(IdHorario)){
 						
 						cumple = true;

@@ -1,25 +1,29 @@
 package uniandes.isis2304.parranderos.persistencia;
 
 import java.sql.Timestamp;
+
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
 import uniandes.isis2304.parranderos.negocio.Horario;
-import uniandes.isis2304.parranderos.negocio.ServicioSalud;
+
 
 public class SQLHorario {
 
+	
+public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
+		
+		persistenciaEPS = pPersistenciaParranderos;
+	}
+	
 	
 	private final static String SQL = PersistenciaParranderos.SQL;
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
-		
-		persistenciaEPS = pPersistenciaParranderos;
-	}
+	
 	
 	public long adicionarHorario (PersistenceManager pm, int pCapacidad , long pIdServicio, String pHora, long pId,Timestamp fecha,int disponibilidad ) 
 	{

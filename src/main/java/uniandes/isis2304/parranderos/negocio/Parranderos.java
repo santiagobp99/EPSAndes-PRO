@@ -270,6 +270,7 @@ public class Parranderos
 	 */
 	public List<VOServicioSalud> darVOServiciosDeSalud ()
 	{
+		
 		log.info ("Generando los VO de Servicios");        
 		List<VOServicioSalud> voServicios = new LinkedList<VOServicioSalud> ();
 		for (ServicioSalud ss : pp.darServiciosDeSalud())
@@ -308,6 +309,7 @@ public class Parranderos
 	{
 		log.info ("Generando los VO de OrdenesServicios");        
 		List<VOOrdenesServicios> voOrdenesServicios = new LinkedList<VOOrdenesServicios> ();
+		
 		for (OrdenesServicios os : pp.darOrdenesServiciosId(idorden))
 		{
 			
@@ -1149,6 +1151,17 @@ public class Parranderos
 		log.info ("Limpiando la BD de Parranderos: Listo!");
 		return borrrados;
 	}
+
+	public VOOrden darVOOrden(long idorden) {
+		log.info ("Generando el VO Servicio");        
+		
+		VOOrden voOrden = pp.darOrden(idorden);
+		
+		log.info ("Generando el VO Servicio");
+		return voOrden;
+	}
+
+	
 
 	
 
