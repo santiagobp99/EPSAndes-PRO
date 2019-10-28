@@ -124,7 +124,7 @@ class SQLUtil
 	}
 	
 	public long currValOrdenServicio(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqOrdenServicio() + ".nextval FROM DUAL");
+		Query q = pm.newQuery(SQL, "SELECT "+ pp.darSeqOrdenesServicio() + ".nextval FROM DUAL");
         q.setResultClass(Long.class);
         long resp = (long) q.executeUnique();
         return resp;

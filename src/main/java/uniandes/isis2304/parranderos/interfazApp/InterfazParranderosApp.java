@@ -1114,40 +1114,40 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	public void adicionarReserva(String strIdTomador,String strIdReservador,String strIdServicio,String strIdHorario,String estado)	{
 		try 
 		{
-			long idAfiliadoReservador = Long.valueOf(strIdReservador);
 			long idAfiliadoTomador = Long.valueOf(strIdTomador);
+			long idAfiliadoReservador = Long.valueOf(strIdReservador);
 			long idServicioSalud = Long.valueOf(strIdServicio);
 			long idHorario = Long.valueOf(strIdHorario);
 
 
-			boolean cumple = false;
-			System.out.println("Se necesita orden:" +hayOrdenServicioDeSalud(idServicioSalud));
+			//boolean cumple = false;
+			//System.out.println("Se necesita orden:" +hayOrdenServicioDeSalud(idServicioSalud));
 
-			if (hayOrdenServicioDeSalud(idServicioSalud)){
+//			if (hayOrdenServicioDeSalud(idServicioSalud)){
+//
+//				String idOrden = JOptionPane.showInputDialog (this, "id Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+//				long IdOrden = Long.valueOf(idOrden);
+//
+//				System.out.println("Existe la orden:" +existeOrden(IdOrden));
+//				if(existeOrden(IdOrden)){
+//
+//					System.out.println("Hay capacidad:"+hayCapacidadHorario(idHorario));
+//					if(hayCapacidadHorario(idHorario)){
+//
+//						cumple = true;
+//
+//					}
+//				}
+//			}
+//			else{
+//				if(hayCapacidadHorario(idHorario)){
+//
+//					cumple = true;
+//
+//				}
+//			}
 
-				String idOrden = JOptionPane.showInputDialog (this, "id Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-				long IdOrden = Long.valueOf(idOrden);
-
-				System.out.println("Existe la orden:" +existeOrden(IdOrden));
-				if(existeOrden(IdOrden)){
-
-					System.out.println("Hay capacidad:"+hayCapacidadHorario(idHorario));
-					if(hayCapacidadHorario(idHorario)){
-
-						cumple = true;
-
-					}
-				}
-			}
-			else{
-				if(hayCapacidadHorario(idHorario)){
-
-					cumple = true;
-
-				}
-			}
-
-			if(cumple){
+			//if(cumple==false){
 				VOReservas r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, estado );
 
 				if (r == null)
@@ -1163,13 +1163,13 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				resultado += "Reserva adicionada exitosamente: " + r;
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
-			}
+			//}
 
 
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
+//			else
+//			{
+//				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+//			}
 		} 
 		catch (Exception e) 
 		{
@@ -1231,7 +1231,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String horarioInput = horarioField.getText();
 			String estadoInput = estadoField.getText();
 			
-			adicionarReserva(reservadorInput, tomadorInput, servicioInput,horarioInput,estadoInput);
+			adicionarReserva(tomadorInput,reservadorInput, servicioInput,horarioInput,estadoInput);
 
 			try {
 

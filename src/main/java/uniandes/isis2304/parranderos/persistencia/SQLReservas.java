@@ -21,7 +21,7 @@ public SQLReservas(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	public long adicionarReserva (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud, String estado) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaAdscritos() + "(id, idafiliadoTomador, idafiliadoReservador,idserviciosalud, estado) values (?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaReservas() + "(id, idafiliadoTomador, idafiliadoReservador,idserviciosalud, estado) values (?, ?, ?, ?, ?)");
         q.setParameters(id, idAfiliadoTomador, idAfiliadoReservador,idServicioSalud, estado);
         return (long) q.executeUnique();
 	}
@@ -29,7 +29,7 @@ public SQLReservas(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	public long eliminarReservas (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud, String idEstado)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + persistenciaEPS.darTablaAdscritos() + " WHERE id = ?  ");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + persistenciaEPS.darTablaReservas() + " WHERE id = ?  ");
         q.setParameters(id, idAfiliadoTomador, idServicioSalud, idAfiliadoReservador,idEstado);
         return (long) q.executeUnique();
 	}
@@ -37,7 +37,7 @@ public SQLReservas(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	public List<Reservas> darReservas (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaAdscritos());
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaReservas());
 		q.setResultClass(Reservas.class);
 		List<Reservas> resp = (List<Reservas>) q.execute();
 		return resp;

@@ -200,37 +200,28 @@ public class PersistenciaParranderos
 
 		// Define los nombres por defecto de las tablas de la base de datos
 		tablas = new LinkedList<String> ();
-		tablas.add ("Parranderos_sequence");
-		tablas.add ("TIPOBEBIDA");
-		tablas.add ("BEBIDA");
-		tablas.add ("BAR");
-		tablas.add ("BEBEDOR");
-		tablas.add ("GUSTAN");
-		tablas.add ("SIRVEN");
-		tablas.add ("VISITAN");
 		tablas.add ("ADSCRITOS");
 		tablas.add ("AFILIADO");
 		tablas.add ("CITA_MEDICA");
-		tablas.add ("CITAS_DE_SERVICOS");
 		tablas.add ("CONSULTA_ESPECIALISTA");
 		tablas.add ("CONSULTA_URGENCIAS");
 		tablas.add ("EPS_ANDES");
 		tablas.add ("HORARIO");
-		tablas.add ("HORAS");
 		tablas.add ("INTERCONSULTAS");
 		tablas.add ("IPS");
-		tablas.add ("LLEGADA");
 		tablas.add ("MEDICO");
 		tablas.add ("MEDICO_ESPECIALISTA");
 		tablas.add ("MEDICO_GENERAL");
+		tablas.add("MEDICO_SERVICIO");
 		tablas.add ("MEDICO_TRATANTE");
 		tablas.add ("ORDEN");
+		tablas.add("ORDENES_SERVICIOS");
 		tablas.add ("RECEPCIONISTA");
+		tablas.add ("RESERVAS");
 		tablas.add ("ROL");
 		tablas.add ("SERVICIO_SALUD");
 		tablas.add ("USUARIO");
-		tablas.add("MEDICO_SERVICIO");
-		tablas.add("ORDENES_SERVICIOS");
+		
 	}
 
 	/**
@@ -305,13 +296,6 @@ public class PersistenciaParranderos
 	 */
 	private void crearClasesSQL ()
 	{
-		sqlTipoBebida = new SQLTipoBebida(this);
-		sqlBebida = new SQLBebida(this);
-		sqlBar = new SQLBar(this);
-		sqlBebedor = new SQLBebedor(this);
-		sqlGustan = new SQLGustan(this);
-		sqlSirven = new SQLSirven (this);
-		sqlVisitan = new SQLVisitan(this);
 		sqlAdscritos = new SQLAdscritos(this);
 		sqlAfiliado = new SQLAfiliado(this);
 		sqlCitaMedica = new  SQLCitaMedica(this);
@@ -324,15 +308,16 @@ public class PersistenciaParranderos
 		sqlMedico = new SQLMedico(this);
 		sqlMedicoEspecialista = new SQLMedicoEspecialista(this);
 		sqlMedicoGeneral = new SQLMedicoGeneral(this);
+		sqlMedicoServicio = new SQLMedicoServicio(this);
 		sqlMedicoTratante = new SQLMedicoTratante(this);
 		sqlOrden = new SQLOrden(this);
+		sqlOrdenesServicios = new SQLOrdenesServicios(this);
 		sqlRecepcionista = new SQLRecepcionista(this);
+		sqlReservas = new SQLReservas(this);
 		sqlRol = new SQLRol(this);
 		sqlServicioSalud = new SQLServicioSalud(this);
 		sqlUsuario = new SQLUsuario(this);
 		sqlUtil = new SQLUtil(this);
-		sqlMedicoServicio = new SQLMedicoServicio(this);
-		sqlOrdenesServicios = new SQLOrdenesServicios(this);
 	}
 
 	/**
@@ -340,7 +325,7 @@ public class PersistenciaParranderos
 	 */
 	public String darSeqParranderos ()
 	{
-		return tablas.get (0);
+		return tablas.get (1000);
 	}
 
 	/**
@@ -348,7 +333,7 @@ public class PersistenciaParranderos
 	 */
 	public String darTablaTipoBebida ()
 	{
-		return tablas.get (1);
+		return tablas.get (100);
 	}
 
 	/**
@@ -356,7 +341,7 @@ public class PersistenciaParranderos
 	 */
 	public String darTablaBebida ()
 	{
-		return tablas.get (2);
+		return tablas.get (200);
 	}
 
 	/**
@@ -364,7 +349,7 @@ public class PersistenciaParranderos
 	 */
 	public String darTablaBar ()
 	{
-		return tablas.get (3);
+		return tablas.get (300);
 	}
 
 	/**
@@ -372,7 +357,7 @@ public class PersistenciaParranderos
 	 */
 	public String darTablaBebedor ()
 	{
-		return tablas.get (4);
+		return tablas.get (400);
 	}
 
 	/**
@@ -380,7 +365,7 @@ public class PersistenciaParranderos
 	 */
 	public String darTablaGustan ()
 	{
-		return tablas.get (5);
+		return tablas.get (500);
 	}
 
 	/**
@@ -388,7 +373,7 @@ public class PersistenciaParranderos
 	 */
 	public String darTablaSirven ()
 	{
-		return tablas.get (6);
+		return tablas.get (600);
 	}
 
 	/**
@@ -396,154 +381,136 @@ public class PersistenciaParranderos
 	 */
 	public String darTablaVisitan ()
 	{
+		return tablas.get (700);
+	}
+
+	public String darTablaAdscritos (){
+		return tablas.get (0);
+	}
+
+	public String darTablaAfliado (){
+		return tablas.get (1);
+	}
+
+	public String darTablaCitaMedica (){
+		return tablas.get (2);
+	}
+
+	public String darTablaConsultaEspecialista (){
+		return tablas.get (3);
+	}
+
+	public String darTablaConsultaUrgencias (){
+		return tablas.get (4);
+	}
+
+	public String darTablaEpsAndes (){
+		return tablas.get (5);
+	}
+
+	public String darTablaHorario (){
+		return tablas.get (6);
+	}
+
+	public String darTablaInterconsultas (){
 		return tablas.get (7);
 	}
 
-	public String darTablaAdscritos ()
-	{
+	public String darTablaIps (){
 		return tablas.get (8);
 	}
 
-	public String darTablaAfliado ()
-	{
+	public String darTablaMedico (){
 		return tablas.get (9);
 	}
 
-	public String darTablaCitaMedica ()
-	{
+	public String darTablaMedicoEspecialista (){
 		return tablas.get (10);
 	}
 
-	public String darTablaCitasDeServicios ()
-	{
+	public String darTablaMedicoGeneral (){
 		return tablas.get (11);
 	}
-
-	public String darTablaConsultaEspecialista ()
-	{
+	
+	public String darTablaMedicoServicio (){
 		return tablas.get (12);
 	}
 
-	public String darTablaConsultaUrgencias ()
-	{
+	public String darTablaMedicoTratante (){
 		return tablas.get (13);
 	}
 
-	public String darTablaEpsAndes ()
-	{
+	public String darTablaOrden (){
 		return tablas.get (14);
 	}
 
-	public String darTablaHorario ()
-	{
+	public String darTablaOrdenesServicios(){
 		return tablas.get (15);
 	}
-
-	public String darTablaHoras ()
-	{
+	
+	public String darTablaRecepcionista (){
 		return tablas.get (16);
 	}
-
-	public String darTablaInterconsultas ()
-	{
+	
+	public String darTablaReservas (){
 		return tablas.get (17);
 	}
 
-	public String darTablaIps ()
-	{
+	public String darTablaRol (){
 		return tablas.get (18);
 	}
 
-	public String darTablaLlegada ()
-	{
+	public String darTablaServicioSalud(){
 		return tablas.get (19);
 	}
 
-	public String darTablaMedico ()
-	{
+	public String darTablaUsuario(){
 		return tablas.get (20);
 	}
 
-	public String darTablaMedicoEspecialista ()
-	{
+	public String darSeqConsultaUrgencias() {
 		return tablas.get (21);
 	}
-
-	public String darTablaMedicoGeneral ()
-	{
+	
+	public String darSeqEpsAndes() {
 		return tablas.get (22);
 	}
-
-	public String darTablaMedicoTratante ()
-	{
+	
+	public String darSeqHorario() {
 		return tablas.get (23);
 	}
-
-	public String darTablaOrden ()
-	{
+	
+	public String darSeqIps() {
 		return tablas.get (24);
 	}
-
-	public String darTablaRecepcionista ()
-	{
+	
+	public String darSeqMedico ()	{
 		return tablas.get (25);
 	}
-
-	public String darTablaRol ()
-	{
+	
+	public String darSeqOrden() {
 		return tablas.get (26);
 	}
-
-	public String darTablaServicioSalud ()
-	{
+	
+	public String darSeqOrdenesServicio() {
 		return tablas.get (27);
 	}
-
-	public String darTablaUsuario ()
-	{
+	
+	public String darSeqReservas (){
 		return tablas.get (28);
 	}
-	public String darTablaMedicoServicio() 
-	{
-
+	
+	public String darSeqRol (){
 		return tablas.get (29);
 	}
-	public String darTablaOrdenesServicios() 
-	{
-
-		return tablas.get (30);
-	}
-	public String darSeqHorario() {
-		return tablas.get (33);
-	}
-	public String darSeqMedico ()
-	{
-		return tablas.get (36);
-	}
-	public String darSeqRol ()
-	{
-		return tablas.get (38);
-	}
+	
 	public String darSeqServicioSalud() {
-
-		return tablas.get(39);
+		return tablas.get(30);
 	}
-	public String darSeqUsuario ()
-	{
-		return tablas.get (40);
+	
+	public String darSeqUsuario (){
+		return tablas.get (31);
 	}
-	public String darSeqOrden() {
-		return tablas.get (41);
-	}
-	public String darSeqOrdenServicio() {
-		return tablas.get (42);
-	}
-	public String darSeqReservas ()
-	{
-		return tablas.get (43);
-	}
-
-
 
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
@@ -562,9 +529,9 @@ public class PersistenciaParranderos
 	 * Adiciona entradas al log de la aplicación
 	 * @return El siguiente número del secuenciador de Parranderos
 	 */
-	private long currRol ()
+	private long currHorario ()
 	{
-		long resp = sqlUtil.currValRol(pmf.getPersistenceManager());
+		long resp = sqlUtil.currValHorario(pmf.getPersistenceManager());
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
@@ -574,9 +541,9 @@ public class PersistenciaParranderos
 	 * Adiciona entradas al log de la aplicación
 	 * @return El siguiente número del secuenciador de Parranderos
 	 */
-	private long currUsuario ()
+	private long currMedico ()
 	{
-		long resp = sqlUtil.currValUsuario(pmf.getPersistenceManager());
+		long resp = sqlUtil.currValMedico(pmf.getPersistenceManager());
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
@@ -616,31 +583,19 @@ public class PersistenciaParranderos
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-
+	
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
 	 * @return El siguiente número del secuenciador de Parranderos
 	 */
-	private long currHorario ()
+	private long currRol ()
 	{
-		long resp = sqlUtil.currValHorario(pmf.getPersistenceManager());
+		long resp = sqlUtil.currValRol(pmf.getPersistenceManager());
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-
-	/**
-	 * Transacción para el generador de secuencia de Parranderos
-	 * Adiciona entradas al log de la aplicación
-	 * @return El siguiente número del secuenciador de Parranderos
-	 */
-	private long currMedico ()
-	{
-		long resp = sqlUtil.currValMedico(pmf.getPersistenceManager());
-		log.trace ("Generando secuencia: " + resp);
-		return resp;
-	}
-
+	
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -649,6 +604,18 @@ public class PersistenciaParranderos
 	private long currServicioSalud ()
 	{
 		long resp = sqlUtil.currValServicioSalud(pmf.getPersistenceManager());
+		log.trace ("Generando secuencia: " + resp);
+		return resp;
+	}
+	
+	/**
+	 * Transacción para el generador de secuencia de Parranderos
+	 * Adiciona entradas al log de la aplicación
+	 * @return El siguiente número del secuenciador de Parranderos
+	 */
+	private long currUsuario ()
+	{
+		long resp = sqlUtil.currValUsuario(pmf.getPersistenceManager());
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
