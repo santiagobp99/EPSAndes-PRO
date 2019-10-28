@@ -898,25 +898,24 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
 	}
+	
 	/**
 	 * Consulta en la base de datos el atributo orden de un servicio de salud.
 	 */
-	public boolean hayOrdenServicioDeSalud(long idservicio)
+	public boolean requiereOrden(long idservicio)
 	{
-		boolean hay = false;
+		boolean hay = true;
 
 		VOServicioSalud servicio = parranderos.darVOServicioDeSalud(idservicio);
 
 		if(servicio.getOrden()==0){
-			return hay;
-		}
-		else{
-			hay = true;
+			hay = false;
 		}
 		return hay;
 
 
 	}
+	
 	public boolean hayCapacidadHorario(long idhorario)
 	{
 		boolean hay = false;
@@ -1120,9 +1119,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			long idHorario = Long.valueOf(strIdHorario);
 
 			boolean cumple = false;
-			System.out.println("Se necesita orden:" +hayOrdenServicioDeSalud(idServicioSalud));
+			System.out.println("Se necesita orden:" +requiereOrden(idServicioSalud));
 
-			if (hayOrdenServicioDeSalud(idServicioSalud)){
+			if (requiereOrden(idServicioSalud)){
 
 				String idOrden = JOptionPane.showInputDialog (this, "id Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 				long IdOrden = Long.valueOf(idOrden);
