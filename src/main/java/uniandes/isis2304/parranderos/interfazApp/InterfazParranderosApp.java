@@ -759,37 +759,27 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 * 			 CRUD de Servicio de Salud
 	 *****************************************************************/
 
-	public void registrarServicioSalud( )
-
-	{
+	public void registrarServicioSalud(String strIdIps,String tipo,String strHasOrden,String descripcion,String strIdMedico){
 
 		try 
 		{
-
-			String descripcion = JOptionPane.showInputDialog (this, "Descripcion?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-			String tipo = JOptionPane.showInputDialog (this, "Tipo?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-			String idIps = JOptionPane.showInputDialog (this, "idIps?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-			String orden = JOptionPane.showInputDialog (this, "Necesita orden de servicio? 0 o 1", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-			String medico = JOptionPane.showInputDialog (this, "ID del Medico?", "Resgistrar Servicio de Salud", JOptionPane.QUESTION_MESSAGE);
-
-
-			int Orden = Integer.valueOf(orden);
-			long IdIps = Long.valueOf(idIps);
-			long Medico = Long.valueOf(medico);
+			int hasOrden = Integer.valueOf(strHasOrden);
+			long idIps = Long.valueOf(strIdIps);
+			long idMedico = Long.valueOf(strIdMedico);
 
 
 			if (descripcion != null)
 
 			{
-				VOServicioSalud ss = parranderos.adicionarServicioDeSalud(IdIps, descripcion, tipo, Orden);
-				VOMedicoServicio ms = parranderos.adicionarMedicoServicio(Medico);
+				VOServicioSalud ss = parranderos.adicionarServicioDeSalud(idIps, descripcion, tipo, hasOrden);
+				VOMedicoServicio ms = parranderos.adicionarMedicoServicio(idMedico);
 				if (ss == null || ms == null)
 				{
 					throw new Exception ("No se pudo crear el servicio de salud: " + ss+ ".\ncon \ndescripcion: "+descripcion
 							+".\ntipo: "+tipo
-							+".\nIdIps: "+idIps
-							+".\norden: "+orden
-							+".\nmedico: "+medico
+							+".\nIdIps: "+strIdIps
+							+".\norden: "+strHasOrden
+							+".\nmedico: "+strIdMedico
 							);
 				}
 				String resultado = "En adicionServicioSalud\n\n";
@@ -810,6 +800,83 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		}
 	}
 
+	public void registrarServicioSaludDialog() {
+
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField idIpsField = new JTextField();
+		JTextField tipoField = new JTextField();
+		JTextField hasOrdenField = new JTextField();
+		
+		JTextField descripcionField = new JTextField();
+		JTextField idMedicoField = new JTextField();
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo dos variable 
+		String idIpsServicio;
+		String tipoServicio;
+		String hasOrdenServicio;
+		
+		String descripcionServicio;
+		String idMedicoServicio;
+
+		// Aca pongo los dos labels de añadir el nombre del rol        
+		panel.add(new JLabel("id de la IPS?"));
+		panel.add(idIpsField); 
+
+		panel.add(new JLabel("tipo del Servicio?"));
+		panel.add(tipoField); 
+
+		panel.add(new JLabel("requiere orden?(0=falso,1=verdadero)"));
+		panel.add(hasOrdenField); 
+
+		panel.add(new JLabel("descripcion?"));
+		panel.add(descripcionField);
+		
+		panel.add(new JLabel("id del Medico"));
+		panel.add(idMedicoField);
+		
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco el valor del rol
+			String idIpsInput = idIpsField.getText();
+			String tipoInput = tipoField.getText();
+			String hasOrdenInput = hasOrdenField.getText();
+			
+			String descripcionInput = descripcionField.getText();
+			String idMedicoInput = idMedicoField.getText();
+			
+			registrarServicioSalud(idIpsInput, tipoInput, hasOrdenInput,descripcionInput,idMedicoInput);
+
+			try {
+
+				// Aqui obtengo el input del nombre del rol
+				idIpsServicio = idIpsInput;
+				tipoServicio = tipoInput;
+				hasOrdenServicio = hasOrdenInput;
+				descripcionServicio = descripcionInput;
+				idMedicoServicio = idMedicoInput;
+
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("id de la Ips: " + idIpsServicio ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
+	
 	/**
 	 * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
 	 */
@@ -1044,29 +1111,19 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 * 			 CRUD de Reserva
 	 *****************************************************************/
 
-	public void adicionarReserva( )
-
-	{
-
-
+	public void adicionarReserva(String strIdTomador,String strIdReservador,String strIdServicio,String strIdHorario,String estado)	{
 		try 
 		{
-			String idAfiliadoReservador = JOptionPane.showInputDialog (this, "id Afiliado Reservador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-			String idAfiliadoTomador = JOptionPane.showInputDialog (this, "id Afiliado Tomador?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-			String idServicioSalud = JOptionPane.showInputDialog (this, "id Servicio de Salud?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-			String idHorario = JOptionPane.showInputDialog (this, "id horario?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-			String estado = JOptionPane.showInputDialog (this, "Estado?.DIURNO, VESPERTINO o NOCTURNO", "Reservar", JOptionPane.QUESTION_MESSAGE);
-
-			long IdAfiliadoReservador = Long.valueOf(idAfiliadoReservador);
-			long IdAfiliadoTomador = Long.valueOf(idAfiliadoTomador);
-			long IdServicioSalud = Long.valueOf(idServicioSalud);
-			long IdHorario = Long.valueOf(idHorario);
+			long idAfiliadoReservador = Long.valueOf(strIdReservador);
+			long idAfiliadoTomador = Long.valueOf(strIdTomador);
+			long idServicioSalud = Long.valueOf(strIdServicio);
+			long idHorario = Long.valueOf(strIdHorario);
 
 
 			boolean cumple = false;
-			System.out.println("Se necesita orden:" +hayOrdenServicioDeSalud(IdServicioSalud));
+			System.out.println("Se necesita orden:" +hayOrdenServicioDeSalud(idServicioSalud));
 
-			if (hayOrdenServicioDeSalud(IdServicioSalud)){
+			if (hayOrdenServicioDeSalud(idServicioSalud)){
 
 				String idOrden = JOptionPane.showInputDialog (this, "id Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 				long IdOrden = Long.valueOf(idOrden);
@@ -1074,8 +1131,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				System.out.println("Existe la orden:" +existeOrden(IdOrden));
 				if(existeOrden(IdOrden)){
 
-					System.out.println("Hay capacidad:"+hayCapacidadHorario(IdHorario));
-					if(hayCapacidadHorario(IdHorario)){
+					System.out.println("Hay capacidad:"+hayCapacidadHorario(idHorario));
+					if(hayCapacidadHorario(idHorario)){
 
 						cumple = true;
 
@@ -1083,7 +1140,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				}
 			}
 			else{
-				if(hayCapacidadHorario(IdHorario)){
+				if(hayCapacidadHorario(idHorario)){
 
 					cumple = true;
 
@@ -1091,14 +1148,14 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			}
 
 			if(cumple){
-				VOReservas r = parranderos.adicionarReserva(IdAfiliadoReservador, IdAfiliadoTomador, IdServicioSalud, estado );
+				VOReservas r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, estado );
 
 				if (r == null)
 				{
 					throw new Exception ("No se pudo realizar la reserva: " + r
-							+".\nidAfiliadoReservador: "+idAfiliadoReservador
-							+".\nidAfiliadoTomador: "+idAfiliadoTomador
-							+".\nidServicioSalud: "+idServicioSalud
+							+".\nidAfiliadoReservador: "+strIdReservador
+							+".\nidAfiliadoTomador: "+strIdTomador
+							+".\nidServicioSalud: "+strIdServicio
 							+".\nestado: "+estado
 							);
 				}
@@ -1122,7 +1179,82 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		}
 	}
 
+	public void adicionarReservaDialog() {
 
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField reservadorField = new JTextField();
+		JTextField tomadorField = new JTextField();
+		JTextField servicioField = new JTextField();
+		
+		JTextField horarioField = new JTextField();
+		JTextField estadoField = new JTextField();
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo dos variable 
+		String reservadorReserva;
+		String tomadorReserva;
+		String servicioReserva;
+		
+		String horarioReserva;
+		String estadoReserva;
+
+		// Aca pongo los dos labels de añadir el nombre del rol        
+		panel.add(new JLabel("id del Reservador?"));
+		panel.add(reservadorField); 
+
+		panel.add(new JLabel("id del Tomador?"));
+		panel.add(tomadorField); 
+
+		panel.add(new JLabel("id del Servicio?"));
+		panel.add(servicioField); 
+
+		panel.add(new JLabel("id del Horario?"));
+		panel.add(horarioField);
+		
+		panel.add(new JLabel("Estado? (RESERVADO, ASISTENCIA o CANCELADO)"));
+		panel.add(estadoField);
+		
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco el valor del rol
+			String reservadorInput = reservadorField.getText();
+			String tomadorInput = tomadorField.getText();
+			String servicioInput = servicioField.getText();
+			
+			String horarioInput = horarioField.getText();
+			String estadoInput = estadoField.getText();
+			
+			adicionarReserva(reservadorInput, tomadorInput, servicioInput,horarioInput,estadoInput);
+
+			try {
+
+				// Aqui obtengo el input del nombre del rol
+				reservadorReserva = reservadorInput;
+				tomadorReserva = tomadorInput;
+				servicioReserva = servicioInput;
+				horarioReserva = horarioInput;
+				estadoReserva = estadoInput;
+
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("id del Reservador: " + reservadorReserva ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
 
 
 	/* ****************************************************************

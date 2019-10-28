@@ -19,10 +19,10 @@ public SQLReservas(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public long adicionarReserva (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud, String idEstado) 
+	public long adicionarReserva (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud, String estado) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaAdscritos() + "(id, idafiliadoTomador, idserviciosalud, idafiliadoReservador,estado) values (?, ?, ?, ?,?)");
-        q.setParameters(id, idAfiliadoTomador, idServicioSalud,idAfiliadoReservador, idEstado);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaAdscritos() + "(id, idafiliadoTomador, idafiliadoReservador,idserviciosalud, estado) values (?, ?, ?, ?, ?)");
+        q.setParameters(id, idAfiliadoTomador, idAfiliadoReservador,idServicioSalud, estado);
         return (long) q.executeUnique();
 	}
 	

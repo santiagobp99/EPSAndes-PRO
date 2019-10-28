@@ -223,9 +223,9 @@ public class Parranderos
 		return ordenesServicios;
 	}
 	
-	public Reservas adicionarReserva(long idAfiliadoReservador, long idAfiliadoTomador, long idServicioSalud,String estado){
+	public Reservas adicionarReserva(long idAfiliadoTomador, long idAfiliadoReservador, long idServicioSalud,String estado){
 			log.info ("Adicionando Reserva: ");
-			Reservas reserva = pp.adicionarReserva(idAfiliadoReservador, idAfiliadoTomador, idServicioSalud, estado);		
+			Reservas reserva = pp.adicionarReserva(idAfiliadoTomador,idAfiliadoReservador, idServicioSalud, estado);		
 			log.info ("Adicionando Reserva");
 			return reserva;
 	}

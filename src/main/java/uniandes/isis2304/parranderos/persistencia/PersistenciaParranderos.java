@@ -1107,8 +1107,7 @@ public class PersistenciaParranderos
 	/* ****************************************************************
 	 * 			 Reservas
 	 *****************************************************************/
-	public Reservas adicionarReserva(long idAfiliadoReservador, long idAfiliadoTomador, long idServicioSalud,
-			String idEstado) {
+	public Reservas adicionarReserva(long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud,String estado) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
@@ -1116,12 +1115,12 @@ public class PersistenciaParranderos
 
 			tx.begin();
 			long id = currReservas();
-			long tuplasInsertadas = sqlReservas.adicionarReserva(pm, id, idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, idEstado);
+			long tuplasInsertadas = sqlReservas.adicionarReserva(pm, id, idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, estado);
 			tx.commit();
 
 			log.trace ("Inserción de la OrdenServicios: " + id+"--"+ idAfiliadoTomador + ": " + tuplasInsertadas + " tuplas insertadas");
 
-			return new Reservas(id, idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, idEstado);
+			return new Reservas(id, idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, estado);
 		}
 		catch (Exception e)
 		{

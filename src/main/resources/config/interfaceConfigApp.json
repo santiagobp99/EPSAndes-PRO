@@ -40,10 +40,10 @@
 					"label": "Registrar EPS",
 					"event": "adicionarEPS"
 				},
-				{
-					"label": "Registar un servicio de salud prestado por una IPS",
-					"event": "registrarServicioSalud"
-				},
+        {
+          "label": "Registar un servicio de salud prestado por una IPS",
+          "event": "registrarServicioSaludDialog"
+        },
 				{
 					"label": "Añadir horario de un servicio",
 					"event": "adicionarHorario"
@@ -81,7 +81,7 @@
 			[
 				{
 					"label": "Reservar Servicio de Salud",
-					"event": "adicionarReserva"
+					"event": "adicionarReservaDialog"
 				}
 			]
 		},
