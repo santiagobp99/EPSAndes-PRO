@@ -421,7 +421,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		panel.add(new JLabel("Correo del Usuario?"));
 		panel.add(correoField); 
 
-		panel.add(new JLabel("Rol del Usuario?"));
+		panel.add(new JLabel("id Rol del Usuario?"));
 		panel.add(rolField); 
 
 		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
@@ -454,6 +454,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			JOptionPane.showMessageDialog(frame, panel);
 		}
 	}
+	
 	/* ****************************************************************
 	 * 			 CRUD de RECEPCIONISTA
 	 *****************************************************************/
@@ -506,14 +507,10 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 *****************************************************************/
 
 
-	public void adicionarAdministradorOGerente( )
+	public void adicionarAdministradorGerente(String nombre, String correo, String strRol  )
 	{
 		try 
 		{
-			String nombre = JOptionPane.showInputDialog (this, "Nombre del Administrador o Gerente?", "adicionarAdministradorOGerente", JOptionPane.QUESTION_MESSAGE);
-			String correo = JOptionPane.showInputDialog (this, "Correo del Administrador o Gerente?", "adicionarAdministradorOGerente", JOptionPane.QUESTION_MESSAGE);
-			String strRol = JOptionPane.showInputDialog (this, "idRol del Administrador o Gerente?", "adicionarAdministradorOGerente", JOptionPane.QUESTION_MESSAGE);
-
 			long idRol = Long.valueOf(strRol);
 			if (nombre != null)
 			{
@@ -539,20 +536,75 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
 	}
+	
+	public void adicionarAdministradorGerenteDialog() {
+
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField nombreField = new JTextField();
+		JTextField correoField = new JTextField();
+		JTextField rolField = new JTextField();
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo dos variable 
+		String nombreUsuario;
+		String correoUsuario;
+		String rolUsuario;
+
+		// Aca pongo los dos labels de añadir el nombre del rol        
+		panel.add(new JLabel("Nombre del Usuario?"));
+		panel.add(nombreField); 
+
+		panel.add(new JLabel("Correo del Usuario?"));
+		panel.add(correoField); 
+
+		panel.add(new JLabel("id Rol del Usuario?"));
+		panel.add(rolField); 
+
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco el valor del rol
+			String nombreUsuarioInput = nombreField.getText();
+			String correoUsuarioInput = correoField.getText();
+			String rolUsuarioInput = rolField.getText();
+			adicionarAdministradorGerente(nombreUsuarioInput, correoUsuarioInput, rolUsuarioInput);
+
+			try {
+
+				// Aqui obtengo el input del nombre del rol
+				nombreUsuario = nombreUsuarioInput;
+				correoUsuario = correoUsuarioInput;
+				rolUsuario = rolUsuarioInput;
+
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("Nombre del Usuario: " + nombreUsuario ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
 
 	/* ****************************************************************
 	 * 			 CRUD de AFILIADO
 	 *****************************************************************/
 
 
-	public void adicionarAfiliado( )
+	public void adicionarAfiliado(String nombre,String correo,String strRol )
 	{
 		try 
 		{
-			String nombre = JOptionPane.showInputDialog (this, "Nombre del Afiliado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-			String correo = JOptionPane.showInputDialog (this, "Correo del Afiliado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-			String strRol = JOptionPane.showInputDialog (this, "idRol del Afiliado?", "adicionarUsuario", JOptionPane.QUESTION_MESSAGE);
-
 			long idRol = Long.valueOf(strRol);
 			if (nombre != null)
 			{
@@ -600,6 +652,65 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		}
 	}
 
+	public void adicionarAfiliadoDialog() {
+
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField nombreField = new JTextField();
+		JTextField correoField = new JTextField();
+		JTextField rolField = new JTextField();
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo dos variable 
+		String nombreUsuario;
+		String correoUsuario;
+		String rolUsuario;
+
+		// Aca pongo los dos labels de añadir el nombre del rol        
+		panel.add(new JLabel("Nombre del Afiliado?"));
+		panel.add(nombreField); 
+
+		panel.add(new JLabel("Correo del Afiliado?"));
+		panel.add(correoField); 
+
+		panel.add(new JLabel("id Rol del Afiliado?"));
+		panel.add(rolField); 
+
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco el valor del rol
+			String nombreUsuarioInput = nombreField.getText();
+			String correoUsuarioInput = correoField.getText();
+			String rolUsuarioInput = rolField.getText();
+			adicionarAfiliado(nombreUsuarioInput, correoUsuarioInput, rolUsuarioInput);
+
+			try {
+
+				// Aqui obtengo el input del nombre del rol
+				nombreUsuario = nombreUsuarioInput;
+				correoUsuario = correoUsuarioInput;
+				rolUsuario = rolUsuarioInput;
+
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("Nombre del Usuario: " + nombreUsuario ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
+	
 	/* ****************************************************************
 	 * 			 CRUD de Medico
 	 *****************************************************************/
@@ -954,9 +1065,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		}
 
 		return existe;
-
-
-
 	}
 
 	public boolean existeOrden(long idorden){
