@@ -216,9 +216,9 @@ public class Parranderos
 
 	}
 
-	public OrdenesServicios adicionarOrdenesServicios(long idservicio1, long idOrden,int realizado) {
-		log.info ("Adicionando OrdenesServicios: " + idservicio1);
-		OrdenesServicios ordenesServicios = pp.adicionarOrdenesServicios(idservicio1,idOrden, realizado);		
+	public OrdenesServicios adicionarOrdenesServicios(long idservicio, long idOrden,int realizado) {
+		log.info ("Adicionando OrdenesServicios: " + idservicio);
+		OrdenesServicios ordenesServicios = pp.adicionarOrdenesServicios(idservicio,idOrden, realizado);		
 		log.info ("Adicionando OrdenesServicios: " + ordenesServicios);
 		return ordenesServicios;
 	}
@@ -351,7 +351,7 @@ public class Parranderos
 	public Orden adicionarOrdenServicio (String receta, long idAfiliado, long idMedico){
 
 		log.info ("Adicionando OrdenServicio: " + receta+" con afiliado"+" y medico");
-		Orden orden = pp.adicionarOrden(receta, idAfiliado, idMedico);
+		Orden orden = pp.adicionarOrden(idAfiliado, idMedico,receta);
 		log.info ("Adicionando ServicioDeSalud: " + orden);
 		return orden;
 

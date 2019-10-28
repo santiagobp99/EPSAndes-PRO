@@ -855,7 +855,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		boolean hay = false;
 
 		VOHorario horario = parranderos.darHorario(idhorario);
-		
+
 
 		if(horario.getCapacidad()<=0 && horario.getDisponibilidad()==1){
 
@@ -881,8 +881,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		List <VOOrdenesServicios> listaOrdenes = parranderos.darVOOrdenesServiciosId(idorden);
 		System.out.println(idorden);
 		System.out.println(idservicio);
-	
-	
+
+
 
 		for(int i = 0; i<listaOrdenes.size();i++){
 			if(listaOrdenes.get(i).getIdServicio()==idservicio){
@@ -897,9 +897,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 
 	}
-	
+
 	public boolean existeOrden(long idorden){
-		
+
 		boolean existe = false;
 
 		VOOrden orden = parranderos.darVOOrden(idorden);
@@ -911,70 +911,55 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			existe = true;
 		}
 		return existe;
-		
-		
-		
+
+
+
 	}
 
 	/* ****************************************************************
-	 * 			 CRUD de Orden de servicio
+	 * 			 CRUD de Orden y OrdenesServicios
 	 *****************************************************************/
 
-	public void adicionarOrdenDeServicio( )
-
-	{
-
-		ArrayList<Long> servicios = new ArrayList<Long>();
+	public void adicionarOrden(String strIdAfiliado,String strIdMedico,String receta ){
 
 		try 
 		{
-			String idAfiliado = JOptionPane.showInputDialog (this, "id Afiliado?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-			String idMedico = JOptionPane.showInputDialog (this, "id Medico?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-			String receta = JOptionPane.showInputDialog (this, "Receta?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+			long idAfiliado = Long.valueOf(strIdAfiliado);
+			long idMedico = Long.valueOf(strIdMedico);
+			ArrayList<Long> servicios = new ArrayList<>();
 
-			boolean servicio = true;
-			while(servicio){
-				int g =  JOptionPane.showConfirmDialog(null, "Agregar servicio de salud a la orden?", "adicionarOrdenDeServicio?", JOptionPane.YES_NO_OPTION);
-				if(g!=0){
-					servicio = false;
-				}
-				else{
-					String idServicio = JOptionPane.showInputDialog (this, "Id del servicio?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-					long IdServicio = Long.valueOf(idServicio);
-					servicios.add(IdServicio);
-
-				}
-
-			}
-
-			long IdAfiliado = Long.valueOf(idAfiliado);
-			long IdMedico = Long.valueOf(idMedico);
-
-			if (receta != null)
+			if (strIdAfiliado != null && strIdMedico != null)
 			{
-				VOOrden os = parranderos.adicionarOrdenServicio(receta, IdAfiliado, IdMedico);
-				System.out.println(os.getId());
-				System.out.println(os.getIdAfiliado());
-				System.out.println(os.getIdMedico());
-				System.out.println(servicios.get(0));
-				if (os == null)
-				{
-					throw new Exception ("No se pudo crear la orden de servicio: " + os+ "con receta "+receta);
-					
+				//
+				boolean hasServicio = true;
+				while(hasServicio){
+					int acepta =  JOptionPane.showConfirmDialog(null, "Agregar servicio de salud a la orden?", "adicionarOrdenDeServicio?", JOptionPane.YES_NO_OPTION);
+					if(acepta==0){
+						String strIdServicio = JOptionPane.showInputDialog (this, "Id del servicio?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+						long idServicio = Long.valueOf(strIdServicio);
+						servicios.add(idServicio);
+					}
+					else{
+						hasServicio = false;
+					}
+				}	
+				//
+
+				VOOrden orden = parranderos.adicionarOrdenServicio(receta, idAfiliado, idMedico);
+				if (orden == null){
+					throw new Exception ("No se pudo crear la orden de servicio: " + orden+ "con idAfiliado: "+ idAfiliado+"con idMedico: "+ idMedico+"con receta "+receta);
 				}
-				for(int i = 0; i<servicios.size();i++){
-					VOOrdenesServicios oss = parranderos.adicionarOrdenesServicios(servicios.get(i),os.getId() ,0 );
-					if (oss == null)
-					{
-						throw new Exception ("No se pudo crear un servicio asociado: " + os+ "id "+servicios.get(i));
+
+				if(servicios.isEmpty()==false) {
+					for(int i = 0; i<servicios.size();i++){
+						parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId(),0 );
 					}
 				}
-
-
-				String resultado = "En adicionOrdenServicio\n\n";
-				resultado += "Orden servicio adicionada exitosamente: " + os;
-				resultado += "\n Operación terminada";
-				panelDatos.actualizarInterfaz(resultado);
+					String resultado = "En adicionOrdenServicio\n\n";
+					resultado += "Orden servicio adicionada exitosamente: " + orden+servicios;
+					resultado += "\n Operación terminada";
+					panelDatos.actualizarInterfaz(resultado);
+				
 			}
 			else
 			{
@@ -986,6 +971,72 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			//  			e.printStackTrace();
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
+	public void adicionarOrdenDialog() {
+
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField idAfiliadoField = new JTextField();
+		JTextField idMedicoField = new JTextField();
+		JTextField recetaField = new JTextField();
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo dos variable 
+		String idAfiliadoOrden;
+		String idMedicoOrden;
+		String recetaOrden;
+
+
+		// idServicios que van a la lista
+
+		// Aca pongo los dos labels de añadir el nombre del rol        
+		panel.add(new JLabel("id del Afiliado?"));
+		panel.add(idAfiliadoField); 
+
+		panel.add(new JLabel("id del Medico?"));
+		panel.add(idMedicoField); 
+
+		panel.add(new JLabel("receta de la Orden?"));
+		panel.add(recetaField); 
+
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco el valor del rol
+			String idAfiliadoOrdenInput = idAfiliadoField.getText();
+			String idMedicoOrdenInput = idMedicoField.getText();
+			String recetaOrdenInput = recetaField.getText();
+
+
+
+			// Aca obtengo los servicios
+			adicionarOrden(idAfiliadoOrdenInput, idMedicoOrdenInput, recetaOrdenInput);
+
+			try {
+
+				// Aqui obtengo el input del nombre del rol
+				idAfiliadoOrden = idAfiliadoOrdenInput;
+				idMedicoOrden = idMedicoOrdenInput;
+				recetaOrden = recetaOrdenInput;
+
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("Id del Afiliado: " + idAfiliadoOrden ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
 		}
 	}
 
@@ -1005,40 +1056,40 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String idServicioSalud = JOptionPane.showInputDialog (this, "id Servicio de Salud?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 			String idHorario = JOptionPane.showInputDialog (this, "id horario?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 			String estado = JOptionPane.showInputDialog (this, "Estado?.DIURNO, VESPERTINO o NOCTURNO", "Reservar", JOptionPane.QUESTION_MESSAGE);
-			
+
 			long IdAfiliadoReservador = Long.valueOf(idAfiliadoReservador);
 			long IdAfiliadoTomador = Long.valueOf(idAfiliadoTomador);
 			long IdServicioSalud = Long.valueOf(idServicioSalud);
 			long IdHorario = Long.valueOf(idHorario);
-			
-			
+
+
 			boolean cumple = false;
 			System.out.println("Se necesita orden:" +hayOrdenServicioDeSalud(IdServicioSalud));
-			
+
 			if (hayOrdenServicioDeSalud(IdServicioSalud)){
-				
+
 				String idOrden = JOptionPane.showInputDialog (this, "id Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
 				long IdOrden = Long.valueOf(idOrden);
-				
+
 				System.out.println("Existe la orden:" +existeOrden(IdOrden));
 				if(existeOrden(IdOrden)){
-					
+
 					System.out.println("Hay capacidad:"+hayCapacidadHorario(IdHorario));
 					if(hayCapacidadHorario(IdHorario)){
-						
+
 						cumple = true;
-						
+
 					}
 				}
 			}
 			else{
 				if(hayCapacidadHorario(IdHorario)){
-					
+
 					cumple = true;
-					
+
 				}
 			}
-			
+
 			if(cumple){
 				VOReservas r = parranderos.adicionarReserva(IdAfiliadoReservador, IdAfiliadoTomador, IdServicioSalud, estado );
 
@@ -1057,7 +1108,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				panelDatos.actualizarInterfaz(resultado);
 			}
 
-			
+
 			else
 			{
 				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
@@ -1079,52 +1130,52 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 *****************************************************************/
 
 
-	      public void adicionarHorario( )
-	      
-	      {
-	      	
-	      	try 
-	      	{
-	      		String lngIdServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
-	      		String intCapacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-	      			
-	      		String timeFecha = JOptionPane.showInputDialog (this, "Fecha?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-	      		String hora = JOptionPane.showInputDialog (this, "Hora?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
-	      		String intDisponibilidad = JOptionPane.showInputDialog (this, "Disponibilidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-	      		
-	      		
-	      		
-	      		
-	      		int capacidad = Integer.valueOf(intCapacidad);
-	      		long idServicio = Long.valueOf(lngIdServicio);
-	      		Timestamp fecha = Timestamp.valueOf(timeFecha);
-	      		int disponibilidad = Integer.valueOf(intDisponibilidad);
-	      		
-	      		if (idServicio != 0)
-	      		{
-	          		VOHorario tb = parranderos.adicionarHorario(idServicio, hora, disponibilidad, capacidad, fecha);
-	          		if (tb == null)
-	          		{
-	          			throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
-	          		}
-	          		String resultado = "En adicionHorario\n\n";
-	          		resultado += "Horario adicionado exitosamente: " + tb;
-	      			resultado += "\n Operación terminada";
-	      			panelDatos.actualizarInterfaz(resultado);
-	      		}
-	      		else
-	      		{
-	      			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-	      		}
-	  		} 
-	      	catch (Exception e) 
-	      	{
-	//  			e.printStackTrace();
-	  			String resultado = generarMensajeError(e);
-	  			panelDatos.actualizarInterfaz(resultado);
-	  		}
-	      }
-	      
+	public void adicionarHorario( )
+
+	{
+
+		try 
+		{
+			String lngIdServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
+			String intCapacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+
+			String timeFecha = JOptionPane.showInputDialog (this, "Fecha?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+			String hora = JOptionPane.showInputDialog (this, "Hora?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
+			String intDisponibilidad = JOptionPane.showInputDialog (this, "Disponibilidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+
+
+
+
+			int capacidad = Integer.valueOf(intCapacidad);
+			long idServicio = Long.valueOf(lngIdServicio);
+			Timestamp fecha = Timestamp.valueOf(timeFecha);
+			int disponibilidad = Integer.valueOf(intDisponibilidad);
+
+			if (idServicio != 0)
+			{
+				VOHorario tb = parranderos.adicionarHorario(idServicio, hora, disponibilidad, capacidad, fecha);
+				if (tb == null)
+				{
+					throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
+				}
+				String resultado = "En adicionHorario\n\n";
+				resultado += "Horario adicionado exitosamente: " + tb;
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+		} 
+		catch (Exception e) 
+		{
+			//  			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
+	}
+
 
 
 

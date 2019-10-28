@@ -535,8 +535,6 @@ public class PersistenciaParranderos
 	public String darSeqOrden() {
 		return tablas.get (41);
 	}
-
-	
 	public String darSeqOrdenServicio() {
 		return tablas.get (42);
 	}
@@ -582,7 +580,7 @@ public class PersistenciaParranderos
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-	
+
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -594,7 +592,7 @@ public class PersistenciaParranderos
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-	
+
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -606,7 +604,7 @@ public class PersistenciaParranderos
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-	
+
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -618,7 +616,7 @@ public class PersistenciaParranderos
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-	
+
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -1101,11 +1099,11 @@ public class PersistenciaParranderos
 
 	public List<OrdenesServicios> darOrdenesServiciosId (long idOrden)
 	{
-		
+
 		return sqlOrdenesServicios.darOrdenesServiciosId(pmf.getPersistenceManager(), idOrden);
 	}
-	
-	
+
+
 	/* ****************************************************************
 	 * 			 Reservas
 	 *****************************************************************/
@@ -1273,7 +1271,7 @@ public class PersistenciaParranderos
 	 * 				 ORDEN
 	 *****************************************************************/
 
-	public Orden adicionarOrden(String receta, long idAfiliado, long idMedico)
+	public Orden adicionarOrden(long idAfiliado, long idMedico,String receta)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction(); 
@@ -1281,7 +1279,7 @@ public class PersistenciaParranderos
 		{
 			tx.begin();
 			long id = currOrden();
-			long tuplasInsertadas = sqlOrden.adicionarOrden(pm, receta, idAfiliado, idMedico,id);
+			long tuplasInsertadas = sqlOrden.adicionarOrden(pm, id, idAfiliado, idMedico,receta);
 			tx.commit();
 
 			log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
@@ -1314,7 +1312,7 @@ public class PersistenciaParranderos
 	{
 		return sqlOrden.darOrdenes(pmf.getPersistenceManager());
 	}
-	
+
 
 
 
@@ -1393,20 +1391,20 @@ public class PersistenciaParranderos
 	{
 		return sqlHorario.darHorariosPorServicio(pmf.getPersistenceManager(),idServicio);
 	}
-	
+
 	public Horario darHorario (long idHorario)
 	{
 		return sqlHorario.darHorario(pmf.getPersistenceManager(), idHorario);
 	}
-	
+
 
 	public void aumentarCapacidadHorario(long idhorario) {
 		// TODO Auto-generated method stub
-		
+
 		sqlHorario.aumentarCapacidadHorario(pmf.getPersistenceManager(), idhorario);
-		
+
 	}
-	
+
 	public void disminuirCapacidadHorario(long idhorario) {
 		// TODO Auto-generated method stub
 		sqlHorario.disminuirCapacidadHorario(pmf.getPersistenceManager(), idhorario);

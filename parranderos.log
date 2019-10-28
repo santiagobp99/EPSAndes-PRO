@@ -2614,3 +2614,100 @@ ORA-02291: restricción de integridad (ISIS2304D041920.FK_MEDICO_SERVI_SERVICIO_
 19:15:58,347 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
 19:15:58,378 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
 19:15:58,378 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Dando Horario:
+07:53:43,541 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+07:53:43,541 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+07:53:43,560 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+07:54:04,048 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: re con afiliado y medico
+07:54:04,253 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=re, id=46, idAfiliado=43, idMedico=4]
+08:24:49,900 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+08:24:49,900 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+08:24:49,914 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:26:08,272 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+08:26:08,272 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+08:26:08,286 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:26:15,804 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+08:26:15,939 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=52, idAfiliado=43, idMedico=4]
+08:27:01,218 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+08:27:01,219 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+08:27:01,234 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:27:07,353 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+08:27:07,492 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=54, idAfiliado=43, idMedico=4]
+08:38:51,153 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+08:38:51,154 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+08:38:51,168 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:39:00,337 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+08:39:01,266 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=56, idAfiliado=43, idMedico=4]
+08:53:25,583 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+08:53:25,584 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+08:53:25,597 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+08:53:36,759 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+08:53:36,916 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=58, idAfiliado=43, idMedico=4]
+09:06:03,733 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+09:06:03,734 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+09:06:03,747 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:07:29,864 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+09:07:30,276 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=60, idAfiliado=43, idMedico=4]
+09:07:30,276 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 19
+09:07:30,331 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+09:07:30,331 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+09:08:20,387 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: re con afiliado y medico
+09:08:20,413 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=re, id=62, idAfiliado=43, idMedico=4]
+09:08:20,413 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 19
+09:08:20,422 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+09:08:20,423 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+09:09:25,580 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+09:09:25,580 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+09:09:25,594 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:09:41,747 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+09:09:42,082 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=64, idAfiliado=43, idMedico=4]
+09:09:42,083 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 19
+09:09:42,096 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+09:09:42,096 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+09:11:11,043 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+09:11:11,043 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+09:11:11,085 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:11:22,211 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+09:11:22,429 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=66, idAfiliado=43, idMedico=4]
+09:11:59,144 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+09:11:59,163 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=68, idAfiliado=43, idMedico=4]
+09:11:59,163 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 19
+09:11:59,172 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+09:11:59,173 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+09:13:02,073 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+09:13:02,074 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+09:13:02,087 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:13:17,151 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+09:13:17,364 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=70, idAfiliado=43, idMedico=4]
+09:13:17,364 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 19
+09:13:17,395 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+09:13:17,396 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+09:14:45,567 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: tre con afiliado y medico
+09:14:45,586 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=tre, id=72, idAfiliado=43, idMedico=4]
+09:17:08,083 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+09:17:08,083 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+09:17:08,097 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:17:18,431 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+09:17:18,578 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=74, idAfiliado=43, idMedico=4]
+09:18:17,402 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+09:18:17,402 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+09:18:17,416 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:18:27,328 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: ret con afiliado y medico
+09:18:27,561 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=ret, id=76, idAfiliado=43, idMedico=4]
+09:20:50,575 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: 43443 con afiliado y medico
+09:20:50,603 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=43443, id=78, idAfiliado=43, idMedico=4]
+09:21:41,443 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+09:21:41,444 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+09:21:41,458 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+09:21:50,964 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: re con afiliado y medico
+09:21:51,150 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=re, id=80, idAfiliado=43, idMedico=4]
+09:22:15,118 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: si con afiliado y medico
+09:22:15,181 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=si, id=82, idAfiliado=43, idMedico=4]
+09:22:15,181 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 19
+09:22:15,202 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+09:22:15,202 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
