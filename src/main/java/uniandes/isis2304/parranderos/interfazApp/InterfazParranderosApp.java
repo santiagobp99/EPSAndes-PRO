@@ -601,7 +601,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 *****************************************************************/
 
 
-	public void adicionarAfiliado(String nombre,String correo,String strRol )
+	public void adicionarAfiliado(String nombre,String correo,String strRol,String strIdEps,
+			String datefechaNacimiento,String strTipoDocumento,String intHospitalizado,String strNumDocumento )
 	{
 		try 
 		{
@@ -612,12 +613,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				if (u == null){
 					throw new Exception ("No se pudo crear un usuario con nombre: "+ nombre+"\n"+"correo:"+correo+"\n"+"id"+idRol);
 				}
-
-				String strIdEps = JOptionPane.showInputDialog (this, "id EPS?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
-				String datefechaNacimiento = JOptionPane.showInputDialog (this, "fecha de Nacimiento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
-				String strTipoDocumento = JOptionPane.showInputDialog (this, "Tipo de documento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
-				String intHospitalizado = JOptionPane.showInputDialog (this, "hospitalizado?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
-				String strNumDocumento = JOptionPane.showInputDialog (this, "numero de documento?", "adicionarAfiliado", JOptionPane.QUESTION_MESSAGE);
 
 
 				Timestamp fechaNacimiento = Timestamp.valueOf(datefechaNacimiento);
@@ -660,6 +655,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		JTextField nombreField = new JTextField();
 		JTextField correoField = new JTextField();
 		JTextField rolField = new JTextField();
+		JTextField idEpsField = new JTextField();
+		JTextField dateFechaNacimientoField = new JTextField();
+		JTextField tipoDocumentoField = new JTextField();
+		JTextField hospitalizadoField = new JTextField();
+		JTextField numDocumentoField = new JTextField();
 		panel = new JPanel();
 
 		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
@@ -669,6 +669,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		String nombreUsuario;
 		String correoUsuario;
 		String rolUsuario;
+		String idEpsUsuario;
+		String dateFechaNacimiento;
+		String tipoDocumento;
+		String hospitalizado;
+		String numDocumento;
 
 		// Aca pongo los dos labels de añadir el nombre del rol        
 		panel.add(new JLabel("Nombre del Afiliado?"));
@@ -679,6 +684,22 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 		panel.add(new JLabel("id Rol del Afiliado?"));
 		panel.add(rolField); 
+		
+		panel.add(new JLabel("idEps?"));
+		panel.add(idEpsField); 
+
+		panel.add(new JLabel("fecha de Nacimiento?"));
+		panel.add(dateFechaNacimientoField); 
+
+		panel.add(new JLabel("Tipo de Documento del Afiliado?(CC,CE,TI,PA,RC)"));
+		panel.add(tipoDocumentoField); 
+		
+		panel.add(new JLabel("Esta hospitalizado?(0,1)"));
+		panel.add(hospitalizadoField); 
+
+		panel.add(new JLabel("Numero de Documento"));
+		panel.add(numDocumentoField); 
+
 
 		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
@@ -688,7 +709,12 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String nombreUsuarioInput = nombreField.getText();
 			String correoUsuarioInput = correoField.getText();
 			String rolUsuarioInput = rolField.getText();
-			adicionarAfiliado(nombreUsuarioInput, correoUsuarioInput, rolUsuarioInput);
+			String idEpsInput = idEpsField.getText();
+			String dateFechaNacimientoInput = dateFechaNacimientoField.getText();
+			String  tipoDocumentoInput= tipoDocumentoField.getText();
+			String  hospitalizadoInput = hospitalizadoField.getText();
+			String  numDocumentoInput= numDocumentoField.getText();
+			adicionarAfiliado(nombreUsuarioInput, correoUsuarioInput, rolUsuarioInput,idEpsInput,dateFechaNacimientoInput,tipoDocumentoInput,hospitalizadoInput,numDocumentoInput);
 
 			try {
 
@@ -696,7 +722,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				nombreUsuario = nombreUsuarioInput;
 				correoUsuario = correoUsuarioInput;
 				rolUsuario = rolUsuarioInput;
-
+				idEpsUsuario = idEpsInput;
+				dateFechaNacimiento = dateFechaNacimientoInput;
+				 tipoDocumento = tipoDocumentoInput;
+				 hospitalizado = hospitalizadoInput;
+				 numDocumento = numDocumentoInput;
 
 				panel = new JPanel();
 				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));

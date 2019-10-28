@@ -12,17 +12,17 @@
 					"label": "adicionar Rol",
 					"event": "adicionarRolDialog"
 				},
-				{
-					"label": "adicionar Administrador o Gerente",
-					"event": "adicionarAdministradorOGerente"
-				},
+        {
+          "label": "adicionar Administrador o Gerente",
+          "event": "adicionarAdministradorGerenteDialog"
+        },
 				{
 					"label": "adicionar Usuario",
 					"event": "adicionarUsuarioDialog"
 				},
 				{
 					"label": "adicionar Afiliado",
-					"event": "adicionarAfiliado"
+					"event": "adicionarAfiliadoDialog"
 				},
 				{
 					"label": "adicionar Recepcionista",
