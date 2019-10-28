@@ -921,15 +921,10 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		boolean hay = false;
 
 		VOHorario horario = parranderos.darHorario(idhorario);
+		System.out.println(horario.getCapacidad());
 
-
-		if(horario.getCapacidad()<=0 && horario.getDisponibilidad()==1){
-
-			return hay;
-
-		}
-		else{
-			hay = true;
+		if(horario.getCapacidad()>0 && horario.getDisponibilidad()==1){
+			hay= true;
 		}
 		return hay;
 
