@@ -853,30 +853,21 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	 *****************************************************************/
 
 
-	public void adicionarIPS( )
+	public void adicionarIps(String nombre,String tipo,String strCapacidad,String strIdEps,String ubicacion )
 
 	{
-
-
 		try 
 		{
-			String ubicacion = JOptionPane.showInputDialog (this, "Ubicacion?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-			String nombre = JOptionPane.showInputDialog (this, "Nombre?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-			String tipo = JOptionPane.showInputDialog (this, "Tipo?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-			String capacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-			String idEps = JOptionPane.showInputDialog (this, "idEps", "adicionarIPS", JOptionPane.QUESTION_MESSAGE);
-
-
-			int Capacidad = Integer.valueOf(capacidad);
-			long IdEPS = Long.valueOf(idEps);
+			int capacidad = Integer.valueOf(strCapacidad);
+			long idEPS = Long.valueOf(strIdEps);
 
 
 			if (nombre != null)
 			{
-				VOIps tb = parranderos.adicionarIps(ubicacion, nombre, tipo, Capacidad, IdEPS);
+				VOIps tb = parranderos.adicionarIps(ubicacion, nombre, tipo, capacidad, idEPS);
 				if (tb == null)
 				{
-					throw new Exception ("No se pudo crear la ips: " + tb+ "con eps "+IdEPS);
+					throw new Exception ("No se pudo crear la ips: " + tb+ "con eps "+idEPS);
 				}
 				String resultado = "En adicionIps\n\n";
 				resultado += "Ips adicionado exitosamente: " + tb;
@@ -896,6 +887,78 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		}
 	}
 
+	public void adicionarIpsDialog() {
+
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField nombreField = new JTextField();
+		JTextField tipoField = new JTextField();
+		JTextField capacidadField = new JTextField();
+		JTextField idEpsField = new JTextField();
+		JTextField ubicacionField = new JTextField();
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo dos variable 
+		String nombre;
+		String tipo;
+		String capacidad;
+		String idEps;
+		String ubicacion;
+
+		// Aca pongo los dos labels de añadir el nombre del rol        
+		panel.add(new JLabel("Nombre de la Ips?"));
+		panel.add(nombreField); 
+
+		panel.add(new JLabel("Tipo de Ips?"));
+		panel.add(tipoField); 
+
+		panel.add(new JLabel("capacidad de la Ips?"));
+		panel.add(capacidadField); 
+		
+		panel.add(new JLabel("idEps?"));
+		panel.add(idEpsField); 
+		
+		panel.add(new JLabel("Ubicacion?"));
+		panel.add(ubicacionField); 
+
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco el valor del rol
+			String nombreInput = nombreField.getText();
+			String tipoInput = tipoField.getText();
+			String capacidadInput = capacidadField.getText();
+			String idEpsInput = idEpsField.getText();
+			String ubicacionInput = ubicacionField.getText();
+			adicionarIps(nombreInput, tipoInput, capacidadInput,idEpsInput,ubicacionInput);
+
+			try {
+
+				// Aqui obtengo el input del nombre del rol
+				nombre = nombreInput;
+				tipo = tipoInput;
+				capacidad = capacidadInput;
+				idEps = idEpsInput;
+				ubicacion = ubicacionInput;
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("Nombre de la Ips: " + nombre ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
+	
 	/* ****************************************************************
 	 * 			 CRUD de Servicio de Salud
 	 *****************************************************************/

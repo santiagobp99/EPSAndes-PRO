@@ -32,10 +32,10 @@
 					"label": "adicionar Medico",
 					"event": "adicionarMedico"
 				},
-				{
-					"label": "Registrar IPS",
-					"event": "adicionarIPS"
-				},
+        {
+          "label": "Registrar IPS",
+          "event": "adicionarIpsDialog"
+        },
 				{
 					"label": "Registrar EPS",
 					"event": "adicionarEPS"
