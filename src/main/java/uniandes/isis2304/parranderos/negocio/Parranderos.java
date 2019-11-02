@@ -217,9 +217,9 @@ public class Parranderos
 
 	}
 
-	public OrdenesServicios adicionarOrdenesServicios(long idservicio, long idOrden,int realizado) {
-		log.info ("Adicionando OrdenesServicios: " + idservicio);
-		OrdenesServicios ordenesServicios = pp.adicionarOrdenesServicios(idservicio,idOrden, realizado);		
+	public OrdenesServicios adicionarOrdenesServicios(long idServicio, long idOrden,int realizado) {
+		log.info ("Adicionando OrdenesServicios: " + idServicio);
+		OrdenesServicios ordenesServicios = pp.adicionarOrdenesServicios(idServicio,idOrden, realizado);		
 		log.info ("Adicionando OrdenesServicios: " + ordenesServicios);
 		return ordenesServicios;
 	}

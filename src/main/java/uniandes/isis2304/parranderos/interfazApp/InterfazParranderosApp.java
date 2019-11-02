@@ -1333,9 +1333,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 				if(!servicios.isEmpty()) {
 					for(int i = 0; i<servicios.size();i++){
-						OrdenesServicios ordenes =	parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId(),0 );
-						System.out.println(servicios.get(i)+":"+orden.getId());
-						System.out.println(ordenes);
+						parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId(),0 );
 					}
 				}
 					String resultado = "En adicionOrdenServicio\n\n";
