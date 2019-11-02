@@ -52,6 +52,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
+import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.Parranderos;
 import uniandes.isis2304.parranderos.negocio.VOEpsAndes;
 import uniandes.isis2304.parranderos.negocio.VOHorario;
@@ -1308,8 +1309,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			long idMedico = Long.valueOf(strIdMedico);
 			ArrayList<Long> servicios = new ArrayList<>();
 
-			if (strIdAfiliado != null && strIdMedico != null)
-			{
+			if (strIdAfiliado != null && strIdMedico != null){
 				//
 				boolean hasServicio = true;
 				while(hasServicio){
@@ -1326,13 +1326,16 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				//
 
 				VOOrden orden = parranderos.adicionarOrdenServicio(receta, idAfiliado, idMedico);
+				
 				if (orden == null){
-					throw new Exception ("No se pudo crear la orden de servicio: " + orden+ "con idAfiliado: "+ idAfiliado+"con idMedico: "+ idMedico+"con receta "+receta);
+					throw new Exception ("No se pudo crear la orden de servicio: " + orden+ " con idAfiliado: "+ idAfiliado+"con idMedico: "+ idMedico+"con receta "+receta);
 				}
 
-				if(servicios.isEmpty()==false) {
+				if(!servicios.isEmpty()) {
 					for(int i = 0; i<servicios.size();i++){
-						parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId(),0 );
+						OrdenesServicios ordenes =	parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId(),0 );
+						System.out.println(servicios.get(i)+":"+orden.getId());
+						System.out.println(ordenes);
 					}
 				}
 					String resultado = "En adicionOrdenServicio\n\n";

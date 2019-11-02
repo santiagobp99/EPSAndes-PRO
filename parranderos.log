@@ -3167,3 +3167,155 @@ ORA-01400: no se puede realizar una inserción NULL en ("ISIS2304D041920"."IPS".
 14:31:49,558 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
 14:31:49,558 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
 14:31:49,572 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:38:33,161 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+14:38:33,161 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+14:38:33,175 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+14:51:10,910 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Horario con Capacidad y servicio: ::1::DIURNO::1::32::1999-11-11 00:00:00.0
+14:51:30,162 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "SELECT SEQ_HORARIO_ID.nextval FROM DUAL".
+Conexión cerrada
+14:51:30,163 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Usuario: null
+14:59:15,210 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Horario con Capacidad y servicio: ::19::DIURNO::1::32::1999-11-15 00:00:00.0
+14:59:18,230 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Usuario: Horario [id=1, idServicio=19, hora=DIURNO, disponibilidad=1, capacidad=32, fecha=1999-11-15 00:00:00.0]
+16:13:40,717 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:13:40,718 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:13:40,735 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:15:08,593 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+16:15:08,852 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+16:15:08,852 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+16:15:08,994 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+16:16:51,936 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: rwererwerewrwe con afiliado y medico
+16:16:52,779 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+16:16:52,784 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+16:27:02,012 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: eqrwerwrw con afiliado y medico
+16:27:21,192 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "SELECT SEQ_ORDEN_ID.nextval FROM DUAL".
+Conexión cerrada
+16:27:21,193 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+16:29:06,866 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: ibuprofeno con afiliado y medico
+16:29:07,453 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+16:29:07,454 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+16:29:43,695 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: Ibuprofeno con afiliado y medico
+16:29:45,595 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=Ibuprofeno, id=2, idAfiliado=5, idMedico=1]
+16:29:45,595 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+16:29:45,752 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+16:29:45,752 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+16:34:00,220 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:34:00,222 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:34:00,245 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:34:40,193 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+16:34:41,556 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=4, idAfiliado=5, idMedico=1]
+16:34:41,556 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+16:34:41,713 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+16:34:41,714 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+16:40:56,651 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:40:56,651 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:40:56,672 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:41:36,955 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: advil con afiliado y medico
+16:41:38,332 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=advil, id=6, idAfiliado=5, idMedico=1]
+16:41:38,332 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+16:41:38,501 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+16:41:38,502 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+16:43:46,788 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:43:46,789 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:43:46,809 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:44:20,340 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+16:44:21,222 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=8, idAfiliado=5, idMedico=1]
+16:44:21,223 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+16:44:21,801 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+16:44:21,802 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+16:46:31,855 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:46:31,856 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:46:31,880 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:46:48,022 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+16:46:48,951 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=10, idAfiliado=5, idMedico=1]
+16:46:48,951 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+16:46:49,121 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+16:46:49,122 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+16:48:53,450 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:48:53,450 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:48:53,471 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:49:12,786 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+16:49:13,700 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=12, idAfiliado=5, idMedico=1]
+16:49:13,700 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+16:49:13,869 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : SQL query tiene parametro "4" pero no existe en el query : INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)
+
+16:49:13,870 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+16:52:05,689 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:52:05,689 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:52:05,710 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:52:28,189 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+16:52:29,193 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+16:52:29,199 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+16:53:13,862 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: te con afiliado y medico
+16:53:14,865 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+16:53:14,866 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+16:54:33,212 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: ret con afiliado y medico
+16:54:33,965 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+16:54:33,966 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+16:56:10,257 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:56:10,257 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:56:10,277 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:56:33,054 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+16:56:34,113 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+16:56:34,120 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+16:57:30,013 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+16:57:30,805 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+16:57:30,806 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+16:58:25,508 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+16:58:26,166 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+16:58:26,166 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+16:58:50,372 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: wer con afiliado y medico
+16:58:51,034 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+16:58:51,035 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+17:02:21,923 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+17:02:21,924 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+17:02:21,943 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:02:40,157 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: 2 con afiliado y medico
+17:02:41,376 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
+
+17:02:41,384 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+17:07:12,325 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+17:07:12,325 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+17:07:12,345 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:07:43,275 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+17:07:43,275 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+17:07:43,297 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:07:53,399 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+17:07:53,400 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+17:07:53,419 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+17:08:23,874 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+17:08:23,874 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+17:08:23,896 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
