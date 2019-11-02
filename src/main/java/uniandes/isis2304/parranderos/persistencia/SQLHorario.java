@@ -7,7 +7,7 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import uniandes.isis2304.parranderos.negocio.Horario;
+import uniandes.isis2304.parranderos.negocio.Horario; 
 
 
 public class SQLHorario {
@@ -99,7 +99,8 @@ public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
 //	        System.out.println(pFecha1.toLocalDateTime()+" : "+pFecha2.toString());
 		 Query q = pm.newQuery(SQL, "UPDATE" + persistenciaEPS.darTablaHorario() + "SET DISPONIBILIDAD = ? "
 			 		+ "WHERE IDSERVICIO = ?");
-		        q.setParameters(0,idServicio);
+		        q.setParameters(0, idServicio);
+		        
 		       
 		
 	}
