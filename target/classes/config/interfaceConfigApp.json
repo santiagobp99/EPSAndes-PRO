@@ -53,6 +53,10 @@
 					"event": "adicionarHora"
 				},
 				{
+					"label": "RF12 Desabilitar servicios de salud",
+					"event": "RF12DesabilitarServiciosDeSaludDialog"
+				},
+				{
 					"label": "Script creación de la BD",
 					"event": "mostrarScriptBD"
 				},

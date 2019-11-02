@@ -89,5 +89,19 @@ public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
         q.setParameters(x,pId);
         return (long) q.executeUnique();
 	}
+
+	public void desabilitarServicio(PersistenceManager pm, long idServicio, Timestamp pFecha1,
+			Timestamp pFecha2) {
+		//UPDATE horario SET DISPONIBILIDAD = 0 WHERE IDSERVICIO = 19 AND FECHA >= '15-11-99' AND FECHA <= '15-11-99';
+//		 Query q = pm.newQuery(SQL, "UPDATE" + persistenciaEPS.darTablaHorario() + "SET DISPONIBILIDAD = ? "
+//		 		+ "WHERE IDSERVICIO = ? AND FECHA >= ? AND FECHA <= ?");
+//	        q.setParameters(0,idServicio, pFecha1, pFecha2);
+//	        System.out.println(pFecha1.toLocalDateTime()+" : "+pFecha2.toString());
+		 Query q = pm.newQuery(SQL, "UPDATE" + persistenciaEPS.darTablaHorario() + "SET DISPONIBILIDAD = ? "
+			 		+ "WHERE IDSERVICIO = ?");
+		        q.setParameters(0,idServicio);
+		       
+		
+	}
 	
 }

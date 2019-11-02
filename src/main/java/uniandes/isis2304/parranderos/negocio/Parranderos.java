@@ -16,6 +16,7 @@
 package uniandes.isis2304.parranderos.negocio;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -246,6 +247,18 @@ public class Parranderos
 		log.info ("Adicionando ServicioDeSalud: " + rol);
 		return rol;
 
+	}
+	
+	/**
+	 * 
+	 * @param idServicio1 servicio a desabilitar
+	 * @param idServicio2 servicio a desabilitar
+	 * @return lista con los ids de los servicios que se desabilitarron
+	 */
+	public ArrayList<String> RF12DesabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
+		
+		return pp.RF12DesabilitarServicios(pArregloServicios, pFecha1, pFecha2);
+		
 	}
 	
 	/**
@@ -1160,6 +1173,8 @@ public class Parranderos
 		log.info ("Generando el VO Servicio");
 		return voOrden;
 	}
+
+	
 
 	
 

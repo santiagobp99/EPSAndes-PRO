@@ -20,6 +20,7 @@ import java.math.BigDecimal;
 
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -1231,6 +1232,42 @@ public class PersistenciaParranderos
 	public List<ServicioSalud> darServiciosDeSalud ()
 	{
 		return sqlServicioSalud.darServiciosSalud(pmf.getPersistenceManager());
+	}
+	
+	public ArrayList<String> RF12DesabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
+		
+		ArrayList<String> idsServiciosDesabilitados = new ArrayList<>();
+		
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			for (int i = 0; i < pArregloServicios.size(); i++) {
+				sqlHorario.desabilitarServicio(pmf.getPersistenceManager(), pArregloServicios.get(i), pFecha1, pFecha2);
+				idsServiciosDesabilitados.add(pArregloServicios.get(i).toString());
+				log.trace ("Servicio desabilitado: "+pArregloServicios.get(i));
+			}
+			tx.commit();
+
+		}
+		catch (Exception e)
+		{
+			// 	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+		
+		
+		return idsServiciosDesabilitados;
 	}
 
 	/* ****************************************************************
@@ -2578,6 +2615,8 @@ public class PersistenciaParranderos
 		}
 
 	}
+
+
 
 
 
