@@ -28,7 +28,7 @@ public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
 	public long adicionarHorario (PersistenceManager pm, int pCapacidad , long pIdServicio, String pHora, long pId,Timestamp fecha,int disponibilidad ) 
 	{
         Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaHorario() + "(capacidad, idservicio, hora, id,fecha,disponibilidad) values (?,?, ?, ?, ?, ?)");
-        q.setParameters(pCapacidad, pIdServicio, pHora, fecha,disponibilidad);
+        q.setParameters(pCapacidad, pIdServicio, pHora, pId,fecha,disponibilidad);
         return (long) q.executeUnique();
 	}
 	
