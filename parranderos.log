@@ -3123,3 +3123,8 @@ ORA-01400: no se puede realizar una inserción NULL en ("ISIS2304D041920"."IPS".
 11:44:53,341 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
 11:46:21,620 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Horario con Capacidad y servicio: ::25::DIURNO::1::32::1999-12-12 00:00:00.0
 11:46:22,992 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Usuario: Horario [id=5, idServicio=25, hora=DIURNO, disponibilidad=1, capacidad=32, fecha=1999-12-12 00:00:00.0]
+12:02:04,150 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+12:02:04,150 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+12:02:04,165 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:02:15,460 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Rol: E
+12:02:16,329 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Rol: Rol [nombre=E, id=1]
