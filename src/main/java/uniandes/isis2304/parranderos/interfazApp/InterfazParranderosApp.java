@@ -1178,7 +1178,13 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 
 	}
+	//--------------------------------------------------------------------------------/
+	//						RF10 Registrar Servicios Por Campaña
+	//--------------------------------------------------------------------------------/
 	
+	//--------------------------------------------------------------------------------/
+	//						RF10 DeshabilitarServiciosDeSalud
+	//--------------------------------------------------------------------------------/
 	public void RF12DesabilitarServiciosDeSalud(String pFecha1, String pFecha2, String pIdServicio1, String pIdServicio2){
 		
 		ArrayList<String> idsServiciosDesabilitados= new ArrayList<>();
@@ -1325,7 +1331,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				}	
 				//
 
-				VOOrden orden = parranderos.adicionarOrdenServicio(receta, idAfiliado, idMedico);
+				VOOrden orden = parranderos.adicionarOrden(receta, idAfiliado, idMedico);
 				
 				if (orden == null){
 					throw new Exception ("No se pudo crear la orden de servicio: " + orden+ " con idAfiliado: "+ idAfiliado+"con idMedico: "+ idMedico+"con receta "+receta);
@@ -1333,8 +1339,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 				if(!servicios.isEmpty()) {
 					for(int i = 0; i<servicios.size();i++){
-						parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId(),0 );
-						System.out.println();
+						parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId()+1,0 );
 					}
 				}
 					String resultado = "En adicionOrdenServicio\n\n";
@@ -1449,7 +1454,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 					if(hayCapacidadHorario(idHorario)){
 
 						cumple = true;
-
 					}
 				}
 			}
@@ -1462,7 +1466,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			}
 
 			if(cumple){
-				VOReservas r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, estado );
+				VOReservas r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idHorario, estado );
 
 				if (r == null)
 				{

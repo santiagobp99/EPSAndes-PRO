@@ -24,8 +24,8 @@ public SQLOrdenesServicios(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	public long adicionarOrdenServicio (PersistenceManager pm, long id, long idservicio,long idorden, int realizado) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrdenesServicios() + "(idorden, idservicio, realizado,id) values (?, ?, ?,?)");
-        q.setParameters(idorden, idservicio, realizado,id);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrdenesServicios() + "(id, idservicio,idorden, realizado) values (?, ?, ?, ?)");
+        q.setParameters(id, idservicio,idorden, realizado);
         return (long) q.executeUnique();
 	}
 	

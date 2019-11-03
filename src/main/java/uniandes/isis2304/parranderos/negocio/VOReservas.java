@@ -20,7 +20,7 @@ public interface VOReservas {
 	/**
 	 * @return El nombre de nombre-tabla
 	 */
-	public long getIdServicioSalud() ;
+	public long getIdHorario() ;
 	
 	/**
 	 * @return El nombre de nombre-tabla

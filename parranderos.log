@@ -3396,3 +3396,263 @@ ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
 ORA-02391: exceeded simultaneous SESSIONS_PER_USER limit
 
 18:42:44,602 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: null
+19:07:00,937 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+19:07:00,938 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+19:07:00,953 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:08:01,433 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Horario con Capacidad y servicio: ::1::DIURNO::1::32::1999-11-15 00:00:00.0
+19:09:07,436 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+19:09:07,437 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+19:09:07,451 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:09:42,211 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Horario con Capacidad y servicio: ::1::DIURNO::1::32::1999-11-15 00:00:00.0
+19:10:39,232 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+19:10:39,233 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+19:10:39,282 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:11:05,237 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Horario con Capacidad y servicio: ::1::DIURNO::1::32::1999-11-15 00:00:00.0
+20:18:29,856 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+20:18:29,856 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+20:18:29,870 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:19:32,943 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Horario con Capacidad y servicio: ::1::DIURNO::1::32::1999-11-15 00:00:00.0
+20:48:09,349 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+20:48:09,349 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+20:48:09,363 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:48:20,948 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Rol: pruebarol
+20:48:21,814 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Rol: Rol [nombre=pruebarol, id=7]
+20:48:35,505 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+20:48:35,803 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=1, idAfiliado=5, idMedico=1]
+20:48:35,803 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+20:48:36,029 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+20:48:36,127 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+20:49:32,463 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio:  con afiliado y medico
+20:49:32,776 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=, id=3, idAfiliado=6, idMedico=1]
+20:49:32,776 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+20:49:33,049 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(idorden, idservicio, realizado,id) values (?, ?, ?,?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+20:49:33,134 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+20:51:20,354 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+20:51:20,355 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+20:51:20,370 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:51:45,101 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenServicio: 32 con afiliado y medico
+20:51:46,042 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando ServicioDeSalud: Orden [receta=32, id=5, idAfiliado=7, idMedico=2]
+21:07:36,263 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+21:07:36,263 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+21:07:36,277 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:07:57,635 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden:  con afiliado y medico
+21:07:58,442 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=, id=7, idAfiliado=8, idMedico=4]
+21:07:58,442 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+21:07:58,967 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:07:59,051 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:11:43,490 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+21:11:43,491 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+21:11:43,504 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:11:59,827 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden:  con afiliado y medico
+21:12:00,662 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=, id=9, idAfiliado=5, idMedico=5]
+21:12:00,662 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+21:12:00,917 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:12:01,016 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:18:44,205 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+21:18:44,206 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+21:18:44,221 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:19:08,845 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: rest con afiliado y medico
+21:19:09,754 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=rest, id=11, idAfiliado=5, idMedico=5]
+21:19:09,754 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 4
+21:19:09,998 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:19:10,086 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:22:26,904 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: 13 con afiliado y medico
+21:22:27,238 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=13, id=13, idAfiliado=5, idMedico=1]
+21:22:27,238 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+21:22:27,484 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:22:27,621 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:22:27,621 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 2
+21:22:27,886 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:22:27,976 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:22:27,976 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 3
+21:22:28,218 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:22:28,316 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:22:28,316 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 4
+21:22:28,626 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:22:28,730 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:22:28,730 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 5
+21:22:28,993 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:22:29,083 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:34:28,057 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+21:34:28,058 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+21:34:28,073 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:35:00,272 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden:  con afiliado y medico
+21:35:01,194 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=, id=15, idAfiliado=12, idMedico=3]
+21:35:01,194 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+21:35:01,422 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:35:01,505 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:35:01,506 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 2
+21:35:02,000 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:35:02,094 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:35:02,094 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 3
+21:35:02,319 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:35:02,407 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:35:02,407 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 4
+21:35:02,685 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:35:02,776 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:38:31,261 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+21:38:31,261 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+21:38:31,275 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:38:53,577 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: we con afiliado y medico
+21:38:54,393 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=we, id=17, idAfiliado=5, idMedico=5]
+21:38:54,393 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 1
+21:38:54,645 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:38:54,732 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:38:54,732 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 2
+21:38:54,973 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:38:55,062 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:38:55,062 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 3
+21:38:55,297 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:38:55,384 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:38:55,384 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 4
+21:38:55,687 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:38:55,805 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:40:57,275 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+21:40:57,275 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+21:40:57,290 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:41:25,026 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: 7 con afiliado y medico
+21:41:25,894 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=7, id=19, idAfiliado=7, idMedico=7]
+21:41:25,894 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 119
+21:41:26,124 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:41:26,219 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:41:26,219 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 219
+21:41:26,442 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:41:26,536 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:41:26,536 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 319
+21:41:26,827 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:41:26,920 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:41:26,920 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 419
+21:41:27,165 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:41:27,263 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+21:49:34,473 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+21:49:34,473 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+21:49:34,487 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:50:06,253 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden:  con afiliado y medico
+21:50:07,011 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDEN(id, idafiliado, idmedico, receta) values (?, ?, ?, ?)".
+ORA-00001: restricción única (ISIS2304D041920.PK_ORDEN_SERVCIO) violada
+
+21:50:07,100 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: null
+21:51:27,254 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden:  con afiliado y medico
+21:51:27,476 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDEN(id, idafiliado, idmedico, receta) values (?, ?, ?, ?)".
+ORA-00001: restricción única (ISIS2304D041920.PK_ORDEN_SERVCIO) violada
+
+21:51:27,562 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: null
+21:52:20,557 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+21:52:20,557 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+21:52:20,571 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+21:52:39,117 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden:  con afiliado y medico
+21:52:39,882 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDEN(id, idafiliado, idmedico, receta) values (?, ?, ?, ?)".
+ORA-00001: restricción única (ISIS2304D041920.PK_ORDEN_SERVCIO) violada
+
+21:52:39,977 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: null
+21:52:54,935 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: 4 con afiliado y medico
+21:52:55,170 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDEN(id, idafiliado, idmedico, receta) values (?, ?, ?, ?)".
+ORA-00001: restricción única (ISIS2304D041920.PK_ORDEN_SERVCIO) violada
+
+21:52:55,254 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: null
+21:56:59,727 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Rol: 32
+21:57:00,022 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Rol: Rol [nombre=32, id=7]
+21:57:29,204 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: 5 con afiliado y medico
+21:57:29,431 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDEN(id, idafiliado, idmedico, receta) values (?, ?, ?, ?)".
+ORA-00001: restricción única (ISIS2304D041920.PK_ORDEN_SERVCIO) violada
+
+21:57:29,535 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: null
+21:59:35,202 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: 7 con afiliado y medico
+21:59:35,488 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=7, id=11, idAfiliado=7, idMedico=7]
+21:59:35,488 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 711
+21:59:35,770 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+21:59:35,856 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+06:51:31,275 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+06:51:31,275 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+06:51:31,290 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+06:51:53,156 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: wer con afiliado y medico
+06:51:54,425 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=wer, id=13, idAfiliado=5, idMedico=1]
+06:51:54,425 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 113
+06:51:54,723 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+06:51:54,807 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+06:54:49,240 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+06:54:49,241 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+06:54:49,255 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+06:55:15,737 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: 5 con afiliado y medico
+06:55:16,555 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=5, id=15, idAfiliado=5, idMedico=5]
+06:55:16,555 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 115
+06:55:17,036 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+06:55:17,133 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+06:55:17,133 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 215
+06:55:17,353 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+06:55:17,444 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+06:55:17,444 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 315
+06:55:17,663 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+06:55:17,808 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+06:55:17,808 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 415
+06:55:18,025 (AWT-EventQueue-0) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO ORDENES_SERVICIOS(id, idservicio,idorden, realizado) values (?, ?, ?, ?)".
+ORA-02291: restricción de integridad (ISIS2304D041920.FK_ORDENES_SERVICIOS_ORDEN) violada - clave principal no encontrada
+
+06:55:18,118 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: null
+06:56:30,169 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+06:56:30,170 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+06:56:30,184 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+06:56:59,284 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: 1 con afiliado y medico
+06:57:00,134 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Orden: Orden [receta=1, id=17, idAfiliado=5, idMedico=5]
+06:57:00,134 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 118
+06:57:00,406 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: OrdenesServicios [idOrden=18, idServicio=1, realizado=0, id=12]
+06:57:00,406 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 218
+06:57:00,938 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: OrdenesServicios [idOrden=18, idServicio=2, realizado=0, id=14]
+06:57:00,938 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 318
+06:57:01,212 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: OrdenesServicios [idOrden=18, idServicio=3, realizado=0, id=16]
+06:57:01,212 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: 418
+06:57:01,494 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando OrdenesServicios: OrdenesServicios [idOrden=18, idServicio=4, realizado=0, id=18]

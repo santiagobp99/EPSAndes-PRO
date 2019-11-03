@@ -24,7 +24,7 @@ public class Reservas implements VOReservas{
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private long idServicioSalud;
+	private long idHorario;
 	
 	/**
 	 * El identificador �NICO de los bares
@@ -36,16 +36,16 @@ public class Reservas implements VOReservas{
 		this.id = 0;
 		this.idAfiliadoTomador = 0;
 		this.idAfiliadoReservador = 0;
-		this.idServicioSalud = 0;
+		this.idHorario = 0;
 		this.estado = "";
 	}
 
-	public Reservas(long id, long idAfiliadoTomador, long idAfiliadoReservador, long idServicioSalud, String estado) {
+	public Reservas(long id, long idAfiliadoTomador, long idAfiliadoReservador, long idHorario, String estado) {
 		
 		this.id = id;
 		this.idAfiliadoTomador = idAfiliadoTomador;
 		this.idAfiliadoReservador = idAfiliadoReservador;
-		this.idServicioSalud = idServicioSalud;
+		this.idHorario = idHorario;
 		this.estado = estado;
 	}
 
@@ -73,12 +73,12 @@ public class Reservas implements VOReservas{
 		this.idAfiliadoReservador = idAfiliadoReservador;
 	}
 
-	public long getIdServicioSalud() {
-		return idServicioSalud;
+	public long getIdHorario() {
+		return idHorario;
 	}
 
-	public void setIdServicioSalud(long idServicioSalud) {
-		this.idServicioSalud = idServicioSalud;
+	public void setIdHorario(long idHorario) {
+		this.idHorario = idHorario;
 	}
 
 	public String getEstado() {
@@ -92,8 +92,10 @@ public class Reservas implements VOReservas{
 	@Override
 	public String toString() {
 		return "Reservas [id=" + id + ", idAfiliadoTomador=" + idAfiliadoTomador + ", idAfiliadoReservador="
-				+ idAfiliadoReservador + ", idServicioSalud=" + idServicioSalud + ", estado=" + estado + "]";
+				+ idAfiliadoReservador + ", idHorario=" + idHorario + ", estado=" + estado + "]";
 	}
+
+
 	
 	
 
