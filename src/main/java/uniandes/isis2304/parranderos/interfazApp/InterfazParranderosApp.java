@@ -1529,7 +1529,10 @@ public void RF10CampaniaReservar(String pCampania, String pFecha1, String pFecha
 	//--------------------------------------------------------------------------------/
 	public void RF12DesabilitarServiciosDeSalud(String pFecha1, String pFecha2, String pIdServicio1, String pIdServicio2, String pIdServicio3, String pIdServicio4, String pIdServicio5, String pIdServicio6){
 		
+		ArrayList<ArrayList<String>> arregloGrande = new ArrayList<>();
 		ArrayList<String> idsServiciosDesabilitados= new ArrayList<>();
+		ArrayList<String> idsReservasMovidas= new ArrayList<>();
+		ArrayList<String> idsReservasNoMovidas= new ArrayList<>();
 		ArrayList<Long> idsServicios = new ArrayList<>();
 
 		Timestamp fecha1 = Timestamp.valueOf(pFecha1);
@@ -1565,13 +1568,26 @@ public void RF10CampaniaReservar(String pCampania, String pFecha1, String pFecha
 		if (fecha1 != null && fecha2 != null)
 
 		{
-			idsServiciosDesabilitados = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2);
+			arregloGrande = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2);
+			idsServiciosDesabilitados = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2).get(0);
+			idsReservasMovidas = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2).get(1);
+			idsReservasNoMovidas = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2).get(2);
 
 			String resultado = "En DesabilitarServicios\n\n";
 
 			for(int i = 0; i <idsServiciosDesabilitados.size(); i++){
 
 				resultado += "Servicio desabilitado: "+idsServiciosDesabilitados.get(i)+"\n";
+
+			}
+			for(int i = 0; i <idsReservasMovidas.size(); i++){
+
+				resultado += "Reserva Movida: "+idsReservasMovidas.get(i)+"\n";
+
+			}
+			for(int i = 0; i <idsReservasNoMovidas.size(); i++){
+
+				resultado += "Reserva no movida: "+idsReservasNoMovidas.get(i)+"\n";
 
 			}
 

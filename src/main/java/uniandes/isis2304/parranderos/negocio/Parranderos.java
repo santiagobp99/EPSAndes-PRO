@@ -255,7 +255,7 @@ public class Parranderos
 	 * @param idServicio2 servicio a desabilitar
 	 * @return lista con los ids de los servicios que se desabilitaron
 	 */
-	public ArrayList<String> RF12DesabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
+	public ArrayList<ArrayList<String>> RF12DesabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
 		
 		return pp.RF12DesabilitarServicios(pArregloServicios, pFecha1, pFecha2);
 		
