@@ -57,6 +57,10 @@
 					"event": "RF12DesabilitarServiciosDeSaludDialog"
 				},
 				{
+					"label": "RF13 Habilitar servicios de salud",
+					"event": "RF13HabilitarServiciosDeSaludDialog"
+				},
+				{
 					"label": "Script creación de la BD",
 					"event": "mostrarScriptBD"
 				},

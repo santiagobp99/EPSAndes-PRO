@@ -253,11 +253,22 @@ public class Parranderos
 	 * 
 	 * @param idServicio1 servicio a desabilitar
 	 * @param idServicio2 servicio a desabilitar
-	 * @return lista con los ids de los servicios que se desabilitarron
+	 * @return lista con los ids de los servicios que se desabilitaron
 	 */
 	public ArrayList<String> RF12DesabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
 		
 		return pp.RF12DesabilitarServicios(pArregloServicios, pFecha1, pFecha2);
+		
+	}
+	/**
+	 * 
+	 * @param idServicio1 servicio a Habilitar
+	 * @param idServicio2 servicio a Habilitar
+	 * @return lista con los ids de los servicios que se habilitaron
+	 */
+	public ArrayList<String> RF13HabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
+		
+		return pp.RF13HabilitarServicios(pArregloServicios, pFecha1, pFecha2);
 		
 	}
 	
