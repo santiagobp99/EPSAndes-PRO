@@ -364,16 +364,16 @@ public class Parranderos
 	}
 	public void disminuirCapacidadHorario (long idhorario)
 	{
-		
-		pp.aumentarCapacidadHorario(idhorario);
-		
+		log.info ("Cambiando capacidad de : "+idhorario );
+		pp.disminuirCapacidadHorario(idhorario);
+		log.info ("Cambiando capacidad de : "+idhorario );
 		
 	}
 	public void aumentarCapacidadHorario (long idhorario)
 	{      
-	
+		log.info ("Cambiando capacidad de : "+idhorario );
 		pp.aumentarCapacidadHorario(idhorario);
-		
+		log.info ("Cambiando capacidad de : "+idhorario );
 	}
 	
 	/**

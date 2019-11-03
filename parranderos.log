@@ -3926,3 +3926,47 @@ Tipo SQL no válido: sqlKind = UNINITIALIZED
 19:33:42,904 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
 19:33:42,934 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
 >>>>>>> master2
+10:45:14,348 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+10:45:14,348 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+10:45:14,368 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:45:33,576 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+10:45:33,833 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+10:45:33,833 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+10:45:33,973 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+10:45:33,974 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Dando Horario:
+10:45:34,115 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Dando Horario:
+10:54:41,943 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+10:57:07,638 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+10:57:10,290 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+10:57:10,291 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+10:57:11,314 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+10:57:11,314 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Dando Horario:
+10:57:12,440 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Dando Horario:
+10:57:12,440 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Reserva: 
+10:57:15,503 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Reserva
+11:10:43,209 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:10:43,210 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:10:43,230 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:11:04,804 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+11:11:05,061 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+11:11:05,062 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+11:11:05,209 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+11:11:05,209 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Dando Horario:
+11:11:05,364 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Dando Horario:
+11:11:05,365 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Cambiando capacidad de : 109
+11:11:05,671 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Cambiando capacidad de : 109
+11:11:05,671 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Reserva: 
+11:11:06,744 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Reserva
+11:12:31,686 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:12:31,687 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:12:31,707 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:12:54,549 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+11:12:55,084 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+11:12:55,084 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+11:12:55,229 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Generando el VO Servicio
+11:12:55,230 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Dando Horario:
+11:12:55,391 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Dando Horario:
+11:12:55,392 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Cambiando capacidad de : 109
+11:12:55,703 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Cambiando capacidad de : 109
+11:12:55,703 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Reserva: 
+11:12:57,119 (AWT-EventQueue-0) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Adicionando Reserva

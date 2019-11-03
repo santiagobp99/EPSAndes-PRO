@@ -1135,6 +1135,14 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 
 	}
+	
+	public void disminuirCapacidadHorario(long idhorario){
+		parranderos.disminuirCapacidadHorario(idhorario);
+	}
+	
+	public void aumentarCapacidadHorario(long idhorario) {
+		parranderos.aumentarCapacidadHorario(idhorario);
+	}
 
 	/**
 	 * Consulta en la base de datos si hay un servicio de salud en la orden
@@ -1457,7 +1465,7 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 	//--------------------------------------------------------------------------------/
 	//						RF12 DeshabilitarServiciosDeSalud
 	//--------------------------------------------------------------------------------/
-	public void RF12DesabilitarServiciosDeSalud(String pFecha1, String pFecha2, String pIdServicio1, String pIdServicio2){
+	public void RF12DesabilitarServiciosDeSalud(String pFecha1, String pFecha2, String pIdServicio1, String pIdServicio2, String pIdServicio3, String pIdServicio4, String pIdServicio5, String pIdServicio6){
 		
 		ArrayList<String> idsServiciosDesabilitados= new ArrayList<>();
 		ArrayList<Long> idsServicios = new ArrayList<>();
@@ -1952,10 +1960,13 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 			}
 
 			if(cumple){
+				
+				disminuirCapacidadHorario(idHorario);
 				VOReservas r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idHorario, estado );
 
 				if (r == null)
 				{
+					aumentarCapacidadHorario(idHorario);
 					throw new Exception ("No se pudo realizar la reserva: " + r
 							+".\nidAfiliadoReservador: "+strIdReservador
 							+".\nidAfiliadoTomador: "+strIdTomador

@@ -108,7 +108,11 @@
 				  {
 					  "label": "RF10 Donde Reservar",
 					  "event": "RF10DondeReservarDialog"
-				  }
+				  },
+				  {
+					"label": "RF10 Reservar Campaña",
+					"event": "RF10CampaniaReservarDialog"
+				}
 			  ]
 		  },
 		{ "menuTitle": "Consultas",

@@ -84,7 +84,7 @@ public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
 	public long aumentarCapacidadHorario (PersistenceManager pm, long pId) 
 	{
 		int x = darCapacidadHorario(pm, pId);
-		x+=1;
+		x++;
         Query q = pm.newQuery(SQL, "UPDATE " + persistenciaEPS.darTablaHorario() + " SET CAPACIDAD = ? "+" WHERE ID = ?");
         q.setParameters(x,pId);
         return (long) q.executeUnique();
@@ -93,7 +93,7 @@ public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
 	public long disminuirCapacidadHorario (PersistenceManager pm, long pId) 
 	{
 		int x = darCapacidadHorario(pm, pId);
-		x-=1;
+		x--;
         Query q = pm.newQuery(SQL, "UPDATE " + persistenciaEPS.darTablaHorario() + " SET CAPACIDAD = ? "+"WHERE ID = ?");
         q.setParameters(x,pId);
         return (long) q.executeUnique();
