@@ -1394,6 +1394,11 @@ public class PersistenciaParranderos
 	{
 		return sqlHorario.darHorariosPorServicio(pmf.getPersistenceManager(),idServicio);
 	}
+	
+	public List darHorarioServicioFecha (Timestamp fechaInicio,Timestamp fechaFin,String tipoServicio)
+	{
+		return sqlHorario.darHorarioServicioFecha(pmf.getPersistenceManager(), fechaInicio, fechaFin, tipoServicio);
+	}
 
 	public Horario darHorario (long idHorario)
 	{

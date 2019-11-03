@@ -98,6 +98,15 @@
 				}
 			]
 		},
+		{ "menuTitle": "OrganizadorCampaña",
+			"options":
+			  [
+				  {
+					  "label": "RF10 Registrar Servicios Por Campaña",
+					  "event": "RF10RegistrarServiciosPorCampaña"
+				  }
+			  ]
+		  },
 		{ "menuTitle": "Consultas",
 		  "options":
 			[

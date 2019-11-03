@@ -312,6 +312,16 @@ public class Parranderos
 		return voHoraios;
 	}
 	
+	public List darHorarioServicioFecha (Timestamp fechaInicio,Timestamp fechaFin,String tipoServicio)	{
+		log.info ("Generando los VO de Horarios de la campaña");        
+		List Horaios = new LinkedList ();
+		for (Object hor : pp.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio)){
+			Horaios.add (hor);
+		}
+		log.info ("Generando los VO de Horarios de la campaña " + Horaios.size() + " existentes");
+		return Horaios;
+	}
+	
 	
 	/**
 	 * Encuentra todos los tipos de bebida en Parranderos y los devuelve como una lista de VOTipoBebida

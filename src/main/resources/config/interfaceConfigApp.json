@@ -98,6 +98,15 @@
 				}
 			]
 		},
+		{ "menuTitle": "OrganizadorCampaña",
+			"options":
+			  [
+				  {
+					  "label": "RF10 Donde Reservar",
+					  "event": "RF10DondeReservarDialog"
+				  }
+			  ]
+		  },
 		{ "menuTitle": "Consultas",
 		  "options":
 			[
