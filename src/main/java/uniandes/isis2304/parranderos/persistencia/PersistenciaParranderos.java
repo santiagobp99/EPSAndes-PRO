@@ -59,6 +59,7 @@ import uniandes.isis2304.parranderos.negocio.ServicioSalud;
 import uniandes.isis2304.parranderos.negocio.Sirven;
 import uniandes.isis2304.parranderos.negocio.TipoBebida;
 import uniandes.isis2304.parranderos.negocio.Usuario;
+import uniandes.isis2304.parranderos.negocio.VOReservas;
 import uniandes.isis2304.parranderos.negocio.Visitan;
 
 /**
@@ -1234,20 +1235,65 @@ public class PersistenciaParranderos
 		return sqlServicioSalud.darServiciosSalud(pmf.getPersistenceManager());
 	}
 
-	public ArrayList<String> RF12DesabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
+	public ArrayList<ArrayList<String>> RF12DesabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
 
+		ArrayList<ArrayList<String>> arreglo = new ArrayList<>();
 		ArrayList<String> idsServiciosDesabilitados = new ArrayList<>();
+		ArrayList<String> idsReservasNoMovidas = new ArrayList<>();
+		ArrayList<String> idsReservasMovidas = new ArrayList<>();
+
 
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
-		{
+		{ 
 			tx.begin();
 			for (int i = 0; i < pArregloServicios.size(); i++) {
 
 				sqlHorario.desabilitarServicio(pmf.getPersistenceManager(), pArregloServicios.get(i), pFecha1, pFecha2);
 				idsServiciosDesabilitados.add(pArregloServicios.get(i)+"");
 				log.trace ("Servicio desabilitado: "+pArregloServicios.get(i));
+
+				List<Reservas> reservasInvalidas = sqlReservas.darReservasInvalidas(pmf.getPersistenceManager());
+			
+				for (int j = 0; j < reservasInvalidas.size(); j++) {
+
+					Horario horario = sqlHorario.darHorario(pmf.getPersistenceManager(), reservasInvalidas.get(j).getIdHorario());
+
+					ServicioSalud servicio = sqlServicioSalud.darServicioSalud(pm, horario.getIdServicio());
+
+					List<ServicioSalud> serviciosEquivalentes = sqlServicioSalud
+							.darServiciosSaludEquivalentes(pmf.getPersistenceManager(), servicio.getTipo());
+					
+
+					if(serviciosEquivalentes.size()==0){
+						idsReservasNoMovidas.add(reservasInvalidas.get(j).getId()+"");
+					}
+					else{
+						
+						boolean termino = false;
+						for (int k = 0; k < serviciosEquivalentes.size() && !termino; k++) {
+							
+							List<Horario> horarios = sqlHorario.darHorariosPorServicio(pm, serviciosEquivalentes.get(k).getId());
+							if(horarios.size()==0){
+								idsReservasNoMovidas.add(reservasInvalidas.get(j).getId()+"");
+								termino = true;
+							}
+							else{
+								
+								sqlReservas.cambiarHorarioReserva(pm, horarios.get(0).getId(), reservasInvalidas.get(j).getId());
+								sqlHorario.disminuirCapacidadHorario(pm, horarios.get(0).getId());
+								idsReservasMovidas.add(reservasInvalidas.get(j).getId()+"");
+								
+							}
+
+						}
+					}
+
+				}
+
+
+
 			}
 			tx.commit();
 
@@ -1255,7 +1301,7 @@ public class PersistenciaParranderos
 		catch (Exception e)
 		{
 			System.out.println("error");
-			// 	e.printStackTrace();
+			e.printStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 			return null;
 		}
@@ -1269,7 +1315,11 @@ public class PersistenciaParranderos
 		}
 
 
-		return idsServiciosDesabilitados;
+		arreglo.add(idsServiciosDesabilitados);
+		arreglo.add(idsReservasMovidas);
+		arreglo.add(idsReservasNoMovidas);
+		
+		return arreglo;
 	}
 
 	public ArrayList<String> RF13HabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
@@ -1283,7 +1333,7 @@ public class PersistenciaParranderos
 			tx.begin();
 			for (int i = 0; i < pArregloServicios.size(); i++) {
 
-				sqlHorario.desabilitarServicio(pmf.getPersistenceManager(), pArregloServicios.get(i), pFecha1, pFecha2);
+				sqlHorario.habilitarServicio(pmf.getPersistenceManager(), pArregloServicios.get(i), pFecha1, pFecha2);
 				idsServiciosHabilitados.add(pArregloServicios.get(i)+"");
 				log.trace ("Servicio Habilitado: "+pArregloServicios.get(i));
 			}
@@ -1311,10 +1361,10 @@ public class PersistenciaParranderos
 	}
 
 	public void RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
-		
-		
+
+
 		sqlEpsAndes.RFC1(pmf.getPersistenceManager(), fecha1, fecha2);
-		
+
 
 	}
 
@@ -1442,7 +1492,7 @@ public class PersistenciaParranderos
 	{
 		return sqlHorario.darHorariosPorServicio(pmf.getPersistenceManager(),idServicio);
 	}
-	
+
 	public List darHorarioServicioFecha (Timestamp fechaInicio,Timestamp fechaFin,String tipoServicio)
 	{
 		return sqlHorario.darHorarioServicioFecha(pmf.getPersistenceManager(), fechaInicio, fechaFin, tipoServicio);

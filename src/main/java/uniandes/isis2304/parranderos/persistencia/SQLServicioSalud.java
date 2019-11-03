@@ -53,4 +53,14 @@ public class SQLServicioSalud {
 	}
 
 
+	public List<ServicioSalud> darServiciosSaludEquivalentes(PersistenceManager pm, String servicio) {
+		
+		Query q = pm.newQuery(SQL, "SELECT s.id, s.idips, s.tipo, s.orden, s.descripcion FROM "+ 
+		persistenciaEPS.darTablaServicioSalud()+ " S WHERE s.tipo = ?"   );
+		q.setResultClass(ServicioSalud.class);
+		q.setParameters(servicio);
+		return (List<ServicioSalud>) q.executeList();
+	}
+
+
 }
