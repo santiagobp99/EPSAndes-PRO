@@ -217,16 +217,16 @@ public class Parranderos
 
 	}
 
-	public OrdenesServicios adicionarOrdenesServicios(long idservicio, long idOrden,int realizado) {
-		log.info ("Adicionando OrdenesServicios: " + idservicio);
-		OrdenesServicios ordenesServicios = pp.adicionarOrdenesServicios(idservicio,idOrden, realizado);		
+	public OrdenesServicios adicionarOrdenesServicios(long idServicio, long idOrden,int realizado) {
+		log.info ("Adicionando OrdenesServicios: " + idServicio+ idOrden);
+		OrdenesServicios ordenesServicios = pp.adicionarOrdenesServicios(idServicio,idOrden, realizado);		
 		log.info ("Adicionando OrdenesServicios: " + ordenesServicios);
 		return ordenesServicios;
 	}
 	
-	public Reservas adicionarReserva(long idAfiliadoTomador, long idAfiliadoReservador, long idServicioSalud,String estado){
+	public Reservas adicionarReserva(Long idAfiliadoTomador, long idAfiliadoReservador, long idHorario,String estado){
 			log.info ("Adicionando Reserva: ");
-			Reservas reserva = pp.adicionarReserva(idAfiliadoTomador,idAfiliadoReservador, idServicioSalud, estado);		
+			Reservas reserva = pp.adicionarReserva(idAfiliadoTomador,idAfiliadoReservador, idHorario, estado);		
 			log.info ("Adicionando Reserva");
 			return reserva;
 	}
@@ -329,6 +329,16 @@ public class Parranderos
 		return voHoraios;
 	}
 	
+	public List darHorarioServicioFecha (Timestamp fechaInicio,Timestamp fechaFin,String tipoServicio)	{
+		log.info ("Generando los VO de Horarios de la campaña");        
+		List Horaios = new LinkedList ();
+		for (Object hor : pp.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio)){
+			Horaios.add (hor);
+		}
+		log.info ("Generando los VO de Horarios de la campaña " + Horaios.size() + " existentes");
+		return Horaios;
+	}
+	
 	
 	/**
 	 * Encuentra todos los tipos de bebida en Parranderos y los devuelve como una lista de VOTipoBebida
@@ -360,16 +370,16 @@ public class Parranderos
 	}
 	public void disminuirCapacidadHorario (long idhorario)
 	{
-		
-		pp.aumentarCapacidadHorario(idhorario);
-		
+		log.info ("Disminuyendo capacidad de : "+idhorario );
+		pp.disminuirCapacidadHorario(idhorario);
+		log.info ("Disminuyendo capacidad de : "+idhorario );
 		
 	}
 	public void aumentarCapacidadHorario (long idhorario)
 	{      
-	
+		log.info ("Aumentando capacidad de : "+idhorario );
 		pp.aumentarCapacidadHorario(idhorario);
-		
+		log.info ("Aumentando capacidad de : "+idhorario );
 	}
 	
 	/**
@@ -378,11 +388,11 @@ public class Parranderos
 	 * @param nombre - El nombre del tipo de bebida
 	 * @return El objeto TipoBebida adicionado. null si ocurre alguna Excepci?n
 	 */
-	public Orden adicionarOrdenServicio (String receta, long idAfiliado, long idMedico){
+	public Orden adicionarOrden (String receta, long idAfiliado, long idMedico){
 
-		log.info ("Adicionando OrdenServicio: " + receta+" con afiliado"+" y medico");
+		log.info ("Adicionando Orden: " + receta+" con afiliado"+" y medico");
 		Orden orden = pp.adicionarOrden(idAfiliado, idMedico,receta);
-		log.info ("Adicionando ServicioDeSalud: " + orden);
+		log.info ("Adicionando Orden: " + orden);
 		return orden;
 
 	}

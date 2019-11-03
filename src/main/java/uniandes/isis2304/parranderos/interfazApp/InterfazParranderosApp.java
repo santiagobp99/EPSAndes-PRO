@@ -52,6 +52,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
+import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.Parranderos;
 import uniandes.isis2304.parranderos.negocio.VOEpsAndes;
 import uniandes.isis2304.parranderos.negocio.VOHorario;
@@ -1134,6 +1135,14 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 
 	}
+	
+	public void disminuirCapacidadHorario(long idhorario){
+		parranderos.disminuirCapacidadHorario(idhorario);
+	}
+	
+	public void aumentarCapacidadHorario(long idhorario) {
+		parranderos.aumentarCapacidadHorario(idhorario);
+	}
 
 	/**
 	 * Consulta en la base de datos si hay un servicio de salud en la orden
@@ -1177,9 +1186,287 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 
 	}
+	//--------------------------------------------------------------------------------/
+	//						RF10 Registrar Servicios Por Campaña
+	//--------------------------------------------------------------------------------/
+public void RF10DondeReservar(String pFecha1, String pFecha2, String tipoServicio){
+		
+		
+		List consulta = new ArrayList<>();
+		
+		Timestamp fechaInicio = Timestamp.valueOf(pFecha1);
+		Timestamp fechaFin = Timestamp.valueOf(pFecha2);
+		
+		if (fechaInicio != null && fechaFin != null)
 
+		{
+			consulta = parranderos.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio);
+			
+			String resultado = "Servicio del id: \n\n";
+			
+			for(int i = 0; i <consulta.size(); i++){
+				
+				resultado += "Servicio del id: "+consulta.get(i)+"\n";
+				
+			}
+			
+			resultado += "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+			
+		}
+		else
+		{
+			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+		}
+		
+	}
+	
+	public void RF10DondeReservarDialog() {
+
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField fecha1JtextField = new JTextField();
+		JTextField fecha2JtextField = new JTextField();
+
+		JTextField servicio1JtextField = new JTextField();
+		JTextField servicio2JtextField = new JTextField();
+		JTextField servicio3JtextField = new JTextField();
+		JTextField servicio4JtextField = new JTextField();
+		JTextField servicio5JtextField = new JTextField();
+		JTextField servicio6JtextField = new JTextField();
+		
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo las variables 
+		
+		String fecha1string;
+		String fecha2string;
+		
+		String servicio1string;
+	
+
+		// Aca pongo los dos labels de añadir los datos requeridos
+		
+		panel.add(new JLabel("Fecha inicial"));
+		panel.add(fecha1JtextField); 
+
+		panel.add(new JLabel("Fecha Final"));
+		panel.add(fecha2JtextField); 
+
+		panel.add(new JLabel("tipo servicio 1:"));
+		panel.add(servicio1JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 2:"));
+		panel.add(servicio2JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 3:"));
+		panel.add(servicio3JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 4:"));
+		panel.add(servicio4JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 5:"));
+		panel.add(servicio5JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 6:"));
+		panel.add(servicio6JtextField); 
+		
+		
+		
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco los valores
+			
+			String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+			String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+			
+			String tipoServicio1 = servicio1JtextField.getText();
+			String tipoServicio2 = servicio1JtextField.getText();
+			String tipoServicio3 = servicio1JtextField.getText();
+			String tipoServicio4 = servicio1JtextField.getText();
+			String tipoServicio5 = servicio1JtextField.getText();
+			String tipoServicio6 = servicio1JtextField.getText();
+			
+			
+			RF10DondeReservar(fecha1, fecha2, tipoServicio1);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio2);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio3);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio4);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio5);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio6);
+
+			try {
+
+				// Aqui obtengo el input los valores
+				fecha1string = fecha1;
+				fecha2string = fecha2;
+				
+				servicio1string = tipoServicio1;
+			
+
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
+	
+	
+	////
+public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServicio,int capacidad){
+		
+		
+		List consulta = new ArrayList<>();
+		
+		Timestamp fechaInicio = Timestamp.valueOf(pFecha1);
+		Timestamp fechaFin = Timestamp.valueOf(pFecha2);
+		
+		if (fechaInicio != null && fechaFin != null)
+
+		{
+			consulta = parranderos.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio);
+			
+			String resultado = "Servicio del id: \n\n";
+			
+			for(int i = 0; i <consulta.size(); i++){
+				
+				resultado += "Servicio del id: "+consulta.get(i)+"\n";
+				
+			}
+			
+			resultado += "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+			
+		}
+		else
+		{
+			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+		}
+		
+	}
+	
+	public void RF10CampaniaReservarDialog() {
+
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField fecha1JtextField = new JTextField();
+		JTextField fecha2JtextField = new JTextField();
+
+		JTextField servicio1JtextField = new JTextField();
+		JTextField servicio2JtextField = new JTextField();
+		JTextField servicio3JtextField = new JTextField();
+		JTextField servicio4JtextField = new JTextField();
+		JTextField servicio5JtextField = new JTextField();
+		JTextField servicio6JtextField = new JTextField();
+		
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo las variables 
+		
+		String fecha1string;
+		String fecha2string;
+		
+		String servicio1string;
+	
+
+		// Aca pongo los dos labels de añadir los datos requeridos
+		
+		panel.add(new JLabel("Fecha inicial"));
+		panel.add(fecha1JtextField); 
+
+		panel.add(new JLabel("Fecha Final"));
+		panel.add(fecha2JtextField); 
+
+		panel.add(new JLabel("tipo servicio 1:"));
+		panel.add(servicio1JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 2:"));
+		panel.add(servicio2JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 3:"));
+		panel.add(servicio3JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 4:"));
+		panel.add(servicio4JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 5:"));
+		panel.add(servicio5JtextField); 
+		
+		panel.add(new JLabel("tipo servicio 6:"));
+		panel.add(servicio6JtextField); 
+		
+		
+		
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco los valores
+			
+			String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+			String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+			
+			String tipoServicio1 = servicio1JtextField.getText();
+			String tipoServicio2 = servicio1JtextField.getText();
+			String tipoServicio3 = servicio1JtextField.getText();
+			String tipoServicio4 = servicio1JtextField.getText();
+			String tipoServicio5 = servicio1JtextField.getText();
+			String tipoServicio6 = servicio1JtextField.getText();
+			
+			
+			RF10DondeReservar(fecha1, fecha2, tipoServicio1);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio2);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio3);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio4);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio5);
+			RF10DondeReservar(fecha1, fecha2, tipoServicio6);
+
+			try {
+
+				// Aqui obtengo el input los valores
+				fecha1string = fecha1;
+				fecha2string = fecha2;
+				
+				servicio1string = tipoServicio1;
+			
+
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
+	
+	////
+	//--------------------------------------------------------------------------------/
+	//						RF12 DeshabilitarServiciosDeSalud
+	//--------------------------------------------------------------------------------/
 	public void RF12DesabilitarServiciosDeSalud(String pFecha1, String pFecha2, String pIdServicio1, String pIdServicio2, String pIdServicio3, String pIdServicio4, String pIdServicio5, String pIdServicio6){
-
+		
 		ArrayList<String> idsServiciosDesabilitados= new ArrayList<>();
 		ArrayList<Long> idsServicios = new ArrayList<>();
 
@@ -1520,7 +1807,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		
 			parranderos.RFC1CantidadServiciosIPS(fecha1, fecha2);
 	}
-	public void RFC1CantidadServiciosIPSDialog() {
+	public void RFC1CantidadServiciosIPSDialog() { 
 
 		// Definiendo elementos necesarios para la construccion del panel
 
@@ -1606,8 +1893,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			long idMedico = Long.valueOf(strIdMedico);
 			ArrayList<Long> servicios = new ArrayList<>();
 
-			if (strIdAfiliado != null && strIdMedico != null)
-			{
+			if (strIdAfiliado != null && strIdMedico != null){
 				//
 				boolean hasServicio = true;
 				while(hasServicio){
@@ -1623,14 +1909,15 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				}	
 				//
 
-				VOOrden orden = parranderos.adicionarOrdenServicio(receta, idAfiliado, idMedico);
+				VOOrden orden = parranderos.adicionarOrden(receta, idAfiliado, idMedico);
+				
 				if (orden == null){
-					throw new Exception ("No se pudo crear la orden de servicio: " + orden+ "con idAfiliado: "+ idAfiliado+"con idMedico: "+ idMedico+"con receta "+receta);
+					throw new Exception ("No se pudo crear la orden de servicio: " + orden+ " con idAfiliado: "+ idAfiliado+"con idMedico: "+ idMedico+"con receta "+receta);
 				}
 
-				if(servicios.isEmpty()==false) {
+				if(!servicios.isEmpty()) {
 					for(int i = 0; i<servicios.size();i++){
-						parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId(),0 );
+						parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId()+1,0 );
 					}
 				}
 				String resultado = "En adicionOrdenServicio\n\n";
@@ -1725,7 +2012,18 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	public void adicionarReserva(String strIdTomador,String strIdReservador,String strIdServicio,String strIdHorario,String estado)	{
 		try 
 		{
-			long idAfiliadoTomador = Long.valueOf(strIdTomador);
+			
+			Long idAfiliadoTomador;
+			if(strIdTomador.isEmpty()) {
+				idAfiliadoTomador = null;
+				System.out.println("tomador = "+idAfiliadoTomador);
+			}
+			else {
+				idAfiliadoTomador = Long.valueOf(strIdTomador);
+				System.out.println("tomador = "+idAfiliadoTomador);
+			}
+			
+			System.out.println("el id era"+idAfiliadoTomador);
 			long idAfiliadoReservador = Long.valueOf(strIdReservador);
 			long idServicioSalud = Long.valueOf(strIdServicio);
 			long idHorario = Long.valueOf(strIdHorario);
@@ -1745,7 +2043,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 					if(hayCapacidadHorario(idHorario)){
 
 						cumple = true;
-
 					}
 				}
 			}
@@ -1758,10 +2055,13 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			}
 
 			if(cumple){
-				VOReservas r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, estado );
+				
+				disminuirCapacidadHorario(idHorario);
+				VOReservas r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idHorario, estado );
 
 				if (r == null)
 				{
+					aumentarCapacidadHorario(idHorario);
 					throw new Exception ("No se pudo realizar la reserva: " + r
 							+".\nidAfiliadoReservador: "+strIdReservador
 							+".\nidAfiliadoTomador: "+strIdTomador
@@ -1840,8 +2140,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 			String horarioInput = horarioField.getText();
 			String estadoInput = estadoField.getText();
-
-			System.out.println(tomadorInput+ 123);
 			adicionarReserva(tomadorInput,reservadorInput, servicioInput,horarioInput,estadoInput);
 
 			try {

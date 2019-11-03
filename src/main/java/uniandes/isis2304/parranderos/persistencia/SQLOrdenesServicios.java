@@ -22,10 +22,10 @@ public SQLOrdenesServicios(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public long adicionarOrdenServicio (PersistenceManager pm, long idorden, long idservicio, int realizado,long id) 
+	public long adicionarOrdenServicio (PersistenceManager pm, long id, long idservicio,long idorden, int realizado) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrdenesServicios() + "(idorden, idservicio, realizado,id) values (?, ?, ?,?)");
-        q.setParameters(idorden, idservicio, realizado);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaOrdenesServicios() + "(id, idservicio,idorden, realizado) values (?, ?, ?, ?)");
+        q.setParameters(id, idservicio,idorden, realizado);
         return (long) q.executeUnique();
 	}
 	

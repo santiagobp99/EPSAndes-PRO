@@ -10,7 +10,7 @@ public interface VOReservas {
 	/**
 	 * @return El nombre de nombre-tabla
 	 */
-	public long getIdAfiliadoTomador() ;
+	public Long getIdAfiliadoTomador() ;
 	
 	/**
 	 * @return El nombre de nombre-tabla
@@ -20,7 +20,7 @@ public interface VOReservas {
 	/**
 	 * @return El nombre de nombre-tabla
 	 */
-	public long getIdServicioSalud() ;
+	public long getIdHorario() ;
 	
 	/**
 	 * @return El nombre de nombre-tabla

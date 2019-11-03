@@ -19,18 +19,18 @@ public SQLReservas(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public long adicionarReserva (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud, String estado) 
+	public long adicionarReserva (PersistenceManager pm, long id, Long idAfiliadoTomador,long idAfiliadoReservador, long idHorario, String estado) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaReservas() + "(id, idafiliadoTomador, idafiliadoReservador,idserviciosalud, estado) values (?, ?, ?, ?, ?)");
-        q.setParameters(id, idAfiliadoTomador, idAfiliadoReservador,idServicioSalud, estado);
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaReservas() + "(id, idafiliadoTomador, idafiliadoReservador,idHorario, estado) values (?, ?, ?, ?, ?)");
+        q.setParameters(id, idAfiliadoTomador, idAfiliadoReservador,idHorario, estado);
         return (long) q.executeUnique();
 	}
 	
 	
-	public long eliminarReservas (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud, String idEstado)
+	public long eliminarReservas (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idHorario, String idEstado)
 	{
         Query q = pm.newQuery(SQL, "DELETE FROM " + persistenciaEPS.darTablaReservas() + " WHERE id = ?  ");
-        q.setParameters(id, idAfiliadoTomador, idServicioSalud, idAfiliadoReservador,idEstado);
+        q.setParameters(id, idAfiliadoTomador, idHorario, idAfiliadoReservador,idEstado);
         return (long) q.executeUnique();
 	}
 

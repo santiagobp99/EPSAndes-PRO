@@ -33,7 +33,7 @@ public class OrdenesServicios implements VOOrdenesServicios{
 		this.id = 0;
 	}
 
-	public OrdenesServicios( long id, long idOrden, long idServicio, int realizado) {
+	public OrdenesServicios( long id, long idServicio,long idOrden, int realizado) {
 		
 		this.idOrden = idOrden;
 		this.idServicio = idServicio;

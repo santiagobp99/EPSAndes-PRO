@@ -1034,20 +1034,20 @@ public class PersistenciaParranderos
 	 * 			 OrdenesServicios
 	 *****************************************************************/
 
-	public OrdenesServicios adicionarOrdenesServicios(long idservicio, long pIdOrden, int realizado) {
+	public OrdenesServicios adicionarOrdenesServicios(long idServicio, long pIdOrden, int realizado) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
 		{
 
 			tx.begin();
-			long id = currOrdenServicio();
-			long tuplasInsertadas = sqlOrdenesServicios.adicionarOrdenServicio(pm, pIdOrden, idservicio, realizado,id);
+			long id = currOrdenServicio()-1;
+			long tuplasInsertadas = sqlOrdenesServicios.adicionarOrdenServicio(pm, id,idServicio,pIdOrden, realizado);
 			tx.commit();
 
-			log.trace ("Inserción de la OrdenServicios: " + pIdOrden+"--"+ idservicio + ": " + tuplasInsertadas + " tuplas insertadas");
+			log.trace ("Inserción de la OrdenServicios: " + pIdOrden+"--"+ idServicio + ": " + tuplasInsertadas + " tuplas insertadas");
 
-			return new OrdenesServicios(id,pIdOrden, idservicio, realizado);
+			return new OrdenesServicios(id, idServicio,pIdOrden, realizado);
 		}
 		catch (Exception e)
 		{
@@ -1075,7 +1075,7 @@ public class PersistenciaParranderos
 	/* ****************************************************************
 	 * 			 Reservas
 	 *****************************************************************/
-	public Reservas adicionarReserva(long idAfiliadoTomador,long idAfiliadoReservador, long idServicioSalud,String estado) {
+	public Reservas adicionarReserva(Long idAfiliadoTomador,long idAfiliadoReservador, long idHorario,String estado) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
@@ -1083,12 +1083,12 @@ public class PersistenciaParranderos
 
 			tx.begin();
 			long id = currReservas();
-			long tuplasInsertadas = sqlReservas.adicionarReserva(pm, id, idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, estado);
+			long tuplasInsertadas = sqlReservas.adicionarReserva(pm, id, idAfiliadoTomador, idAfiliadoReservador, idHorario, estado);
 			tx.commit();
 
 			log.trace ("Inserción de la OrdenServicios: " + id+"--"+ idAfiliadoTomador + ": " + tuplasInsertadas + " tuplas insertadas");
 
-			return new Reservas(id, idAfiliadoTomador, idAfiliadoReservador, idServicioSalud, estado);
+			return new Reservas(id, idAfiliadoTomador, idAfiliadoReservador, idHorario, estado);
 		}
 		catch (Exception e)
 		{
@@ -1333,7 +1333,7 @@ public class PersistenciaParranderos
 			long tuplasInsertadas = sqlOrden.adicionarOrden(pm, id, idAfiliado, idMedico,receta);
 			tx.commit();
 
-			log.trace ("Inserción de la orden de servicio: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
+			log.trace ("Inserción de la orden: " + receta + ": " + tuplasInsertadas + " tuplas insertadas");
 
 			return new Orden(receta,id,idAfiliado, idMedico);
 		}
@@ -1441,6 +1441,11 @@ public class PersistenciaParranderos
 	public List<Horario> darHorariosPorServicio (long idServicio)
 	{
 		return sqlHorario.darHorariosPorServicio(pmf.getPersistenceManager(),idServicio);
+	}
+	
+	public List darHorarioServicioFecha (Timestamp fechaInicio,Timestamp fechaFin,String tipoServicio)
+	{
+		return sqlHorario.darHorarioServicioFecha(pmf.getPersistenceManager(), fechaInicio, fechaFin, tipoServicio);
 	}
 
 	public Horario darHorario (long idHorario)

@@ -289,3 +289,160 @@ insert into AFILIADO (idUsuario, idEps, fechaNacimiento, tipoDocumento, numDocum
 
 insert into USUARIO (nombre, correo, idrol) values ('Cooper', 'cgrahlv@a8.net', 5);
 insert into AFILIADO (idUsuario, idEps, fechaNacimiento, tipoDocumento, numDocumento, hospitalizado) values (32, 1, '26/02/1968', 'CC', '773', 0);
+
+-- Añadir Horarios
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (1, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (1, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (1, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (1, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (1, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (1, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (1, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (1, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (1, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (2, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (2, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (2, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (2, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (2, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (2, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (2, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (2, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (2, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (3, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (3, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (3, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (3, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (3, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (3, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (3, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (3, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (3, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (4, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (4, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (4, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (4, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (4, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (4, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (4, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (4, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (4, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (5, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (5, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (5, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (5, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (5, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (5, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (5, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (5, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (5, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (6, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (6, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (6, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (6, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (6, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (6, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (6, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (6, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (6, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (7, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (7, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (7, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (7, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (7, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (7, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (7, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (7, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (7, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (8, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (8, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (8, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (8, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (8, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (8, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (8, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (8, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (8, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (9, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (9, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (9, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (9, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (9, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (9, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (9, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (9, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (9, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (10, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (10, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (10, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (10, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (10, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (10, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (10, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (10, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (10, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (11, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (11, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (11, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (11, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (11, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (11, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (11, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (11, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (11, 15, '12/11/2019', 'NOCTURNO', 1);
+
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (12, 15, '10/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (12, 15, '10/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (12, 15, '10/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (12, 15, '11/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (12, 15, '11/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (12, 15, '11/11/2019', 'NOCTURNO', 1);
+
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (12, 15, '12/11/2019', 'DIURNO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (12, 15, '12/11/2019', 'VESPERTINO', 1);
+insert into HORARIO (idServicio, capacidad, fecha, hora, disponibilidad) values (12, 15, '12/11/2019', 'NOCTURNO', 1);

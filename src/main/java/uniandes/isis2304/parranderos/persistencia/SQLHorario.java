@@ -65,6 +65,14 @@ public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
 		return (List<Horario>) q.executeList();
 	}
 	
+	public List darHorarioServicioFecha (PersistenceManager pm, Timestamp fechaInicio,Timestamp fechaFin,String tipoServicio) 
+	{
+		Query q = pm.newQuery(SQL,"SELECT h.id,h.idservicio,(h.capacidad-3)capacidad,h.fecha,h.hora,h.disponibilidad FROM " + persistenciaEPS.darTablaHorario()+ " H INNER JOIN " +persistenciaEPS.darTablaServicioSalud()+ " S ON H.idservicio = S.id WHERE (H.FECHA >= ? AND H.FECHA <= ?) AND TIPO =UPPER(?) AND DISPONIBILIDAD = 1 order by h.fecha,h.hora,h.idservicio");
+		q.setResultClass(Horario.class);
+		q.setParameters(fechaInicio,fechaFin,tipoServicio);
+		return (List<Horario>) q.executeList();
+	}
+	
 	public int darCapacidadHorario (PersistenceManager pm, long idHorario) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT capacidad FROM " + persistenciaEPS.darTablaHorario()  + " WHERE id = ?");
@@ -72,11 +80,11 @@ public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
 		q.setParameters(idHorario);
 		return (Integer) q.executeUnique();
 	}
-
+	
 	public long aumentarCapacidadHorario (PersistenceManager pm, long pId) 
 	{
 		int x = darCapacidadHorario(pm, pId);
-		x+=1;
+		x++;
         Query q = pm.newQuery(SQL, "UPDATE " + persistenciaEPS.darTablaHorario() + " SET CAPACIDAD = ? "+" WHERE ID = ?");
         q.setParameters(x,pId);
         return (long) q.executeUnique();
@@ -85,7 +93,7 @@ public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
 	public long disminuirCapacidadHorario (PersistenceManager pm, long pId) 
 	{
 		int x = darCapacidadHorario(pm, pId);
-		x-=1;
+		x--;
         Query q = pm.newQuery(SQL, "UPDATE " + persistenciaEPS.darTablaHorario() + " SET CAPACIDAD = ? "+"WHERE ID = ?");
         q.setParameters(x,pId);
         return (long) q.executeUnique();
