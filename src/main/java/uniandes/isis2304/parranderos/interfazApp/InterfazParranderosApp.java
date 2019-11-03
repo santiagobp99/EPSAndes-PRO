@@ -1325,25 +1325,40 @@ public void RF10DondeReservar(String pFecha1, String pFecha2, String tipoServici
 	}
 	
 	
-	////
-public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServicio,int capacidad){
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+public void RF10CampaniaReservar(String pCampania, String pFecha1, String pFecha2, List<String> tipoServicio,List<Integer> capacidad){		
 		
-		
-		List consulta = new ArrayList<>();
-		
+	List<VOHorario> listaHoras = new ArrayList<>();
 		Timestamp fechaInicio = Timestamp.valueOf(pFecha1);
 		Timestamp fechaFin = Timestamp.valueOf(pFecha2);
-		
-		if (fechaInicio != null && fechaFin != null)
-
-		{
-			consulta = parranderos.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio);
+		System.out.println(7);
+		if (fechaInicio != null && fechaFin != null){
+			
 			
 			String resultado = "Servicio del id: \n\n";
 			
-			for(int i = 0; i <consulta.size(); i++){
+			for(int i = 0; i <tipoServicio.size(); i++){
+				//traerHorario
+				listaHoras = parranderos.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio.get(0));
+				int cHoras = 0;
+				int cTemp = capacidad.get(i); 
+				System.out.println(8);
+				while(cTemp!=0) {
+					VOReservas actual = adicionarReserva("", pCampania, String.valueOf(listaHoras.get(cHoras).getIdServicio()), String.valueOf(listaHoras.get(cHoras).getId()), "RESERVADO");
+					if(actual!=null) {
+						cTemp--;
+						System.out.println(9);
+						resultado += "Reserva añadida: "+actual+"\n"+ "";
+					}
+					else {
+						cHoras++;
+					}
+					
+				}
 				
-				resultado += "Servicio del id: "+consulta.get(i)+"\n";
+				resultado += "Servicio del id: "+listaHoras.get(i)+"\n";
 				
 			}
 			
@@ -1363,15 +1378,22 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 		// Definiendo elementos necesarios para la construccion del panel
 
 		JPanel panel;
+		JTextField campaniaJtextField = new JTextField();
 		JTextField fecha1JtextField = new JTextField();
 		JTextField fecha2JtextField = new JTextField();
 
 		JTextField servicio1JtextField = new JTextField();
+		JTextField cuposAReservar1JtextField = new JTextField();
 		JTextField servicio2JtextField = new JTextField();
+		JTextField cuposAReservar2JtextField = new JTextField();
 		JTextField servicio3JtextField = new JTextField();
+		JTextField cuposAReservar3JtextField = new JTextField();
 		JTextField servicio4JtextField = new JTextField();
+		JTextField cuposAReservar4JtextField = new JTextField();
 		JTextField servicio5JtextField = new JTextField();
+		JTextField cuposAReservar5JtextField = new JTextField();
 		JTextField servicio6JtextField = new JTextField();
+		JTextField cuposAReservar6JtextField = new JTextField();
 		
 		panel = new JPanel();
 
@@ -1388,30 +1410,46 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 
 		// Aca pongo los dos labels de añadir los datos requeridos
 		
+		panel.add(new JLabel("Campaña"));
+		panel.add(campaniaJtextField); 
+		
 		panel.add(new JLabel("Fecha inicial"));
 		panel.add(fecha1JtextField); 
-
+		
 		panel.add(new JLabel("Fecha Final"));
 		panel.add(fecha2JtextField); 
 
 		panel.add(new JLabel("tipo servicio 1:"));
-		panel.add(servicio1JtextField); 
-		
+		panel.add(servicio1JtextField); 		
+		panel.add(new JLabel("capacidad a Reservar 1"));
+		panel.add(cuposAReservar1JtextField); 
+
 		panel.add(new JLabel("tipo servicio 2:"));
-		panel.add(servicio2JtextField); 
+		panel.add(servicio2JtextField); 		
+		panel.add(new JLabel("capacidad a Reservar 2"));
+		panel.add(cuposAReservar2JtextField);
 		
 		panel.add(new JLabel("tipo servicio 3:"));
-		panel.add(servicio3JtextField); 
+		panel.add(servicio3JtextField); 		
+		panel.add(new JLabel("capacidad a Reservar 3"));
+		panel.add(cuposAReservar3JtextField); 		
 		
 		panel.add(new JLabel("tipo servicio 4:"));
-		panel.add(servicio4JtextField); 
+		panel.add(servicio4JtextField); 		
+		panel.add(new JLabel("capacidad a Reservar 4"));
+		panel.add(cuposAReservar4JtextField); 
+		
 		
 		panel.add(new JLabel("tipo servicio 5:"));
 		panel.add(servicio5JtextField); 
+		panel.add(new JLabel("capacidad a Reservar 5"));
+		panel.add(cuposAReservar5JtextField); 
+		
 		
 		panel.add(new JLabel("tipo servicio 6:"));
 		panel.add(servicio6JtextField); 
-		
+		panel.add(new JLabel("capacidad a Reservar 6"));
+		panel.add(cuposAReservar6JtextField);
 		
 		
 		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
@@ -1420,23 +1458,47 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 
 			// Aca saco los valores
 			
+			String campania = campaniaJtextField.getText();
+			
 			String fecha1 = fecha1JtextField.getText() + " 00:00:00";
 			String fecha2 = fecha2JtextField.getText() + " 00:00:00";
 			
+			List<String> serviciosReserva = new ArrayList<>();
+			List<Integer> capacidadesReserva = new ArrayList<>();
+			
 			String tipoServicio1 = servicio1JtextField.getText();
-			String tipoServicio2 = servicio1JtextField.getText();
-			String tipoServicio3 = servicio1JtextField.getText();
-			String tipoServicio4 = servicio1JtextField.getText();
-			String tipoServicio5 = servicio1JtextField.getText();
-			String tipoServicio6 = servicio1JtextField.getText();
+			serviciosReserva.add(tipoServicio1);
+			String tipoServicio2 = servicio2JtextField.getText();
+			serviciosReserva.add(tipoServicio2);
+			String tipoServicio3 = servicio3JtextField.getText();
+			serviciosReserva.add(tipoServicio3);
+			String tipoServicio4 = servicio4JtextField.getText();
+			serviciosReserva.add(tipoServicio4);
+			String tipoServicio5 = servicio5JtextField.getText();
+			serviciosReserva.add(tipoServicio5);
+			String tipoServicio6 = servicio6JtextField.getText();
+			serviciosReserva.add(tipoServicio6);
 			
+			System.out.println(serviciosReserva);
 			
-			RF10DondeReservar(fecha1, fecha2, tipoServicio1);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio2);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio3);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio4);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio5);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio6);
+			String strCuposAReservar1 = cuposAReservar1JtextField.getText();
+			int cuposAReservar1 = Integer.valueOf(strCuposAReservar1);
+			capacidadesReserva.add(cuposAReservar1);
+			System.out.println(cuposAReservar1);
+//			int cuposAReservar2 = Integer.valueOf(cuposAReservar2JtextField.getText());
+//			capacidadesReserva.add(cuposAReservar2);
+//			int cuposAReservar3 = Integer.valueOf(cuposAReservar3JtextField.getText());
+//			capacidadesReserva.add(cuposAReservar3);
+//			int cuposAReservar4 = Integer.valueOf(cuposAReservar4JtextField.getText());
+//			capacidadesReserva.add(cuposAReservar4);
+//			int cuposAReservar5 = Integer.valueOf(cuposAReservar5JtextField.getText());
+//			capacidadesReserva.add(cuposAReservar5);
+//			int cuposAReservar6 = Integer.valueOf(cuposAReservar6JtextField.getText());
+//			capacidadesReserva.add(cuposAReservar6);
+			
+			System.out.println(capacidadesReserva);
+			
+			RF10CampaniaReservar(campania,fecha1, fecha2, serviciosReserva,capacidadesReserva);
 
 			try {
 
@@ -1800,12 +1862,36 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 	/* ****************************************************************
 	 * 			 CONSULTAS
 	 *****************************************************************/
+	
 	public void RFC1CantidadServiciosIPS(String pFecha1, String pFecha2){
-		
+		System.out.println("llego");
+		List consulta = new ArrayList<>();
 		Timestamp fecha1 = Timestamp.valueOf(pFecha1);
 		Timestamp fecha2 = Timestamp.valueOf(pFecha2);
+		//
+		if (pFecha1 != null && pFecha2 != null)
+
+		{
+			System.out.println("antes de");
+			consulta = parranderos.RFC1CantidadServiciosIPS(fecha1, fecha2);
+			System.out.println(consulta);
+			String resultado = "Servicios: \n\n";
+			
+			for(int i = 0; i <consulta.size(); i++){
+				
+				resultado += "Servicios: "+consulta.get(i)+"\n";
+				
+			}
+			
+			resultado += "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+			
+		}
+		else
+		{
+			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+		}
 		
-			parranderos.RFC1CantidadServiciosIPS(fecha1, fecha2);
 	}
 	public void RFC1CantidadServiciosIPSDialog() { 
 
@@ -1846,7 +1932,7 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 			String fecha1 = fecha1JtextField.getText();
 			String fecha2 = fecha2JtextField.getText();
 
-
+			System.out.println(fecha1);
 			RFC1CantidadServiciosIPS(fecha1, fecha2);
 
 			try {
@@ -2009,25 +2095,31 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 	 * 			 CRUD de Reserva
 	 *****************************************************************/
 
-	public void adicionarReserva(String strIdTomador,String strIdReservador,String strIdServicio,String strIdHorario,String estado)	{
+	public VOReservas adicionarReserva(String strIdTomador,String strIdReservador,String strIdServicio,String strIdHorario,String estado)	{
+		VOReservas r=null;
 		try 
 		{
 			
 			Long idAfiliadoTomador;
 			if(strIdTomador.isEmpty()) {
 				idAfiliadoTomador = null;
-				System.out.println("tomador = "+idAfiliadoTomador);
+				System.out.println("VACIO = "+idAfiliadoTomador);
 			}
 			else {
 				idAfiliadoTomador = Long.valueOf(strIdTomador);
-				System.out.println("tomador = "+idAfiliadoTomador);
+				System.out.println("LLENO = "+idAfiliadoTomador);
 			}
 			
-			System.out.println("el id era"+idAfiliadoTomador);
+			System.out.println("A");
 			long idAfiliadoReservador = Long.valueOf(strIdReservador);
+			System.out.println("M");
 			long idServicioSalud = Long.valueOf(strIdServicio);
+			System.out.println("E");
 			long idHorario = Long.valueOf(strIdHorario);
-
+			System.out.println("N");
+System.out.println("AFI"+idAfiliadoReservador);
+System.out.println("HOR"+idHorario);
+System.out.println("SERV"+idServicioSalud);
 			boolean cumple = false;
 			System.out.println("Se necesita orden:" +requiereOrden(idServicioSalud));
 
@@ -2057,7 +2149,7 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 			if(cumple){
 				
 				disminuirCapacidadHorario(idHorario);
-				VOReservas r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idHorario, estado );
+				r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idHorario, estado );
 
 				if (r == null)
 				{
@@ -2080,6 +2172,7 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 			{
 				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
 			}
+			
 		} 
 		catch (Exception e) 
 		{
@@ -2087,6 +2180,7 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
 		}
+		return r;
 	}
 
 	public void adicionarReservaDialog() {

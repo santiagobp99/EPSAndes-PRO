@@ -272,10 +272,16 @@ public class Parranderos
 		
 	}
 	
-	public void RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
+	public List RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
+		log.info ("Haciendo RFC1");  
+		List lista = new LinkedList ();
 		
-		pp.RFC1CantidadServiciosIPS(fecha1, fecha2);
+		for (Object hor : pp.RFC1CantidadServiciosIPS(fecha1, fecha2)){
+			lista.add (hor);
+		}
+		log.info ("Generando RFC1"+lista.size());  
 		
+		return lista;
 	}
 	
 	/**
