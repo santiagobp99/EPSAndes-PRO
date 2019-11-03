@@ -1928,7 +1928,18 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 	public void adicionarReserva(String strIdTomador,String strIdReservador,String strIdServicio,String strIdHorario,String estado)	{
 		try 
 		{
-			long idAfiliadoTomador = Long.valueOf(strIdTomador);
+			
+			Long idAfiliadoTomador;
+			if(strIdTomador.isEmpty()) {
+				idAfiliadoTomador = null;
+				System.out.println("tomador = "+idAfiliadoTomador);
+			}
+			else {
+				idAfiliadoTomador = Long.valueOf(strIdTomador);
+				System.out.println("tomador = "+idAfiliadoTomador);
+			}
+			
+			System.out.println("el id era"+idAfiliadoTomador);
 			long idAfiliadoReservador = Long.valueOf(strIdReservador);
 			long idServicioSalud = Long.valueOf(strIdServicio);
 			long idHorario = Long.valueOf(strIdHorario);
@@ -2045,8 +2056,6 @@ public void RF10CampaniaReservar(String pFecha1, String pFecha2, String tipoServ
 
 			String horarioInput = horarioField.getText();
 			String estadoInput = estadoField.getText();
-
-			System.out.println(tomadorInput+ 123);
 			adicionarReserva(tomadorInput,reservadorInput, servicioInput,horarioInput,estadoInput);
 
 			try {

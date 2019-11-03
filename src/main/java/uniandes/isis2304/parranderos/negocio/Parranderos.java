@@ -224,7 +224,7 @@ public class Parranderos
 		return ordenesServicios;
 	}
 	
-	public Reservas adicionarReserva(long idAfiliadoTomador, long idAfiliadoReservador, long idHorario,String estado){
+	public Reservas adicionarReserva(Long idAfiliadoTomador, long idAfiliadoReservador, long idHorario,String estado){
 			log.info ("Adicionando Reserva: ");
 			Reservas reserva = pp.adicionarReserva(idAfiliadoTomador,idAfiliadoReservador, idHorario, estado);		
 			log.info ("Adicionando Reserva");
@@ -364,16 +364,16 @@ public class Parranderos
 	}
 	public void disminuirCapacidadHorario (long idhorario)
 	{
-		log.info ("Cambiando capacidad de : "+idhorario );
+		log.info ("Disminuyendo capacidad de : "+idhorario );
 		pp.disminuirCapacidadHorario(idhorario);
-		log.info ("Cambiando capacidad de : "+idhorario );
+		log.info ("Disminuyendo capacidad de : "+idhorario );
 		
 	}
 	public void aumentarCapacidadHorario (long idhorario)
 	{      
-		log.info ("Cambiando capacidad de : "+idhorario );
+		log.info ("Aumentando capacidad de : "+idhorario );
 		pp.aumentarCapacidadHorario(idhorario);
-		log.info ("Cambiando capacidad de : "+idhorario );
+		log.info ("Aumentando capacidad de : "+idhorario );
 	}
 	
 	/**

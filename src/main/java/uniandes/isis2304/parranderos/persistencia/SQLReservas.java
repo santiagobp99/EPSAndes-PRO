@@ -19,7 +19,7 @@ public SQLReservas(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	private PersistenciaParranderos persistenciaEPS;
 	
-	public long adicionarReserva (PersistenceManager pm, long id, long idAfiliadoTomador,long idAfiliadoReservador, long idHorario, String estado) 
+	public long adicionarReserva (PersistenceManager pm, long id, Long idAfiliadoTomador,long idAfiliadoReservador, long idHorario, String estado) 
 	{
         Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaReservas() + "(id, idafiliadoTomador, idafiliadoReservador,idHorario, estado) values (?, ?, ?, ?, ?)");
         q.setParameters(id, idAfiliadoTomador, idAfiliadoReservador,idHorario, estado);

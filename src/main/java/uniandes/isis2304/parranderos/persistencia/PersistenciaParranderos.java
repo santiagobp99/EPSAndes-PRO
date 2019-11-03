@@ -1075,7 +1075,7 @@ public class PersistenciaParranderos
 	/* ****************************************************************
 	 * 			 Reservas
 	 *****************************************************************/
-	public Reservas adicionarReserva(long idAfiliadoTomador,long idAfiliadoReservador, long idHorario,String estado) {
+	public Reservas adicionarReserva(Long idAfiliadoTomador,long idAfiliadoReservador, long idHorario,String estado) {
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try

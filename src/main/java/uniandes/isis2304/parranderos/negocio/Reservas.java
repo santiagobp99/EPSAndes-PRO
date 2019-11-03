@@ -14,7 +14,7 @@ public class Reservas implements VOReservas{
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private long idAfiliadoTomador;
+	private Long idAfiliadoTomador;
 	
 	/**
 	 * El identificador �NICO de los bares
@@ -34,13 +34,13 @@ public class Reservas implements VOReservas{
 	public Reservas() {
 		
 		this.id = 0;
-		this.idAfiliadoTomador = 0;
+		this.idAfiliadoTomador = null;
 		this.idAfiliadoReservador = 0;
 		this.idHorario = 0;
 		this.estado = "";
 	}
 
-	public Reservas(long id, long idAfiliadoTomador, long idAfiliadoReservador, long idHorario, String estado) {
+	public Reservas(long id, Long idAfiliadoTomador, long idAfiliadoReservador, long idHorario, String estado) {
 		
 		this.id = id;
 		this.idAfiliadoTomador = idAfiliadoTomador;
@@ -57,11 +57,11 @@ public class Reservas implements VOReservas{
 		this.id = id;
 	}
 
-	public long getIdAfiliadoTomador() {
+	public Long getIdAfiliadoTomador() {
 		return idAfiliadoTomador;
 	}
 
-	public void setIdAfiliadoTomador(long idAfiliadoTomador) {
+	public void setIdAfiliadoTomador(Long idAfiliadoTomador) {
 		this.idAfiliadoTomador = idAfiliadoTomador;
 	}
 
