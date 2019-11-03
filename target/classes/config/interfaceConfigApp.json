@@ -57,6 +57,10 @@
 					"event": "RF12DesabilitarServiciosDeSaludDialog"
 				},
 				{
+					"label": "RF13 Habilitar servicios de salud",
+					"event": "RF13HabilitarServiciosDeSaludDialog"
+				},
+				{
 					"label": "Script creación de la BD",
 					"event": "mostrarScriptBD"
 				},
@@ -102,8 +106,8 @@
 			"options":
 			  [
 				  {
-					  "label": "RF10 Registrar Servicios Por Campaña",
-					  "event": "RF10RegistrarServiciosPorCampaña"
+					  "label": "RF10 Donde Reservar",
+					  "event": "RF10DondeReservarDialog"
 				  }
 			  ]
 		  },

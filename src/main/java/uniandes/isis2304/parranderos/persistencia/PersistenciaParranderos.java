@@ -1244,8 +1244,9 @@ public class PersistenciaParranderos
 		{
 			tx.begin();
 			for (int i = 0; i < pArregloServicios.size(); i++) {
+	
 				sqlHorario.desabilitarServicio(pmf.getPersistenceManager(), pArregloServicios.get(i), pFecha1, pFecha2);
-				idsServiciosDesabilitados.add(pArregloServicios.get(i).toString());
+				idsServiciosDesabilitados.add(pArregloServicios.get(i)+"");
 				log.trace ("Servicio desabilitado: "+pArregloServicios.get(i));
 			}
 			tx.commit();
@@ -1253,6 +1254,7 @@ public class PersistenciaParranderos
 		}
 		catch (Exception e)
 		{
+			System.out.println("error");
 			// 	e.printStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 			return null;
@@ -1268,6 +1270,44 @@ public class PersistenciaParranderos
 		
 		
 		return idsServiciosDesabilitados;
+	}
+	
+public ArrayList<String> RF13HabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
+		
+		ArrayList<String> idsServiciosHabilitados = new ArrayList<>();
+		
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			for (int i = 0; i < pArregloServicios.size(); i++) {
+	
+				sqlHorario.desabilitarServicio(pmf.getPersistenceManager(), pArregloServicios.get(i), pFecha1, pFecha2);
+				idsServiciosHabilitados.add(pArregloServicios.get(i)+"");
+				log.trace ("Servicio Habilitado: "+pArregloServicios.get(i));
+			}
+			tx.commit();
+
+		}
+		catch (Exception e)
+		{
+			System.out.println("error");
+			// 	e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+		
+		
+		return idsServiciosHabilitados;
 	}
 
 	/* ****************************************************************
