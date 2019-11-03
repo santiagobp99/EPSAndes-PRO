@@ -106,8 +106,8 @@
 		  "options":
 			[
 				{
-					"label": "Cantidad de servicios de una IPS durante un periodo de tiempo",
-					"event": "darCantidadServicios"
+					"label": "RFC1 Cantidad de servicios de una IPS durante un periodo de tiempo",
+					"event": "RFC1CantidadServiciosIPSDialog"
 				},
 				{
 					"label": "20 servicios más solicitados",

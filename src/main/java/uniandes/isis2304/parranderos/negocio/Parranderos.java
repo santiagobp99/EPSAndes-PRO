@@ -272,6 +272,12 @@ public class Parranderos
 		
 	}
 	
+	public void RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
+		
+		pp.RFC1CantidadServiciosIPS(fecha1, fecha2);
+		
+	}
+	
 	/**
 	 * Adiciona de manera persistente un tipo de bebida 
 	 * Adiciona entradas al log de la aplicaci?n
@@ -1184,6 +1190,8 @@ public class Parranderos
 		log.info ("Generando el VO Servicio");
 		return voOrden;
 	}
+
+	
 
 	
 

@@ -222,7 +222,7 @@ public class PersistenciaParranderos
 		tablas.add ("ROL");
 		tablas.add ("SERVICIO_SALUD");
 		tablas.add ("USUARIO");
-		
+
 	}
 
 	/**
@@ -432,7 +432,7 @@ public class PersistenciaParranderos
 	public String darTablaMedicoGeneral (){
 		return tablas.get (11);
 	}
-	
+
 	public String darTablaMedicoServicio (){
 		return tablas.get (12);
 	}
@@ -448,11 +448,11 @@ public class PersistenciaParranderos
 	public String darTablaOrdenesServicios(){
 		return tablas.get (15);
 	}
-	
+
 	public String darTablaRecepcionista (){
 		return tablas.get (16);
 	}
-	
+
 	public String darTablaReservas (){
 		return tablas.get (17);
 	}
@@ -472,43 +472,43 @@ public class PersistenciaParranderos
 	public String darSeqConsultaUrgencias() {
 		return tablas.get (21);
 	}
-	
+
 	public String darSeqEpsAndes() {
 		return tablas.get (22);
 	}
-	
+
 	public String darSeqHorario() {
 		return tablas.get (23);
 	}
-	
+
 	public String darSeqIps() {
 		return tablas.get (24);
 	}
-	
+
 	public String darSeqMedico ()	{
 		return tablas.get (25);
 	}
-	
+
 	public String darSeqOrden() {
 		return tablas.get (26);
 	}
-	
+
 	public String darSeqOrdenesServicio() {
 		return tablas.get (27);
 	}
-	
+
 	public String darSeqReservas (){
 		return tablas.get (28);
 	}
-	
+
 	public String darSeqRol (){
 		return tablas.get (29);
 	}
-	
+
 	public String darSeqServicioSalud() {
 		return tablas.get(30);
 	}
-	
+
 	public String darSeqUsuario (){
 		return tablas.get (31);
 	}
@@ -584,7 +584,7 @@ public class PersistenciaParranderos
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-	
+
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -596,7 +596,7 @@ public class PersistenciaParranderos
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-	
+
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -608,7 +608,7 @@ public class PersistenciaParranderos
 		log.trace ("Generando secuencia: " + resp);
 		return resp;
 	}
-	
+
 	/**
 	 * Transacción para el generador de secuencia de Parranderos
 	 * Adiciona entradas al log de la aplicación
@@ -1233,18 +1233,18 @@ public class PersistenciaParranderos
 	{
 		return sqlServicioSalud.darServiciosSalud(pmf.getPersistenceManager());
 	}
-	
+
 	public ArrayList<String> RF12DesabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
-		
+
 		ArrayList<String> idsServiciosDesabilitados = new ArrayList<>();
-		
+
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
 		{
 			tx.begin();
 			for (int i = 0; i < pArregloServicios.size(); i++) {
-	
+
 				sqlHorario.desabilitarServicio(pmf.getPersistenceManager(), pArregloServicios.get(i), pFecha1, pFecha2);
 				idsServiciosDesabilitados.add(pArregloServicios.get(i)+"");
 				log.trace ("Servicio desabilitado: "+pArregloServicios.get(i));
@@ -1267,22 +1267,22 @@ public class PersistenciaParranderos
 			}
 			pm.close();
 		}
-		
-		
+
+
 		return idsServiciosDesabilitados;
 	}
-	
-public ArrayList<String> RF13HabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
-		
+
+	public ArrayList<String> RF13HabilitarServicios(ArrayList<Long> pArregloServicios, Timestamp pFecha1, Timestamp pFecha2) {
+
 		ArrayList<String> idsServiciosHabilitados = new ArrayList<>();
-		
+
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx=pm.currentTransaction();
 		try
 		{
 			tx.begin();
 			for (int i = 0; i < pArregloServicios.size(); i++) {
-	
+
 				sqlHorario.desabilitarServicio(pmf.getPersistenceManager(), pArregloServicios.get(i), pFecha1, pFecha2);
 				idsServiciosHabilitados.add(pArregloServicios.get(i)+"");
 				log.trace ("Servicio Habilitado: "+pArregloServicios.get(i));
@@ -1305,9 +1305,17 @@ public ArrayList<String> RF13HabilitarServicios(ArrayList<Long> pArregloServicio
 			}
 			pm.close();
 		}
-		
-		
+
+
 		return idsServiciosHabilitados;
+	}
+
+	public void RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
+		
+		
+		sqlEpsAndes.RFC1(pmf.getPersistenceManager(), fecha1, fecha2);
+		
+
 	}
 
 	/* ****************************************************************
@@ -2655,6 +2663,8 @@ public ArrayList<String> RF13HabilitarServicios(ArrayList<Long> pArregloServicio
 		}
 
 	}
+
+
 
 
 

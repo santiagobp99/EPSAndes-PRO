@@ -1509,6 +1509,90 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			JOptionPane.showMessageDialog(frame, panel);
 		}
 	}
+	
+	/* ****************************************************************
+	 * 			 CONSULTAS
+	 *****************************************************************/
+	public void RFC1CantidadServiciosIPS(String pFecha1, String pFecha2){
+		
+		Timestamp fecha1 = Timestamp.valueOf(pFecha1);
+		Timestamp fecha2 = Timestamp.valueOf(pFecha2);
+		
+			parranderos.RFC1CantidadServiciosIPS(fecha1, fecha2);
+	}
+	public void RFC1CantidadServiciosIPSDialog() {
+
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField fecha1JtextField = new JTextField();
+		JTextField fecha2JtextField = new JTextField();
+
+
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo las variables 
+
+		String fecha1string;
+		String fecha2string;
+
+
+
+		// Aca pongo los dos labels de añadir los datos requeridos
+
+		panel.add(new JLabel("Fecha inicial"));
+		panel.add(fecha1JtextField); 
+
+		panel.add(new JLabel("Fecha Final"));
+		panel.add(fecha2JtextField); 
+
+
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco los valores
+
+			String fecha1 = fecha1JtextField.getText();
+			String fecha2 = fecha2JtextField.getText();
+
+
+			RFC1CantidadServiciosIPS(fecha1, fecha2);
+
+			try {
+
+				// Aqui obtengo el input los valores
+				fecha1string = fecha1;
+				fecha2string = fecha2;
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
+	public void RFC2Monstrar20ServiciosMasSolicitados(String fecha1, String fecha2){
+
+	}
+	public void RFC3IndiceDeServicios(String fecha1, String fecha2){
+		
+	}
+	public void RFC4ServiciosAsistidos(){
+		
+	}
+	public void RFC5ServiciosAfiliadoFechas(String fecha1, String fecha2, String idAfiliado){
+		
+	}
+	
 
 	/* ****************************************************************
 	 * 			 CRUD de Orden y OrdenesServicios
