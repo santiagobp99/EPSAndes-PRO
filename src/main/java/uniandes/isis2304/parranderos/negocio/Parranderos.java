@@ -272,10 +272,14 @@ public class Parranderos
 		
 	}
 	
-	public void RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
+	public List<RFC1> RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
 		
-		pp.RFC1CantidadServiciosIPS(fecha1, fecha2);
+		return pp.RFC1CantidadServiciosIPS(fecha1, fecha2);
 		
+	}
+	
+	public List<RFC2> RFC2Mostrar20ServiciosMasSolicitados(Timestamp fecha1, Timestamp fecha2) {
+		return pp.RFC2Mostrar20ServiciosMasSolicitados(fecha1, fecha2);
 	}
 	
 	/**
@@ -1200,6 +1204,8 @@ public class Parranderos
 		log.info ("Generando el VO Servicio");
 		return voOrden;
 	}
+
+	
 
 	
 

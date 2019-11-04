@@ -123,8 +123,8 @@
 					"event": "RFC1CantidadServiciosIPSDialog"
 				},
 				{
-					"label": "20 servicios más solicitados",
-					"event": "darServiciosMasSolicitados"
+					"label": "RFC2   20 servicios más solicitados",
+					"event": "RFC2Monstrar20ServiciosMasSolicitadosDialog"
 				},
 				{
 					"label": "Mostrar índice de servicios",
