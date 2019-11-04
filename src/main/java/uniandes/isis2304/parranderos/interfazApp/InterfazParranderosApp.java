@@ -1189,143 +1189,341 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 	}
 	//--------------------------------------------------------------------------------/
-		//						RF10 Registrar Servicios Por Campaña
-		//--------------------------------------------------------------------------------/
-	public void RF10DondeReservar(String pFecha1, String pFecha2, String tipoServicio){
-			
-			
-			List consulta = new ArrayList<>();
-			
-			Timestamp fechaInicio = Timestamp.valueOf(pFecha1);
-			Timestamp fechaFin = Timestamp.valueOf(pFecha2);
-			
-			if (fechaInicio != null && fechaFin != null)
+			//						RF10 Registrar Servicios Por Campaña
+			//--------------------------------------------------------------------------------/
+		public void RF10DondeReservar(String pFecha1, String pFecha2, String tipoServicio){
+				
+				
+				List consulta = new ArrayList<>();
+				
+				Timestamp fechaInicio = Timestamp.valueOf(pFecha1);
+				Timestamp fechaFin = Timestamp.valueOf(pFecha2);
+				
+				if (fechaInicio != null && fechaFin != null)
 
-			{
-				consulta = parranderos.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio);
-				
-				String resultado = "Servicio del id: \n\n";
-				
-				for(int i = 0; i <consulta.size(); i++){
+				{
+					consulta = parranderos.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio);
 					
-					resultado += "Servicio del id: "+consulta.get(i)+"\n";
+					String resultado = "Servicio del id: \n\n";
+					
+					for(int i = 0; i <consulta.size(); i++){
+						
+						resultado += "Servicio del id: "+consulta.get(i)+"\n";
+						
+					}
+					
+					resultado += "\n Operación terminada";
+					panelDatos.actualizarInterfaz(resultado);
 					
 				}
-				
-				resultado += "\n Operación terminada";
-				panelDatos.actualizarInterfaz(resultado);
-				
-			}
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
-			
-		}
-		
-		public void RF10DondeReservarDialog() {
-
-			// Definiendo elementos necesarios para la construccion del panel
-
-			JPanel panel;
-			JTextField fecha1JtextField = new JTextField();
-			JTextField fecha2JtextField = new JTextField();
-
-			JTextField servicio1JtextField = new JTextField();
-			JTextField servicio2JtextField = new JTextField();
-			JTextField servicio3JtextField = new JTextField();
-			JTextField servicio4JtextField = new JTextField();
-			JTextField servicio5JtextField = new JTextField();
-			JTextField servicio6JtextField = new JTextField();
-			
-			panel = new JPanel();
-
-			// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-			panel.setLayout(new GridLayout(0, 2, 2, 2));
-
-			// Aca creo las variables 
-			
-			String fecha1string;
-			String fecha2string;
-			
-			String servicio1string;
-		
-
-			// Aca pongo los dos labels de añadir los datos requeridos
-			
-			panel.add(new JLabel("Fecha inicial"));
-			panel.add(fecha1JtextField); 
-
-			panel.add(new JLabel("Fecha Final"));
-			panel.add(fecha2JtextField); 
-
-			panel.add(new JLabel("tipo servicio 1:"));
-			panel.add(servicio1JtextField); 
-			
-			panel.add(new JLabel("tipo servicio 2:"));
-			panel.add(servicio2JtextField); 
-			
-			panel.add(new JLabel("tipo servicio 3:"));
-			panel.add(servicio3JtextField); 
-			
-			panel.add(new JLabel("tipo servicio 4:"));
-			panel.add(servicio4JtextField); 
-			
-			panel.add(new JLabel("tipo servicio 5:"));
-			panel.add(servicio5JtextField); 
-			
-			panel.add(new JLabel("tipo servicio 6:"));
-			panel.add(servicio6JtextField); 
-			
-			
-			
-			int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-
-			if (option == JOptionPane.YES_OPTION) {
-
-				// Aca saco los valores
-				
-				String fecha1 = fecha1JtextField.getText() + " 00:00:00";
-				String fecha2 = fecha2JtextField.getText() + " 00:00:00";
-				
-				String tipoServicio1 = servicio1JtextField.getText();
-				String tipoServicio2 = servicio1JtextField.getText();
-				String tipoServicio3 = servicio1JtextField.getText();
-				String tipoServicio4 = servicio1JtextField.getText();
-				String tipoServicio5 = servicio1JtextField.getText();
-				String tipoServicio6 = servicio1JtextField.getText();
-				
-				
-				RF10DondeReservar(fecha1, fecha2, tipoServicio1);
-				RF10DondeReservar(fecha1, fecha2, tipoServicio2);
-				RF10DondeReservar(fecha1, fecha2, tipoServicio3);
-				RF10DondeReservar(fecha1, fecha2, tipoServicio4);
-				RF10DondeReservar(fecha1, fecha2, tipoServicio5);
-				RF10DondeReservar(fecha1, fecha2, tipoServicio6);
-
-				try {
-
-					// Aqui obtengo el input los valores
-					fecha1string = fecha1;
-					fecha2string = fecha2;
-					
-					servicio1string = tipoServicio1;
-				
-
-
-					panel = new JPanel();
-					panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-
-					panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
-
-
-				} catch (NumberFormatException nfe) {
-					nfe.printStackTrace();
+				else
+				{
+					panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
 				}
-				JOptionPane.showMessageDialog(frame, panel);
+				
 			}
-		}
-	}
+			
+			public void RF10DondeReservarDialog() {
+
+				// Definiendo elementos necesarios para la construccion del panel
+
+				JPanel panel;
+				JTextField fecha1JtextField = new JTextField();
+				JTextField fecha2JtextField = new JTextField();
+
+				JTextField servicio1JtextField = new JTextField();
+				JTextField servicio2JtextField = new JTextField();
+				JTextField servicio3JtextField = new JTextField();
+				JTextField servicio4JtextField = new JTextField();
+				JTextField servicio5JtextField = new JTextField();
+				JTextField servicio6JtextField = new JTextField();
+				
+				panel = new JPanel();
+
+				// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+				panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+				// Aca creo las variables 
+				
+				String fecha1string;
+				String fecha2string;
+				
+				String servicio1string;
+			
+
+				// Aca pongo los dos labels de añadir los datos requeridos
+				
+				panel.add(new JLabel("Fecha inicial"));
+				panel.add(fecha1JtextField); 
+
+				panel.add(new JLabel("Fecha Final"));
+				panel.add(fecha2JtextField); 
+
+				panel.add(new JLabel("tipo servicio 1:"));
+				panel.add(servicio1JtextField); 
+				
+				panel.add(new JLabel("tipo servicio 2:"));
+				panel.add(servicio2JtextField); 
+				
+				panel.add(new JLabel("tipo servicio 3:"));
+				panel.add(servicio3JtextField); 
+				
+				panel.add(new JLabel("tipo servicio 4:"));
+				panel.add(servicio4JtextField); 
+				
+				panel.add(new JLabel("tipo servicio 5:"));
+				panel.add(servicio5JtextField); 
+				
+				panel.add(new JLabel("tipo servicio 6:"));
+				panel.add(servicio6JtextField); 
+				
+				
+				
+				int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+				if (option == JOptionPane.YES_OPTION) {
+
+					// Aca saco los valores
+					
+					String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+					String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+					
+					String tipoServicio1 = servicio1JtextField.getText();
+					String tipoServicio2 = servicio1JtextField.getText();
+					String tipoServicio3 = servicio1JtextField.getText();
+					String tipoServicio4 = servicio1JtextField.getText();
+					String tipoServicio5 = servicio1JtextField.getText();
+					String tipoServicio6 = servicio1JtextField.getText();
+					
+					
+					RF10DondeReservar(fecha1, fecha2, tipoServicio1);
+					RF10DondeReservar(fecha1, fecha2, tipoServicio2);
+					RF10DondeReservar(fecha1, fecha2, tipoServicio3);
+					RF10DondeReservar(fecha1, fecha2, tipoServicio4);
+					RF10DondeReservar(fecha1, fecha2, tipoServicio5);
+					RF10DondeReservar(fecha1, fecha2, tipoServicio6);
+
+					try {
+
+						// Aqui obtengo el input los valores
+						fecha1string = fecha1;
+						fecha2string = fecha2;
+						
+						servicio1string = tipoServicio1;
+					
+
+
+						panel = new JPanel();
+						panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+						panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+					} catch (NumberFormatException nfe) {
+						nfe.printStackTrace();
+					}
+					JOptionPane.showMessageDialog(frame, panel);
+				}
+			}
+			
+			
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			
+			
+		public void RF10CampaniaReservar(String pCampania, String pFecha1, String pFecha2, List<String> tipoServicio,List<Integer> capacidad){		
+				
+			List<VOHorario> listaHoras = new ArrayList<>();
+				Timestamp fechaInicio = Timestamp.valueOf(pFecha1);
+				Timestamp fechaFin = Timestamp.valueOf(pFecha2);
+				System.out.println(7);
+				if (fechaInicio != null && fechaFin != null){
+					
+					
+					String resultado = "Servicio del id: \n\n";
+					
+					for(int i = 0; i <tipoServicio.size(); i++){
+						//traerHorario
+						listaHoras = parranderos.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio.get(0));
+						int cHoras = 0;
+						int cTemp = capacidad.get(i); 
+						System.out.println(8);
+						while(cTemp!=0) {
+							VOReservas actual = adicionarReserva("", pCampania, String.valueOf(listaHoras.get(cHoras).getIdServicio()), String.valueOf(listaHoras.get(cHoras).getId()), "RESERVADO");
+							if(actual!=null) {
+								cTemp--;
+								System.out.println(9);
+								resultado += "Reserva añadida: "+actual+"\n"+ "";
+							}
+							else {
+								cHoras++;
+							}
+							
+						}
+						
+						resultado += "Servicio del id: "+listaHoras.get(i)+"\n";
+						
+					}
+					
+					resultado += "\n Operación terminada";
+					panelDatos.actualizarInterfaz(resultado);
+					
+				}
+				else
+				{
+					panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+				}
+				
+			}
+			
+			public void RF10CampaniaReservarDialog() {
+
+				// Definiendo elementos necesarios para la construccion del panel
+
+				JPanel panel;
+				JTextField campaniaJtextField = new JTextField();
+				JTextField fecha1JtextField = new JTextField();
+				JTextField fecha2JtextField = new JTextField();
+
+				JTextField servicio1JtextField = new JTextField();
+				JTextField cuposAReservar1JtextField = new JTextField();
+				JTextField servicio2JtextField = new JTextField();
+				JTextField cuposAReservar2JtextField = new JTextField();
+				JTextField servicio3JtextField = new JTextField();
+				JTextField cuposAReservar3JtextField = new JTextField();
+				JTextField servicio4JtextField = new JTextField();
+				JTextField cuposAReservar4JtextField = new JTextField();
+				JTextField servicio5JtextField = new JTextField();
+				JTextField cuposAReservar5JtextField = new JTextField();
+				JTextField servicio6JtextField = new JTextField();
+				JTextField cuposAReservar6JtextField = new JTextField();
+				
+				panel = new JPanel();
+
+				// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+				panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+				// Aca creo las variables 
+				
+				String fecha1string;
+				String fecha2string;
+				
+				String servicio1string;
+			
+
+				// Aca pongo los dos labels de añadir los datos requeridos
+				
+				panel.add(new JLabel("Campaña"));
+				panel.add(campaniaJtextField); 
+				
+				panel.add(new JLabel("Fecha inicial"));
+				panel.add(fecha1JtextField); 
+				
+				panel.add(new JLabel("Fecha Final"));
+				panel.add(fecha2JtextField); 
+
+				panel.add(new JLabel("tipo servicio 1:"));
+				panel.add(servicio1JtextField); 		
+				panel.add(new JLabel("capacidad a Reservar 1"));
+				panel.add(cuposAReservar1JtextField); 
+
+				panel.add(new JLabel("tipo servicio 2:"));
+				panel.add(servicio2JtextField); 		
+				panel.add(new JLabel("capacidad a Reservar 2"));
+				panel.add(cuposAReservar2JtextField);
+				
+				panel.add(new JLabel("tipo servicio 3:"));
+				panel.add(servicio3JtextField); 		
+				panel.add(new JLabel("capacidad a Reservar 3"));
+				panel.add(cuposAReservar3JtextField); 		
+				
+				panel.add(new JLabel("tipo servicio 4:"));
+				panel.add(servicio4JtextField); 		
+				panel.add(new JLabel("capacidad a Reservar 4"));
+				panel.add(cuposAReservar4JtextField); 
+				
+				
+				panel.add(new JLabel("tipo servicio 5:"));
+				panel.add(servicio5JtextField); 
+				panel.add(new JLabel("capacidad a Reservar 5"));
+				panel.add(cuposAReservar5JtextField); 
+				
+				
+				panel.add(new JLabel("tipo servicio 6:"));
+				panel.add(servicio6JtextField); 
+				panel.add(new JLabel("capacidad a Reservar 6"));
+				panel.add(cuposAReservar6JtextField);
+				
+				
+				int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+				if (option == JOptionPane.YES_OPTION) {
+
+					// Aca saco los valores
+					
+					String campania = campaniaJtextField.getText();
+					
+					String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+					String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+					
+					List<String> serviciosReserva = new ArrayList<>();
+					List<Integer> capacidadesReserva = new ArrayList<>();
+					
+					String tipoServicio1 = servicio1JtextField.getText();
+					serviciosReserva.add(tipoServicio1);
+					String tipoServicio2 = servicio2JtextField.getText();
+					serviciosReserva.add(tipoServicio2);
+					String tipoServicio3 = servicio3JtextField.getText();
+					serviciosReserva.add(tipoServicio3);
+					String tipoServicio4 = servicio4JtextField.getText();
+					serviciosReserva.add(tipoServicio4);
+					String tipoServicio5 = servicio5JtextField.getText();
+					serviciosReserva.add(tipoServicio5);
+					String tipoServicio6 = servicio6JtextField.getText();
+					serviciosReserva.add(tipoServicio6);
+					
+					System.out.println(serviciosReserva);
+					
+					String strCuposAReservar1 = cuposAReservar1JtextField.getText();
+					int cuposAReservar1 = Integer.valueOf(strCuposAReservar1);
+					capacidadesReserva.add(cuposAReservar1);
+					System.out.println(cuposAReservar1);
+//					int cuposAReservar2 = Integer.valueOf(cuposAReservar2JtextField.getText());
+//					capacidadesReserva.add(cuposAReservar2);
+//					int cuposAReservar3 = Integer.valueOf(cuposAReservar3JtextField.getText());
+//					capacidadesReserva.add(cuposAReservar3);
+//					int cuposAReservar4 = Integer.valueOf(cuposAReservar4JtextField.getText());
+//					capacidadesReserva.add(cuposAReservar4);
+//					int cuposAReservar5 = Integer.valueOf(cuposAReservar5JtextField.getText());
+//					capacidadesReserva.add(cuposAReservar5);
+//					int cuposAReservar6 = Integer.valueOf(cuposAReservar6JtextField.getText());
+//					capacidadesReserva.add(cuposAReservar6);
+					
+					System.out.println(capacidadesReserva);
+					
+					RF10CampaniaReservar(campania,fecha1, fecha2, serviciosReserva,capacidadesReserva);
+
+					try {
+
+						// Aqui obtengo el input los valores
+						fecha1string = fecha1;
+						fecha2string = fecha2;
+						
+						servicio1string = tipoServicio1;
+					
+
+
+						panel = new JPanel();
+						panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+						panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+					} catch (NumberFormatException nfe) {
+						nfe.printStackTrace();
+					}
+					JOptionPane.showMessageDialog(frame, panel);
+				}
+			}
 
 
 	////
