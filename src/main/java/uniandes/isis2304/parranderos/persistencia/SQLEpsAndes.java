@@ -75,7 +75,7 @@ public class SQLEpsAndes {
 		q.setResultClass(RFC1.class);
 		q.setParameters(fecha1, fecha2, "ASISTENCIA");
 		return  (List<RFC1>) q.executeList();
-		
+
 
 	}
 
@@ -90,6 +90,15 @@ public class SQLEpsAndes {
 				+ " FETCH FIRST 20 ROW ONLY" );
 		q.setResultClass(RFC2.class);
 		q.setParameters(fecha1, fecha2);
+		return (List<RFC2>) q.executeList();
+	}
+
+	public List<RFC2> RFC3(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT h.idservicio, COUNT(h.idservicio) as count FROM "
+				+ persistenciaEPS.darTablaHorario() + " h INNER JOIN " +persistenciaEPS.darTablaReservas()+
+				" r ON H.id = r.idhorario"+
+				" GROUP BY h.idservicio" );
+		q.setResultClass(RFC2.class);
 		return (List<RFC2>) q.executeList();
 	}
 
