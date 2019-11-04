@@ -287,6 +287,12 @@ public class Parranderos
 
 		return pp.RFC3IndiceDeServicios();
 	}
+	public List<RFC4> RFC4ServiciosAsistidos() {
+		return pp.RFC4ServiciosAsistidos();
+	}
+	public List<RFC5> RFC5ServiciosAfiliadoFechas(String fecha1, String fecha2, String idAfiliado) {
+		return pp.RFC5ServiciosAfiliadoFechas(fecha1, fecha2, idAfiliado);
+	}
 
 	/**
 	 * Adiciona de manera persistente un tipo de bebida 
@@ -1210,6 +1216,10 @@ public class Parranderos
 		log.info ("Generando el VO Servicio");
 		return voOrden;
 	}
+
+	
+
+	
 
 
 

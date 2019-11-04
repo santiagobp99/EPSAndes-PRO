@@ -56,6 +56,8 @@ import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.Parranderos;
 import uniandes.isis2304.parranderos.negocio.RFC1;
 import uniandes.isis2304.parranderos.negocio.RFC2;
+import uniandes.isis2304.parranderos.negocio.RFC4;
+import uniandes.isis2304.parranderos.negocio.RFC5;
 import uniandes.isis2304.parranderos.negocio.VOEpsAndes;
 import uniandes.isis2304.parranderos.negocio.VOHorario;
 import uniandes.isis2304.parranderos.negocio.VOIps;
@@ -1883,8 +1885,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 				List <RFC2> lista = parranderos.RFC3IndiceDeServicios();
 
-				System.out.println(lista.size());
-
 				String resultado = "En MostrarServicios";
 
 				String resp = "Lo obtenido es:\n";
@@ -1907,43 +1907,132 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 				panelDatos.actualizarInterfaz(resultado);
 			}
 		}
-	//	public void RFC4ServiciosAsistidos(){
-	//
-	//		try 
-	//		{
-	//			List <VOTipoBebida> lista = parranderos.RFC4MonstrarServiciosAtendidos();
-	//
-	//			String resultado = "En listarTipoBebida";
-	//			resultado +=  "\n" + listarTiposBebida (lista);
-	//			panelDatos.actualizarInterfaz(resultado);
-	//			resultado += "\n Operación terminada";
-	//		} 
-	//		catch (Exception e) 
-	//		{
-	//			//			e.printStackTrace();
-	//			String resultado = generarMensajeError(e);
-	//			panelDatos.actualizarInterfaz(resultado);
-	//		}
-	//
-	//	}
-	//	public void RFC5ServiciosAfiliadoFechas(String fecha1, String fecha2, String idAfiliado){
-	//
-	//		try 
-	//		{
-	//			List <VOTipoBebida> lista = parranderos.RFC5MonstarServiciosAfiliado();
-	//
-	//			String resultado = "En listarTipoBebida";
-	//			resultado +=  "\n" + listarTiposBebida (lista);
-	//			panelDatos.actualizarInterfaz(resultado);
-	//			resultado += "\n Operación terminada";
-	//		} 
-	//		catch (Exception e) 
-	//		{
-	//			//			e.printStackTrace();
-	//			String resultado = generarMensajeError(e);
-	//			panelDatos.actualizarInterfaz(resultado);
-	//		}
-	//	}
+		public void RFC4ServiciosAsistidos(){
+	
+			try 
+			{
+
+				List <RFC4> lista = parranderos.RFC4ServiciosAsistidos(); 
+
+				String resultado = "En Mostrar Servicios Asistidos";
+
+				String resp = "Lo obtenido es:\n";
+
+				int i = 1;
+
+				for (RFC4 tb : lista)
+				{
+					resp += i++ + ".ID: " + tb.getIdservicio() + "\n";
+				}
+
+				resultado +=  "\n" + resp;
+				panelDatos.actualizarInterfaz(resultado);
+				resultado += "\n Operación terminada";
+			} 
+			catch (Exception e) 
+			{
+				//			e.printStackTrace();
+				String resultado = generarMensajeError(e);
+				panelDatos.actualizarInterfaz(resultado);
+			}
+	
+		}
+		public void RFC5ServiciosAfiliadoFechas(String fecha1, String fecha2, String idAfiliado){
+	
+			try 
+			{
+
+				List <RFC5> lista = parranderos.RFC5ServiciosAfiliadoFechas(fecha1, fecha2, idAfiliado); 
+
+				String resultado = "En Servicios en rango de fechas por afiliado";
+
+				String resp = "Lo obtenido es:\n";
+
+				int i = 1;
+
+				for (RFC5 tb : lista)
+				{
+					resp += i++ + ".Numero de servicios: " + tb.getNumeroServicios() + "\n";
+				}
+
+				resultado +=  "\n" + resp;
+				panelDatos.actualizarInterfaz(resultado);
+				resultado += "\n Operación terminada";
+			} 
+			catch (Exception e) 
+			{
+				//			e.printStackTrace();
+				String resultado = generarMensajeError(e);
+				panelDatos.actualizarInterfaz(resultado);
+			}
+		}
+		public void RFC5ServiciosAfiliadoFechasDialog() { 
+
+			// Definiendo elementos necesarios para la construccion del panel
+
+			JPanel panel;
+			JTextField fecha1JtextField = new JTextField();
+			JTextField fecha2JtextField = new JTextField();
+			JTextField idJtextField = new JTextField();
+
+
+			panel = new JPanel();
+
+			// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+			panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+			// Aca creo las variables 
+
+			String fecha1string;
+			String fecha2string;
+			String idstring;
+
+
+
+			// Aca pongo los dos labels de añadir los datos requeridos
+
+			panel.add(new JLabel("Fecha inicial"));
+			panel.add(fecha1JtextField); 
+
+			panel.add(new JLabel("Fecha Final"));
+			panel.add(fecha2JtextField); 
+			
+			panel.add(new JLabel("ID Afiliado"));
+			panel.add(idJtextField); 
+
+
+			int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+			if (option == JOptionPane.YES_OPTION) {
+
+				// Aca saco los valores
+
+				String fecha1 = fecha1JtextField.getText();
+				String fecha2 = fecha2JtextField.getText();
+				String id = idJtextField.getText();
+
+
+				RFC5ServiciosAfiliadoFechas(fecha1, fecha2, id);
+
+				try {
+
+					// Aqui obtengo el input los valores
+					fecha1string = fecha1;
+					fecha2string = fecha2;
+					idstring = id;
+
+					panel = new JPanel();
+					panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+					panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+				} catch (NumberFormatException nfe) {
+					nfe.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(frame, panel);
+			}
+		}
 
 
 	/* ****************************************************************

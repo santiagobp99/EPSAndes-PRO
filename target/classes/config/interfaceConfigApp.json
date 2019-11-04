@@ -131,16 +131,16 @@
 					"event": "RFC3IndiceDeServicios"
 				},
 				{
-					"label": "darServiciosPor características",
-					"event": "darCantidadServicios"
+					"label": "RFC4 Dar servicios con asistencia",
+					"event": "RFC4ServiciosAsistidos"
 				},
 				{
 					"label": "darServicios de Salud",
 					"event": "listarServicio"
 				},
 				{
-					"label": "Servicios de un afiliado en rango de fechas",
-					"event": "darServiciosAfiliadoFecha"
+					"label": "RFC5 Servicios de un afiliado en rango de fechas",
+					"event": "RFC5ServiciosAfiliadoFechasDialog"
 				}
 			]
 		},
