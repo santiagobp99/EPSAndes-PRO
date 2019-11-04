@@ -14,7 +14,9 @@ import uniandes.isis2304.parranderos.negocio.EpsAndes;
 import uniandes.isis2304.parranderos.negocio.Gustan;
 import uniandes.isis2304.parranderos.negocio.Horario;
 import uniandes.isis2304.parranderos.negocio.Sirven;
+import uniandes.isis2304.parranderos.negocio.VOServicioSalud;
 import uniandes.isis2304.parranderos.negocio.RFC1;
+import uniandes.isis2304.parranderos.negocio.RFC2;
 
 public class SQLEpsAndes {
 
@@ -62,14 +64,34 @@ public class SQLEpsAndes {
 		return (List<EpsAndes>) q.executeList();
 	}
 
-	public List RFC1(PersistenceManager pm, Timestamp fecha1, Timestamp fecha2) {
-		Query q = pm.newQuery(SQL, "SELECT s.idips, COUNT(s.id) FROM "+ persistenciaEPS.darTablaServicioSalud()+ " S INNER JOIN " +persistenciaEPS.darTablaHorario() +" H ON s.id = h.idservicio INNER JOIN "+ persistenciaEPS.darTablaReservas()+ " R ON h.id = r.idhorario WHERE h.fecha >= ? AND h.fecha <= ? AND r.estado = 'ASISTENCIA' GROUP BY s.idips" );
+
+	public List<RFC1> RFC1(PersistenceManager pm, java.sql.Timestamp fecha1, java.sql.Timestamp fecha2) {
+		Query q = pm.newQuery(SQL, "SELECT s.idips, COUNT(s.id) FROM " + persistenciaEPS.darTablaServicioSalud() +  
+				" s INNER JOIN " + persistenciaEPS.darTablaHorario() + " h ON s.id = h.idservicio INNER JOIN " +  
+				persistenciaEPS.darTablaReservas() + " r ON h.id = r.idhorario "
+				+ "WHERE h.fecha > ? AND h.fecha < ? AND r.estado = ?" +
+				" GROUP BY s.idips");
+
 		q.setResultClass(RFC1.class);
-		q.setParameters(fecha1, fecha2);
-		return (List<RFC1>) q.executeList();
+		q.setParameters(fecha1, fecha2, "ASISTENCIA");
+		return  (List<RFC1>) q.executeList();
+		
+
 	}
 
+	public List<RFC2> RFC2(PersistenceManager pm, java.sql.Timestamp fecha1, java.sql.Timestamp fecha2) {
 
+		Query q = pm.newQuery(SQL, "SELECT h.idservicio, COUNT(h.idservicio) as count FROM "+
+				persistenciaEPS.darTablaHorario()+ " H INNER JOIN " + persistenciaEPS.darTablaReservas()
+				+ " R ON H.id = r.idhorario" 
+				+ " WHERE h.fecha > ? AND h.fecha < ?" 
+				+ " GROUP BY h.idservicio" 
+				+ " ORDER BY COUNT(h.idservicio) DESC"
+				+ " FETCH FIRST 20 ROW ONLY" );
+		q.setResultClass(RFC2.class);
+		q.setParameters(fecha1, fecha2);
+		return (List<RFC2>) q.executeList();
+	}
 
 
 }

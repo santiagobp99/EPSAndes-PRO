@@ -272,16 +272,15 @@ public class Parranderos
 		
 	}
 	
-	public List RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
-		log.info ("Haciendo RFC1");  
-		List lista = new LinkedList ();
+
+	public List<RFC1> RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
 		
-		for (Object hor : pp.RFC1CantidadServiciosIPS(fecha1, fecha2)){
-			lista.add (hor);
-		}
-		log.info ("Generando RFC1"+lista.size());  
-		
-		return lista;
+		return pp.RFC1CantidadServiciosIPS(fecha1, fecha2);
+
+	}
+	
+	public List<RFC2> RFC2Mostrar20ServiciosMasSolicitados(Timestamp fecha1, Timestamp fecha2) {
+		return pp.RFC2Mostrar20ServiciosMasSolicitados(fecha1, fecha2);
 	}
 	
 	/**
@@ -1206,6 +1205,8 @@ public class Parranderos
 		log.info ("Generando el VO Servicio");
 		return voOrden;
 	}
+
+	
 
 	
 

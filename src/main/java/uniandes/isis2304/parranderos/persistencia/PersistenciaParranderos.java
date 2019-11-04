@@ -52,6 +52,8 @@ import uniandes.isis2304.parranderos.negocio.MedicoServicio;
 import uniandes.isis2304.parranderos.negocio.MedicoTratante;
 import uniandes.isis2304.parranderos.negocio.Orden;
 import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
+import uniandes.isis2304.parranderos.negocio.RFC1;
+import uniandes.isis2304.parranderos.negocio.RFC2;
 import uniandes.isis2304.parranderos.negocio.Recepcionista;
 import uniandes.isis2304.parranderos.negocio.Reservas;
 import uniandes.isis2304.parranderos.negocio.Rol;
@@ -60,6 +62,7 @@ import uniandes.isis2304.parranderos.negocio.Sirven;
 import uniandes.isis2304.parranderos.negocio.TipoBebida;
 import uniandes.isis2304.parranderos.negocio.Usuario;
 import uniandes.isis2304.parranderos.negocio.VOReservas;
+import uniandes.isis2304.parranderos.negocio.VOServicioSalud;
 import uniandes.isis2304.parranderos.negocio.Visitan;
 
 /**
@@ -1360,15 +1363,23 @@ public class PersistenciaParranderos
 		return idsServiciosHabilitados;
 	}
 
-	public List RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
-		
-		System.out.println("hasta aca llego");
+
+	public List<RFC1> RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
+
+	
 		return sqlEpsAndes.RFC1(pmf.getPersistenceManager(), fecha1, fecha2);
-		
 
 
 	}
 	
+
+	public List<RFC2> RFC2Mostrar20ServiciosMasSolicitados(Timestamp fecha1, Timestamp fecha2) {
+		
+		return sqlEpsAndes.RFC2(pmf.getPersistenceManager(), fecha1, fecha2);
+		
+	}
+
+
 	/* ****************************************************************
 	 * 				 ORDEN
 	 *****************************************************************/
@@ -2719,6 +2730,8 @@ public class PersistenciaParranderos
 		}
 
 	}
+
+	
 
 
 

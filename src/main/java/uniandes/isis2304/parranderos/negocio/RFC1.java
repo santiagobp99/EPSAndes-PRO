@@ -1,36 +1,36 @@
 package uniandes.isis2304.parranderos.negocio;
 
+import java.math.BigDecimal;
+
 public class RFC1 {
 
-	private long idIps;
+	private BigDecimal idIps;
 	
-	private int numero;
+	private BigDecimal numero;
 
-	public RFC1() {
-		this.idIps = 0;
-		this.numero = 0;
-	}
-	
-	public RFC1(long idIps, int numero) {
+	public RFC1(BigDecimal idIps, BigDecimal numero) {
+		super();
 		this.idIps = idIps;
 		this.numero = numero;
 	}
 
-	public long getIdIps() {
+	public BigDecimal getIdIps() {
 		return idIps;
 	}
 
-	public void setIdIps(long idIps) {
+	public void setIdIps(BigDecimal idIps) {
 		this.idIps = idIps;
 	}
 
-	public int getNumero() {
+	public BigDecimal getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(BigDecimal numero) {
 		this.numero = numero;
 	}
+
+
 	
 	
 }
