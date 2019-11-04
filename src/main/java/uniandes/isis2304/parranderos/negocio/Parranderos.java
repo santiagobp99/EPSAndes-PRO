@@ -287,6 +287,21 @@ public class Parranderos
 
 		return pp.RFC3IndiceDeServicios();
 	}
+	
+	public List darMayorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
+System.out.println("1");
+		return pp.darMayorDemanda(tipoServicio, fecha1, fecha2, cuantos);
+	}
+	
+	public List<RFC6> darMayorActividad(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
+
+		return pp.darMayorActividad(tipoServicio, fecha1, fecha2, cuantos);
+	}
+	
+	public List<RFC6> darMenorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
+
+		return pp.darMenorDemanda(tipoServicio, fecha1, fecha2, cuantos);
+	}
 
 	/**
 	 * Adiciona de manera persistente un tipo de bebida 

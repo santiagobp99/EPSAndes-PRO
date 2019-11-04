@@ -17,6 +17,7 @@ import uniandes.isis2304.parranderos.negocio.Sirven;
 import uniandes.isis2304.parranderos.negocio.VOServicioSalud;
 import uniandes.isis2304.parranderos.negocio.RFC1;
 import uniandes.isis2304.parranderos.negocio.RFC2;
+import uniandes.isis2304.parranderos.negocio.RFC6;
 
 public class SQLEpsAndes {
 
@@ -101,6 +102,4 @@ public class SQLEpsAndes {
 		q.setResultClass(RFC2.class);
 		return (List<RFC2>) q.executeList();
 	}
-
-
 }

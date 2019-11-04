@@ -54,6 +54,7 @@ import uniandes.isis2304.parranderos.negocio.Orden;
 import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.RFC1;
 import uniandes.isis2304.parranderos.negocio.RFC2;
+import uniandes.isis2304.parranderos.negocio.RFC6;
 import uniandes.isis2304.parranderos.negocio.Recepcionista;
 import uniandes.isis2304.parranderos.negocio.Reservas;
 import uniandes.isis2304.parranderos.negocio.Rol;
@@ -160,6 +161,8 @@ public class PersistenciaParranderos
 	private SQLConsultaUrgencias sqlConsultaUrgencias;
 
 	private SQLEpsAndes sqlEpsAndes;
+	
+	private SQLRFC sqlRFC;
 
 	private SQLHorario sqlHorario;
 
@@ -323,6 +326,7 @@ public class PersistenciaParranderos
 		sqlServicioSalud = new SQLServicioSalud(this);
 		sqlUsuario = new SQLUsuario(this);
 		sqlUtil = new SQLUtil(this);
+		sqlRFC = new SQLRFC(this);
 	}
 
 	/**
@@ -1381,6 +1385,19 @@ public class PersistenciaParranderos
 	
 	public List<RFC2> RFC3IndiceDeServicios() {
 		return sqlEpsAndes.RFC3(pmf.getPersistenceManager());
+	}
+	
+	public List darMayorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
+		System.out.println("2");
+		return sqlRFC.darMayorDemanda(pmf.getPersistenceManager(), tipoServicio, fecha1, fecha2, cuantos);
+	}
+	
+	public List<RFC6> darMayorActividad(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
+		return sqlRFC.darMayorActividad(pmf.getPersistenceManager(), tipoServicio, fecha1, fecha2, cuantos);
+	}
+	
+	public List<RFC6> darMenorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
+		return sqlRFC.darMenorDemanda(pmf.getPersistenceManager(), tipoServicio, fecha1, fecha2, cuantos);
 	}
 
 

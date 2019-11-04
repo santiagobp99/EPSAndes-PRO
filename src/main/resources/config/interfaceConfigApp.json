@@ -141,6 +141,18 @@
 				{
 					"label": "Servicios de un afiliado en rango de fechas",
 					"event": "darServiciosAfiliadoFecha"
+				},
+				{
+					"label": "RFC6 Mostrar mayor Demanda",
+					"event": "RFC6mayorDemandaDialog"
+				},
+				{
+					"label": "RFC6 Mostrar mayor Actividad",
+					"event": "RFC6mayorActividadDialog"
+				},
+				{
+					"label": "RFC6 Mostrar menor Demanda",
+					"event": "RFC6menorDemandaDialog"
 				}
 			]
 		},

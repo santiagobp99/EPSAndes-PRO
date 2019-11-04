@@ -56,6 +56,7 @@ import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.Parranderos;
 import uniandes.isis2304.parranderos.negocio.RFC1;
 import uniandes.isis2304.parranderos.negocio.RFC2;
+import uniandes.isis2304.parranderos.negocio.RFC6;
 import uniandes.isis2304.parranderos.negocio.VOEpsAndes;
 import uniandes.isis2304.parranderos.negocio.VOHorario;
 import uniandes.isis2304.parranderos.negocio.VOIps;
@@ -2144,7 +2145,347 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	//		}
 	//	}
 
+//-------------------------------------------------------/
+//														/
+//						RFC6							/	
+		
+		// PARTE A
+		public void RFC6mayorDemanda(String tipoServicio,String pFecha1, String pFecha2, String strCuantos){
+						
+			List consulta = new ArrayList<>();
+			
+			Timestamp fecha1 = Timestamp.valueOf(pFecha1);
+			Timestamp fecha2 = Timestamp.valueOf(pFecha2);
+			int cuantos = Integer.valueOf(strCuantos);
+			
+			if (fecha1 != null && fecha2 != null){
+				System.out.println(fecha1);
+				consulta = parranderos.darMayorDemanda(tipoServicio, fecha1, fecha2, cuantos);
+				System.out.println(consulta);
+				String resultado = "Servicio del id: \n\n";
+				
+				for(int i = 0; i <consulta.size(); i++){
+					System.out.println(consulta.get(i));
+					resultado += "Servicio del id: "+consulta.get(i)+"\n";
+					
+				}
+				
+				resultado += "\n Operación terminada";
+				panelDatos.actualizarInterfaz(resultado);
+				
+			}
+			else
+			{
+				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+			}
+			
+		}
+		
+		public void RFC6mayorDemandaDialog() {
 
+			// Definiendo elementos necesarios para la construccion del panel
+
+			JPanel panel;
+			JTextField fecha1JtextField = new JTextField();
+			JTextField fecha2JtextField = new JTextField();
+
+			JTextField tipoServicioJtextField = new JTextField();
+			JTextField cuantosJtextField = new JTextField();
+			
+			panel = new JPanel();
+
+			// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+			panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+			// Aca creo las variables 
+			
+			String fecha1string;
+			String fecha2string;
+			
+			String servicio1string;
+		
+
+			// Aca pongo los dos labels de añadir los datos requeridos
+			
+			panel.add(new JLabel("Fecha inicial"));
+			panel.add(fecha1JtextField); 
+
+			panel.add(new JLabel("Fecha Final"));
+			panel.add(fecha2JtextField); 
+
+			panel.add(new JLabel("tipo servicio 1:"));
+			panel.add(tipoServicioJtextField); 
+			
+			panel.add(new JLabel("cuantos resultados:"));
+			panel.add(cuantosJtextField); 
+			
+			
+			
+			
+			int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+			if (option == JOptionPane.YES_OPTION) {
+
+				// Aca saco los valores
+				
+				String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+				String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+				
+				String tipoServicio = tipoServicioJtextField.getText();
+				String cuantos = cuantosJtextField.getText();
+				
+				
+				RFC6mayorDemanda(tipoServicio, fecha1, fecha2, cuantos);
+
+				try {
+
+					// Aqui obtengo el input los valores
+					fecha1string = fecha1;
+					fecha2string = fecha2;
+					
+					servicio1string = tipoServicio;
+				
+
+
+					panel = new JPanel();
+					panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+					panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+				} catch (NumberFormatException nfe) {
+					nfe.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(frame, panel);
+			}
+		}
+		
+		
+		
+		
+		// PARTE B
+				public void RFC6mayorActividad(String tipoServicio,String pFecha1, String pFecha2, String strCuantos){
+								
+					List consulta = new ArrayList<>();
+					
+					Timestamp fecha1 = Timestamp.valueOf(pFecha1);
+					Timestamp fecha2 = Timestamp.valueOf(pFecha2);
+					int cuantos = Integer.valueOf(strCuantos);
+					
+					if (fecha1 != null && fecha2 != null){
+						System.out.println(fecha1);
+						consulta = parranderos.darMayorDemanda(tipoServicio, fecha1, fecha2, cuantos);
+						System.out.println(consulta);
+						String resultado = "Servicio del id: \n\n";
+						
+						for(int i = 0; i <consulta.size(); i++){
+							System.out.println(consulta.get(i));
+							resultado += "Servicio del id: "+consulta.get(i)+"\n";
+							
+						}
+						
+						resultado += "\n Operación terminada";
+						panelDatos.actualizarInterfaz(resultado);
+						
+					}
+					else
+					{
+						panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+					}
+					
+				}
+				
+				public void RFC6mayorActividadDialog() {
+
+					// Definiendo elementos necesarios para la construccion del panel
+
+					JPanel panel;
+					JTextField fecha1JtextField = new JTextField();
+					JTextField fecha2JtextField = new JTextField();
+
+					JTextField tipoServicioJtextField = new JTextField();
+					JTextField cuantosJtextField = new JTextField();
+					
+					panel = new JPanel();
+
+					// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+					panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+					// Aca creo las variables 
+					
+					String fecha1string;
+					String fecha2string;
+					
+					String servicio1string;
+				
+
+					// Aca pongo los dos labels de añadir los datos requeridos
+					
+					panel.add(new JLabel("Fecha inicial"));
+					panel.add(fecha1JtextField); 
+
+					panel.add(new JLabel("Fecha Final"));
+					panel.add(fecha2JtextField); 
+
+					panel.add(new JLabel("tipo servicio 1:"));
+					panel.add(tipoServicioJtextField); 
+					
+					panel.add(new JLabel("cuantos resultados:"));
+					panel.add(cuantosJtextField); 
+					
+					
+					
+					
+					int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+					if (option == JOptionPane.YES_OPTION) {
+
+						// Aca saco los valores
+						
+						String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+						String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+						
+						String tipoServicio = tipoServicioJtextField.getText();
+						String cuantos = cuantosJtextField.getText();
+						
+						
+						RFC6mayorActividad(tipoServicio, fecha1, fecha2, cuantos);
+
+						try {
+
+							// Aqui obtengo el input los valores
+							fecha1string = fecha1;
+							fecha2string = fecha2;
+							
+							servicio1string = tipoServicio;
+						
+
+
+							panel = new JPanel();
+							panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+							panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+						} catch (NumberFormatException nfe) {
+							nfe.printStackTrace();
+						}
+						JOptionPane.showMessageDialog(frame, panel);
+					}
+				}
+				
+				
+				
+				// PARTE C
+				public void RFC6menorDemanda(String tipoServicio,String pFecha1, String pFecha2, String strCuantos){
+								
+					List consulta = new ArrayList<>();
+					
+					Timestamp fecha1 = Timestamp.valueOf(pFecha1);
+					Timestamp fecha2 = Timestamp.valueOf(pFecha2);
+					int cuantos = Integer.valueOf(strCuantos);
+					
+					if (fecha1 != null && fecha2 != null){
+						System.out.println(fecha1);
+						consulta = parranderos.darMayorDemanda(tipoServicio, fecha1, fecha2, cuantos);
+						System.out.println(consulta);
+						String resultado = "Servicio del id: \n\n";
+						
+						for(int i = 0; i <consulta.size(); i++){
+							System.out.println(consulta.get(i));
+							resultado += "Servicio del id: "+consulta.get(i)+"\n";
+							
+						}
+						
+						resultado += "\n Operación terminada";
+						panelDatos.actualizarInterfaz(resultado);
+						
+					}
+					else
+					{
+						panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+					}
+					
+				}
+				
+				public void RFC6menorDemandaDialog() {
+
+					// Definiendo elementos necesarios para la construccion del panel
+
+					JPanel panel;
+					JTextField fecha1JtextField = new JTextField();
+					JTextField fecha2JtextField = new JTextField();
+
+					JTextField tipoServicioJtextField = new JTextField();
+					JTextField cuantosJtextField = new JTextField();
+					
+					panel = new JPanel();
+
+					// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+					panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+					// Aca creo las variables 
+					
+					String fecha1string;
+					String fecha2string;
+					
+					String servicio1string;
+				
+
+					// Aca pongo los dos labels de añadir los datos requeridos
+					
+					panel.add(new JLabel("Fecha inicial"));
+					panel.add(fecha1JtextField); 
+
+					panel.add(new JLabel("Fecha Final"));
+					panel.add(fecha2JtextField); 
+
+					panel.add(new JLabel("tipo servicio 1:"));
+					panel.add(tipoServicioJtextField); 
+					
+					panel.add(new JLabel("cuantos resultados:"));
+					panel.add(cuantosJtextField); 
+					
+					
+					
+					
+					int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+					if (option == JOptionPane.YES_OPTION) {
+
+						// Aca saco los valores
+						
+						String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+						String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+						
+						String tipoServicio = tipoServicioJtextField.getText();
+						String cuantos = cuantosJtextField.getText();
+						
+						
+						RFC6menorDemanda(tipoServicio, fecha1, fecha2, cuantos);
+
+						try {
+
+							// Aqui obtengo el input los valores
+							fecha1string = fecha1;
+							fecha2string = fecha2;
+							
+							servicio1string = tipoServicio;
+						
+
+
+							panel = new JPanel();
+							panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+							panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+						} catch (NumberFormatException nfe) {
+							nfe.printStackTrace();
+						}
+						JOptionPane.showMessageDialog(frame, panel);
+					}
+				}
 	/* ****************************************************************
 	 * 			 CRUD de Orden y OrdenesServicios
 	 *****************************************************************/
