@@ -1,0 +1,15 @@
+SELECT h.fecha,cuenta FROM HORARIO H INNER JOIN (select * from servicio_salud where tipo=UPPER('radiografia'))S ON h.idservicio=S.ID
+INNER JOIN (
+SELECT COUNT(IDHORARIO) CUENTA,idhorario FROM RESERVAS GROUP BY idhorario )R ON h.id=R.IDHORARIO WHERE (H.FECHA >='10/11/19' AND H.FECHA <='12/11/19') ORDER BY CUENTA DESC FETCH FIRST 5 ROWS ONLY ;
+
+SELECT * FROM HORARIO H INNER JOIN (select * from servicio_salud where tipo=UPPER('radiografia'))S ON h.idservicio=S.ID;
+
+---- RFC 6 B
+SELECT h.fecha,cuenta FROM HORARIO H INNER JOIN (select * from servicio_salud where tipo=UPPER('radiografia'))S ON h.idservicio=S.ID
+INNER JOIN (
+SELECT COUNT(IDHORARIO) CUENTA,idhorario,ESTADO FROM RESERVAS WHERE ESTADO='ASISTENCIA' GROUP BY idhorario,ESTADO )R ON h.id=R.IDHORARIO WHERE (H.FECHA >='10/11/19' AND H.FECHA <='12/11/19') ORDER BY CUENTA DESC FETCH FIRST 5 ROWS ONLY ;
+
+---- RFC 6 C
+SELECT h.fecha,cuenta FROM HORARIO H INNER JOIN (select * from servicio_salud where tipo=UPPER('radiografia'))S ON h.idservicio=S.ID
+INNER JOIN (
+SELECT COUNT(IDHORARIO) CUENTA,idhorario FROM RESERVAS GROUP BY idhorario )R ON h.id=R.IDHORARIO WHERE (H.FECHA >='10/11/19' AND H.FECHA <='12/11/19') ORDER BY CUENTA ASC FETCH FIRST 5 ROWS ONLY ;

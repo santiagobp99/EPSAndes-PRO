@@ -515,7 +515,7 @@ public class InterfazParranderosDemo extends JFrame implements ActionListener
      * Pre: La base de datos está vacía
      * Post: La base de datos está vacía
      */
-    public void demoBar ( )
+    public void demoReserva ( )
     {
 		try 
 		{
