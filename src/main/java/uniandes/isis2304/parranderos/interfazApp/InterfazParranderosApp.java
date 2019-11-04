@@ -1325,6 +1325,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			JOptionPane.showMessageDialog(frame, panel);
 		}
 	}
+	<<<<<<< HEAD
 
 
 	////
@@ -1347,1501 +1348,1654 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 				resultado += "Servicio del id: "+consulta.get(i)+"\n";
 
-			}
+				=======
 
-			resultado += "\n Operación terminada";
-			panelDatos.actualizarInterfaz(resultado);
 
-		}
-		else
-		{
-			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-		}
+						////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	}
 
-	public void RF10CampaniaReservarDialog() {
+						public void RF10CampaniaReservar(String pCampania, String pFecha1, String pFecha2, List<String> tipoServicio,List<Integer> capacidad){		
 
-		// Definiendo elementos necesarios para la construccion del panel
+					List<VOHorario> listaHoras = new ArrayList<>();
+					Timestamp fechaInicio = Timestamp.valueOf(pFecha1);
+					Timestamp fechaFin = Timestamp.valueOf(pFecha2);
+					System.out.println(7);
+					if (fechaInicio != null && fechaFin != null){
 
-		JPanel panel;
-		JTextField fecha1JtextField = new JTextField();
-		JTextField fecha2JtextField = new JTextField();
 
-		JTextField servicio1JtextField = new JTextField();
-		JTextField servicio2JtextField = new JTextField();
-		JTextField servicio3JtextField = new JTextField();
-		JTextField servicio4JtextField = new JTextField();
-		JTextField servicio5JtextField = new JTextField();
-		JTextField servicio6JtextField = new JTextField();
+						String resultado = "Servicio del id: \n\n";
 
-		panel = new JPanel();
+						for(int i = 0; i <tipoServicio.size(); i++){
+							//traerHorario
+							listaHoras = parranderos.darHorarioServicioFecha(fechaInicio, fechaFin, tipoServicio.get(0));
+							int cHoras = 0;
+							int cTemp = capacidad.get(i); 
+							System.out.println(8);
+							while(cTemp!=0) {
+								VOReservas actual = adicionarReserva("", pCampania, String.valueOf(listaHoras.get(cHoras).getIdServicio()), String.valueOf(listaHoras.get(cHoras).getId()), "RESERVADO");
+								if(actual!=null) {
+									cTemp--;
+									System.out.println(9);
+									resultado += "Reserva añadida: "+actual+"\n"+ "";
+								}
+								else {
+									cHoras++;
+								}
 
-		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-		panel.setLayout(new GridLayout(0, 2, 2, 2));
+							}
 
-		// Aca creo las variables 
+							resultado += "Servicio del id: "+listaHoras.get(i)+"\n";
 
-		String fecha1string;
-		String fecha2string;
+							>>>>>>> 821f7a535b4f8fda178dcd20db2f22a0fb9f07f1
+						}
 
-		String servicio1string;
+						resultado += "\n Operación terminada";
+						panelDatos.actualizarInterfaz(resultado);
 
+					}
+					else
+					{
+						panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+					}
 
-		// Aca pongo los dos labels de añadir los datos requeridos
+				}
 
-		panel.add(new JLabel("Fecha inicial"));
-		panel.add(fecha1JtextField); 
+				public void RF10CampaniaReservarDialog() {
 
-		panel.add(new JLabel("Fecha Final"));
-		panel.add(fecha2JtextField); 
+					// Definiendo elementos necesarios para la construccion del panel
 
-		panel.add(new JLabel("tipo servicio 1:"));
-		panel.add(servicio1JtextField); 
+					JPanel panel;
+					JTextField campaniaJtextField = new JTextField();
+					JTextField fecha1JtextField = new JTextField();
+					JTextField fecha2JtextField = new JTextField();
 
-		panel.add(new JLabel("tipo servicio 2:"));
-		panel.add(servicio2JtextField); 
+					JTextField servicio1JtextField = new JTextField();
+					JTextField cuposAReservar1JtextField = new JTextField();
+					JTextField servicio2JtextField = new JTextField();
+					JTextField cuposAReservar2JtextField = new JTextField();
+					JTextField servicio3JtextField = new JTextField();
+					JTextField cuposAReservar3JtextField = new JTextField();
+					JTextField servicio4JtextField = new JTextField();
+					JTextField cuposAReservar4JtextField = new JTextField();
+					JTextField servicio5JtextField = new JTextField();
+					JTextField cuposAReservar5JtextField = new JTextField();
+					JTextField servicio6JtextField = new JTextField();
+					<<<<<<< HEAD
 
-		panel.add(new JLabel("tipo servicio 3:"));
-		panel.add(servicio3JtextField); 
+					=======
+					JTextField cuposAReservar6JtextField = new JTextField();
 
-		panel.add(new JLabel("tipo servicio 4:"));
-		panel.add(servicio4JtextField); 
+					>>>>>>> 821f7a535b4f8fda178dcd20db2f22a0fb9f07f1
+					panel = new JPanel();
 
-		panel.add(new JLabel("tipo servicio 5:"));
-		panel.add(servicio5JtextField); 
+					// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+					panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-		panel.add(new JLabel("tipo servicio 6:"));
-		panel.add(servicio6JtextField); 
+					// Aca creo las variables 
 
+					String fecha1string;
+					String fecha2string;
 
+					String servicio1string;
 
-		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-		if (option == JOptionPane.YES_OPTION) {
+					// Aca pongo los dos labels de añadir los datos requeridos
+					<<<<<<< HEAD
 
-			// Aca saco los valores
+					=======
 
-			String fecha1 = fecha1JtextField.getText() + " 00:00:00";
-			String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+					panel.add(new JLabel("Campaña"));
+					panel.add(campaniaJtextField); 
 
-			String tipoServicio1 = servicio1JtextField.getText();
-			String tipoServicio2 = servicio1JtextField.getText();
-			String tipoServicio3 = servicio1JtextField.getText();
-			String tipoServicio4 = servicio1JtextField.getText();
-			String tipoServicio5 = servicio1JtextField.getText();
-			String tipoServicio6 = servicio1JtextField.getText();
+					>>>>>>> 821f7a535b4f8fda178dcd20db2f22a0fb9f07f1
+					panel.add(new JLabel("Fecha inicial"));
+					panel.add(fecha1JtextField); 
 
+					panel.add(new JLabel("Fecha Final"));
+					panel.add(fecha2JtextField); 
 
-			RF10DondeReservar(fecha1, fecha2, tipoServicio1);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio2);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio3);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio4);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio5);
-			RF10DondeReservar(fecha1, fecha2, tipoServicio6);
+					panel.add(new JLabel("tipo servicio 1:"));
+					<<<<<<< HEAD
+					panel.add(servicio1JtextField); 
 
-			try {
+					panel.add(new JLabel("tipo servicio 2:"));
+					panel.add(servicio2JtextField); 
 
-				// Aqui obtengo el input los valores
-				fecha1string = fecha1;
-				fecha2string = fecha2;
+					panel.add(new JLabel("tipo servicio 3:"));
+					panel.add(servicio3JtextField); 
 
-				servicio1string = tipoServicio1;
+					panel.add(new JLabel("tipo servicio 4:"));
+					panel.add(servicio4JtextField); 
 
+					panel.add(new JLabel("tipo servicio 5:"));
+					panel.add(servicio5JtextField); 
 
+					panel.add(new JLabel("tipo servicio 6:"));
+					panel.add(servicio6JtextField); 
 
-				panel = new JPanel();
-				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-				panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
 
+					=======
+							panel.add(servicio1JtextField); 		
+					panel.add(new JLabel("capacidad a Reservar 1"));
+					panel.add(cuposAReservar1JtextField); 
 
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-			}
-			JOptionPane.showMessageDialog(frame, panel);
-		}
-	}
+					panel.add(new JLabel("tipo servicio 2:"));
+					panel.add(servicio2JtextField); 		
+					panel.add(new JLabel("capacidad a Reservar 2"));
+					panel.add(cuposAReservar2JtextField);
 
-	////
-	//--------------------------------------------------------------------------------/
-	//						RF12 DeshabilitarServiciosDeSalud
-	//--------------------------------------------------------------------------------/
-	public void RF12DesabilitarServiciosDeSalud(String pFecha1, String pFecha2, String pIdServicio1, String pIdServicio2, String pIdServicio3, String pIdServicio4, String pIdServicio5, String pIdServicio6){
+					panel.add(new JLabel("tipo servicio 3:"));
+					panel.add(servicio3JtextField); 		
+					panel.add(new JLabel("capacidad a Reservar 3"));
+					panel.add(cuposAReservar3JtextField); 		
 
-		ArrayList<ArrayList<String>> arregloGrande = new ArrayList<>();
-		ArrayList<String> idsServiciosDesabilitados= new ArrayList<>();
-		ArrayList<String> idsReservasMovidas= new ArrayList<>();
-		ArrayList<String> idsReservasNoMovidas= new ArrayList<>();
-		ArrayList<Long> idsServicios = new ArrayList<>();
+					panel.add(new JLabel("tipo servicio 4:"));
+					panel.add(servicio4JtextField); 		
+					panel.add(new JLabel("capacidad a Reservar 4"));
+					panel.add(cuposAReservar4JtextField); 
 
-		Timestamp fecha1 = Timestamp.valueOf(pFecha1);
-		Timestamp fecha2 = Timestamp.valueOf(pFecha2);
 
-		long idServicio1 = Long.valueOf(pIdServicio1);
-		long idServicio2 = Long.valueOf(pIdServicio2);
-		long idServicio3 = Long.valueOf(pIdServicio3);
-		long idServicio4 = Long.valueOf(pIdServicio4);
-		long idServicio5 = Long.valueOf(pIdServicio5);
-		long idServicio6 = Long.valueOf(pIdServicio6);
+					panel.add(new JLabel("tipo servicio 5:"));
+					panel.add(servicio5JtextField); 
+					panel.add(new JLabel("capacidad a Reservar 5"));
+					panel.add(cuposAReservar5JtextField); 
 
-		if(idServicio1!=0){
-			idsServicios.add(idServicio1);
-		}
-		if(idServicio2!=0){
-			idsServicios.add(idServicio2);
-		}
-		if(idServicio3!=0){
-			idsServicios.add(idServicio3);
-		}
-		if(idServicio4!=0){
-			idsServicios.add(idServicio4);
-		}
-		if(idServicio5!=0){
-			idsServicios.add(idServicio5);
-		}
-		if(idServicio6!=0){
-			idsServicios.add(idServicio6);
-		}
 
+					panel.add(new JLabel("tipo servicio 6:"));
+					panel.add(servicio6JtextField); 
+					panel.add(new JLabel("capacidad a Reservar 6"));
+					panel.add(cuposAReservar6JtextField);
 
-		if (fecha1 != null && fecha2 != null)
 
-		{
-			arregloGrande = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2);
-			idsServiciosDesabilitados = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2).get(0);
-			idsReservasMovidas = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2).get(1);
-			idsReservasNoMovidas = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2).get(2);
+					>>>>>>> 821f7a535b4f8fda178dcd20db2f22a0fb9f07f1
+					int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-			String resultado = "En DesabilitarServicios\n\n";
+					if (option == JOptionPane.YES_OPTION) {
 
-			for(int i = 0; i <idsServiciosDesabilitados.size(); i++){
+						// Aca saco los valores
+						<<<<<<< HEAD
 
-				resultado += "Servicio desabilitado: "+idsServiciosDesabilitados.get(i)+"\n";
+						String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+						String fecha2 = fecha2JtextField.getText() + " 00:00:00";
 
-			}
-			for(int i = 0; i <idsReservasMovidas.size(); i++){
+						String tipoServicio1 = servicio1JtextField.getText();
+						String tipoServicio2 = servicio1JtextField.getText();
+						String tipoServicio3 = servicio1JtextField.getText();
+						String tipoServicio4 = servicio1JtextField.getText();
+						String tipoServicio5 = servicio1JtextField.getText();
+						String tipoServicio6 = servicio1JtextField.getText();
 
-				resultado += "Reserva Movida: "+idsReservasMovidas.get(i)+"\n";
 
-			}
-			for(int i = 0; i <idsReservasNoMovidas.size(); i++){
+						RF10DondeReservar(fecha1, fecha2, tipoServicio1);
+						RF10DondeReservar(fecha1, fecha2, tipoServicio2);
+						RF10DondeReservar(fecha1, fecha2, tipoServicio3);
+						RF10DondeReservar(fecha1, fecha2, tipoServicio4);
+						RF10DondeReservar(fecha1, fecha2, tipoServicio5);
+						RF10DondeReservar(fecha1, fecha2, tipoServicio6);
+						=======
 
-				resultado += "Reserva no movida: "+idsReservasNoMovidas.get(i)+"\n";
+								String campania = campaniaJtextField.getText();
 
-			}
+						String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+						String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+
+						List<String> serviciosReserva = new ArrayList<>();
+						List<Integer> capacidadesReserva = new ArrayList<>();
+
+						String tipoServicio1 = servicio1JtextField.getText();
+						serviciosReserva.add(tipoServicio1);
+						String tipoServicio2 = servicio2JtextField.getText();
+						serviciosReserva.add(tipoServicio2);
+						String tipoServicio3 = servicio3JtextField.getText();
+						serviciosReserva.add(tipoServicio3);
+						String tipoServicio4 = servicio4JtextField.getText();
+						serviciosReserva.add(tipoServicio4);
+						String tipoServicio5 = servicio5JtextField.getText();
+						serviciosReserva.add(tipoServicio5);
+						String tipoServicio6 = servicio6JtextField.getText();
+						serviciosReserva.add(tipoServicio6);
 
-			resultado += "\n Operación terminada";
-			panelDatos.actualizarInterfaz(resultado);
+						System.out.println(serviciosReserva);
 
-		}
-		else
-		{
-			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-		}
+						String strCuposAReservar1 = cuposAReservar1JtextField.getText();
+						int cuposAReservar1 = Integer.valueOf(strCuposAReservar1);
+						capacidadesReserva.add(cuposAReservar1);
+						System.out.println(cuposAReservar1);
+						//			int cuposAReservar2 = Integer.valueOf(cuposAReservar2JtextField.getText());
+						//			capacidadesReserva.add(cuposAReservar2);
+						//			int cuposAReservar3 = Integer.valueOf(cuposAReservar3JtextField.getText());
+						//			capacidadesReserva.add(cuposAReservar3);
+						//			int cuposAReservar4 = Integer.valueOf(cuposAReservar4JtextField.getText());
+						//			capacidadesReserva.add(cuposAReservar4);
+						//			int cuposAReservar5 = Integer.valueOf(cuposAReservar5JtextField.getText());
+						//			capacidadesReserva.add(cuposAReservar5);
+						//			int cuposAReservar6 = Integer.valueOf(cuposAReservar6JtextField.getText());
+						//			capacidadesReserva.add(cuposAReservar6);
 
-	}
+						System.out.println(capacidadesReserva);
 
-	public void RF12DesabilitarServiciosDeSaludDialog() {
+						RF10CampaniaReservar(campania,fecha1, fecha2, serviciosReserva,capacidadesReserva);
+						>>>>>>> 821f7a535b4f8fda178dcd20db2f22a0fb9f07f1
 
-		// Definiendo elementos necesarios para la construccion del panel
+						try {
 
-		JPanel panel;
-		JTextField fecha1JtextField = new JTextField();
-		JTextField fecha2JtextField = new JTextField();
+							// Aqui obtengo el input los valores
+							fecha1string = fecha1;
+							fecha2string = fecha2;
 
-		JTextField servicio1JtextField = new JTextField();
-		JTextField servicio2JtextField = new JTextField();
-		JTextField servicio3JtextField = new JTextField();
-		JTextField servicio4JtextField = new JTextField();
-		JTextField servicio5JtextField = new JTextField();
-		JTextField servicio6JtextField = new JTextField();
+							servicio1string = tipoServicio1;
 
-		panel = new JPanel();
 
-		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-		panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-		// Aca creo las variables 
+							panel = new JPanel();
+							panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-		String fecha1string;
-		String fecha2string;
+							panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
 
-		String servicio1string;
-		String servicio2string;
-		String servicio3string;
-		String servicio4string;
-		String servicio5string;
-		String servicio6string;
 
+						} catch (NumberFormatException nfe) {
+							nfe.printStackTrace();
+						}
+						JOptionPane.showMessageDialog(frame, panel);
+					}
+				}
 
-		// Aca pongo los dos labels de añadir los datos requeridos
+				////
+				//--------------------------------------------------------------------------------/
+				//						RF12 DeshabilitarServiciosDeSalud
+				//--------------------------------------------------------------------------------/
+				public void RF12DesabilitarServiciosDeSalud(String pFecha1, String pFecha2, String pIdServicio1, String pIdServicio2, String pIdServicio3, String pIdServicio4, String pIdServicio5, String pIdServicio6){
 
-		panel.add(new JLabel("Fecha inicial"));
-		panel.add(fecha1JtextField); 
+					ArrayList<ArrayList<String>> arregloGrande = new ArrayList<>();
+					ArrayList<String> idsServiciosDesabilitados= new ArrayList<>();
+					ArrayList<String> idsReservasMovidas= new ArrayList<>();
+					ArrayList<String> idsReservasNoMovidas= new ArrayList<>();
+					ArrayList<Long> idsServicios = new ArrayList<>();
 
-		panel.add(new JLabel("Fecha Final"));
-		panel.add(fecha2JtextField); 
+					Timestamp fecha1 = Timestamp.valueOf(pFecha1);
+					Timestamp fecha2 = Timestamp.valueOf(pFecha2);
 
-		panel.add(new JLabel("id servicio 1:     {0 de lo contrario}"));
-		panel.add(servicio1JtextField); 
+					long idServicio1 = Long.valueOf(pIdServicio1);
+					long idServicio2 = Long.valueOf(pIdServicio2);
+					long idServicio3 = Long.valueOf(pIdServicio3);
+					long idServicio4 = Long.valueOf(pIdServicio4);
+					long idServicio5 = Long.valueOf(pIdServicio5);
+					long idServicio6 = Long.valueOf(pIdServicio6);
 
-		panel.add(new JLabel("id servicio 2:     {0 de lo contrario}"));
-		panel.add(servicio2JtextField);
+					if(idServicio1!=0){
+						idsServicios.add(idServicio1);
+					}
+					if(idServicio2!=0){
+						idsServicios.add(idServicio2);
+					}
+					if(idServicio3!=0){
+						idsServicios.add(idServicio3);
+					}
+					if(idServicio4!=0){
+						idsServicios.add(idServicio4);
+					}
+					if(idServicio5!=0){
+						idsServicios.add(idServicio5);
+					}
+					if(idServicio6!=0){
+						idsServicios.add(idServicio6);
+					}
 
-		panel.add(new JLabel("id servicio 3:     {0 de lo contrario}"));
-		panel.add(servicio3JtextField);
 
-		panel.add(new JLabel("id servicio 4:     {0 de lo contrario}"));
-		panel.add(servicio4JtextField);
+					if (fecha1 != null && fecha2 != null)
 
-		panel.add(new JLabel("id servicio 5:     {0 de lo contrario}"));
-		panel.add(servicio5JtextField);
+					{
+						arregloGrande = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2);
+						idsServiciosDesabilitados = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2).get(0);
+						idsReservasMovidas = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2).get(1);
+						idsReservasNoMovidas = parranderos.RF12DesabilitarServicios(idsServicios, fecha1, fecha2).get(2);
 
-		panel.add(new JLabel("id servicio 6:     {0 de lo contrario}"));
-		panel.add(servicio6JtextField);
+						String resultado = "En DesabilitarServicios\n\n";
 
+						for(int i = 0; i <idsServiciosDesabilitados.size(); i++){
 
+							resultado += "Servicio desabilitado: "+idsServiciosDesabilitados.get(i)+"\n";
 
-		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+						}
+						for(int i = 0; i <idsReservasMovidas.size(); i++){
 
-		if (option == JOptionPane.YES_OPTION) {
+							resultado += "Reserva Movida: "+idsReservasMovidas.get(i)+"\n";
 
-			// Aca saco los valores
+						}
+						for(int i = 0; i <idsReservasNoMovidas.size(); i++){
 
-			String fecha1 = fecha1JtextField.getText();
-			String fecha2 = fecha2JtextField.getText();
+							resultado += "Reserva no movida: "+idsReservasNoMovidas.get(i)+"\n";
 
-			String servicio1 = servicio1JtextField.getText();
-			String servicio2 = servicio2JtextField.getText();
-			String servicio3 = servicio3JtextField.getText();
-			String servicio4 = servicio4JtextField.getText();
-			String servicio5 = servicio5JtextField.getText();
-			String servicio6 = servicio6JtextField.getText();
+						}
 
+						resultado += "\n Operación terminada";
+						panelDatos.actualizarInterfaz(resultado);
 
-			RF12DesabilitarServiciosDeSalud(fecha1, fecha2, servicio1, servicio2, servicio3, servicio4, servicio5, servicio6);
+					}
+					else
+					{
+						panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+					}
 
-			try {
+				}
 
-				// Aqui obtengo el input los valores
-				fecha1string = fecha1;
-				fecha2string = fecha2;
+				public void RF12DesabilitarServiciosDeSaludDialog() {
 
-				servicio1string = servicio1;
-				servicio2string = servicio2;
-				servicio3string = servicio3;
-				servicio4string = servicio4;
-				servicio5string = servicio5;
-				servicio6string = servicio6;
+					// Definiendo elementos necesarios para la construccion del panel
 
+					JPanel panel;
+					JTextField fecha1JtextField = new JTextField();
+					JTextField fecha2JtextField = new JTextField();
 
-				panel = new JPanel();
-				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+					JTextField servicio1JtextField = new JTextField();
+					JTextField servicio2JtextField = new JTextField();
+					JTextField servicio3JtextField = new JTextField();
+					JTextField servicio4JtextField = new JTextField();
+					JTextField servicio5JtextField = new JTextField();
+					JTextField servicio6JtextField = new JTextField();
 
-				panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+					panel = new JPanel();
 
+					// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+					panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-			}
-			JOptionPane.showMessageDialog(frame, panel);
-		}
-	}
+					// Aca creo las variables 
 
-	public void RF13HabilitarServiciosDeSalud(String pFecha1, String pFecha2, String pIdServicio1, String pIdServicio2, String pIdServicio3, String pIdServicio4, String pIdServicio5, String pIdServicio6){
+					String fecha1string;
+					String fecha2string;
 
-		ArrayList<String> idsServiciosHabilitados= new ArrayList<>();
-		ArrayList<Long> idsServicios = new ArrayList<>();
+					String servicio1string;
+					String servicio2string;
+					String servicio3string;
+					String servicio4string;
+					String servicio5string;
+					String servicio6string;
 
-		Timestamp fecha1 = Timestamp.valueOf(pFecha1);
-		Timestamp fecha2 = Timestamp.valueOf(pFecha2);
 
-		long idServicio1 = Long.valueOf(pIdServicio1);
-		long idServicio2 = Long.valueOf(pIdServicio2);
-		long idServicio3 = Long.valueOf(pIdServicio3);
-		long idServicio4 = Long.valueOf(pIdServicio4);
-		long idServicio5 = Long.valueOf(pIdServicio5);
-		long idServicio6 = Long.valueOf(pIdServicio6);
+					// Aca pongo los dos labels de añadir los datos requeridos
 
-		if(idServicio1!=0){
-			idsServicios.add(idServicio1);
-		}
-		if(idServicio2!=0){
-			idsServicios.add(idServicio2);
-		}
-		if(idServicio3!=0){
-			idsServicios.add(idServicio3);
-		}
-		if(idServicio4!=0){
-			idsServicios.add(idServicio4);
-		}
-		if(idServicio5!=0){
-			idsServicios.add(idServicio5);
-		}
-		if(idServicio6!=0){
-			idsServicios.add(idServicio6);
-		}
+					panel.add(new JLabel("Fecha inicial"));
+					panel.add(fecha1JtextField); 
 
+					panel.add(new JLabel("Fecha Final"));
+					panel.add(fecha2JtextField); 
 
-		if (fecha1 != null && fecha2 != null)
+					panel.add(new JLabel("id servicio 1:     {0 de lo contrario}"));
+					panel.add(servicio1JtextField); 
 
-		{
-			idsServiciosHabilitados = parranderos.RF13HabilitarServicios(idsServicios, fecha1, fecha2);
+					panel.add(new JLabel("id servicio 2:     {0 de lo contrario}"));
+					panel.add(servicio2JtextField);
 
-			String resultado = "En HabilitarServicios\n\n";
+					panel.add(new JLabel("id servicio 3:     {0 de lo contrario}"));
+					panel.add(servicio3JtextField);
 
-			for(int i = 0; i <idsServiciosHabilitados.size(); i++){
+					panel.add(new JLabel("id servicio 4:     {0 de lo contrario}"));
+					panel.add(servicio4JtextField);
 
-				resultado += "Servicio habilitado: "+idsServiciosHabilitados.get(i)+"\n";
+					panel.add(new JLabel("id servicio 5:     {0 de lo contrario}"));
+					panel.add(servicio5JtextField);
 
-			}
+					panel.add(new JLabel("id servicio 6:     {0 de lo contrario}"));
+					panel.add(servicio6JtextField);
 
-			resultado += "\n Operación terminada";
-			panelDatos.actualizarInterfaz(resultado);
 
-		}
-		else
-		{
-			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-		}
 
-	}
+					int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-	public void RF13HabilitarServiciosDeSaludDialog() {
+					if (option == JOptionPane.YES_OPTION) {
 
-		// Definiendo elementos necesarios para la construccion del panel
+						// Aca saco los valores
 
-		JPanel panel;
-		JTextField fecha1JtextField = new JTextField();
-		JTextField fecha2JtextField = new JTextField();
+						String fecha1 = fecha1JtextField.getText();
+						String fecha2 = fecha2JtextField.getText();
 
-		JTextField servicio1JtextField = new JTextField();
-		JTextField servicio2JtextField = new JTextField();
-		JTextField servicio3JtextField = new JTextField();
-		JTextField servicio4JtextField = new JTextField();
-		JTextField servicio5JtextField = new JTextField();
-		JTextField servicio6JtextField = new JTextField();
+						String servicio1 = servicio1JtextField.getText();
+						String servicio2 = servicio2JtextField.getText();
+						String servicio3 = servicio3JtextField.getText();
+						String servicio4 = servicio4JtextField.getText();
+						String servicio5 = servicio5JtextField.getText();
+						String servicio6 = servicio6JtextField.getText();
 
-		panel = new JPanel();
 
-		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-		panel.setLayout(new GridLayout(0, 2, 2, 2));
+						RF12DesabilitarServiciosDeSalud(fecha1, fecha2, servicio1, servicio2, servicio3, servicio4, servicio5, servicio6);
 
-		// Aca creo las variables 
+						try {
 
-		String fecha1string;
-		String fecha2string;
+							// Aqui obtengo el input los valores
+							fecha1string = fecha1;
+							fecha2string = fecha2;
 
-		String servicio1string;
-		String servicio2string;
-		String servicio3string;
-		String servicio4string;
-		String servicio5string;
-		String servicio6string;
+							servicio1string = servicio1;
+							servicio2string = servicio2;
+							servicio3string = servicio3;
+							servicio4string = servicio4;
+							servicio5string = servicio5;
+							servicio6string = servicio6;
 
 
-		// Aca pongo los dos labels de añadir los datos requeridos
+							panel = new JPanel();
+							panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-		panel.add(new JLabel("Fecha inicial"));
-		panel.add(fecha1JtextField); 
+							panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
 
-		panel.add(new JLabel("Fecha Final"));
-		panel.add(fecha2JtextField); 
 
-		panel.add(new JLabel("id servicio 1:\n     {0 de lo contrario}"));
-		panel.add(servicio1JtextField); 
+						} catch (NumberFormatException nfe) {
+							nfe.printStackTrace();
+						}
+						JOptionPane.showMessageDialog(frame, panel);
+					}
+				}
 
-		panel.add(new JLabel("id servicio 2:\n     {0 de lo contrario}"));
-		panel.add(servicio2JtextField);
+				public void RF13HabilitarServiciosDeSalud(String pFecha1, String pFecha2, String pIdServicio1, String pIdServicio2, String pIdServicio3, String pIdServicio4, String pIdServicio5, String pIdServicio6){
 
-		panel.add(new JLabel("id servicio 3:\n     {0 de lo contrario}"));
-		panel.add(servicio3JtextField);
+					ArrayList<String> idsServiciosHabilitados= new ArrayList<>();
+					ArrayList<Long> idsServicios = new ArrayList<>();
 
-		panel.add(new JLabel("id servicio 4:\n     {0 de lo contrario}"));
-		panel.add(servicio4JtextField);
+					Timestamp fecha1 = Timestamp.valueOf(pFecha1);
+					Timestamp fecha2 = Timestamp.valueOf(pFecha2);
 
-		panel.add(new JLabel("id servicio 5:\n     {0 de lo contrario}"));
-		panel.add(servicio5JtextField);
+					long idServicio1 = Long.valueOf(pIdServicio1);
+					long idServicio2 = Long.valueOf(pIdServicio2);
+					long idServicio3 = Long.valueOf(pIdServicio3);
+					long idServicio4 = Long.valueOf(pIdServicio4);
+					long idServicio5 = Long.valueOf(pIdServicio5);
+					long idServicio6 = Long.valueOf(pIdServicio6);
 
-		panel.add(new JLabel("id servicio 6:\n     {0 de lo contrario}"));
-		panel.add(servicio6JtextField);
+					if(idServicio1!=0){
+						idsServicios.add(idServicio1);
+					}
+					if(idServicio2!=0){
+						idsServicios.add(idServicio2);
+					}
+					if(idServicio3!=0){
+						idsServicios.add(idServicio3);
+					}
+					if(idServicio4!=0){
+						idsServicios.add(idServicio4);
+					}
+					if(idServicio5!=0){
+						idsServicios.add(idServicio5);
+					}
+					if(idServicio6!=0){
+						idsServicios.add(idServicio6);
+					}
 
 
+					if (fecha1 != null && fecha2 != null)
 
-		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+					{
+						idsServiciosHabilitados = parranderos.RF13HabilitarServicios(idsServicios, fecha1, fecha2);
 
-		if (option == JOptionPane.YES_OPTION) {
+						String resultado = "En HabilitarServicios\n\n";
 
-			// Aca saco los valores
+						for(int i = 0; i <idsServiciosHabilitados.size(); i++){
 
-			String fecha1 = fecha1JtextField.getText();
-			String fecha2 = fecha2JtextField.getText();
+							resultado += "Servicio habilitado: "+idsServiciosHabilitados.get(i)+"\n";
 
-			String servicio1 = servicio1JtextField.getText();
-			String servicio2 = servicio2JtextField.getText();
-			String servicio3 = servicio3JtextField.getText();
-			String servicio4 = servicio4JtextField.getText();
-			String servicio5 = servicio5JtextField.getText();
-			String servicio6 = servicio6JtextField.getText();
+						}
 
+						resultado += "\n Operación terminada";
+						panelDatos.actualizarInterfaz(resultado);
 
-			RF13HabilitarServiciosDeSalud(fecha1, fecha2, servicio1, servicio2, servicio3, servicio4, servicio5, servicio6);
+					}
+					else
+					{
+						panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+					}
 
-			try {
+				}
 
-				// Aqui obtengo el input los valores
-				fecha1string = fecha1;
-				fecha2string = fecha2;
+				public void RF13HabilitarServiciosDeSaludDialog() {
 
-				servicio1string = servicio1;
-				servicio2string = servicio2;
-				servicio3string = servicio3;
-				servicio4string = servicio4;
-				servicio5string = servicio5;
-				servicio6string = servicio6;
+					// Definiendo elementos necesarios para la construccion del panel
 
+					JPanel panel;
+					JTextField fecha1JtextField = new JTextField();
+					JTextField fecha2JtextField = new JTextField();
 
-				panel = new JPanel();
-				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+					JTextField servicio1JtextField = new JTextField();
+					JTextField servicio2JtextField = new JTextField();
+					JTextField servicio3JtextField = new JTextField();
+					JTextField servicio4JtextField = new JTextField();
+					JTextField servicio5JtextField = new JTextField();
+					JTextField servicio6JtextField = new JTextField();
 
-				panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+					panel = new JPanel();
 
+					// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+					panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-			}
-			JOptionPane.showMessageDialog(frame, panel);
-		}
-	}
+					// Aca creo las variables 
 
-	/* ****************************************************************
-	 * 			 CONSULTAS
-	 *****************************************************************/
+					String fecha1string;
+					String fecha2string;
 
-	public void RFC1CantidadServiciosIPS(String pFecha1, String pFecha2){
+					String servicio1string;
+					String servicio2string;
+					String servicio3string;
+					String servicio4string;
+					String servicio5string;
+					String servicio6string;
 
-		try{
-		Timestamp fecha1 = Timestamp.valueOf(pFecha1);
-		Timestamp fecha2 = Timestamp.valueOf(pFecha2);
 
-		List <RFC1> lista = parranderos.RFC1CantidadServiciosIPS(fecha1, fecha2);
+					// Aca pongo los dos labels de añadir los datos requeridos
 
-		String resultado = "En Cantidad Servicios";
+					panel.add(new JLabel("Fecha inicial"));
+					panel.add(fecha1JtextField); 
 
-		String resp = "Lo obtenido es:\n";
+					panel.add(new JLabel("Fecha Final"));
+					panel.add(fecha2JtextField); 
 
-		int i = 1;
+					panel.add(new JLabel("id servicio 1:\n     {0 de lo contrario}"));
+					panel.add(servicio1JtextField); 
 
-		for (RFC1 tb : lista)
-		{
-			resp += i++ + ".ID IPS: " + tb.getIdIps() + " | Veces: "+ tb.getNumero() + "\n";
-		}
+					panel.add(new JLabel("id servicio 2:\n     {0 de lo contrario}"));
+					panel.add(servicio2JtextField);
 
-		resultado +=  "\n" + resp;
-		panelDatos.actualizarInterfaz(resultado);
-		resultado += "\n Operación terminada";
-	} 
-	catch (Exception e) 
-	{
-		//			e.printStackTrace();
-		String resultado = generarMensajeError(e);
-		panelDatos.actualizarInterfaz(resultado);
-	}
-	}
-	public void RFC1CantidadServiciosIPSDialog() { 
+					panel.add(new JLabel("id servicio 3:\n     {0 de lo contrario}"));
+					panel.add(servicio3JtextField);
 
-		// Definiendo elementos necesarios para la construccion del panel
+					panel.add(new JLabel("id servicio 4:\n     {0 de lo contrario}"));
+					panel.add(servicio4JtextField);
 
-		JPanel panel;
-		JTextField fecha1JtextField = new JTextField();
-		JTextField fecha2JtextField = new JTextField();
+					panel.add(new JLabel("id servicio 5:\n     {0 de lo contrario}"));
+					panel.add(servicio5JtextField);
 
+					panel.add(new JLabel("id servicio 6:\n     {0 de lo contrario}"));
+					panel.add(servicio6JtextField);
 
-		panel = new JPanel();
 
-		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-		panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-		// Aca creo las variables 
+					int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-		String fecha1string;
-		String fecha2string;
+					if (option == JOptionPane.YES_OPTION) {
 
+						// Aca saco los valores
 
+						String fecha1 = fecha1JtextField.getText();
+						String fecha2 = fecha2JtextField.getText();
 
-		// Aca pongo los dos labels de añadir los datos requeridos
+						String servicio1 = servicio1JtextField.getText();
+						String servicio2 = servicio2JtextField.getText();
+						String servicio3 = servicio3JtextField.getText();
+						String servicio4 = servicio4JtextField.getText();
+						String servicio5 = servicio5JtextField.getText();
+						String servicio6 = servicio6JtextField.getText();
 
-		panel.add(new JLabel("Fecha inicial"));
-		panel.add(fecha1JtextField); 
 
-		panel.add(new JLabel("Fecha Final"));
-		panel.add(fecha2JtextField); 
+						RF13HabilitarServiciosDeSalud(fecha1, fecha2, servicio1, servicio2, servicio3, servicio4, servicio5, servicio6);
 
+						try {
 
-		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+							// Aqui obtengo el input los valores
+							fecha1string = fecha1;
+							fecha2string = fecha2;
 
-		if (option == JOptionPane.YES_OPTION) {
+							servicio1string = servicio1;
+							servicio2string = servicio2;
+							servicio3string = servicio3;
+							servicio4string = servicio4;
+							servicio5string = servicio5;
+							servicio6string = servicio6;
 
-			// Aca saco los valores
 
-			String fecha1 = fecha1JtextField.getText();
-			String fecha2 = fecha2JtextField.getText();
+							panel = new JPanel();
+							panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
+							panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
 
-			RFC1CantidadServiciosIPS(fecha1, fecha2);
 
-			try {
+						} catch (NumberFormatException nfe) {
+							nfe.printStackTrace();
+						}
+						JOptionPane.showMessageDialog(frame, panel);
+					}
+				}
 
-				// Aqui obtengo el input los valores
-				fecha1string = fecha1;
-				fecha2string = fecha2;
+				/* ****************************************************************
+				 * 			 CONSULTAS
+				 *****************************************************************/
 
-				panel = new JPanel();
-				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-				panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+				public void RFC1CantidadServiciosIPS(String pFecha1, String pFecha2){
 
+					try{
+						Timestamp fecha1 = Timestamp.valueOf(pFecha1);
+						Timestamp fecha2 = Timestamp.valueOf(pFecha2);
 
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-			}
-			JOptionPane.showMessageDialog(frame, panel);
-		}
-	}
-	public void RFC2Monstrar20ServiciosMasSolicitados(String pFecha1, String pFecha2){
+						List <RFC1> lista = parranderos.RFC1CantidadServiciosIPS(fecha1, fecha2);
 
-		try 
-		{
-			
-			Timestamp fecha1 = Timestamp.valueOf(pFecha1);
-			Timestamp fecha2 = Timestamp.valueOf(pFecha2);
+						String resultado = "En Cantidad Servicios";
 
-			
-			List <RFC2> lista = parranderos.RFC2Mostrar20ServiciosMasSolicitados(fecha1, fecha2);
-			
-			System.out.println(lista.size());
+						String resp = "Lo obtenido es:\n";
 
-			String resultado = "En MostrarServicios";
+						int i = 1;
 
-			String resp = "Lo obtenido es:\n";
+						for (RFC1 tb : lista)
+						{
+							resp += i++ + ".ID IPS: " + tb.getIdIps() + " | Veces: "+ tb.getNumero() + "\n";
+						}
 
-			int i = 1;
+						resultado +=  "\n" + resp;
+						panelDatos.actualizarInterfaz(resultado);
+						resultado += "\n Operación terminada";
+					} 
+					catch (Exception e) 
+					{
+						//			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
+					}
+				}
 
-			for (RFC2 tb : lista)
-			{
-				resp += i++ + ".ID: " + tb.getId() + " | Veces"+ tb.getNumero() + "\n";
-			}
 
-			resultado +=  "\n" + resp;
-			panelDatos.actualizarInterfaz(resultado);
-			resultado += "\n Operación terminada";
-		} 
-		catch (Exception e) 
-		{
-			//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
+				public void RFC1CantidadServiciosIPSDialog() { 
 
+					// Definiendo elementos necesarios para la construccion del panel
 
-	public void RFC2Monstrar20ServiciosMasSolicitadosDialog() { 
+					JPanel panel;
+					JTextField fecha1JtextField = new JTextField();
+					JTextField fecha2JtextField = new JTextField();
 
-		// Definiendo elementos necesarios para la construccion del panel
 
-		JPanel panel;
-		JTextField fecha1JtextField = new JTextField();
-		JTextField fecha2JtextField = new JTextField();
+					panel = new JPanel();
 
+					// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+					panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-		panel = new JPanel();
+					// Aca creo las variables 
 
-		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-		panel.setLayout(new GridLayout(0, 2, 2, 2));
+					String fecha1string;
+					String fecha2string;
 
-		// Aca creo las variables 
 
-		String fecha1string;
-		String fecha2string;
 
+					// Aca pongo los dos labels de añadir los datos requeridos
 
+					panel.add(new JLabel("Fecha inicial"));
+					panel.add(fecha1JtextField); 
 
-		// Aca pongo los dos labels de añadir los datos requeridos
+					panel.add(new JLabel("Fecha Final"));
+					panel.add(fecha2JtextField); 
 
-		panel.add(new JLabel("Fecha inicial"));
-		panel.add(fecha1JtextField); 
 
-		panel.add(new JLabel("Fecha Final"));
-		panel.add(fecha2JtextField); 
+					int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
+					if (option == JOptionPane.YES_OPTION) {
 
-		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+						// Aca saco los valores
 
-		if (option == JOptionPane.YES_OPTION) {
+						String fecha1 = fecha1JtextField.getText();
+						String fecha2 = fecha2JtextField.getText();
 
-			// Aca saco los valores
+						System.out.println(fecha1);
+						RFC1CantidadServiciosIPS(fecha1, fecha2);
 
-			String fecha1 = fecha1JtextField.getText();
-			String fecha2 = fecha2JtextField.getText();
+						try {
 
+							// Aqui obtengo el input los valores
+							fecha1string = fecha1;
+							fecha2string = fecha2;
 
-			RFC2Monstrar20ServiciosMasSolicitados(fecha1, fecha2);
+							panel = new JPanel();
+							panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-			try {
+							panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
 
-				// Aqui obtengo el input los valores
-				fecha1string = fecha1;
-				fecha2string = fecha2;
 
-				panel = new JPanel();
-				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+						} catch (NumberFormatException nfe) {
+							nfe.printStackTrace();
+						}
+						JOptionPane.showMessageDialog(frame, panel);
+					}
+				}
+				public void RFC2Monstrar20ServiciosMasSolicitados(String pFecha1, String pFecha2){
 
-				panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+					try 
+					{
 
+						Timestamp fecha1 = Timestamp.valueOf(pFecha1);
+						Timestamp fecha2 = Timestamp.valueOf(pFecha2);
 
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-			}
-			JOptionPane.showMessageDialog(frame, panel);
-		}
-	}
 
+						List <RFC2> lista = parranderos.RFC2Mostrar20ServiciosMasSolicitados(fecha1, fecha2);
 
-//	public void RFC3IndiceDeServicios(String fecha1, String fecha2){
-//
-//		try 
-//		{
-//			List <VOTipoBebida> lista = parranderos.RFC3MostrarIndiceDeServicios();
-//			String resultado = "En listarTipoBebida";
-//			resultado +=  "\n" + listarTiposBebida (lista);
-//			panelDatos.actualizarInterfaz(resultado);
-//			resultado += "\n Operación terminada";
-//		} 
-//		catch (Exception e) 
-//		{
-//			//			e.printStackTrace();
-//			String resultado = generarMensajeError(e);
-//			panelDatos.actualizarInterfaz(resultado);
-//		}
-//
-//	}
-//	public void RFC4ServiciosAsistidos(){
-//
-//		try 
-//		{
-//			List <VOTipoBebida> lista = parranderos.RFC4MonstrarServiciosAtendidos();
-//
-//			String resultado = "En listarTipoBebida";
-//			resultado +=  "\n" + listarTiposBebida (lista);
-//			panelDatos.actualizarInterfaz(resultado);
-//			resultado += "\n Operación terminada";
-//		} 
-//		catch (Exception e) 
-//		{
-//			//			e.printStackTrace();
-//			String resultado = generarMensajeError(e);
-//			panelDatos.actualizarInterfaz(resultado);
-//		}
-//
-//	}
-//	public void RFC5ServiciosAfiliadoFechas(String fecha1, String fecha2, String idAfiliado){
-//
-//		try 
-//		{
-//			List <VOTipoBebida> lista = parranderos.RFC5MonstarServiciosAfiliado();
-//
-//			String resultado = "En listarTipoBebida";
-//			resultado +=  "\n" + listarTiposBebida (lista);
-//			panelDatos.actualizarInterfaz(resultado);
-//			resultado += "\n Operación terminada";
-//		} 
-//		catch (Exception e) 
-//		{
-//			//			e.printStackTrace();
-//			String resultado = generarMensajeError(e);
-//			panelDatos.actualizarInterfaz(resultado);
-//		}
-//	}
+						System.out.println(lista.size());
 
+						String resultado = "En MostrarServicios";
 
-	/* ****************************************************************
-	 * 			 CRUD de Orden y OrdenesServicios
-	 *****************************************************************/
+						String resp = "Lo obtenido es:\n";
 
-	public void adicionarOrden(String strIdAfiliado,String strIdMedico,String receta ){
+						int i = 1;
 
-		try 
-		{
-			long idAfiliado = Long.valueOf(strIdAfiliado);
-			long idMedico = Long.valueOf(strIdMedico);
-			ArrayList<Long> servicios = new ArrayList<>();
+						for (RFC2 tb : lista)
+						{
+							resp += i++ + ".ID: " + tb.getId() + " | Veces"+ tb.getNumero() + "\n";
+						}
 
-			if (strIdAfiliado != null && strIdMedico != null){
+						resultado +=  "\n" + resp;
+						panelDatos.actualizarInterfaz(resultado);
+						resultado += "\n Operación terminada";
+					} 
+					catch (Exception e) 
+					{
+						//			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
+					}
+				}
+
+
+				public void RFC2Monstrar20ServiciosMasSolicitadosDialog() { 
+
+					// Definiendo elementos necesarios para la construccion del panel
+
+					JPanel panel;
+					JTextField fecha1JtextField = new JTextField();
+					JTextField fecha2JtextField = new JTextField();
+
+
+					panel = new JPanel();
+
+					// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+					panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+					// Aca creo las variables 
+
+					String fecha1string;
+					String fecha2string;
+
+
+
+					// Aca pongo los dos labels de añadir los datos requeridos
+
+					panel.add(new JLabel("Fecha inicial"));
+					panel.add(fecha1JtextField); 
+
+					panel.add(new JLabel("Fecha Final"));
+					panel.add(fecha2JtextField); 
+
+
+					int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+					if (option == JOptionPane.YES_OPTION) {
+
+						// Aca saco los valores
+
+						String fecha1 = fecha1JtextField.getText();
+						String fecha2 = fecha2JtextField.getText();
+
+
+						RFC2Monstrar20ServiciosMasSolicitados(fecha1, fecha2);
+
+						try {
+
+							// Aqui obtengo el input los valores
+							fecha1string = fecha1;
+							fecha2string = fecha2;
+
+							panel = new JPanel();
+							panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+							panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+						} catch (NumberFormatException nfe) {
+							nfe.printStackTrace();
+						}
+						JOptionPane.showMessageDialog(frame, panel);
+					}
+				}
+
+
+				//	public void RFC3IndiceDeServicios(String fecha1, String fecha2){
 				//
-				boolean hasServicio = true;
-				while(hasServicio){
-					int acepta =  JOptionPane.showConfirmDialog(null, "Agregar servicio de salud a la orden?", "adicionarOrdenDeServicio?", JOptionPane.YES_NO_OPTION);
-					if(acepta==0){
-						String strIdServicio = JOptionPane.showInputDialog (this, "Id del servicio?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
-						long idServicio = Long.valueOf(strIdServicio);
-						servicios.add(idServicio);
-					}
-					else{
-						hasServicio = false;
-					}
-				}	
+				//		try 
+				//		{
+				//			List <VOTipoBebida> lista = parranderos.RFC3MostrarIndiceDeServicios();
+				//			String resultado = "En listarTipoBebida";
+				//			resultado +=  "\n" + listarTiposBebida (lista);
+				//			panelDatos.actualizarInterfaz(resultado);
+				//			resultado += "\n Operación terminada";
+				//		} 
+				//		catch (Exception e) 
+				//		{
+				//			//			e.printStackTrace();
+				//			String resultado = generarMensajeError(e);
+				//			panelDatos.actualizarInterfaz(resultado);
+				//		}
 				//
+				//	}
+				//	public void RFC4ServiciosAsistidos(){
+				//
+				//		try 
+				//		{
+				//			List <VOTipoBebida> lista = parranderos.RFC4MonstrarServiciosAtendidos();
+				//
+				//			String resultado = "En listarTipoBebida";
+				//			resultado +=  "\n" + listarTiposBebida (lista);
+				//			panelDatos.actualizarInterfaz(resultado);
+				//			resultado += "\n Operación terminada";
+				//		} 
+				//		catch (Exception e) 
+				//		{
+				//			//			e.printStackTrace();
+				//			String resultado = generarMensajeError(e);
+				//			panelDatos.actualizarInterfaz(resultado);
+				//		}
+				//
+				//	}
+				//	public void RFC5ServiciosAfiliadoFechas(String fecha1, String fecha2, String idAfiliado){
+				//
+				//		try 
+				//		{
+				//			List <VOTipoBebida> lista = parranderos.RFC5MonstarServiciosAfiliado();
+				//
+				//			String resultado = "En listarTipoBebida";
+				//			resultado +=  "\n" + listarTiposBebida (lista);
+				//			panelDatos.actualizarInterfaz(resultado);
+				//			resultado += "\n Operación terminada";
+				//		} 
+				//		catch (Exception e) 
+				//		{
+				//			//			e.printStackTrace();
+				//			String resultado = generarMensajeError(e);
+				//			panelDatos.actualizarInterfaz(resultado);
+				//		}
+				//	}
 
-				VOOrden orden = parranderos.adicionarOrden(receta, idAfiliado, idMedico);
 
-				if (orden == null){
-					throw new Exception ("No se pudo crear la orden de servicio: " + orden+ " con idAfiliado: "+ idAfiliado+"con idMedico: "+ idMedico+"con receta "+receta);
-				}
+				/* ****************************************************************
+				 * 			 CRUD de Orden y OrdenesServicios
+				 *****************************************************************/
 
-				if(!servicios.isEmpty()) {
-					for(int i = 0; i<servicios.size();i++){
-						parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId()+1,0 );
+				public void adicionarOrden(String strIdAfiliado,String strIdMedico,String receta ){
+
+					try 
+					{
+						long idAfiliado = Long.valueOf(strIdAfiliado);
+						long idMedico = Long.valueOf(strIdMedico);
+						ArrayList<Long> servicios = new ArrayList<>();
+
+						if (strIdAfiliado != null && strIdMedico != null){
+							//
+							boolean hasServicio = true;
+							while(hasServicio){
+								int acepta =  JOptionPane.showConfirmDialog(null, "Agregar servicio de salud a la orden?", "adicionarOrdenDeServicio?", JOptionPane.YES_NO_OPTION);
+								if(acepta==0){
+									String strIdServicio = JOptionPane.showInputDialog (this, "Id del servicio?", "adicionarOrdenDeServicio", JOptionPane.QUESTION_MESSAGE);
+									long idServicio = Long.valueOf(strIdServicio);
+									servicios.add(idServicio);
+								}
+								else{
+									hasServicio = false;
+								}
+							}	
+							//
+
+							VOOrden orden = parranderos.adicionarOrden(receta, idAfiliado, idMedico);
+
+							if (orden == null){
+								throw new Exception ("No se pudo crear la orden de servicio: " + orden+ " con idAfiliado: "+ idAfiliado+"con idMedico: "+ idMedico+"con receta "+receta);
+							}
+
+							if(!servicios.isEmpty()) {
+								for(int i = 0; i<servicios.size();i++){
+									parranderos.adicionarOrdenesServicios(servicios.get(i),orden.getId()+1,0 );
+								}
+							}
+							String resultado = "En adicionOrdenServicio\n\n";
+							resultado += "Orden servicio adicionada exitosamente: " + orden+servicios;
+							resultado += "\n Operación terminada";
+							panelDatos.actualizarInterfaz(resultado);
+
+						}
+						else
+						{
+							panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+						}
+					} 
+					catch (Exception e) 
+					{
+						//  			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
 					}
 				}
-				String resultado = "En adicionOrdenServicio\n\n";
-				resultado += "Orden servicio adicionada exitosamente: " + orden+servicios;
-				resultado += "\n Operación terminada";
-				panelDatos.actualizarInterfaz(resultado);
 
-			}
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
-		} 
-		catch (Exception e) 
-		{
-			//  			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
+				public void adicionarOrdenDialog() {
 
-	public void adicionarOrdenDialog() {
+					// Definiendo elementos necesarios para la construccion del panel
 
-		// Definiendo elementos necesarios para la construccion del panel
+					JPanel panel;
+					JTextField idAfiliadoField = new JTextField();
+					JTextField idMedicoField = new JTextField();
+					JTextField recetaField = new JTextField();
+					panel = new JPanel();
 
-		JPanel panel;
-		JTextField idAfiliadoField = new JTextField();
-		JTextField idMedicoField = new JTextField();
-		JTextField recetaField = new JTextField();
-		panel = new JPanel();
+					// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+					panel.setLayout(new GridLayout(0, 2, 2, 2));
 
-		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-		panel.setLayout(new GridLayout(0, 2, 2, 2));
-
-		// Aca creo dos variable 
-		String idAfiliadoOrden;
-		String idMedicoOrden;
-		String recetaOrden;
+					// Aca creo dos variable 
+					String idAfiliadoOrden;
+					String idMedicoOrden;
+					String recetaOrden;
 
 
-		// idServicios que van a la lista
+					// idServicios que van a la lista
 
-		// Aca pongo los dos labels de añadir el nombre del rol        
-		panel.add(new JLabel("id del Afiliado?"));
-		panel.add(idAfiliadoField); 
+					// Aca pongo los dos labels de añadir el nombre del rol        
+					panel.add(new JLabel("id del Afiliado?"));
+					panel.add(idAfiliadoField); 
 
-		panel.add(new JLabel("id del Medico?"));
-		panel.add(idMedicoField); 
+					panel.add(new JLabel("id del Medico?"));
+					panel.add(idMedicoField); 
 
-		panel.add(new JLabel("receta de la Orden?"));
-		panel.add(recetaField); 
+					panel.add(new JLabel("receta de la Orden?"));
+					panel.add(recetaField); 
 
-		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+					int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 
-		if (option == JOptionPane.YES_OPTION) {
+					if (option == JOptionPane.YES_OPTION) {
 
-			// Aca saco el valor del rol
-			String idAfiliadoOrdenInput = idAfiliadoField.getText();
-			String idMedicoOrdenInput = idMedicoField.getText();
-			String recetaOrdenInput = recetaField.getText();
+						// Aca saco el valor del rol
+						String idAfiliadoOrdenInput = idAfiliadoField.getText();
+						String idMedicoOrdenInput = idMedicoField.getText();
+						String recetaOrdenInput = recetaField.getText();
 
 
 
-			// Aca obtengo los servicios
-			adicionarOrden(idAfiliadoOrdenInput, idMedicoOrdenInput, recetaOrdenInput);
+						// Aca obtengo los servicios
+						adicionarOrden(idAfiliadoOrdenInput, idMedicoOrdenInput, recetaOrdenInput);
 
-			try {
+						try {
 
-				// Aqui obtengo el input del nombre del rol
-				idAfiliadoOrden = idAfiliadoOrdenInput;
-				idMedicoOrden = idMedicoOrdenInput;
-				recetaOrden = recetaOrdenInput;
-
-
-				panel = new JPanel();
-				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-
-				panel.add(new JLabel("Id del Afiliado: " + idAfiliadoOrden ));
+							// Aqui obtengo el input del nombre del rol
+							idAfiliadoOrden = idAfiliadoOrdenInput;
+							idMedicoOrden = idMedicoOrdenInput;
+							recetaOrden = recetaOrdenInput;
 
 
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-			}
-			JOptionPane.showMessageDialog(frame, panel);
-		}
-	}
+							panel = new JPanel();
+							panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
-	/* ****************************************************************
-	 * 			 CRUD de Reserva
-	 *****************************************************************/
+							panel.add(new JLabel("Id del Afiliado: " + idAfiliadoOrden ));
 
-	public void adicionarReserva(String strIdTomador,String strIdReservador,String strIdServicio,String strIdHorario,String estado)	{
-		try 
-		{
 
-			Long idAfiliadoTomador;
-			if(strIdTomador.isEmpty()) {
-				idAfiliadoTomador = null;
-				System.out.println("tomador = "+idAfiliadoTomador);
-			}
-			else {
-				idAfiliadoTomador = Long.valueOf(strIdTomador);
-				System.out.println("tomador = "+idAfiliadoTomador);
-			}
+						} catch (NumberFormatException nfe) {
+							nfe.printStackTrace();
+						}
+						JOptionPane.showMessageDialog(frame, panel);
+					}
+				}
 
-			System.out.println("el id era"+idAfiliadoTomador);
-			long idAfiliadoReservador = Long.valueOf(strIdReservador);
-			long idServicioSalud = Long.valueOf(strIdServicio);
-			long idHorario = Long.valueOf(strIdHorario);
+				/* ****************************************************************
+				 * 			 CRUD de Reserva
+				 *****************************************************************/
 
-			boolean cumple = false;
-			System.out.println("Se necesita orden:" +requiereOrden(idServicioSalud));
+				public VOReservas adicionarReserva(String strIdTomador,String strIdReservador,String strIdServicio,String strIdHorario,String estado)	{
+					VOReservas r=null;
+					try 
+					{
 
-			if (requiereOrden(idServicioSalud)){
+						Long idAfiliadoTomador;
+						if(strIdTomador.isEmpty()) {
+							idAfiliadoTomador = null;
+							System.out.println("VACIO = "+idAfiliadoTomador);
+						}
+						else {
+							idAfiliadoTomador = Long.valueOf(strIdTomador);
+							System.out.println("LLENO = "+idAfiliadoTomador);
+						}
 
-				String idOrden = JOptionPane.showInputDialog (this, "id Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
-				long IdOrden = Long.valueOf(idOrden);
 
-				System.out.println("Existe la orden:" +existeOrden(IdOrden));
-				if(existeOrden(IdOrden)){
+						System.out.println("el id era"+idAfiliadoTomador);
 
-					System.out.println("Hay capacidad:"+hayCapacidadHorario(idHorario));
-					if(hayCapacidadHorario(idHorario)){
 
-						cumple = true;
+						System.out.println("A");
+
+						long idAfiliadoReservador = Long.valueOf(strIdReservador);
+						System.out.println("M");
+						long idServicioSalud = Long.valueOf(strIdServicio);
+						System.out.println("E");
+						long idHorario = Long.valueOf(strIdHorario);
+						System.out.println("N");
+						System.out.println("AFI"+idAfiliadoReservador);
+						System.out.println("HOR"+idHorario);
+						System.out.println("SERV"+idServicioSalud);
+						boolean cumple = false;
+						System.out.println("Se necesita orden:" +requiereOrden(idServicioSalud));
+
+						if (requiereOrden(idServicioSalud)){
+
+							String idOrden = JOptionPane.showInputDialog (this, "id Orden?", "Reservar", JOptionPane.QUESTION_MESSAGE);
+							long IdOrden = Long.valueOf(idOrden);
+
+							System.out.println("Existe la orden:" +existeOrden(IdOrden));
+							if(existeOrden(IdOrden)){
+
+								System.out.println("Hay capacidad:"+hayCapacidadHorario(idHorario));
+								if(hayCapacidadHorario(idHorario)){
+
+									cumple = true;
+								}
+							}
+						}
+						else{
+							if(hayCapacidadHorario(idHorario)){
+
+								cumple = true;
+
+							}
+						}
+
+						if(cumple){
+
+							disminuirCapacidadHorario(idHorario);
+							r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idHorario, estado );
+
+							if (r == null)
+							{
+								aumentarCapacidadHorario(idHorario);
+								throw new Exception ("No se pudo realizar la reserva: " + r
+										+".\nidAfiliadoReservador: "+strIdReservador
+										+".\nidAfiliadoTomador: "+strIdTomador
+										+".\nidServicioSalud: "+strIdServicio
+										+".\nestado: "+estado
+										);
+							}
+							String resultado = "En adicionReserva\n\n";
+							resultado += "Reserva adicionada exitosamente: " + r;
+							resultado += "\n Operación terminada";
+							panelDatos.actualizarInterfaz(resultado);
+						}
+
+
+						else
+						{
+							panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+						}
+
+					} 
+					catch (Exception e) 
+					{
+						//			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
+					}
+					return r;
+				}
+
+				public void adicionarReservaDialog() {
+
+					// Definiendo elementos necesarios para la construccion del panel
+
+					JPanel panel;
+					JTextField reservadorField = new JTextField();
+					JTextField tomadorField = new JTextField();
+					JTextField servicioField = new JTextField();
+
+					JTextField horarioField = new JTextField();
+					JTextField estadoField = new JTextField();
+					panel = new JPanel();
+
+					// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+					panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+					// Aca creo dos variable 
+					String reservadorReserva;
+					String tomadorReserva;
+					String servicioReserva;
+
+					String horarioReserva;
+					String estadoReserva;
+
+					// Aca pongo los dos labels de añadir el nombre del rol        
+					panel.add(new JLabel("id del Reservador?"));
+					panel.add(reservadorField); 
+
+					panel.add(new JLabel("id del Tomador?"));
+					panel.add(tomadorField); 
+
+					panel.add(new JLabel("id del Servicio?"));
+					panel.add(servicioField); 
+
+					panel.add(new JLabel("id del Horario?"));
+					panel.add(horarioField);
+
+					panel.add(new JLabel("Estado? (RESERVADO, ASISTENCIA o CANCELADO)"));
+					panel.add(estadoField);
+
+					int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+					if (option == JOptionPane.YES_OPTION) {
+
+						// Aca saco el valor del rol
+						String reservadorInput = reservadorField.getText();
+						String tomadorInput = tomadorField.getText();
+						String servicioInput = servicioField.getText();
+
+						String horarioInput = horarioField.getText();
+						String estadoInput = estadoField.getText();
+						adicionarReserva(tomadorInput,reservadorInput, servicioInput,horarioInput,estadoInput);
+
+						try {
+
+							// Aqui obtengo el input del nombre del rol
+							reservadorReserva = reservadorInput;
+							tomadorReserva = tomadorInput;
+							servicioReserva = servicioInput;
+							horarioReserva = horarioInput;
+							estadoReserva = estadoInput;
+
+
+							panel = new JPanel();
+							panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+							panel.add(new JLabel("id del Reservador: " + reservadorReserva ));
+
+
+						} catch (NumberFormatException nfe) {
+							nfe.printStackTrace();
+						}
+						JOptionPane.showMessageDialog(frame, panel);
+					}
+				}
+
+
+				/* ****************************************************************
+				 * 			 CRUD de Horario
+				 *****************************************************************/
+
+
+				public void adicionarHorario( )
+
+				{
+
+					try 
+					{
+						String lngIdServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
+						String intCapacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+
+						String timeFecha = JOptionPane.showInputDialog (this, "Fecha?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+						String hora = JOptionPane.showInputDialog (this, "Hora?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
+						String intDisponibilidad = JOptionPane.showInputDialog (this, "Disponibilidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
+
+
+
+
+						int capacidad = Integer.valueOf(intCapacidad);
+						long idServicio = Long.valueOf(lngIdServicio);
+						Timestamp fecha = Timestamp.valueOf(timeFecha);
+						int disponibilidad = Integer.valueOf(intDisponibilidad);
+
+						if (idServicio != 0)
+						{
+							VOHorario tb = parranderos.adicionarHorario(idServicio, hora, disponibilidad, capacidad, fecha);
+							if (tb == null)
+							{
+								throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
+							}
+							String resultado = "En adicionHorario\n\n";
+							resultado += "Horario adicionado exitosamente: " + tb;
+							resultado += "\n Operación terminada";
+							panelDatos.actualizarInterfaz(resultado);
+						}
+						else
+						{
+							panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+						}
+					} 
+					catch (Exception e) 
+					{
+						//  			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
+					}
+				}
+
+
+
+
+
+
+
+
+
+
+				/* ****************************************************************
+				 * 			CRUD de TipoBebida
+				 *****************************************************************/
+				/**
+				 * Adiciona un tipo de bebida con la información dada por el usuario
+				 * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
+				 */
+				public void adicionarTipoBebida( )
+				{
+					try 
+					{
+						String nombreTipo = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Adicionar tipo de bebida", JOptionPane.QUESTION_MESSAGE);
+						if (nombreTipo != null)
+						{
+							VOTipoBebida tb = parranderos.adicionarTipoBebida (nombreTipo);
+							if (tb == null)
+							{
+								throw new Exception ("No se pudo crear un tipo de bebida con nombre: " + nombreTipo);
+							}
+							String resultado = "En adicionarTipoBebida\n\n";
+							resultado += "Tipo de bebida adicionado exitosamente: " + tb;
+							resultado += "\n Operación terminada";
+							panelDatos.actualizarInterfaz(resultado);
+						}
+						else
+						{
+							panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+						}
+					} 
+					catch (Exception e) 
+					{
+						//			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
+					}
+				}
+
+				/**
+				 * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
+				 */
+				public void listarTipoBebida( )
+				{
+					try 
+					{
+						List <VOTipoBebida> lista = parranderos.darVOTiposBebida();
+
+						String resultado = "En listarTipoBebida";
+						resultado +=  "\n" + listarTiposBebida (lista);
+						panelDatos.actualizarInterfaz(resultado);
+						resultado += "\n Operación terminada";
+					} 
+					catch (Exception e) 
+					{
+						//			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
+					}
+				}
+
+				/**
+				 * Borra de la base de datos el tipo de bebida con el identificador dado po el usuario
+				 * Cuando dicho tipo de bebida no existe, se indica que se borraron 0 registros de la base de datos
+				 */
+				public void eliminarTipoBebidaPorId( )
+				{
+					try 
+					{
+						String idTipoStr = JOptionPane.showInputDialog (this, "Id del tipo de bedida?", "Borrar tipo de bebida por Id", JOptionPane.QUESTION_MESSAGE);
+						if (idTipoStr != null)
+						{
+							long idTipo = Long.valueOf (idTipoStr);
+							long tbEliminados = parranderos.eliminarTipoBebidaPorId (idTipo);
+
+							String resultado = "En eliminar TipoBebida\n\n";
+							resultado += tbEliminados + " Tipos de bebida eliminados\n";
+							resultado += "\n Operación terminada";
+							panelDatos.actualizarInterfaz(resultado);
+						}
+						else
+						{
+							panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+						}
+					} 
+					catch (Exception e) 
+					{
+						//			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
+					}
+				}
+
+				/**
+				 * Busca el tipo de bebida con el nombre indicado por el usuario y lo muestra en el panel de datos
+				 */
+				public void buscarTipoBebidaPorNombre( )
+				{
+					try 
+					{
+						String nombreTb = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Buscar tipo de bebida por nombre", JOptionPane.QUESTION_MESSAGE);
+						if (nombreTb != null)
+						{
+							VOTipoBebida tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTb);
+							String resultado = "En buscar Tipo Bebida por nombre\n\n";
+							if (tipoBebida != null)
+							{
+								resultado += "El tipo de bebida es: " + tipoBebida;
+							}
+							else
+							{
+								resultado += "Un tipo de bebida con nombre: " + nombreTb + " NO EXISTE\n";    				
+							}
+							resultado += "\n Operación terminada";
+							panelDatos.actualizarInterfaz(resultado);
+						}
+						else
+						{
+							panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+						}
+					} 
+					catch (Exception e) 
+					{
+						//			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
+					}
+				}
+
+
+				/* ****************************************************************
+				 * 			Métodos administrativos
+				 *****************************************************************/
+				/**
+				 * Muestra el log de Parranderos
+				 */
+				public void mostrarLogParranderos ()
+				{
+					mostrarArchivo ("parranderos.log");
+				}
+
+				/**
+				 * Muestra el log de datanucleus
+				 */
+				public void mostrarLogDatanuecleus ()
+				{
+					mostrarArchivo ("datanucleus.log");
+				}
+
+				/**
+				 * Limpia el contenido del log de parranderos
+				 * Muestra en el panel de datos la traza de la ejecución
+				 */
+				public void limpiarLogParranderos ()
+				{
+					// Ejecución de la operación y recolección de los resultados
+					boolean resp = limpiarArchivo ("parranderos.log");
+
+					// Generación de la cadena de caracteres con la traza de la ejecución de la demo
+					String resultado = "\n\n************ Limpiando el log de parranderos ************ \n";
+					resultado += "Archivo " + (resp ? "limpiado exitosamente" : "NO PUDO ser limpiado !!");
+					resultado += "\nLimpieza terminada";
+
+					panelDatos.actualizarInterfaz(resultado);
+				}
+
+				/**
+				 * Limpia el contenido del log de datanucleus
+				 * Muestra en el panel de datos la traza de la ejecución
+				 */
+				public void limpiarLogDatanucleus ()
+				{
+					// Ejecución de la operación y recolección de los resultados
+					boolean resp = limpiarArchivo ("datanucleus.log");
+
+					// Generación de la cadena de caracteres con la traza de la ejecución de la demo
+					String resultado = "\n\n************ Limpiando el log de datanucleus ************ \n";
+					resultado += "Archivo " + (resp ? "limpiado exitosamente" : "NO PUDO ser limpiado !!");
+					resultado += "\nLimpieza terminada";
+
+					panelDatos.actualizarInterfaz(resultado);
+				}
+
+				/**
+				 * Limpia todas las tuplas de todas las tablas de la base de datos de parranderos
+				 * Muestra en el panel de datos el número de tuplas eliminadas de cada tabla
+				 */
+				public void limpiarBD ()
+				{
+					try 
+					{
+						// Ejecución de la demo y recolección de los resultados
+						long eliminados [] = parranderos.limpiarParranderos();
+
+						// Generación de la cadena de caracteres con la traza de la ejecución de la demo
+						String resultado = "\n\n************ Limpiando la base de datos ************ \n";
+						resultado += eliminados [0] + " Gustan eliminados\n";
+						resultado += eliminados [1] + " Sirven eliminados\n";
+						resultado += eliminados [2] + " Visitan eliminados\n";
+						resultado += eliminados [3] + " Bebidas eliminadas\n";
+						resultado += eliminados [4] + " Tipos de bebida eliminados\n";
+						resultado += eliminados [5] + " Bebedores eliminados\n";
+						resultado += eliminados [6] + " Bares eliminados\n";
+						resultado += "\nLimpieza terminada";
+
+						panelDatos.actualizarInterfaz(resultado);
+					} 
+					catch (Exception e) 
+					{
+						//			e.printStackTrace();
+						String resultado = generarMensajeError(e);
+						panelDatos.actualizarInterfaz(resultado);
+					}
+				}
+
+				/**
+				 * Muestra la presentación general del proyecto
+				 */
+				public void mostrarPresentacionGeneral ()
+				{
+					mostrarArchivo ("data/00-ST-ParranderosJDO.pdf");
+				}
+
+				/**
+				 * Muestra el modelo conceptual de Parranderos
+				 */
+				public void mostrarModeloConceptual ()
+				{
+					mostrarArchivo ("data/Modelo Conceptual Parranderos.pdf");
+				}
+
+				/**
+				 * Muestra el esquema de la base de datos de Parranderos
+				 */
+				public void mostrarEsquemaBD ()
+				{
+					mostrarArchivo ("data/Esquema BD Parranderos.pdf");
+				}
+
+				/**
+				 * Muestra el script de creación de la base de datos
+				 */
+				public void mostrarScriptBD ()
+				{
+					mostrarArchivo ("data/EsquemaParranderos.sql");
+				}
+
+				/**
+				 * Muestra la arquitectura de referencia para Parranderos
+				 */
+				public void mostrarArqRef ()
+				{
+					mostrarArchivo ("data/ArquitecturaReferencia.pdf");
+				}
+
+				/**
+				 * Muestra la documentación Javadoc del proyectp
+				 */
+				public void mostrarJavadoc ()
+				{
+					mostrarArchivo ("doc/index.html");
+				}
+
+				/**
+				 * Muestra la información acerca del desarrollo de esta apicación
+				 */
+				public void acercaDe ()
+				{
+					String resultado = "\n\n ************************************\n\n";
+					resultado += " * Universidad	de	los	Andes	(Bogotá	- Colombia)\n";
+					resultado += " * Departamento	de	Ingeniería	de	Sistemas	y	Computación\n";
+					resultado += " * Licenciado	bajo	el	esquema	Academic Free License versión 2.1\n";
+					resultado += " * \n";		
+					resultado += " * Curso: isis2304 - Sistemas Transaccionales\n";
+					resultado += " * Proyecto: Parranderos Uniandes\n";
+					resultado += " * @version 1.0\n";
+					resultado += " * @author Germán Bravo\n";
+					resultado += " * Julio de 2018\n";
+					resultado += " * \n";
+					resultado += " * Revisado por: Claudia Jiménez, Christian Ariza\n";
+					resultado += "\n ************************************\n\n";
+
+					panelDatos.actualizarInterfaz(resultado);		
+				}
+
+
+				/* ****************************************************************
+				 * 			Métodos privados para la presentación de resultados y otras operaciones
+				 *****************************************************************/
+
+				/**
+				 * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
+				 * @param lista - La lista con los tipos de bebida
+				 * @return La cadena con una líea para cada tipo de bebida recibido
+				 */
+				private String listarServicios(List<VOServicioSalud> lista) 
+				{
+					String resp = "Los servicios existentes son:\n";
+					int i = 1;
+					for (VOServicioSalud tb : lista)
+					{
+						resp += i++ + ". " + tb.toString() + "\n";
+					}
+					return resp;
+				}
+
+				/**
+				 * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
+				 * @param lista - La lista con los tipos de bebida
+				 * @return La cadena con una líea para cada tipo de bebida recibido
+				 */
+				private String listarTiposBebida(List<VOTipoBebida> lista) 
+				{
+					String resp = "Los tipos de bebida existentes son:\n";
+					int i = 1;
+					for (VOTipoBebida tb : lista)
+					{
+						resp += i++ + ". " + tb.toString() + "\n";
+					}
+					return resp;
+				}
+
+
+				/**
+				 * Genera una cadena de caracteres con la descripción de la excepcion e, haciendo énfasis en las excepcionsde JDO
+				 * @param e - La excepción recibida
+				 * @return La descripción de la excepción, cuando es javax.jdo.JDODataStoreException, "" de lo contrario
+				 */
+				private String darDetalleException(Exception e) 
+				{
+					String resp = "";
+					if (e.getClass().getName().equals("javax.jdo.JDODataStoreException"))
+					{
+						JDODataStoreException je = (javax.jdo.JDODataStoreException) e;
+						return je.getNestedExceptions() [0].getMessage();
+					}
+					return resp;
+				}
+
+				/**
+				 * Genera una cadena para indicar al usuario que hubo un error en la aplicación
+				 * @param e - La excepción generada
+				 * @return La cadena con la información de la excepción y detalles adicionales
+				 */
+				private String generarMensajeError(Exception e) 
+				{
+					String resultado = "************ Error en la ejecución\n";
+					resultado += e.getLocalizedMessage() + ", " + darDetalleException(e);
+					resultado += "\n\nRevise datanucleus.log y parranderos.log para más detalles";
+					return resultado;
+				}
+
+				/**
+				 * Limpia el contenido de un archivo dado su nombre
+				 * @param nombreArchivo - El nombre del archivo que se quiere borrar
+				 * @return true si se pudo limpiar
+				 */
+				private boolean limpiarArchivo(String nombreArchivo) 
+				{
+					BufferedWriter bw;
+					try 
+					{
+						bw = new BufferedWriter(new FileWriter(new File (nombreArchivo)));
+						bw.write ("");
+						bw.close ();
+						return true;
+					} 
+					catch (IOException e) 
+					{
+						//			e.printStackTrace();
+						return false;
+					}
+				}
+
+				/**
+				 * Abre el archivo dado como parámetro con la aplicación por defecto del sistema
+				 * @param nombreArchivo - El nombre del archivo que se quiere mostrar
+				 */
+				private void mostrarArchivo (String nombreArchivo)
+				{
+					try
+					{
+						Desktop.getDesktop().open(new File(nombreArchivo));
+					}
+					catch (IOException e)
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+				/* ****************************************************************
+				 * 			Métodos de la Interacción
+				 *****************************************************************/
+				/**
+				 * Método para la ejecución de los eventos que enlazan el menú con los métodos de negocio
+				 * Invoca al método correspondiente según el evento recibido
+				 * @param pEvento - El evento del usuario
+				 */
+				@Override
+				public void actionPerformed(ActionEvent pEvento)
+				{
+					String evento = pEvento.getActionCommand( );		
+					try 
+					{
+						Method req = InterfazParranderosApp.class.getMethod ( evento );			
+						req.invoke ( this );
+					} 
+					catch (Exception e) 
+					{
+						e.printStackTrace();
+					} 
+				}
+
+				/* ****************************************************************
+				 * 			Programa principal
+				 *****************************************************************/
+				/**
+				 * Este método ejecuta la aplicación, creando una nueva interfaz
+				 * @param args Arreglo de argumentos que se recibe por línea de comandos
+				 */
+				public static void main( String[] args )
+				{
+					try
+					{
+
+						// Unifica la interfaz para Mac y para Windows.
+						UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName( ) );
+						InterfazParranderosApp interfaz = new InterfazParranderosApp( );
+						interfaz.setVisible( true );
+					}
+					catch( Exception e )
+					{
+						e.printStackTrace( );
 					}
 				}
 			}
-			else{
-				if(hayCapacidadHorario(idHorario)){
-
-					cumple = true;
-
-				}
-			}
-
-			if(cumple){
-
-				disminuirCapacidadHorario(idHorario);
-				VOReservas r = parranderos.adicionarReserva(idAfiliadoTomador, idAfiliadoReservador, idHorario, estado );
-
-				if (r == null)
-				{
-					aumentarCapacidadHorario(idHorario);
-					throw new Exception ("No se pudo realizar la reserva: " + r
-							+".\nidAfiliadoReservador: "+strIdReservador
-							+".\nidAfiliadoTomador: "+strIdTomador
-							+".\nidServicioSalud: "+strIdServicio
-							+".\nestado: "+estado
-							);
-				}
-				String resultado = "En adicionReserva\n\n";
-				resultado += "Reserva adicionada exitosamente: " + r;
-				resultado += "\n Operación terminada";
-				panelDatos.actualizarInterfaz(resultado);
-			}
-
-
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
-		} 
-		catch (Exception e) 
-		{
-			//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
-
-	public void adicionarReservaDialog() {
-
-		// Definiendo elementos necesarios para la construccion del panel
-
-		JPanel panel;
-		JTextField reservadorField = new JTextField();
-		JTextField tomadorField = new JTextField();
-		JTextField servicioField = new JTextField();
-
-		JTextField horarioField = new JTextField();
-		JTextField estadoField = new JTextField();
-		panel = new JPanel();
-
-		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
-		panel.setLayout(new GridLayout(0, 2, 2, 2));
-
-		// Aca creo dos variable 
-		String reservadorReserva;
-		String tomadorReserva;
-		String servicioReserva;
-
-		String horarioReserva;
-		String estadoReserva;
-
-		// Aca pongo los dos labels de añadir el nombre del rol        
-		panel.add(new JLabel("id del Reservador?"));
-		panel.add(reservadorField); 
-
-		panel.add(new JLabel("id del Tomador?"));
-		panel.add(tomadorField); 
-
-		panel.add(new JLabel("id del Servicio?"));
-		panel.add(servicioField); 
-
-		panel.add(new JLabel("id del Horario?"));
-		panel.add(horarioField);
-
-		panel.add(new JLabel("Estado? (RESERVADO, ASISTENCIA o CANCELADO)"));
-		panel.add(estadoField);
-
-		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-
-		if (option == JOptionPane.YES_OPTION) {
-
-			// Aca saco el valor del rol
-			String reservadorInput = reservadorField.getText();
-			String tomadorInput = tomadorField.getText();
-			String servicioInput = servicioField.getText();
-
-			String horarioInput = horarioField.getText();
-			String estadoInput = estadoField.getText();
-			adicionarReserva(tomadorInput,reservadorInput, servicioInput,horarioInput,estadoInput);
-
-			try {
-
-				// Aqui obtengo el input del nombre del rol
-				reservadorReserva = reservadorInput;
-				tomadorReserva = tomadorInput;
-				servicioReserva = servicioInput;
-				horarioReserva = horarioInput;
-				estadoReserva = estadoInput;
-
-
-				panel = new JPanel();
-				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-
-				panel.add(new JLabel("id del Reservador: " + reservadorReserva ));
-
-
-			} catch (NumberFormatException nfe) {
-				nfe.printStackTrace();
-			}
-			JOptionPane.showMessageDialog(frame, panel);
-		}
-	}
-
-
-	/* ****************************************************************
-	 * 			 CRUD de Horario
-	 *****************************************************************/
-
-
-	public void adicionarHorario( )
-
-	{
-
-		try 
-		{
-			String lngIdServicio = JOptionPane.showInputDialog (this, "ID del servicio?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
-			String intCapacidad = JOptionPane.showInputDialog (this, "Capacidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-
-			String timeFecha = JOptionPane.showInputDialog (this, "Fecha?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-			String hora = JOptionPane.showInputDialog (this, "Hora?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);
-			String intDisponibilidad = JOptionPane.showInputDialog (this, "Disponibilidad?", "adicionarHorario", JOptionPane.QUESTION_MESSAGE);	
-
-
-
-
-			int capacidad = Integer.valueOf(intCapacidad);
-			long idServicio = Long.valueOf(lngIdServicio);
-			Timestamp fecha = Timestamp.valueOf(timeFecha);
-			int disponibilidad = Integer.valueOf(intDisponibilidad);
-
-			if (idServicio != 0)
-			{
-				VOHorario tb = parranderos.adicionarHorario(idServicio, hora, disponibilidad, capacidad, fecha);
-				if (tb == null)
-				{
-					throw new Exception ("No se pudo crear el horario: " + tb+ "con capacidad "+capacidad + " y servicio "+idServicio);
-				}
-				String resultado = "En adicionHorario\n\n";
-				resultado += "Horario adicionado exitosamente: " + tb;
-				resultado += "\n Operación terminada";
-				panelDatos.actualizarInterfaz(resultado);
-			}
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
-		} 
-		catch (Exception e) 
-		{
-			//  			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
-
-
-
-
-
-
-
-
-
-
-	/* ****************************************************************
-	 * 			CRUD de TipoBebida
-	 *****************************************************************/
-	/**
-	 * Adiciona un tipo de bebida con la información dada por el usuario
-	 * Se crea una nueva tupla de tipoBebida en la base de datos, si un tipo de bebida con ese nombre no existía
-	 */
-	public void adicionarTipoBebida( )
-	{
-		try 
-		{
-			String nombreTipo = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Adicionar tipo de bebida", JOptionPane.QUESTION_MESSAGE);
-			if (nombreTipo != null)
-			{
-				VOTipoBebida tb = parranderos.adicionarTipoBebida (nombreTipo);
-				if (tb == null)
-				{
-					throw new Exception ("No se pudo crear un tipo de bebida con nombre: " + nombreTipo);
-				}
-				String resultado = "En adicionarTipoBebida\n\n";
-				resultado += "Tipo de bebida adicionado exitosamente: " + tb;
-				resultado += "\n Operación terminada";
-				panelDatos.actualizarInterfaz(resultado);
-			}
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
-		} 
-		catch (Exception e) 
-		{
-			//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
-
-	/**
-	 * Consulta en la base de datos los tipos de bebida existentes y los muestra en el panel de datos de la aplicación
-	 */
-	public void listarTipoBebida( )
-	{
-		try 
-		{
-			List <VOTipoBebida> lista = parranderos.darVOTiposBebida();
-
-			String resultado = "En listarTipoBebida";
-			resultado +=  "\n" + listarTiposBebida (lista);
-			panelDatos.actualizarInterfaz(resultado);
-			resultado += "\n Operación terminada";
-		} 
-		catch (Exception e) 
-		{
-			//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
-
-	/**
-	 * Borra de la base de datos el tipo de bebida con el identificador dado po el usuario
-	 * Cuando dicho tipo de bebida no existe, se indica que se borraron 0 registros de la base de datos
-	 */
-	public void eliminarTipoBebidaPorId( )
-	{
-		try 
-		{
-			String idTipoStr = JOptionPane.showInputDialog (this, "Id del tipo de bedida?", "Borrar tipo de bebida por Id", JOptionPane.QUESTION_MESSAGE);
-			if (idTipoStr != null)
-			{
-				long idTipo = Long.valueOf (idTipoStr);
-				long tbEliminados = parranderos.eliminarTipoBebidaPorId (idTipo);
-
-				String resultado = "En eliminar TipoBebida\n\n";
-				resultado += tbEliminados + " Tipos de bebida eliminados\n";
-				resultado += "\n Operación terminada";
-				panelDatos.actualizarInterfaz(resultado);
-			}
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
-		} 
-		catch (Exception e) 
-		{
-			//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
-
-	/**
-	 * Busca el tipo de bebida con el nombre indicado por el usuario y lo muestra en el panel de datos
-	 */
-	public void buscarTipoBebidaPorNombre( )
-	{
-		try 
-		{
-			String nombreTb = JOptionPane.showInputDialog (this, "Nombre del tipo de bedida?", "Buscar tipo de bebida por nombre", JOptionPane.QUESTION_MESSAGE);
-			if (nombreTb != null)
-			{
-				VOTipoBebida tipoBebida = parranderos.darTipoBebidaPorNombre (nombreTb);
-				String resultado = "En buscar Tipo Bebida por nombre\n\n";
-				if (tipoBebida != null)
-				{
-					resultado += "El tipo de bebida es: " + tipoBebida;
-				}
-				else
-				{
-					resultado += "Un tipo de bebida con nombre: " + nombreTb + " NO EXISTE\n";    				
-				}
-				resultado += "\n Operación terminada";
-				panelDatos.actualizarInterfaz(resultado);
-			}
-			else
-			{
-				panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
-			}
-		} 
-		catch (Exception e) 
-		{
-			//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
-
-
-	/* ****************************************************************
-	 * 			Métodos administrativos
-	 *****************************************************************/
-	/**
-	 * Muestra el log de Parranderos
-	 */
-	public void mostrarLogParranderos ()
-	{
-		mostrarArchivo ("parranderos.log");
-	}
-
-	/**
-	 * Muestra el log de datanucleus
-	 */
-	public void mostrarLogDatanuecleus ()
-	{
-		mostrarArchivo ("datanucleus.log");
-	}
-
-	/**
-	 * Limpia el contenido del log de parranderos
-	 * Muestra en el panel de datos la traza de la ejecución
-	 */
-	public void limpiarLogParranderos ()
-	{
-		// Ejecución de la operación y recolección de los resultados
-		boolean resp = limpiarArchivo ("parranderos.log");
-
-		// Generación de la cadena de caracteres con la traza de la ejecución de la demo
-		String resultado = "\n\n************ Limpiando el log de parranderos ************ \n";
-		resultado += "Archivo " + (resp ? "limpiado exitosamente" : "NO PUDO ser limpiado !!");
-		resultado += "\nLimpieza terminada";
-
-		panelDatos.actualizarInterfaz(resultado);
-	}
-
-	/**
-	 * Limpia el contenido del log de datanucleus
-	 * Muestra en el panel de datos la traza de la ejecución
-	 */
-	public void limpiarLogDatanucleus ()
-	{
-		// Ejecución de la operación y recolección de los resultados
-		boolean resp = limpiarArchivo ("datanucleus.log");
-
-		// Generación de la cadena de caracteres con la traza de la ejecución de la demo
-		String resultado = "\n\n************ Limpiando el log de datanucleus ************ \n";
-		resultado += "Archivo " + (resp ? "limpiado exitosamente" : "NO PUDO ser limpiado !!");
-		resultado += "\nLimpieza terminada";
-
-		panelDatos.actualizarInterfaz(resultado);
-	}
-
-	/**
-	 * Limpia todas las tuplas de todas las tablas de la base de datos de parranderos
-	 * Muestra en el panel de datos el número de tuplas eliminadas de cada tabla
-	 */
-	public void limpiarBD ()
-	{
-		try 
-		{
-			// Ejecución de la demo y recolección de los resultados
-			long eliminados [] = parranderos.limpiarParranderos();
-
-			// Generación de la cadena de caracteres con la traza de la ejecución de la demo
-			String resultado = "\n\n************ Limpiando la base de datos ************ \n";
-			resultado += eliminados [0] + " Gustan eliminados\n";
-			resultado += eliminados [1] + " Sirven eliminados\n";
-			resultado += eliminados [2] + " Visitan eliminados\n";
-			resultado += eliminados [3] + " Bebidas eliminadas\n";
-			resultado += eliminados [4] + " Tipos de bebida eliminados\n";
-			resultado += eliminados [5] + " Bebedores eliminados\n";
-			resultado += eliminados [6] + " Bares eliminados\n";
-			resultado += "\nLimpieza terminada";
-
-			panelDatos.actualizarInterfaz(resultado);
-		} 
-		catch (Exception e) 
-		{
-			//			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-		}
-	}
-
-	/**
-	 * Muestra la presentación general del proyecto
-	 */
-	public void mostrarPresentacionGeneral ()
-	{
-		mostrarArchivo ("data/00-ST-ParranderosJDO.pdf");
-	}
-
-	/**
-	 * Muestra el modelo conceptual de Parranderos
-	 */
-	public void mostrarModeloConceptual ()
-	{
-		mostrarArchivo ("data/Modelo Conceptual Parranderos.pdf");
-	}
-
-	/**
-	 * Muestra el esquema de la base de datos de Parranderos
-	 */
-	public void mostrarEsquemaBD ()
-	{
-		mostrarArchivo ("data/Esquema BD Parranderos.pdf");
-	}
-
-	/**
-	 * Muestra el script de creación de la base de datos
-	 */
-	public void mostrarScriptBD ()
-	{
-		mostrarArchivo ("data/EsquemaParranderos.sql");
-	}
-
-	/**
-	 * Muestra la arquitectura de referencia para Parranderos
-	 */
-	public void mostrarArqRef ()
-	{
-		mostrarArchivo ("data/ArquitecturaReferencia.pdf");
-	}
-
-	/**
-	 * Muestra la documentación Javadoc del proyectp
-	 */
-	public void mostrarJavadoc ()
-	{
-		mostrarArchivo ("doc/index.html");
-	}
-
-	/**
-	 * Muestra la información acerca del desarrollo de esta apicación
-	 */
-	public void acercaDe ()
-	{
-		String resultado = "\n\n ************************************\n\n";
-		resultado += " * Universidad	de	los	Andes	(Bogotá	- Colombia)\n";
-		resultado += " * Departamento	de	Ingeniería	de	Sistemas	y	Computación\n";
-		resultado += " * Licenciado	bajo	el	esquema	Academic Free License versión 2.1\n";
-		resultado += " * \n";		
-		resultado += " * Curso: isis2304 - Sistemas Transaccionales\n";
-		resultado += " * Proyecto: Parranderos Uniandes\n";
-		resultado += " * @version 1.0\n";
-		resultado += " * @author Germán Bravo\n";
-		resultado += " * Julio de 2018\n";
-		resultado += " * \n";
-		resultado += " * Revisado por: Claudia Jiménez, Christian Ariza\n";
-		resultado += "\n ************************************\n\n";
-
-		panelDatos.actualizarInterfaz(resultado);		
-	}
-
-
-	/* ****************************************************************
-	 * 			Métodos privados para la presentación de resultados y otras operaciones
-	 *****************************************************************/
-
-	/**
-	 * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
-	 * @param lista - La lista con los tipos de bebida
-	 * @return La cadena con una líea para cada tipo de bebida recibido
-	 */
-	private String listarServicios(List<VOServicioSalud> lista) 
-	{
-		String resp = "Los servicios existentes son:\n";
-		int i = 1;
-		for (VOServicioSalud tb : lista)
-		{
-			resp += i++ + ". " + tb.toString() + "\n";
-		}
-		return resp;
-	}
-
-	/**
-	 * Genera una cadena de caracteres con la lista de los tipos de bebida recibida: una línea por cada tipo de bebida
-	 * @param lista - La lista con los tipos de bebida
-	 * @return La cadena con una líea para cada tipo de bebida recibido
-	 */
-	private String listarTiposBebida(List<VOTipoBebida> lista) 
-	{
-		String resp = "Los tipos de bebida existentes son:\n";
-		int i = 1;
-		for (VOTipoBebida tb : lista)
-		{
-			resp += i++ + ". " + tb.toString() + "\n";
-		}
-		return resp;
-	}
-
-
-	/**
-	 * Genera una cadena de caracteres con la descripción de la excepcion e, haciendo énfasis en las excepcionsde JDO
-	 * @param e - La excepción recibida
-	 * @return La descripción de la excepción, cuando es javax.jdo.JDODataStoreException, "" de lo contrario
-	 */
-	private String darDetalleException(Exception e) 
-	{
-		String resp = "";
-		if (e.getClass().getName().equals("javax.jdo.JDODataStoreException"))
-		{
-			JDODataStoreException je = (javax.jdo.JDODataStoreException) e;
-			return je.getNestedExceptions() [0].getMessage();
-		}
-		return resp;
-	}
-
-	/**
-	 * Genera una cadena para indicar al usuario que hubo un error en la aplicación
-	 * @param e - La excepción generada
-	 * @return La cadena con la información de la excepción y detalles adicionales
-	 */
-	private String generarMensajeError(Exception e) 
-	{
-		String resultado = "************ Error en la ejecución\n";
-		resultado += e.getLocalizedMessage() + ", " + darDetalleException(e);
-		resultado += "\n\nRevise datanucleus.log y parranderos.log para más detalles";
-		return resultado;
-	}
-
-	/**
-	 * Limpia el contenido de un archivo dado su nombre
-	 * @param nombreArchivo - El nombre del archivo que se quiere borrar
-	 * @return true si se pudo limpiar
-	 */
-	private boolean limpiarArchivo(String nombreArchivo) 
-	{
-		BufferedWriter bw;
-		try 
-		{
-			bw = new BufferedWriter(new FileWriter(new File (nombreArchivo)));
-			bw.write ("");
-			bw.close ();
-			return true;
-		} 
-		catch (IOException e) 
-		{
-			//			e.printStackTrace();
-			return false;
-		}
-	}
-
-	/**
-	 * Abre el archivo dado como parámetro con la aplicación por defecto del sistema
-	 * @param nombreArchivo - El nombre del archivo que se quiere mostrar
-	 */
-	private void mostrarArchivo (String nombreArchivo)
-	{
-		try
-		{
-			Desktop.getDesktop().open(new File(nombreArchivo));
-		}
-		catch (IOException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
-	/* ****************************************************************
-	 * 			Métodos de la Interacción
-	 *****************************************************************/
-	/**
-	 * Método para la ejecución de los eventos que enlazan el menú con los métodos de negocio
-	 * Invoca al método correspondiente según el evento recibido
-	 * @param pEvento - El evento del usuario
-	 */
-	@Override
-	public void actionPerformed(ActionEvent pEvento)
-	{
-		String evento = pEvento.getActionCommand( );		
-		try 
-		{
-			Method req = InterfazParranderosApp.class.getMethod ( evento );			
-			req.invoke ( this );
-		} 
-		catch (Exception e) 
-		{
-			e.printStackTrace();
-		} 
-	}
-
-	/* ****************************************************************
-	 * 			Programa principal
-	 *****************************************************************/
-	/**
-	 * Este método ejecuta la aplicación, creando una nueva interfaz
-	 * @param args Arreglo de argumentos que se recibe por línea de comandos
-	 */
-	public static void main( String[] args )
-	{
-		try
-		{
-
-			// Unifica la interfaz para Mac y para Windows.
-			UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName( ) );
-			InterfazParranderosApp interfaz = new InterfazParranderosApp( );
-			interfaz.setVisible( true );
-		}
-		catch( Exception e )
-		{
-			e.printStackTrace( );
-		}
-	}
-}

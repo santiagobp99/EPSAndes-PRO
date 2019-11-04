@@ -272,10 +272,11 @@ public class Parranderos
 		
 	}
 	
+
 	public List<RFC1> RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
 		
 		return pp.RFC1CantidadServiciosIPS(fecha1, fecha2);
-		
+
 	}
 	
 	public List<RFC2> RFC2Mostrar20ServiciosMasSolicitados(Timestamp fecha1, Timestamp fecha2) {

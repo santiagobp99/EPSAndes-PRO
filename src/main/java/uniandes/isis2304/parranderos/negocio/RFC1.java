@@ -29,6 +29,8 @@ public class RFC1 {
 	public void setNumero(BigDecimal numero) {
 		this.numero = numero;
 	}
+
+
 	
 	
 }

@@ -7,7 +7,6 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
-import oracle.net.aso.p;
 import uniandes.isis2304.parranderos.negocio.Horario; 
 
 
@@ -68,7 +67,14 @@ public SQLHorario(PersistenciaParranderos pPersistenciaParranderos) {
 	
 	public List darHorarioServicioFecha (PersistenceManager pm, Timestamp fechaInicio,Timestamp fechaFin,String tipoServicio) 
 	{
-		Query q = pm.newQuery(SQL,"SELECT h.id,h.idservicio,(h.capacidad-3)capacidad,h.fecha,h.hora,h.disponibilidad FROM " + persistenciaEPS.darTablaHorario()+ " H INNER JOIN " +persistenciaEPS.darTablaServicioSalud()+ " S ON H.idservicio = S.id WHERE (H.FECHA >= ? AND H.FECHA <= ?) AND TIPO =UPPER(?) AND DISPONIBILIDAD = 1 order by h.fecha,h.hora,h.idservicio");
+		Query q = pm.newQuery(SQL,"SELECT H.ID,h.idservicio "+
+				" FROM " +persistenciaEPS.darTablaHorario()+ " H"+
+				" INNER JOIN " +persistenciaEPS.darTablaServicioSalud() +" S"+
+				" ON H.idservicio = S.id"+
+				" WHERE (H.FECHA >=? AND H.FECHA <=?) AND TIPO =UPPER(?) AND DISPONIBILIDAD = 1 AND CAPACIDAD >3"+ 
+				" order by h.fecha,h.hora,h.idservicio"
+				);
+
 		q.setResultClass(Horario.class);
 		q.setParameters(fechaInicio,fechaFin,tipoServicio);
 		return (List<Horario>) q.executeList();

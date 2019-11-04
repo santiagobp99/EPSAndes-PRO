@@ -1363,17 +1363,22 @@ public class PersistenciaParranderos
 		return idsServiciosHabilitados;
 	}
 
+
 	public List<RFC1> RFC1CantidadServiciosIPS(Timestamp fecha1, Timestamp fecha2) {
 
+	
 		return sqlEpsAndes.RFC1(pmf.getPersistenceManager(), fecha1, fecha2);
+
 
 	}
 	
+
 	public List<RFC2> RFC2Mostrar20ServiciosMasSolicitados(Timestamp fecha1, Timestamp fecha2) {
 		
 		return sqlEpsAndes.RFC2(pmf.getPersistenceManager(), fecha1, fecha2);
 		
 	}
+
 
 	/* ****************************************************************
 	 * 				 ORDEN
