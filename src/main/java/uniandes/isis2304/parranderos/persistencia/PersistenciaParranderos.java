@@ -1378,6 +1378,10 @@ public class PersistenciaParranderos
 		return sqlEpsAndes.RFC2(pmf.getPersistenceManager(), fecha1, fecha2);
 		
 	}
+	
+	public List<RFC2> RFC3IndiceDeServicios() {
+		return sqlEpsAndes.RFC3(pmf.getPersistenceManager());
+	}
 
 
 	/* ****************************************************************
@@ -2730,6 +2734,8 @@ public class PersistenciaParranderos
 		}
 
 	}
+
+
 
 	
 
