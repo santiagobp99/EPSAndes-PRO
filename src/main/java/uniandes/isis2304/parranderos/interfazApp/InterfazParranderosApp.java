@@ -29,6 +29,8 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.jdo.JDODataStoreException;
@@ -58,6 +60,7 @@ import uniandes.isis2304.parranderos.negocio.RFC1;
 import uniandes.isis2304.parranderos.negocio.RFC2;
 import uniandes.isis2304.parranderos.negocio.RFC4;
 import uniandes.isis2304.parranderos.negocio.RFC5;
+import uniandes.isis2304.parranderos.negocio.RFC7;
 import uniandes.isis2304.parranderos.negocio.VOEpsAndes;
 import uniandes.isis2304.parranderos.negocio.VOHorario;
 import uniandes.isis2304.parranderos.negocio.VOIps;
@@ -1984,7 +1987,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 			Timestamp fecha1 = Timestamp.valueOf(pFecha1);
 			Timestamp fecha2 = Timestamp.valueOf(pFecha2);
-
+ 
 
 			List <RFC2> lista = parranderos.RFC2Mostrar20ServiciosMasSolicitados(fecha1, fecha2);
 
@@ -2230,6 +2233,55 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 					nfe.printStackTrace();
 				}
 				JOptionPane.showMessageDialog(frame, panel);
+			}
+		}
+		
+		public void RFC7AfiliadosExigentes(){
+
+			try 
+			{
+				Date date= new Date();
+				 
+				long time = date.getTime();
+				 
+				Timestamp ts = new Timestamp(date.getTime());
+				
+				Timestamp fecha1 = ts;
+				
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(ts);
+				cal.add(Calendar.YEAR, 1);
+				ts = new Timestamp(cal.getTime().getTime());
+				
+				Timestamp fecha2 = ts;
+				
+
+				List <RFC7> lista = parranderos.RFC7AfiliadosExigentes(fecha1, fecha2);
+
+				System.out.println(lista.size());
+
+				String resultado = "En MostrarServicios";
+
+				String resp = "Lo obtenido es:\n";
+
+				int i = 1;
+
+				for (RFC7 tb : lista)
+				{
+					if(tb.getNumeroservicios().floatValue()>=3){
+					resp += i++ + ".ID: " + tb.getIdafiliadotomador() + " | Numero Servicios"+ tb.getNumeroservicios() + "\n";
+				}
+				}
+
+				resultado +=  "\n" + resp;
+				panelDatos.actualizarInterfaz(resultado);
+				resultado += "\n Operación terminada";
+			} 
+			catch (Exception e) 
+			{
+				//			e.printStackTrace();
+				String resultado = generarMensajeError(e);
+				panelDatos.actualizarInterfaz(resultado);
 			}
 		}
 

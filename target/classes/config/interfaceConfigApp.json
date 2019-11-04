@@ -141,7 +141,12 @@
 				{
 					"label": "RFC5 Servicios de un afiliado en rango de fechas",
 					"event": "RFC5ServiciosAfiliadoFechasDialog"
+				},
+				{
+					"label": "RFC7 Dar Afiliados exigentes",
+					"event": "RFC7AfiliadosExigentes"
 				}
+				
 			]
 		},
 		

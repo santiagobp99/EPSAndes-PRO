@@ -19,6 +19,7 @@ import uniandes.isis2304.parranderos.negocio.RFC1;
 import uniandes.isis2304.parranderos.negocio.RFC2;
 import uniandes.isis2304.parranderos.negocio.RFC4;
 import uniandes.isis2304.parranderos.negocio.RFC5;
+import uniandes.isis2304.parranderos.negocio.RFC7;
 
 public class SQLEpsAndes {
 
@@ -114,11 +115,11 @@ public class SQLEpsAndes {
 	}
 
 	public List<RFC5> RFC5(PersistenceManager pm, String pFecha1, String pFecha2, String idAfiliado) {
-		
+
 		Timestamp fecha1 = Timestamp.valueOf(pFecha1);
 		Timestamp fecha2 = Timestamp.valueOf(pFecha2);
 		long id = Long.valueOf(idAfiliado);		
-		
+
 		Query q = pm.newQuery(SQL, "SELECT COUNT(s.id) as numeroservicios FROM "+
 				persistenciaEPS.darTablaServicioSalud()+" s INNER JOIN "+ persistenciaEPS.darTablaHorario()+ 
 				" H ON s.id = h.idservicio  INNER JOIN RESERVAS R on r.idhorario = h.id" +
@@ -127,6 +128,17 @@ public class SQLEpsAndes {
 		q.setResultClass(RFC5.class);
 		q.setParameters(fecha1, fecha2, id);
 		return (List<RFC5>) q.executeList();
+	}
+
+	public List<RFC7> RFC7(PersistenceManager pm, Timestamp fecha1, Timestamp fecha2) {
+		Query q = pm.newQuery(SQL, "SELECT r.idafiliadotomador, COUNT(s.id) as numeroservicios, COUNT(DISTINCT h.idservicio) as diferentes FROM "+
+				persistenciaEPS.darTablaServicioSalud()+ " s INNER JOIN "+persistenciaEPS.darTablaHorario()+ " H ON s.id = h.idservicio  INNER JOIN "+
+				persistenciaEPS.darTablaReservas()+ " R on r.idhorario = h.id "+
+				" WHERE h.fecha > ? AND h.fecha < ? "+
+				"GROUP BY r.idafiliadotomador" );
+		q.setResultClass(RFC7.class);
+		q.setParameters(fecha1, fecha2);
+		return (List<RFC7>) q.executeList();
 	}
 
 
