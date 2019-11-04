@@ -54,6 +54,9 @@ import uniandes.isis2304.parranderos.negocio.Orden;
 import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.RFC1;
 import uniandes.isis2304.parranderos.negocio.RFC2;
+import uniandes.isis2304.parranderos.negocio.RFC4;
+import uniandes.isis2304.parranderos.negocio.RFC5;
+import uniandes.isis2304.parranderos.negocio.RFC7;
 import uniandes.isis2304.parranderos.negocio.RFC6;
 import uniandes.isis2304.parranderos.negocio.Recepcionista;
 import uniandes.isis2304.parranderos.negocio.Reservas;
@@ -1385,6 +1388,16 @@ public class PersistenciaParranderos
 	
 	public List<RFC2> RFC3IndiceDeServicios() {
 		return sqlEpsAndes.RFC3(pmf.getPersistenceManager());
+	}
+	
+	public List<RFC4> RFC4ServiciosAsistidos() {
+		return sqlEpsAndes.RFC4(pmf.getPersistenceManager());
+	}
+	public List<RFC5> RFC5ServiciosAfiliadoFechas(String fecha1, String fecha2, String idAfiliado) {
+		return sqlEpsAndes.RFC5(pmf.getPersistenceManager(), fecha1, fecha2, idAfiliado);
+	}
+	public List<RFC7> RFC7AfiliadosExigentes(Timestamp fecha1, Timestamp fecha2) {
+		return sqlEpsAndes.RFC7(pmf.getPersistenceManager(), fecha1, fecha2);
 	}
 	
 	public List darMayorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
@@ -2751,6 +2764,12 @@ public class PersistenciaParranderos
 		}
 
 	}
+
+	
+
+
+
+	
 
 
 

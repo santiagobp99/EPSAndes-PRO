@@ -287,6 +287,16 @@ public class Parranderos
 
 		return pp.RFC3IndiceDeServicios();
 	}
+	public List<RFC4> RFC4ServiciosAsistidos() {
+		return pp.RFC4ServiciosAsistidos();
+	}
+	public List<RFC5> RFC5ServiciosAfiliadoFechas(String fecha1, String fecha2, String idAfiliado) {
+		return pp.RFC5ServiciosAfiliadoFechas(fecha1, fecha2, idAfiliado);
+	}
+	public List<RFC7> RFC7AfiliadosExigentes(Timestamp fecha1, Timestamp fecha2) {
+		return pp.RFC7AfiliadosExigentes(fecha1, fecha2);
+	}
+
 	
 	public List darMayorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
 System.out.println("1");
@@ -1225,6 +1235,12 @@ System.out.println("1");
 		log.info ("Generando el VO Servicio");
 		return voOrden;
 	}
+
+	
+
+	
+
+	
 
 
 
