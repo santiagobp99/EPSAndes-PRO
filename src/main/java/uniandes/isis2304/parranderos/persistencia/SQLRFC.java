@@ -8,6 +8,7 @@ import javax.jdo.Query;
 
 import uniandes.isis2304.parranderos.negocio.RFC2;
 import uniandes.isis2304.parranderos.negocio.RFC6;
+import uniandes.isis2304.parranderos.negocio.RFC9;
 
 public class SQLRFC {
 	
@@ -45,9 +46,21 @@ public class SQLRFC {
 		q.setResultClass(RFC6.class);
 		q.setParameters(tipoServicio,fecha1, fecha2, cuantos);
 		return (List<RFC6>) q.executeList();
-		
-		
-		
+	}
+	
+	public List<RFC9> darPrestacionServicios(PersistenceManager pm, Timestamp fecha1, Timestamp fecha2, long idIps, String tipo){
+		Query q = pm.newQuery(SQL,    "SELECT U.NOMBRE, R.ESTADO "+
+			    " FROM " + persistenciaEPS.darTablaReservas() + " R "+
+			    " INNER JOIN " + persistenciaEPS.darTablaHorario() +" H "+
+			    " ON R.IDHORARIO = H.ID "+
+			    " INNER JOIN "+ persistenciaEPS.darTablaServicioSalud()+ " S "+
+			    " ON S.ID = H.IDSERVICIO "+ 
+			    " INNER JOIN "+ persistenciaEPS.darTablaUsuario() + " U " +
+			    " ON U.ID = R.IDAFILIADORESERVADOR "+
+			    " WHERE H.FECHA>=? AND H.FECHA>=? AND S.IDIPS=? AND S.TIPO=UPPER(?)");
+		q.setResultClass(RFC9.class);
+		q.setParameters(fecha1, fecha2, idIps,tipo);
+		return (List<RFC9>) q.executeList();
 	}
 
 

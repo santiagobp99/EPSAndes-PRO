@@ -57,6 +57,7 @@ import uniandes.isis2304.parranderos.negocio.RFC2;
 import uniandes.isis2304.parranderos.negocio.RFC4;
 import uniandes.isis2304.parranderos.negocio.RFC5;
 import uniandes.isis2304.parranderos.negocio.RFC7;
+import uniandes.isis2304.parranderos.negocio.RFC9;
 import uniandes.isis2304.parranderos.negocio.RFC6;
 import uniandes.isis2304.parranderos.negocio.Recepcionista;
 import uniandes.isis2304.parranderos.negocio.Reservas;
@@ -1411,6 +1412,10 @@ public class PersistenciaParranderos
 	
 	public List<RFC6> darMenorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
 		return sqlRFC.darMenorDemanda(pmf.getPersistenceManager(), tipoServicio, fecha1, fecha2, cuantos);
+	}
+	
+	public List<RFC9> darPrestacionServicios(Timestamp fecha1, Timestamp fecha2, long idIps, String tipo) {
+		return sqlRFC.darPrestacionServicios(pmf.getPersistenceManager(), fecha1, fecha2, idIps, tipo);
 	}
 
 

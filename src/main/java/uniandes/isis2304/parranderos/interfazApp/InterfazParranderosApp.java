@@ -61,6 +61,7 @@ import uniandes.isis2304.parranderos.negocio.RFC2;
 import uniandes.isis2304.parranderos.negocio.RFC4;
 import uniandes.isis2304.parranderos.negocio.RFC5;
 import uniandes.isis2304.parranderos.negocio.RFC7;
+import uniandes.isis2304.parranderos.negocio.RFC9;
 import uniandes.isis2304.parranderos.negocio.VOEpsAndes;
 import uniandes.isis2304.parranderos.negocio.VOHorario;
 import uniandes.isis2304.parranderos.negocio.VOIps;
@@ -2628,7 +2629,58 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 							}
 						}
 
+/////////////////////////////// 
+						//           rfc9
+////////////////////////////////////////////////
+						
+						public void RFC9AfiliadosExigentes(){
 
+							try 
+							{
+								Date date= new Date();
+								 
+								long time = date.getTime();
+								 
+								Timestamp ts = new Timestamp(date.getTime());
+								
+								Timestamp fecha1 = ts;
+								
+								Calendar cal = Calendar.getInstance();
+								cal.setTime(ts);
+								cal.add(Calendar.YEAR, 1);
+								ts = new Timestamp(cal.getTime().getTime());
+								
+								Timestamp fecha2 = ts;
+								
+
+								List <RFC9> lista = parranderos.RFC9darPrestacionServicios(fecha1, fecha2, 1, "RADIOGRAFIA");
+
+								System.out.println(lista.size());
+
+								String resultado = "En MostrarServicios";
+
+								String resp = "Lo obtenido es:\n";
+
+								int i = 1;
+
+								for (RFC9 tb : lista)
+								{
+									if(tb!=null){
+									resp += i++ + "nombre del afiliado: " + tb.getNombre() + "--- >" + " Numero Servicios"+ tb.getEstado() + "\n";
+								}
+								}
+
+								resultado +=  "\n" + resp;
+								panelDatos.actualizarInterfaz(resultado);
+								resultado += "\n Operación terminada";
+							} 
+							catch (Exception e) 
+							{
+								//			e.printStackTrace();
+								String resultado = generarMensajeError(e);
+								panelDatos.actualizarInterfaz(resultado);
+							}
+						}
 	/* ****************************************************************
 	 * 			 CRUD de Orden y OrdenesServicios
 	 *****************************************************************/

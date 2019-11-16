@@ -296,6 +296,9 @@ public class Parranderos
 	public List<RFC7> RFC7AfiliadosExigentes(Timestamp fecha1, Timestamp fecha2) {
 		return pp.RFC7AfiliadosExigentes(fecha1, fecha2);
 	}
+	public List<RFC9> RFC9darPrestacionServicios(Timestamp fecha1, Timestamp fecha2, long idIps, String tipo) {
+		return pp.darPrestacionServicios(fecha1, fecha2, idIps, tipo);
+	}
 
 	
 	public List darMayorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
