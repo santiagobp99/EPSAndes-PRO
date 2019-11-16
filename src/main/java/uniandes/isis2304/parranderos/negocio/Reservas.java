@@ -14,7 +14,7 @@ public class Reservas implements VOReservas{
 	/**
 	 * El identificador �NICO de los bares
 	 */
-	private Long idAfiliadoTomador;
+	private long idAfiliadoTomador;
 	
 	/**
 	 * El identificador �NICO de los bares
@@ -30,23 +30,29 @@ public class Reservas implements VOReservas{
 	 * El identificador �NICO de los bares
 	 */
 	private String estado;
+	
+	/**
+	 * El identificador �NICO de los bares
+	 */
+	private int hospitalizado;
 
 	public Reservas() {
-		
 		this.id = 0;
-		this.idAfiliadoTomador = null;
+		this.idAfiliadoTomador = 0;
 		this.idAfiliadoReservador = 0;
 		this.idHorario = 0;
 		this.estado = "";
+		this.hospitalizado = 0;
 	}
 
-	public Reservas(long id, Long idAfiliadoTomador, long idAfiliadoReservador, long idHorario, String estado) {
-		
+	public Reservas(long id, long idAfiliadoTomador, long idAfiliadoReservador, long idHorario, String estado,
+			int hospitalizado) {
 		this.id = id;
 		this.idAfiliadoTomador = idAfiliadoTomador;
 		this.idAfiliadoReservador = idAfiliadoReservador;
 		this.idHorario = idHorario;
 		this.estado = estado;
+		this.hospitalizado = hospitalizado;
 	}
 
 	public long getId() {
@@ -57,11 +63,11 @@ public class Reservas implements VOReservas{
 		this.id = id;
 	}
 
-	public Long getIdAfiliadoTomador() {
+	public long getIdAfiliadoTomador() {
 		return idAfiliadoTomador;
 	}
 
-	public void setIdAfiliadoTomador(Long idAfiliadoTomador) {
+	public void setIdAfiliadoTomador(long idAfiliadoTomador) {
 		this.idAfiliadoTomador = idAfiliadoTomador;
 	}
 
@@ -89,13 +95,24 @@ public class Reservas implements VOReservas{
 		this.estado = estado;
 	}
 
+	public int getHospitalizado() {
+		return hospitalizado;
+	}
+
+	public void setHospitalizado(int hospitalizado) {
+		this.hospitalizado = hospitalizado;
+	}
+
 	@Override
 	public String toString() {
 		return "Reservas [id=" + id + ", idAfiliadoTomador=" + idAfiliadoTomador + ", idAfiliadoReservador="
-				+ idAfiliadoReservador + ", idHorario=" + idHorario + ", estado=" + estado + "]";
+				+ idAfiliadoReservador + ", idHorario=" + idHorario + ", estado=" + estado + ", hospitalizado="
+				+ hospitalizado + "]";
 	}
-
-
+	
+	
+	
+	
 	
 	
 

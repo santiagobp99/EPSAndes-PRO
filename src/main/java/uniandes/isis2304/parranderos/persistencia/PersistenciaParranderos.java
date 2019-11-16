@@ -1100,7 +1100,7 @@ public class PersistenciaParranderos
 
 			log.trace ("Inserción de la OrdenServicios: " + id+"--"+ idAfiliadoTomador + ": " + tuplasInsertadas + " tuplas insertadas");
 
-			return new Reservas(id, idAfiliadoTomador, idAfiliadoReservador, idHorario, estado);
+			return new Reservas(id, idAfiliadoTomador, idAfiliadoReservador, idHorario, estado,0);
 		}
 		catch (Exception e)
 		{

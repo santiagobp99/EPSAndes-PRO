@@ -21,7 +21,7 @@ public class SQLReservas {
 
 	public long adicionarReserva (PersistenceManager pm, long id, Long idAfiliadoTomador,long idAfiliadoReservador, long idHorario, String estado) 
 	{
-		Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaReservas() + "(id, idafiliadoTomador, idafiliadoReservador,idHorario, estado) values (?, ?, ?, ?, ?)");
+		Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaReservas() + "(id, idafiliadoTomador, idafiliadoReservador,idHorario, estado,HOSPITALIZADO) values (?, ?, ?, ?, ?,0)");
 		q.setParameters(id, idAfiliadoTomador, idAfiliadoReservador,idHorario, estado);
 		return (long) q.executeUnique();
 	}

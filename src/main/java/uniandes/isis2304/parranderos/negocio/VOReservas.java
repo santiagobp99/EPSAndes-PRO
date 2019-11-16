@@ -10,7 +10,7 @@ public interface VOReservas {
 	/**
 	 * @return El nombre de nombre-tabla
 	 */
-	public Long getIdAfiliadoTomador() ;
+	public long getIdAfiliadoTomador() ;
 	
 	/**
 	 * @return El nombre de nombre-tabla
@@ -26,6 +26,11 @@ public interface VOReservas {
 	 * @return El nombre de nombre-tabla
 	 */
 	public String getEstado() ;
+	
+	/**
+	 * @return El nombre de nombre-tabla
+	 */
+	public int getHospitalizado() ;
 	
 	/**
 	 * @return Una cadena con la informaci�n b�sica de nombre-tabla
