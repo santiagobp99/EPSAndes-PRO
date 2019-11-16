@@ -159,10 +159,13 @@
 					"event": "RFC5ServiciosAfiliadoFechasDialog"
 				},
 				{
+					"label": "RFC9 dar Prestacion de servicios",
+					"event": "RFC9darPrestacionServiciosDialog"
+				},
+				{
 					"label": "RFC7 Dar Afiliados exigentes",
 					"event": "RFC7AfiliadosExigentes"
 				}
-				
 			]
 		},
 		
