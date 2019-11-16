@@ -1414,8 +1414,8 @@ public class PersistenciaParranderos
 		return sqlRFC.darMenorDemanda(pmf.getPersistenceManager(), tipoServicio, fecha1, fecha2, cuantos);
 	}
 	
-	public List<RFC9> darPrestacionServicios(Timestamp fecha1, Timestamp fecha2) {
-		return sqlRFC.darPrestacionServicios(pmf.getPersistenceManager(), fecha1, fecha2);
+	public List<RFC9> darPrestacionServicios(Timestamp fecha1, Timestamp fecha2,long idIps,String tipo) {
+		return sqlRFC.darPrestacionServicios(pmf.getPersistenceManager(), fecha1, fecha2, idIps,tipo);
 	}
 
 

@@ -48,7 +48,7 @@ public class SQLRFC {
 		return (List<RFC6>) q.executeList();
 	}
 	
-	public List<RFC9> darPrestacionServicios(PersistenceManager pm, Timestamp fecha1, Timestamp fecha2){
+	public List<RFC9> darPrestacionServicios(PersistenceManager pm, Timestamp fecha1, Timestamp fecha2,long idIps,String tipo){
 		Query q = pm.newQuery(SQL,    "SELECT U.NOMBRE, U.CORREO,A.FECHANACIMIENTO, A.TIPODOCUMENTO,A.NUMDOCUMENTO,A.HOSPITALIZADO, R.ESTADO,S.TIPO, S.IDIPS "+
 			    " FROM " + persistenciaEPS.darTablaReservas() + " R "+
 			    " INNER JOIN " + persistenciaEPS.darTablaHorario() +" H "+
@@ -59,9 +59,9 @@ public class SQLRFC {
 			    " ON U.ID = R.IDAFILIADORESERVADOR "+
 			    " INNER JOIN "+ persistenciaEPS.darTablaAfliado() + " A "+
 			    " ON U.ID = A.IDUSUARIO "+
-			    " WHERE H.FECHA>=? AND H.FECHA>=?");
+			    " WHERE H.FECHA>=? AND H.FECHA>=? AND S.IDIPS=? AND S.TIPO=UPPER(?)");
 		q.setResultClass(RFC9.class);
-		q.setParameters(fecha1, fecha2);
+		q.setParameters(fecha1, fecha2,idIps,tipo);
 		return (List<RFC9>) q.executeList();
 	}
 

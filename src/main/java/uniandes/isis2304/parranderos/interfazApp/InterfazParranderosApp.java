@@ -2633,16 +2633,17 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	//           rfc9
 	////////////////////////////////////////////////
 
-	public void RFC9darPrestacionServicios(String strFecha1, String strFecha2){
+	public void RFC9darPrestacionServicios(String strFecha1, String strFecha2, String strIdIps, String tipo){
 
 		List consulta = new ArrayList<>();
 
 		Timestamp fecha1 = Timestamp.valueOf(strFecha1);
 		Timestamp fecha2 = Timestamp.valueOf(strFecha2);
+		long idIps = Long.valueOf(strIdIps);
 
 		if (fecha1 != null && fecha2 != null){
 			System.out.println(fecha1);
-			consulta = parranderos.RFC9darPrestacionServicios(fecha1, fecha2);
+			consulta = parranderos.RFC9darPrestacionServicios(fecha1, fecha2, idIps, tipo);
 			System.out.println(consulta);
 			String resultado = "Servicio del id: \n\n";
 
@@ -2670,6 +2671,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		JTextField fecha1JtextField = new JTextField();
 		JTextField fecha2JtextField = new JTextField();
 
+		JTextField tipoJtextField = new JTextField();
+		JTextField idIpsJtextField = new JTextField();
+
 		panel = new JPanel();
 
 		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
@@ -2680,6 +2684,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		String fecha1string;
 		String fecha2string;
 
+		String servicio1string;
+
 
 		// Aca pongo los dos labels de añadir los datos requeridos
 
@@ -2688,6 +2694,12 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 		panel.add(new JLabel("Fecha Final"));
 		panel.add(fecha2JtextField); 
+
+		panel.add(new JLabel("tipo servicio 1:"));
+		panel.add(tipoJtextField); 
+
+		panel.add(new JLabel("id Ips:"));
+		panel.add(idIpsJtextField); 
 
 
 
@@ -2701,14 +2713,21 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String fecha1 = fecha1JtextField.getText() + " 00:00:00";
 			String fecha2 = fecha2JtextField.getText() + " 00:00:00";
 
+			String tipo = tipoJtextField.getText();
+			String idIps = idIpsJtextField.getText();
 
-			RFC9darPrestacionServicios(fecha1, fecha2);
+
+			RFC9darPrestacionServicios(fecha1, fecha2, idIps, tipo);
 
 			try {
 
 				// Aqui obtengo el input los valores
 				fecha1string = fecha1;
 				fecha2string = fecha2;
+
+				servicio1string = tipo;
+
+
 
 				panel = new JPanel();
 				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
