@@ -2741,6 +2741,110 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			JOptionPane.showMessageDialog(frame, panel);
 		}
 	}
+	
+	public void RFC11ConsultarFuncionamiento(){
+
+		List consultaServicios = new ArrayList<>();
+
+		List consultaIps = new ArrayList<>();
+
+		List consultaAfiliados = new ArrayList<>();
+
+
+		consultaServicios = parranderos.RFC11AConsultarFuncionamiento();
+		System.out.println(consultaServicios.size());
+		
+		consultaIps = parranderos.RFC11BConsultarFuncionamiento();
+		System.out.println(consultaIps.size());
+		
+		consultaAfiliados = parranderos.RFC11CConsultarFuncionamiento();
+		System.out.println(consultaAfiliados.size());
+
+		String resultado = "Servicios: \n\n";
+
+		for(int i = 0; i <consultaServicios.size(); i++){
+
+			resultado += consultaServicios.get(i)+"\n";
+
+		}
+		
+		resultado += "\nIps: \n\n";
+
+		for(int i = 0; i <consultaIps.size(); i++){
+
+			resultado += consultaIps.get(i)+"\n";
+
+		}
+		
+		resultado += "\nAfiliados: \n\n";
+		
+		for(int i = 0; i <consultaAfiliados.size(); i++){
+
+			resultado += consultaAfiliados.get(i)+"\n";
+
+		}
+
+		resultado += "\n Operación terminada";
+		panelDatos.actualizarInterfaz(resultado);
+
+
+
+	}
+
+
+	public void RFC12ConsultarAfiliadosCostosos(){
+
+		List consultaServicios = new ArrayList<>();
+
+		List consultaHospitalizacion = new ArrayList<>();
+
+		List consultaAsistencia = new ArrayList<>();
+
+
+		consultaServicios = parranderos.RFC12AConsultarAfiliadosCostosos();
+		System.out.println(consultaServicios.size());
+		
+		consultaHospitalizacion = parranderos.RFC12BConsultarAfiliadosCostosos();
+		System.out.println(consultaHospitalizacion.size());
+		
+		consultaAsistencia = parranderos.RFC12CConsultarAfiliadosCostosos();
+		System.out.println(consultaAsistencia.size());
+
+		String resultado = "Tipo 1: \n\n";
+
+		for(int i = 0; i <consultaServicios.size(); i++){
+
+			resultado += consultaServicios.get(i)+"\n";
+
+		}
+		
+		resultado += "Tipo 2: \n\n";
+
+		for(int i = 0; i <consultaHospitalizacion.size(); i++){
+
+			resultado += consultaHospitalizacion.get(i)+"\n";
+
+		}
+		
+		resultado += "Tipo 3: \n\n";
+		
+		for(int i = 0; i <consultaAsistencia.size(); i++){
+
+			resultado += consultaAsistencia.get(i)+"\n";
+
+		}
+
+		resultado += "\n Operación terminada";
+		panelDatos.actualizarInterfaz(resultado);
+
+
+
+	}
+
+
+
+
+
 	/* ****************************************************************
 	 * 			 CRUD de Orden y OrdenesServicios
 	 *****************************************************************/
@@ -2960,6 +3064,10 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			panelDatos.actualizarInterfaz(resultado);
 		}
 		return r;
+	}
+	
+	public void meterNReservas(){
+		
 	}
 
 	public void adicionarReservaDialog() {

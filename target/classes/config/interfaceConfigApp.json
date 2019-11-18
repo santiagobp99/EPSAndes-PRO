@@ -165,7 +165,20 @@
 				{
 					"label": "RFC7 Dar Afiliados exigentes",
 					"event": "RFC7AfiliadosExigentes"
+				},
+				{
+					"label": "RFC11 Consultar Funcionamiento",
+					"event": "RFC11ConsultarFuncionamiento"
+				},
+				{
+					"label": "RFC12 Dar Afiliados costosos",
+					"event": "RFC12ConsultarAfiliadosCostosos"
 				}
+				
+				
+				
+				
+				
 			]
 		},
 		

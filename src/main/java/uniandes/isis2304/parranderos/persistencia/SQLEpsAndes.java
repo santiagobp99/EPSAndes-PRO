@@ -1,6 +1,8 @@
 package uniandes.isis2304.parranderos.persistencia;
 
 import java.sql.Timestamp;
+
+
 import java.util.List;
 
 
@@ -16,6 +18,12 @@ import uniandes.isis2304.parranderos.negocio.Horario;
 import uniandes.isis2304.parranderos.negocio.Sirven;
 import uniandes.isis2304.parranderos.negocio.VOServicioSalud;
 import uniandes.isis2304.parranderos.negocio.RFC1;
+import uniandes.isis2304.parranderos.negocio.RFC11A;
+import uniandes.isis2304.parranderos.negocio.RFC12A;
+import uniandes.isis2304.parranderos.negocio.RFC12B;
+import uniandes.isis2304.parranderos.negocio.RFC12C;
+import uniandes.isis2304.parranderos.negocio.RFC11B;
+import uniandes.isis2304.parranderos.negocio.RFC11C;
 import uniandes.isis2304.parranderos.negocio.RFC2;
 import uniandes.isis2304.parranderos.negocio.RFC4;
 import uniandes.isis2304.parranderos.negocio.RFC5;
@@ -140,6 +148,81 @@ public class SQLEpsAndes {
 		q.setResultClass(RFC7.class);
 		q.setParameters(fecha1, fecha2);
 		return (List<RFC7>) q.executeList();
+	}
+
+	public List<RFC12A> RFC12A(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT  a.IDUSUARIO, a.NUMDOCUMENTO, a.FECHANACIMIENTO, a.TIPODOCUMENTO, " +
+				"sum(case when (s.TIPO not in ('INTERVENCION','CIRUGIA', " +
+				"'CIRUGIA_AMBULATORIA','DIALISIS','RADIOGRAFIA')) " +
+				"then 1 else 0 end) as ServiciosNormales  FROM "+
+				persistenciaEPS.darTablaAfliado()+" a INNER JOIN "+ persistenciaEPS.darTablaReservas()+
+				" r ON a.IDUSUARIO = r.IDAFILIADORESERVADOR "+
+				" INNER JOIN "+persistenciaEPS.darTablaHorario()+" h ON h.ID = r.IDHORARIO INNER JOIN "+
+				persistenciaEPS.darTablaServicioSalud()+" s ON s.ID = h.IDSERVICIO "+
+				" GROUP BY a.TIPODOCUMENTO, a.FECHANACIMIENTO, a.NUMDOCUMENTO, a.IDUSUARIO "+
+				"HAVING sum(case when (s.TIPO not in ('INTERVENCION','CIRUGIA', 'CIRUGIA_AMBULATORIA','DIALISIS',"+
+				"'RADIOGRAFIA')) "+
+				"then 1 else 0 end) = 0" );
+		q.setResultClass(RFC12A.class);
+		return (List<RFC12A>) q.executeList();
+	}
+
+	public List<RFC12B> RFC12B(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT a.IDUSUARIO, a.NUMDOCUMENTO, a.FECHANACIMIENTO, a.TIPODOCUMENTO, "+
+				"sum(case when (r.HOSPITALIZADO <> 0) "+
+				"then 1 else 0 end) as veceshospitalizado, sum(case when (r.estado = 'ASISTENCIA') "+
+				"then 1 else 0 end) as citasasistidas  FROM AFILIADO a INNER JOIN RESERVAS r ON a.IDUSUARIO "+
+				"= r.IDAFILIADORESERVADOR "+
+				"GROUP BY a.TIPODOCUMENTO, a.FECHANACIMIENTO, a.NUMDOCUMENTO, a.IDUSUARIO HAVING "+
+				"sum(case when (r.HOSPITALIZADO <> 0) "+
+				"then 1 else 0 end) > 0 AND sum(case when (r.HOSPITALIZADO <> 0) "+
+				"then 1 else 0 end) = sum(case when (r.estado = 'ASISTENCIA') "+
+				"then 1 else 0 end)" );
+		q.setResultClass(RFC12B.class);
+		return (List<RFC12B>) q.executeList();
+	}
+
+	public List<RFC12C> RFC12C(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT a.IDUSUARIO, a.NUMDOCUMENTO, a.FECHANACIMIENTO, "+
+				"a.TIPODOCUMENTO, COUNT(DISTINCT to_char(h.FECHA ,'MM')) as mesesasitidos FROM AFILIADO a "+
+				"INNER JOIN RESERVAS r ON a.IDUSUARIO = r.IDAFILIADORESERVADOR "+
+				"INNER JOIN HORARIO h ON h.ID = r.IDHORARIO "+
+				"GROUP BY a.IDUSUARIO, a.NUMDOCUMENTO, a.FECHANACIMIENTO, a.TIPODOCUMENTO "+
+				"HAVING COUNT(DISTINCT to_char(h.FECHA ,'MM'))>=12" );
+		q.setResultClass(RFC12C.class);
+		return (List<RFC12C>) q.executeList();
+	}
+
+	public List<RFC11A> RFC11A(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT to_char(h.FECHA ,'IYYY') as Año, to_char(h.FECHA ,'IW') "+
+				"as semana,  s.TIPO, COUNT( s.TIPO) as veces "+
+" FROM AFILIADO a INNER JOIN RESERVAS r ON a.IDUSUARIO = r.IDAFILIADORESERVADOR "+
+" INNER JOIN HORARIO h ON h.ID = r.IDHORARIO INNER JOIN SERVICIO_SALUD s ON s.ID = h.IDSERVICIO" +
+" GROUP BY to_char(h.FECHA ,'IYYY'), to_char(h.FECHA ,'IW'), s.TIPO "+
+" ORDER by semana ASC" );
+		q.setResultClass(RFC11A.class);
+		return (List<RFC11A>) q.executeList();
+	}
+	public List<RFC11B> RFC11B(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT to_char(h.FECHA ,'IYYY') as Año, to_char(h.FECHA ,'IW') as semana,  s.idips, COUNT( s.idips) as veces "+
+"FROM AFILIADO a INNER JOIN RESERVAS r ON a.IDUSUARIO = r.IDAFILIADORESERVADOR "+
+"INNER JOIN HORARIO h ON h.ID = r.IDHORARIO INNER JOIN SERVICIO_SALUD s ON s.ID = h.IDSERVICIO "+
+"GROUP BY to_char(h.FECHA ,'IYYY'), to_char(h.FECHA ,'IW'), s.idips "+
+"ORDER by semana ASC" );
+		q.setResultClass(RFC11B.class);
+		return (List<RFC11B>) q.executeList();
+	}
+	public List<RFC11C> RFC11C(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT to_char(h.FECHA ,'IYYY') as Año, to_char(h.FECHA ,'IW') as semana, r.idafiliadoreservador,count(r.idafiliadoreservador) as veces "+
+"FROM AFILIADO a "+
+"INNER JOIN RESERVAS r "+
+"ON a.IDUSUARIO = r.IDAFILIADORESERVADOR "+
+" INNER JOIN HORARIO h "+
+" ON h.ID = r.IDHORARIO "+
+" GROUP BY to_char(h.FECHA ,'IYYY'), to_char(h.FECHA ,'IW'), r.idafiliadoreservador "+
+" ORDER by semana ASC" );
+		q.setResultClass(RFC11C.class);
+		return (List<RFC11C>) q.executeList();
 	}
 
 

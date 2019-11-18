@@ -53,6 +53,12 @@ import uniandes.isis2304.parranderos.negocio.MedicoTratante;
 import uniandes.isis2304.parranderos.negocio.Orden;
 import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.RFC1;
+import uniandes.isis2304.parranderos.negocio.RFC11A;
+import uniandes.isis2304.parranderos.negocio.RFC11B;
+import uniandes.isis2304.parranderos.negocio.RFC11C;
+import uniandes.isis2304.parranderos.negocio.RFC12A;
+import uniandes.isis2304.parranderos.negocio.RFC12B;
+import uniandes.isis2304.parranderos.negocio.RFC12C;
 import uniandes.isis2304.parranderos.negocio.RFC2;
 import uniandes.isis2304.parranderos.negocio.RFC4;
 import uniandes.isis2304.parranderos.negocio.RFC5;
@@ -1399,6 +1405,29 @@ public class PersistenciaParranderos
 	}
 	public List<RFC7> RFC7AfiliadosExigentes(Timestamp fecha1, Timestamp fecha2) {
 		return sqlEpsAndes.RFC7(pmf.getPersistenceManager(), fecha1, fecha2);
+	}
+	
+	public List<RFC12A> RFC12AConsultarAfiliadosCostosos() {
+		return sqlEpsAndes.RFC12A(pmf.getPersistenceManager());
+	}
+	
+	public List<RFC12B> RFC12BConsultarAfiliadosCostosos() {
+		return sqlEpsAndes.RFC12B(pmf.getPersistenceManager());
+	}
+	
+	public List<RFC12C> RFC12CConsultarAfiliadosCostosos() {
+		return sqlEpsAndes.RFC12C(pmf.getPersistenceManager());
+	}
+	
+	public List<RFC11A> RFC11AConsultarFuncionamiento() {
+		return sqlEpsAndes.RFC11A(pmf.getPersistenceManager());
+	}
+	
+	public List<RFC11B> RFC11BConsultarFuncionamiento() {
+		return sqlEpsAndes.RFC11B(pmf.getPersistenceManager());
+	}
+	public List<RFC11C> RFC11CConsultarFuncionamiento() {
+		return sqlEpsAndes.RFC11C(pmf.getPersistenceManager());
 	}
 	
 	public List darMayorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
@@ -2769,6 +2798,12 @@ public class PersistenciaParranderos
 		}
 
 	}
+
+	
+
+
+
+	
 
 	
 

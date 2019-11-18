@@ -299,6 +299,32 @@ public class Parranderos
 	public List<RFC9> RFC9darPrestacionServicios(Timestamp fecha1, Timestamp fecha2,long idIps,String tipo) {
 		return pp.darPrestacionServicios(fecha1, fecha2,idIps,tipo);
 	}
+	
+	public List<RFC12A> RFC12AConsultarAfiliadosCostosos() {
+		return pp.RFC12AConsultarAfiliadosCostosos();
+	}
+	
+	public List<RFC12B> RFC12BConsultarAfiliadosCostosos() {
+		return pp.RFC12BConsultarAfiliadosCostosos();
+	
+	}
+	
+	public List<RFC12C> RFC12CConsultarAfiliadosCostosos() {
+		return pp.RFC12CConsultarAfiliadosCostosos();
+	}
+	
+	public List<RFC11A> RFC11AConsultarFuncionamiento() {
+		return pp.RFC11AConsultarFuncionamiento();
+	}
+	
+	public List<RFC11B> RFC11BConsultarFuncionamiento() {
+		return pp.RFC11BConsultarFuncionamiento();
+	}
+	public List<RFC11C> RFC11CConsultarFuncionamiento() {
+		return pp.RFC11CConsultarFuncionamiento();
+	}
+
+
 
 	
 	public List darMayorDemanda(String tipoServicio, Timestamp fecha1, Timestamp fecha2, int cuantos) {
@@ -1238,6 +1264,12 @@ System.out.println("1");
 		log.info ("Generando el VO Servicio");
 		return voOrden;
 	}
+
+	
+
+	
+
+
 
 	
 
