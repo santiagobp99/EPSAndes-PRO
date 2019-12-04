@@ -96,8 +96,6 @@ public class RFC9Test {
     		
     		long start = System.currentTimeMillis();
 
-    		
-    		
 			List <RFC9> listaA = parranderos.RFC9darPrestacionServicios(fecha1, fecha2, idIps, tipo);
 			
 			long end = System.currentTimeMillis();

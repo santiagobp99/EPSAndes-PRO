@@ -1849,3 +1849,18 @@ java.sql.SQLRecoverableException: Error de E/S: The Network Adapter could not es
 16:21:50,195 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
 16:21:50,196 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
 16:21:50,210 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:24:29,024 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+16:24:29,082 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+16:24:30,464 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+16:24:30,482 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+16:24:30,484 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+16:25:04,519 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+16:25:04,561 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+16:25:05,885 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+16:25:05,904 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+16:25:05,905 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+16:25:24,043 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:25:24,044 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:25:24,060 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
