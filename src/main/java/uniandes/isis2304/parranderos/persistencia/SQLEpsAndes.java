@@ -1,8 +1,9 @@
 package uniandes.isis2304.parranderos.persistencia;
 
 import java.sql.Timestamp;
-
-
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -160,11 +161,17 @@ public class SQLEpsAndes {
 				" INNER JOIN "+persistenciaEPS.darTablaHorario()+" h ON h.ID = r.IDHORARIO INNER JOIN "+
 				persistenciaEPS.darTablaServicioSalud()+" s ON s.ID = h.IDSERVICIO "+
 				" GROUP BY a.TIPODOCUMENTO, a.FECHANACIMIENTO, a.NUMDOCUMENTO, a.IDUSUARIO "+
-				"HAVING sum(case when (s.TIPO not in ('INTERVENCION','CIRUGIA', 'CIRUGIA_AMBULATORIA','DIALISIS',"+
-				"'RADIOGRAFIA')) "+
+				"HAVING sum(case when (s.TIPO not in ('INTERVENCION','CIRUGIA', 'CIRUGIA_AMBULATORIA','DIALISIS'"+
+				")) "+
 				"then 1 else 0 end) = 0" );
 		q.setResultClass(RFC12A.class);
-		return (List<RFC12A>) q.executeList();
+		List<RFC12A> arreglo = new ArrayList<RFC12A>();
+		long start = System.currentTimeMillis();
+		arreglo =  q.executeList();
+		long end = System.currentTimeMillis();
+		NumberFormat formatter = new DecimalFormat("#0.00000");
+		System.out.print("Execution time A is " + formatter.format((end - start) / 1000d) + " seconds");
+		return arreglo;
 	}
 
 	public List<RFC12B> RFC12B(PersistenceManager pm) {
@@ -179,7 +186,13 @@ public class SQLEpsAndes {
 				"then 1 else 0 end) = sum(case when (r.estado = 'ASISTENCIA') "+
 				"then 1 else 0 end)" );
 		q.setResultClass(RFC12B.class);
-		return (List<RFC12B>) q.executeList();
+		List<RFC12B> arreglo = new ArrayList<RFC12B>();
+		long start = System.currentTimeMillis();
+		arreglo =  q.executeList();
+		long end = System.currentTimeMillis();
+		NumberFormat formatter = new DecimalFormat("#0.00000");
+		System.out.print("Execution time 12B is " + formatter.format((end - start) / 1000d) + " seconds");
+		return arreglo;
 	}
 
 	public List<RFC12C> RFC12C(PersistenceManager pm) {
@@ -190,7 +203,13 @@ public class SQLEpsAndes {
 				"GROUP BY a.IDUSUARIO, a.NUMDOCUMENTO, a.FECHANACIMIENTO, a.TIPODOCUMENTO "+
 				"HAVING COUNT(DISTINCT to_char(h.FECHA ,'MM'))>=12" );
 		q.setResultClass(RFC12C.class);
-		return (List<RFC12C>) q.executeList();
+		List<RFC12C> arreglo = new ArrayList<RFC12C>();
+		long start = System.currentTimeMillis();
+		arreglo =  q.executeList();
+		long end = System.currentTimeMillis();
+		NumberFormat formatter = new DecimalFormat("#0.00000");
+		System.out.print("Execution time 12C is " + formatter.format((end - start) / 1000d) + " seconds");
+		return arreglo;
 	}
 
 	public List<RFC11A> RFC11A(PersistenceManager pm) {
@@ -201,7 +220,13 @@ public class SQLEpsAndes {
 " GROUP BY to_char(h.FECHA ,'IYYY'), to_char(h.FECHA ,'IW'), s.TIPO "+
 " ORDER by semana ASC" );
 		q.setResultClass(RFC11A.class);
-		return (List<RFC11A>) q.executeList();
+		List<RFC11A> arreglo = new ArrayList<RFC11A>();
+		long start = System.currentTimeMillis();
+		arreglo =  q.executeList();
+		long end = System.currentTimeMillis();
+		NumberFormat formatter = new DecimalFormat("#0.00000");
+		System.out.print("Execution time 11A is " + formatter.format((end - start) / 1000d) + " seconds");
+		return arreglo;
 	}
 	public List<RFC11B> RFC11B(PersistenceManager pm) {
 		Query q = pm.newQuery(SQL, "SELECT to_char(h.FECHA ,'IYYY') as Año, to_char(h.FECHA ,'IW') as semana,  s.idips, COUNT( s.idips) as veces "+
@@ -210,19 +235,43 @@ public class SQLEpsAndes {
 "GROUP BY to_char(h.FECHA ,'IYYY'), to_char(h.FECHA ,'IW'), s.idips "+
 "ORDER by semana ASC" );
 		q.setResultClass(RFC11B.class);
-		return (List<RFC11B>) q.executeList();
+		List<RFC11B> arreglo = new ArrayList<RFC11B>();
+		long start = System.currentTimeMillis();
+		arreglo =  q.executeList();
+		long end = System.currentTimeMillis();
+		NumberFormat formatter = new DecimalFormat("#0.00000");
+		System.out.print("Execution time 11B is " + formatter.format((end - start) / 1000d) + " seconds");
+		return arreglo;
 	}
 	public List<RFC11C> RFC11C(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT to_char(h.FECHA ,'IYYY') as Año, to_char(h.FECHA ,'IW') as semana, r.idafiliadoreservador,count(r.idafiliadoreservador) as veces "+
+		Query q = pm.newQuery(SQL, "WITH summary AS ("+
+    "SELECT b.anno, "+
+           "b.semana,"+ 
+           "b.idafiliado, "+
+           "b.veces,"+
+           "ROW_NUMBER() OVER(PARTITION BY b.semana "+
+           "ORDER BY b.veces DESC) AS rk "+
+      "FROM (SELECT to_char(h.FECHA ,'IYYY') as anno, to_char(h.FECHA ,'IW') "+
+      "as semana, r.idafiliadoreservador as idafiliado,count(r.idafiliadoreservador) as veces "+
 "FROM AFILIADO a "+
 "INNER JOIN RESERVAS r "+
 "ON a.IDUSUARIO = r.IDAFILIADORESERVADOR "+
-" INNER JOIN HORARIO h "+
-" ON h.ID = r.IDHORARIO "+
-" GROUP BY to_char(h.FECHA ,'IYYY'), to_char(h.FECHA ,'IW'), r.idafiliadoreservador "+
-" ORDER by semana ASC" );
+"INNER JOIN HORARIO h "+
+"ON h.ID = r.IDHORARIO "+
+"GROUP BY to_char(h.FECHA ,'IYYY'), to_char(h.FECHA ,'IW'), r.idafiliadoreservador "+
+"ORDER by semana ASC) b) "+
+"SELECT s.anno, s.semana, s.idafiliado, s.veces " +
+"FROM summary s "+
+"WHERE s.rk = 1" );
 		q.setResultClass(RFC11C.class);
-		return (List<RFC11C>) q.executeList();
+		List<RFC11C> arreglo = new ArrayList<RFC11C>();
+		long start = System.currentTimeMillis();
+		List aarreglo = (List) q.execute();
+		System.out.println(arreglo.size());
+		long end = System.currentTimeMillis();
+		NumberFormat formatter = new DecimalFormat("#0.00000");
+		System.out.print("Execution time 11C is " + formatter.format((end - start) / 1000d) + " seconds");
+		return aarreglo;
 	}
 
 

@@ -923,6 +923,7 @@ java.sql.SQLRecoverableException: Error de E/S: The Network Adapter could not es
 19:10:49,955 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
 
 19:10:49,961 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+<<<<<<< HEAD
 15:39:13,707 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
 15:39:13,758 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
 15:39:15,038 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
@@ -1007,3 +1008,770 @@ java.sql.SQLRecoverableException: Error de E/S: The Network Adapter could not es
 16:03:16,340 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
 
 16:03:16,341 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+=======
+19:13:04,565 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:13:04,623 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:13:08,453 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:13:08,460 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:13:08,467 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:13:13,128 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:13:13,186 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:13:16,834 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:13:16,841 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:13:16,847 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:13:28,603 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:13:28,665 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:13:32,365 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:13:32,371 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:13:32,377 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:13:36,206 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:13:36,296 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:13:40,568 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:13:40,575 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:13:40,582 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:13:43,801 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:13:43,890 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:13:47,741 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:13:47,748 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:13:47,754 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:13:55,293 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:13:55,366 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:13:58,871 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:13:58,879 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:13:58,884 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:14:07,900 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:14:07,957 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:14:11,633 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:14:11,640 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:14:11,645 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:14:14,990 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:14:15,085 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:14:19,098 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:14:19,104 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:14:19,111 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:14:22,778 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:14:22,870 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:14:26,840 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:14:26,848 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:14:26,854 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:14:29,810 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:14:29,901 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:14:33,842 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:14:33,849 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:14:33,857 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:14:40,950 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:14:41,007 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:14:44,726 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:14:44,733 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:14:44,739 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:16:45,836 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:16:45,927 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:16:50,528 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:16:50,537 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:16:50,544 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:17:02,343 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:17:02,405 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:17:05,847 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:17:05,855 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:17:05,861 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:17:08,966 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:17:09,055 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:17:12,850 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:17:12,856 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:17:12,862 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:17:15,447 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:17:15,538 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:17:21,091 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:17:21,101 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:17:21,108 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:17:24,963 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:17:25,055 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:17:28,983 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:17:28,990 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:17:28,998 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:17:35,664 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:17:35,742 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:17:39,273 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:17:39,280 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:17:39,287 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:17:45,565 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:17:45,651 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:17:49,002 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:17:49,011 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:17:49,018 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:17:57,168 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:17:57,223 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:18:01,554 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:18:01,562 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:18:01,568 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:18:07,812 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:18:07,868 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:18:11,436 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:18:11,443 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:18:11,449 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:18:18,140 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:18:18,199 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:18:22,004 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:18:22,007 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:18:22,009 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:18:29,096 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:18:29,192 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:18:33,472 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:18:33,482 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:18:33,489 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:19:16,274 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:19:16,333 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:19:19,858 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:19:19,941 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:19:20,473 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:19:20,476 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:19:20,479 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:19:23,522 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:19:23,529 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:19:23,536 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:19:36,228 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:19:36,301 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:19:41,132 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:19:41,140 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:19:41,147 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:19:45,559 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:19:45,614 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:19:49,351 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:19:49,360 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:19:49,367 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:19:53,041 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:19:53,131 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:19:59,452 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:19:59,460 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:19:59,466 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:20:03,552 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:20:03,631 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:20:07,492 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:20:07,501 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:20:07,508 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:20:09,635 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:20:09,723 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:20:13,528 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:20:13,537 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:20:13,542 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:20:14,556 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:20:14,619 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:20:18,281 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:20:18,287 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:20:18,294 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:20:20,793 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:20:20,871 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:20:24,854 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:20:24,860 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:20:24,864 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:20:28,916 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:20:29,005 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:20:32,870 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:20:32,875 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:20:32,879 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:20:36,375 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:20:36,464 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:20:40,568 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:20:40,574 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:20:40,579 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:20:43,596 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:20:43,684 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:20:47,451 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:20:47,460 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:20:47,465 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:20:58,900 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:20:58,977 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:21:02,488 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:21:02,495 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:21:02,501 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:24:16,081 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:24:16,171 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:24:20,320 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:24:20,328 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:24:20,334 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:24:29,792 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:24:29,848 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:24:35,278 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:24:35,288 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:24:35,295 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:24:39,234 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:24:39,325 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:24:43,025 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:24:43,032 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:24:43,039 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:24:46,353 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:24:46,450 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:24:50,528 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:24:50,535 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:24:50,542 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:24:53,351 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:24:53,444 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:24:57,416 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:24:57,424 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:24:57,431 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:25:00,270 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:25:00,355 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:25:04,059 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:25:04,065 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:25:04,071 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:25:07,250 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:25:07,334 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:25:11,198 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:25:11,208 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:25:11,215 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:25:13,600 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:25:13,692 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:25:18,541 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:25:18,550 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:25:18,557 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:25:21,063 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:25:21,158 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:25:25,046 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:25:25,057 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:25:25,068 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:25:32,052 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:25:32,108 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:25:35,546 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:25:35,552 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:25:35,559 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:26:03,171 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:26:03,235 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:26:08,517 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:26:08,524 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:26:08,531 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:26:11,129 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:26:11,184 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:26:15,673 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:26:15,682 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:26:15,690 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:26:25,018 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:26:25,108 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:26:29,115 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:26:29,122 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:26:29,129 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:26:31,087 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:26:31,177 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:26:35,479 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:26:35,487 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:26:35,493 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:26:38,271 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:26:38,379 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:26:42,053 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:26:42,060 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:26:42,066 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:26:48,233 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:26:48,292 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:26:51,985 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:26:51,992 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:26:51,998 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:26:59,743 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:26:59,800 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:27:03,435 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:27:03,443 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:27:03,449 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:27:10,964 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:27:11,025 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:27:15,117 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:27:15,124 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:27:15,130 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:27:18,321 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:27:18,409 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:27:22,172 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:27:22,179 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:27:22,186 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:27:24,838 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:27:24,929 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:27:28,780 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:27:28,785 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:27:28,790 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:27:34,454 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:27:34,509 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:27:37,868 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:27:37,874 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:27:37,881 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:29:05,085 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:29:05,150 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:29:08,923 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:29:08,930 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:29:08,936 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:29:26,739 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:29:26,829 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:29:31,225 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:29:31,233 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:29:31,239 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:29:45,662 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:29:45,744 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:29:49,367 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:29:49,376 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:29:49,384 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:29:53,268 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:29:53,358 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:29:57,757 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:29:57,769 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:29:57,775 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:30:04,641 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:30:04,698 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:30:08,882 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:30:08,889 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:30:08,896 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:30:14,467 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:30:14,531 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:30:18,818 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:30:18,826 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:30:18,833 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:30:25,438 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:30:25,525 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:30:30,582 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:30:30,589 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:30:30,595 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:30:34,809 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:30:34,901 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:30:39,114 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:30:39,122 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:30:39,128 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:30:44,992 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:30:45,047 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:30:49,866 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:30:49,874 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:30:49,881 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:30:57,006 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:30:57,082 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:31:01,335 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:31:01,343 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:31:01,350 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:31:21,218 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:31:21,320 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:31:25,921 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:31:25,929 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:31:25,936 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:31:29,467 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:31:29,625 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:31:33,596 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:31:33,604 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:31:33,610 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:31:38,095 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:31:38,186 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:31:42,838 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:31:42,846 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:31:42,853 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:31:45,500 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:31:45,597 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:31:49,356 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:31:49,361 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:31:49,368 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:31:53,481 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:31:53,565 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:31:57,256 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:31:57,263 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:31:57,270 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:32:00,645 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:32:00,736 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:32:04,550 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:32:04,558 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:32:04,564 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:32:08,253 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:32:08,340 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:32:12,177 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:32:12,186 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:32:12,192 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:32:14,372 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:32:14,445 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:32:18,408 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:32:18,418 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:32:18,425 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:32:20,307 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:32:20,400 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:32:24,160 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:32:24,165 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:32:24,170 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:32:29,572 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:32:29,667 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:32:33,795 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:32:33,802 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:32:33,808 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:32:37,799 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:32:37,887 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:32:41,752 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:32:41,760 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:32:41,766 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:34:52,748 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:34:52,832 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:34:56,623 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:34:56,631 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:34:56,638 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:34:58,475 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:34:58,540 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:35:02,639 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:35:02,645 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:35:02,651 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:36:59,850 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:36:59,912 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:37:04,597 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:37:04,604 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:37:04,611 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:37:08,694 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:37:08,784 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:37:12,862 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:37:12,870 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:37:12,875 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:37:20,610 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:37:20,707 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:37:24,759 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:37:24,766 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:37:24,771 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:37:30,965 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:37:31,020 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:37:35,200 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:37:35,209 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:37:35,215 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:37:43,567 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:37:43,659 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:37:47,495 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:37:47,502 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:37:47,509 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:37:50,700 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:37:50,788 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:37:54,327 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:37:54,334 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:37:54,341 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:37:58,071 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:37:58,167 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:38:02,012 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:38:02,020 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:38:02,027 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:38:06,023 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:38:06,119 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:38:10,067 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:38:10,075 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:38:10,082 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:38:17,476 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:38:17,531 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:38:20,994 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:38:21,002 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:38:21,009 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:38:24,195 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+19:38:24,279 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+19:38:28,367 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:38:28,375 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:38:28,382 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:38:42,600 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:38:42,682 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:38:46,479 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:38:46,484 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:38:46,488 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:38:56,985 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:38:57,039 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:39:01,525 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:39:01,532 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:39:01,539 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:39:03,729 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:39:03,820 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:39:07,902 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:39:07,909 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:39:07,915 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:39:14,570 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:39:14,636 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:39:18,552 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:39:18,561 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:39:18,567 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:39:23,782 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:39:23,849 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:39:27,229 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:39:27,235 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:39:27,241 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:39:33,456 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:39:33,541 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:39:37,396 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:39:37,403 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:39:37,409 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:39:45,276 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:39:45,365 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:39:49,038 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:39:49,045 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:39:49,051 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:39:54,576 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:39:54,633 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:39:58,294 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:39:58,301 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:39:58,308 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:40:04,832 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:40:04,918 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:40:09,081 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:40:09,088 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:40:09,095 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+19:40:12,168 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Probando las operaciones CRD sobre TipoBebida
+19:40:12,253 (main) INFO  [uniandes.isis2304.parranderos.test.ConsultarFuncionamientoTest] - Se encontró un archivo de configuración de tablas válido
+19:40:16,137 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+19:40:16,144 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+19:40:16,151 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+10:47:09,298 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+10:47:09,299 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+10:47:09,378 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:52:15,402 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+10:52:15,403 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+10:52:15,519 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:52:58,881 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+10:52:58,882 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+10:52:58,899 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:53:25,246 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+10:53:25,246 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+10:53:25,257 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+10:57:33,327 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+10:57:33,327 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+10:57:33,338 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:02:20,571 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:02:20,662 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:02:20,700 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:03:35,747 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:03:35,747 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:03:35,759 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:07:29,616 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:07:29,617 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:07:29,628 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:08:21,800 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:08:21,801 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:08:21,821 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:11:10,906 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:11:10,906 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:11:10,917 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:13:04,968 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:13:04,969 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:13:04,979 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:14:17,110 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:14:17,110 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:14:17,122 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:14:33,951 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:14:33,951 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:14:33,961 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:15:44,867 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:15:44,868 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:15:44,878 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:19:47,404 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:19:47,405 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:19:47,415 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:22:30,343 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:22:30,343 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:22:30,354 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:26:47,731 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:26:47,732 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:26:47,748 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:27:05,354 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:27:05,354 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:27:05,371 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:27:31,050 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:27:31,050 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:27:31,062 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:28:15,466 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:28:15,466 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:28:15,483 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:29:29,754 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:29:29,754 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:29:29,765 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:38:30,175 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:38:30,176 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:38:30,187 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:40:11,251 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:40:11,252 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:40:11,262 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:47:21,818 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:47:21,818 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:47:21,829 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:49:11,289 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:49:11,289 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:49:11,300 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:50:05,465 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:50:05,466 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:50:05,477 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:58:53,223 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+11:58:53,223 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+11:58:53,271 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:04:40,442 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:04:40,443 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:04:40,469 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:07:26,634 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:07:26,637 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:07:26,714 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:12:36,345 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:12:36,346 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:12:36,371 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:12:56,774 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:12:56,776 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:12:56,802 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:16:50,027 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:16:50,027 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:16:50,045 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:19:52,902 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:19:52,903 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:19:52,928 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:20:56,300 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:20:56,302 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:20:56,343 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:21:28,126 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:21:28,127 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:21:28,146 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:22:56,534 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:22:56,535 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:22:56,562 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:23:33,298 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:23:33,299 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:23:33,325 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:28:38,616 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:28:38,617 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:28:38,635 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:30:39,851 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:30:39,852 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:30:39,867 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:34:08,173 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:34:08,174 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:34:08,189 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:37:01,094 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:37:01,094 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:37:01,109 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:42:52,796 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:42:52,797 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:42:52,812 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:47:43,036 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:47:43,036 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:47:43,061 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:52:13,011 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:52:13,011 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:52:13,026 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:02:00,338 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:02:00,340 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:02:00,419 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:06:22,989 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:06:22,991 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:06:23,044 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:07:35,083 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:07:35,084 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:07:35,104 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:10:17,050 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+16:10:17,051 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+16:10:17,078 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:04:53,806 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+18:04:53,806 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+18:04:53,817 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:13:08,351 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+18:13:08,354 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+18:13:08,390 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:57:46,245 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+18:57:46,245 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+18:57:46,260 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:58:12,703 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+18:58:12,703 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+18:58:12,721 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+18:59:37,233 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+18:59:37,233 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+18:59:37,243 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:12:55,152 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+19:12:55,152 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+19:12:55,163 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:14:50,830 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+19:14:50,831 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+19:14:50,842 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:27:04,654 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:27:04,657 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:27:04,936 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+15:29:14,043 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Interfaz
+15:29:14,044 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se aplica configuración indicada en el archivo de configuración
+15:29:14,067 (main) INFO  [uniandes.isis2304.parranderos.interfazApp.InterfazParranderosApp] - Se encontró un archivo de configuración válido: Tablas BD
+>>>>>>> master2
