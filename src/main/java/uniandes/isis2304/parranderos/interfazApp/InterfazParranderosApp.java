@@ -2633,17 +2633,16 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	//           rfc9
 	////////////////////////////////////////////////
 
-	public void RFC9darPrestacionServicios(String strFecha1, String strFecha2, String strIdIps, String tipo){
+	public void RFC9darPrestacionServicios(String strFecha1, String strFecha2, String[] strIdIps, String[] tipo){
 
 		List consulta = new ArrayList<>();
 
 		Timestamp fecha1 = Timestamp.valueOf(strFecha1);
 		Timestamp fecha2 = Timestamp.valueOf(strFecha2);
-		long idIps = Long.valueOf(strIdIps);
 
 		if (fecha1 != null && fecha2 != null){
 			System.out.println(fecha1);
-			consulta = parranderos.RFC9darPrestacionServicios(fecha1, fecha2, idIps, tipo);
+			consulta = parranderos.RFC9darPrestacionServicios(fecha1, fecha2, strIdIps, tipo);
 			System.out.println(consulta);
 			String resultado = "Servicio del id: \n\n";
 
@@ -2716,8 +2715,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			String tipo = tipoJtextField.getText();
 			String idIps = idIpsJtextField.getText();
 
-
-			RFC9darPrestacionServicios(fecha1, fecha2, idIps, tipo);
+			String[] arreglo = {idIps};
+			String[] arreglo2 = {tipo};
+			RFC9darPrestacionServicios(fecha1, fecha2, arreglo, arreglo2);
 
 			try {
 
@@ -2741,7 +2741,123 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			JOptionPane.showMessageDialog(frame, panel);
 		}
 	}
-	
+	/////////////////////////////// 
+	//           RFC10
+	////////////////////////////////////////////////
+
+	public void RFC10darPrestacionNoServicios(String strFecha1, String strFecha2, String[] strIdIps, String[] tipo){
+
+		List consulta = new ArrayList<>();
+
+		Timestamp fecha1 = Timestamp.valueOf(strFecha1);
+		Timestamp fecha2 = Timestamp.valueOf(strFecha2);
+
+		if (fecha1 != null && fecha2 != null){
+			System.out.println(fecha1);
+			consulta = parranderos.RFC9darPrestacionServicios(fecha1, fecha2, strIdIps, tipo);
+			System.out.println(consulta);
+			String resultado = "Servicio del id: \n\n";
+
+			for(int i = 0; i <consulta.size(); i++){
+				System.out.println(consulta.get(i));
+				resultado += "Servicio del id: "+consulta.get(i)+"\n";
+
+			}
+
+			resultado += "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+
+		}
+		else
+		{
+			panelDatos.actualizarInterfaz("Operación cancelada por el usuario");
+		}
+	}
+
+	public void RFC10darPrestacionServiciosDialog() {
+
+		// Definiendo elementos necesarios para la construccion del panel
+
+		JPanel panel;
+		JTextField fecha1JtextField = new JTextField();
+		JTextField fecha2JtextField = new JTextField();
+
+		JTextField tipoJtextField = new JTextField();
+		JTextField idIpsJtextField = new JTextField();
+
+		panel = new JPanel();
+
+		// 0 filas/ 2columnas/ espacio de 2 entre filas/ espacio de 2 entre columnas
+		panel.setLayout(new GridLayout(0, 2, 2, 2));
+
+		// Aca creo las variables 
+
+		String fecha1string;
+		String fecha2string;
+
+		String servicio1string;
+
+
+		// Aca pongo los dos labels de añadir los datos requeridos
+
+		panel.add(new JLabel("Fecha inicial"));
+		panel.add(fecha1JtextField); 
+
+		panel.add(new JLabel("Fecha Final"));
+		panel.add(fecha2JtextField); 
+
+		panel.add(new JLabel("tipo servicio 1:"));
+		panel.add(tipoJtextField); 
+
+		panel.add(new JLabel("id Ips:"));
+		panel.add(idIpsJtextField); 
+
+
+
+
+		int option = JOptionPane.showConfirmDialog(frame, panel, "Please fill all the fields", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+		if (option == JOptionPane.YES_OPTION) {
+
+			// Aca saco los valores
+
+			String fecha1 = fecha1JtextField.getText() + " 00:00:00";
+			String fecha2 = fecha2JtextField.getText() + " 00:00:00";
+
+			String tipo = tipoJtextField.getText();
+			String idIps = idIpsJtextField.getText();
+
+			String[] arreglo = {idIps};
+			String[] arreglo2 = {tipo};
+			RFC10darPrestacionNoServicios(fecha1, fecha2, arreglo, arreglo2);
+
+			try {
+
+				// Aqui obtengo el input los valores
+				fecha1string = fecha1;
+				fecha2string = fecha2;
+
+				servicio1string = tipo;
+
+
+
+				panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+				panel.add(new JLabel("fecha1: " + fecha1string + " fecha2: " +fecha2string ));
+
+
+			} catch (NumberFormatException nfe) {
+				nfe.printStackTrace();
+			}
+			JOptionPane.showMessageDialog(frame, panel);
+		}
+	}
+
+	////////////////////////
+	//			RFC11
+	/////////////////////////
+
 	public void RFC11ConsultarFuncionamiento(){
 
 		List consultaServicios = new ArrayList<>();
@@ -2753,10 +2869,10 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 		consultaServicios = parranderos.RFC11AConsultarFuncionamiento();
 		System.out.println(consultaServicios.size());
-		
+
 		consultaIps = parranderos.RFC11BConsultarFuncionamiento();
 		System.out.println(consultaIps.size());
-		
+
 		consultaAfiliados = parranderos.RFC11CConsultarFuncionamiento();
 		System.out.println(consultaAfiliados.size());
 
@@ -2767,7 +2883,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			resultado += consultaServicios.get(i)+"\n";
 
 		}
-		
+
 		resultado += "\nIps: \n\n";
 
 		for(int i = 0; i <consultaIps.size(); i++){
@@ -2775,9 +2891,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			resultado += consultaIps.get(i)+"\n";
 
 		}
-		
+
 		resultado += "\nAfiliados: \n\n";
-		
+
 		for(int i = 0; i <consultaAfiliados.size(); i++){
 
 			resultado += consultaAfiliados.get(i)+"\n";
@@ -2803,10 +2919,10 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 		consultaServicios = parranderos.RFC12AConsultarAfiliadosCostosos();
 		System.out.println(consultaServicios.size());
-		
+
 		consultaHospitalizacion = parranderos.RFC12BConsultarAfiliadosCostosos();
 		System.out.println(consultaHospitalizacion.size());
-		
+
 		consultaAsistencia = parranderos.RFC12CConsultarAfiliadosCostosos();
 		System.out.println(consultaAsistencia.size());
 
@@ -2817,7 +2933,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			resultado += consultaServicios.get(i)+"\n";
 
 		}
-		
+
 		resultado += "Tipo 2: \n\n";
 
 		for(int i = 0; i <consultaHospitalizacion.size(); i++){
@@ -2825,9 +2941,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 			resultado += consultaHospitalizacion.get(i)+"\n";
 
 		}
-		
+
 		resultado += "Tipo 3: \n\n";
-		
+
 		for(int i = 0; i <consultaAsistencia.size(); i++){
 
 			resultado += consultaAsistencia.get(i)+"\n";
@@ -3065,9 +3181,9 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		}
 		return r;
 	}
-	
+
 	public void meterNReservas(){
-		
+
 	}
 
 	public void adicionarReservaDialog() {
