@@ -923,3 +923,87 @@ java.sql.SQLRecoverableException: Error de E/S: The Network Adapter could not es
 19:10:49,955 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
 
 19:10:49,961 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:39:13,707 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:39:13,758 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:39:15,038 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:39:15,057 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:39:15,058 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:41:41,648 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:41:41,701 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:41:43,082 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:41:43,101 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:41:43,103 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:43:41,556 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:43:41,599 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:43:42,877 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:43:42,896 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:43:42,897 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:45:01,561 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:45:01,609 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:45:02,943 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:45:02,964 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:45:02,965 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:45:53,313 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:45:53,352 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:45:54,684 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:45:54,703 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:45:54,705 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:50:49,522 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:50:49,560 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:50:50,845 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:50:50,864 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:50:50,866 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:51:52,197 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:51:52,245 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:51:53,566 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:51:53,584 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:51:53,586 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:55:40,009 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:55:40,056 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:55:41,381 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:55:41,399 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:55:41,401 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:55:54,659 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:55:54,711 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:55:56,031 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:55:56,050 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:55:56,052 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:56:06,064 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:56:06,110 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:56:07,374 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:56:07,393 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:56:07,394 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+15:56:32,921 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+15:56:32,969 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+15:56:34,347 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+15:56:34,366 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+15:56:34,367 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+16:01:00,133 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+16:01:00,187 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+16:01:01,463 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+16:01:01,482 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+16:01:01,483 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+16:01:16,812 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+16:01:16,860 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+16:01:18,769 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+16:01:18,788 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+16:01:18,789 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!
+16:03:14,976 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Probando las operaciones CRD sobre TipoBebida
+16:03:15,020 (main) INFO  [uniandes.isis2304.parranderos.test.AfiliadosCostososTest] - Se encontró un archivo de configuración de tablas válido
+16:03:16,321 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos
+16:03:16,340 (main) ERROR [uniandes.isis2304.parranderos.persistencia.PersistenciaParranderos] - Exception : Index: 500, Size: 32
+
+16:03:16,341 (main) INFO  [uniandes.isis2304.parranderos.negocio.Parranderos] - Limpiando la BD de Parranderos: Listo!

@@ -53,17 +53,13 @@ public class SQLRFC {
 		String ids = String.join(",",idIpssrray);
 		String tipos = "'"+String.join("','", tiporray)+"'";
 		
-		Query q = pm.newQuery(SQL,    "SELECT U.NOMBRE, U.CORREO,A.FECHANACIMIENTO, A.TIPODOCUMENTO,A.NUMDOCUMENTO,A.HOSPITALIZADO, R.ESTADO,S.TIPO, S.IDIPS "+
+		Query q = pm.newQuery(SQL,    "SELECT r.idafiliadoreservador, R.ESTADO,S.TIPO, S.IDIPS "+
 			    " FROM " + persistenciaEPS.darTablaReservas() + " R "+
 			    " INNER JOIN " + persistenciaEPS.darTablaHorario() +" H "+
 			    " ON R.IDHORARIO = H.ID "+
 			    " INNER JOIN "+ persistenciaEPS.darTablaServicioSalud()+ " S "+
-			    " ON S.ID = H.IDSERVICIO "+ 
-			    " INNER JOIN "+ persistenciaEPS.darTablaUsuario() + " U " +
-			    " ON U.ID = R.IDAFILIADORESERVADOR "+
-			    " INNER JOIN "+ persistenciaEPS.darTablaAfiliado() + " A "+
-			    " ON U.ID = A.IDUSUARIO "+
-			    " WHERE H.FECHA>=? AND H.FECHA<=? AND S.IDIPS in ("+ids+") AND S.TIPO in ("+tipos+")"
+			    " ON S.ID = H.IDSERVICIO "+
+			    " WHERE H.FECHA>=12/10/19 AND H.FECHA<=12/12/19 AND S.IDIPS in ("+ids+") AND S.TIPO in ("+tipos+")"
 				 );
 		
 		q.setResultClass(RFC9.class);
