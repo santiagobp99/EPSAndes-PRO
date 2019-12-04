@@ -4,28 +4,28 @@ import java.math.BigDecimal;
 
 public class RFC11C {
 	
-private String año;
+private String anno;
 	
 	private String semana;
 	
-	private BigDecimal idafiliadoreservador;
+	private BigDecimal idafiliado;
 	
 	private BigDecimal veces;
 
 	public RFC11C(String año, String semana, BigDecimal idafiliadoreservador, BigDecimal veces) {
 		super();
-		this.año = año;
+		this.anno = año;
 		this.semana = semana;
-		this.idafiliadoreservador = idafiliadoreservador;
+		this.idafiliado = idafiliadoreservador;
 		this.veces = veces;
 	}
 
 	public String getAño() {
-		return año;
+		return anno;
 	}
 
 	public void setAño(String año) {
-		this.año = año;
+		this.anno = año;
 	}
 
 	public String getSemana() {
@@ -37,11 +37,11 @@ private String año;
 	}
 
 	public BigDecimal getIdafiliadoreservador() {
-		return idafiliadoreservador;
+		return idafiliado;
 	}
 
 	public void setIdafiliadoreservador(BigDecimal idafiliadoreservador) {
-		this.idafiliadoreservador = idafiliadoreservador;
+		this.idafiliado = idafiliadoreservador;
 	}
 
 	public BigDecimal getVeces() {
@@ -54,7 +54,7 @@ private String año;
 
 	@Override
 	public String toString() {
-		return "Año=" + año + ", Aemana=" + semana + ", idAfiliado=" + idafiliadoreservador
+		return "Año=" + anno + ", Aemana=" + semana + ", idAfiliado=" + idafiliado
 				+ ", Veces=" + veces + "";
 	}
 	

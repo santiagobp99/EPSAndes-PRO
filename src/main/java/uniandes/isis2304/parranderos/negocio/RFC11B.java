@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 
 public class RFC11B {
 
-private String año;
+private String año = "";
 	
-	private String semana;
+	private String semana = "0";
 	
 	private BigDecimal idips;
 	

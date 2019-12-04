@@ -57,6 +57,12 @@ import com.google.gson.stream.JsonReader;
 import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.Parranderos;
 import uniandes.isis2304.parranderos.negocio.RFC1;
+import uniandes.isis2304.parranderos.negocio.RFC11A;
+import uniandes.isis2304.parranderos.negocio.RFC11B;
+import uniandes.isis2304.parranderos.negocio.RFC11C;
+import uniandes.isis2304.parranderos.negocio.RFC12A;
+import uniandes.isis2304.parranderos.negocio.RFC12B;
+import uniandes.isis2304.parranderos.negocio.RFC12C;
 import uniandes.isis2304.parranderos.negocio.RFC2;
 import uniandes.isis2304.parranderos.negocio.RFC4;
 import uniandes.isis2304.parranderos.negocio.RFC5;
@@ -2744,27 +2750,26 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 	
 	public void RFC11ConsultarFuncionamiento(){
 
-		List consultaServicios = new ArrayList<>();
+		List<RFC11A> consultaServicios =  new ArrayList<RFC11A>();
 
-		List consultaIps = new ArrayList<>();
+		List<RFC11B> consultaIps = new ArrayList<RFC11B>();
 
-		List consultaAfiliados = new ArrayList<>();
-
+		List<RFC11C> consultaAfiliados = new ArrayList<RFC11C>();
 
 		consultaServicios = parranderos.RFC11AConsultarFuncionamiento();
-		System.out.println(consultaServicios.size());
+		System.out.println("\ndatos obtenidos A: "+consultaServicios.size());
 		
 		consultaIps = parranderos.RFC11BConsultarFuncionamiento();
-		System.out.println(consultaIps.size());
+		System.out.println("\ndatos obtenidos B: "+consultaIps.size());
 		
 		consultaAfiliados = parranderos.RFC11CConsultarFuncionamiento();
-		System.out.println(consultaAfiliados.size());
+		System.out.println("\ndatos obtenidos C: "+consultaAfiliados.size());
 
 		String resultado = "Servicios: \n\n";
 
 		for(int i = 0; i <consultaServicios.size(); i++){
 
-			resultado += consultaServicios.get(i)+"\n";
+			resultado += consultaServicios.get(i).toString()+"\n";
 
 		}
 		
@@ -2772,7 +2777,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 		for(int i = 0; i <consultaIps.size(); i++){
 
-			resultado += consultaIps.get(i)+"\n";
+			resultado += consultaIps.get(i).toString()+"\n";
 
 		}
 		
@@ -2780,7 +2785,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		
 		for(int i = 0; i <consultaAfiliados.size(); i++){
 
-			resultado += consultaAfiliados.get(i)+"\n";
+			resultado += consultaAfiliados.get(i).toString()+"\n";
 
 		}
 
@@ -2794,27 +2799,27 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 	public void RFC12ConsultarAfiliadosCostosos(){
 
-		List consultaServicios = new ArrayList<>();
+		List<RFC12A> consultaServicios = new ArrayList<>();
 
-		List consultaHospitalizacion = new ArrayList<>();
+		List<RFC12B> consultaHospitalizacion = new ArrayList<>();
 
-		List consultaAsistencia = new ArrayList<>();
-
-
-		consultaServicios = parranderos.RFC12AConsultarAfiliadosCostosos();
-		System.out.println(consultaServicios.size());
+		List<RFC12C> consultaAsistencia = new ArrayList<>();
 		
 		consultaHospitalizacion = parranderos.RFC12BConsultarAfiliadosCostosos();
-		System.out.println(consultaHospitalizacion.size());
+		System.out.println("\ndatos obtenidos: "+consultaHospitalizacion.size());
 		
 		consultaAsistencia = parranderos.RFC12CConsultarAfiliadosCostosos();
-		System.out.println(consultaAsistencia.size());
+		System.out.println("\ndatos obtenidos: "+consultaAsistencia.size());
+		
+		consultaServicios = parranderos.RFC12AConsultarAfiliadosCostosos();
+		System.out.println("\ndatos obtenidos: "+consultaServicios.size());
 
 		String resultado = "Tipo 1: \n\n";
 
 		for(int i = 0; i <consultaServicios.size(); i++){
 
 			resultado += consultaServicios.get(i)+"\n";
+			
 
 		}
 		
@@ -2823,6 +2828,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		for(int i = 0; i <consultaHospitalizacion.size(); i++){
 
 			resultado += consultaHospitalizacion.get(i)+"\n";
+			
 
 		}
 		
@@ -2831,6 +2837,7 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 		for(int i = 0; i <consultaAsistencia.size(); i++){
 
 			resultado += consultaAsistencia.get(i)+"\n";
+			
 
 		}
 
