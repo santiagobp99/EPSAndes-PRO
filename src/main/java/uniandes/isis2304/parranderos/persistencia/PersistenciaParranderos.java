@@ -53,6 +53,7 @@ import uniandes.isis2304.parranderos.negocio.MedicoTratante;
 import uniandes.isis2304.parranderos.negocio.Orden;
 import uniandes.isis2304.parranderos.negocio.OrdenesServicios;
 import uniandes.isis2304.parranderos.negocio.RFC1;
+import uniandes.isis2304.parranderos.negocio.RFC10;
 import uniandes.isis2304.parranderos.negocio.RFC11A;
 import uniandes.isis2304.parranderos.negocio.RFC11B;
 import uniandes.isis2304.parranderos.negocio.RFC11C;
@@ -407,7 +408,7 @@ public class PersistenciaParranderos
 		return tablas.get (0);
 	}
 
-	public String darTablaAfliado (){
+	public String darTablaAfiliado (){
 		return tablas.get (1);
 	}
 
@@ -1443,8 +1444,12 @@ public class PersistenciaParranderos
 		return sqlRFC.darMenorDemanda(pmf.getPersistenceManager(), tipoServicio, fecha1, fecha2, cuantos);
 	}
 	
-	public List<RFC9> darPrestacionServicios(Timestamp fecha1, Timestamp fecha2,long idIps,String tipo) {
+	public List<RFC9> darPrestacionServicios(Timestamp fecha1, Timestamp fecha2,String[] idIps,String[] tipo) {
 		return sqlRFC.darPrestacionServicios(pmf.getPersistenceManager(), fecha1, fecha2, idIps,tipo);
+	}
+	
+	public List<RFC10> darPrestacionNoServicios(Timestamp fecha1, Timestamp fecha2,String[] idIps,String[] tipo) {
+		return sqlRFC.darPrestacionNoServicios(pmf.getPersistenceManager(), fecha1, fecha2, idIps,tipo);
 	}
 
 

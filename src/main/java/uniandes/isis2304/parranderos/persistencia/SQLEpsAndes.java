@@ -156,7 +156,7 @@ public class SQLEpsAndes {
 				"sum(case when (s.TIPO not in ('INTERVENCION','CIRUGIA', " +
 				"'CIRUGIA_AMBULATORIA','DIALISIS','RADIOGRAFIA')) " +
 				"then 1 else 0 end) as ServiciosNormales  FROM "+
-				persistenciaEPS.darTablaAfliado()+" a INNER JOIN "+ persistenciaEPS.darTablaReservas()+
+				persistenciaEPS.darTablaAfiliado()+" a INNER JOIN "+ persistenciaEPS.darTablaReservas()+
 				" r ON a.IDUSUARIO = r.IDAFILIADORESERVADOR "+
 				" INNER JOIN "+persistenciaEPS.darTablaHorario()+" h ON h.ID = r.IDHORARIO INNER JOIN "+
 				persistenciaEPS.darTablaServicioSalud()+" s ON s.ID = h.IDSERVICIO "+

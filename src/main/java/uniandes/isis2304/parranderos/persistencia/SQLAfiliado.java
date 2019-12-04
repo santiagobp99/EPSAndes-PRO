@@ -23,14 +23,14 @@ public class SQLAfiliado {
 	public long adicionarAfiliado (PersistenceManager pm, long ideps, long idusuario, Timestamp fechanacimiento, String tipodocumento, int hospitalizado,
 			String numdocumento) 
 	{
-        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaAfliado() + "(ideps, idusuario, fechanacimiento, tipodocumento, hospitalizado, numdocumento) values (?, ?, ?, ?, ?, ?)");
+        Query q = pm.newQuery(SQL, "INSERT INTO " + persistenciaEPS.darTablaAfiliado() + "(ideps, idusuario, fechanacimiento, tipodocumento, hospitalizado, numdocumento) values (?, ?, ?, ?, ?, ?)");
         q.setParameters(ideps, idusuario,fechanacimiento, tipodocumento, hospitalizado, numdocumento);
         return (long) q.executeUnique();
 	}
 	
 	public long eliminarAfiliadoPorId (PersistenceManager pm, long idAfiliado)
 	{
-        Query q = pm.newQuery(SQL, "DELETE FROM " + persistenciaEPS.darTablaAfliado()  + " WHERE id = ?");
+        Query q = pm.newQuery(SQL, "DELETE FROM " + persistenciaEPS.darTablaAfiliado()  + " WHERE id = ?");
         q.setParameters(idAfiliado);
         return (long) q.executeUnique();            
 	}
@@ -38,7 +38,7 @@ public class SQLAfiliado {
 	
 	public Afiliado darAfiliadoPorId (PersistenceManager pm, long idAfiliado) 
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaAfliado()  + " WHERE id = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaAfiliado()  + " WHERE id = ?");
 		q.setResultClass(Afiliado.class);
 		q.setParameters(idAfiliado);
 		return (Afiliado) q.executeUnique();
@@ -47,7 +47,7 @@ public class SQLAfiliado {
 	
 	public List<Afiliado> darAfiliados (PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaAfliado() );
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + persistenciaEPS.darTablaAfiliado() );
 		q.setResultClass(Afiliado.class);
 		return (List<Afiliado>) q.executeList();
 	}
