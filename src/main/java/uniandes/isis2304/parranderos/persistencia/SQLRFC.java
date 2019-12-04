@@ -59,7 +59,7 @@ public class SQLRFC {
 			    " ON R.IDHORARIO = H.ID "+
 			    " INNER JOIN "+ persistenciaEPS.darTablaServicioSalud()+ " S "+
 			    " ON S.ID = H.IDSERVICIO "+
-			    " WHERE H.FECHA>=12/10/19 AND H.FECHA<=12/12/19 AND S.IDIPS in ("+ids+") AND S.TIPO in ("+tipos+")"
+			    " WHERE H.FECHA>=? AND H.FECHA<=? AND S.IDIPS in ("+ids+") AND S.TIPO in ("+tipos+")"
 				 );
 		
 		q.setResultClass(RFC9.class);

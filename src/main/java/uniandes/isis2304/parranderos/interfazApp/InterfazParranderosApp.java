@@ -2723,6 +2723,8 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 			String[] arreglo = {idIps};
 			String[] arreglo2 = {tipo};
+			System.out.println(arreglo);
+			System.out.println(arreglo2);
 			RFC9darPrestacionServicios(fecha1, fecha2, arreglo, arreglo2);
 
 			try {
