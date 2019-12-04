@@ -59,7 +59,8 @@ public class SQLRFC {
 			    " ON R.IDHORARIO = H.ID "+
 			    " INNER JOIN "+ persistenciaEPS.darTablaServicioSalud()+ " S "+
 			    " ON S.ID = H.IDSERVICIO "+
-			    " WHERE H.FECHA>=? AND H.FECHA<=? AND S.IDIPS in ("+ids+") AND S.TIPO in ("+tipos+")"
+			    " WHERE H.FECHA>=? AND H.FECHA<=? AND S.IDIPS in ("+ids+") AND S.TIPO in ("+tipos+")"+
+			    " FETCH FIRST 1000 ROW ONLY "
 				 );
 		
 		q.setResultClass(RFC9.class);
