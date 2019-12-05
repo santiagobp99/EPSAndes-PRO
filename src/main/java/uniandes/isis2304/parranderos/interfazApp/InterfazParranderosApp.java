@@ -2870,47 +2870,16 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 		List<RFC11A> consultaServicios =  new ArrayList<RFC11A>();
 
-		List<RFC11B> consultaIps = new ArrayList<RFC11B>();
-
-		List<RFC11C> consultaAfiliados = new ArrayList<RFC11C>();
-
+	
 		consultaServicios = parranderos.RFC11AConsultarFuncionamiento();
 
-		System.out.println("\ndatos obtenidos A: "+consultaServicios.size());
-		
-		consultaIps = parranderos.RFC11BConsultarFuncionamiento();
-		System.out.println("\ndatos obtenidos B: "+consultaIps.size());
-		
-
-		System.out.println(consultaServicios.size());
-
-		consultaIps = parranderos.RFC11BConsultarFuncionamiento();
-		System.out.println(consultaIps.size());
-
-		consultaAfiliados = parranderos.RFC11CConsultarFuncionamiento();
-		System.out.println("\ndatos obtenidos C: "+consultaAfiliados.size());
+		System.out.println("\ndatos obtenidos: "+consultaServicios.size());
 
 		String resultado = "Servicios: \n\n";
 
 		for(int i = 0; i <consultaServicios.size(); i++){
 
 			resultado += consultaServicios.get(i).toString()+"\n";
-
-		}
-
-		resultado += "\nIps: \n\n";
-
-		for(int i = 0; i <consultaIps.size(); i++){
-
-			resultado += consultaIps.get(i).toString()+"\n";
-
-		}
-
-		resultado += "\nAfiliados: \n\n";
-
-		for(int i = 0; i <consultaAfiliados.size(); i++){
-
-			resultado += consultaAfiliados.get(i).toString()+"\n";
 
 		}
 
@@ -2926,27 +2895,11 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 		List<RFC12A> consultaServicios = new ArrayList<>();
 
-		List<RFC12B> consultaHospitalizacion = new ArrayList<>();
-
-
-		List<RFC12C> consultaAsistencia = new ArrayList<>();
-		
-		consultaHospitalizacion = parranderos.RFC12BConsultarAfiliadosCostosos();
-		System.out.println("\ndatos obtenidos: "+consultaHospitalizacion.size());
-		
-
-		consultaServicios = parranderos.RFC12AConsultarAfiliadosCostosos();
-		System.out.println(consultaServicios.size());
-
-		consultaHospitalizacion = parranderos.RFC12BConsultarAfiliadosCostosos();
-		System.out.println(consultaHospitalizacion.size());
-
-
-		consultaAsistencia = parranderos.RFC12CConsultarAfiliadosCostosos();
-		System.out.println("\ndatos obtenidos: "+consultaAsistencia.size());
+	
 		
 		consultaServicios = parranderos.RFC12AConsultarAfiliadosCostosos();
 		System.out.println("\ndatos obtenidos: "+consultaServicios.size());
+		
 
 		String resultado = "Tipo 1: \n\n";
 
@@ -2957,23 +2910,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 		}
 
-		resultado += "Tipo 2: \n\n";
-
-		for(int i = 0; i <consultaHospitalizacion.size(); i++){
-
-			resultado += consultaHospitalizacion.get(i)+"\n";
-			
-
-		}
-
-		resultado += "Tipo 3: \n\n";
-
-		for(int i = 0; i <consultaAsistencia.size(); i++){
-
-			resultado += consultaAsistencia.get(i)+"\n";
-			
-
-		}
 
 		resultado += "\n Operación terminada";
 		panelDatos.actualizarInterfaz(resultado);
@@ -2981,11 +2917,6 @@ public class InterfazParranderosApp extends JFrame implements ActionListener
 
 
 	}
-
-
-
-
-
 	/* ****************************************************************
 	 * 			 CRUD de Orden y OrdenesServicios
 	 *****************************************************************/

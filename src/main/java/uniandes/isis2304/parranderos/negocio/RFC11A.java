@@ -10,16 +10,22 @@ public class RFC11A {
 	
 	private String semana;
 	
-	private String tipo;
+	private BigDecimal idafiliado;
 	
 	private BigDecimal veces;
+	
+	private BigDecimal idips;
+	
+	private String tipo;
 
-	public RFC11A(String año, String semana, String tipo, BigDecimal veces) {
+	public RFC11A(String año, String semana, BigDecimal idafiliado, BigDecimal veces, BigDecimal idips, String tipo) {
 		super();
 		this.año = año;
 		this.semana = semana;
-		this.tipo = tipo;
+		this.idafiliado = idafiliado;
 		this.veces = veces;
+		this.idips = idips;
+		this.tipo = tipo;
 	}
 
 	public String getAño() {
@@ -38,12 +44,12 @@ public class RFC11A {
 		this.semana = semana;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public BigDecimal getIdafiliado() {
+		return idafiliado;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setIdafiliado(BigDecimal idafiliado) {
+		this.idafiliado = idafiliado;
 	}
 
 	public BigDecimal getVeces() {
@@ -54,13 +60,32 @@ public class RFC11A {
 		this.veces = veces;
 	}
 
+	public BigDecimal getIdips() {
+		return idips;
+	}
+
+	public void setIdips(BigDecimal idips) {
+		this.idips = idips;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
 	@Override
 	public String toString() {
-		return "Año=" + año + ", Semana=" + semana + ", Tipo=" + tipo + ", Veces=" + veces + "";
+		return "RFC11A [año=" + año + ", semana=" + semana + ", idafiliado=" + idafiliado + ", veces=" + veces
+				+ ", idips=" + idips + ", tipo=" + tipo + "]";
 	}
 	
-	//private Timestamp fechanacimiento;
+
+
 	
+
 	
 	
 	
